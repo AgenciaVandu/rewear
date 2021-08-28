@@ -1,13 +1,14 @@
-<header class="bg-trueGray-900 sticky top-0" x-data="dropdown()">
-    <div class="container flex items-center h-16">
+<header class="bg-trueGray-900 sticky z-50 top-0" x-data="dropdown()">
+    <div class="container flex items-center h-16 justify-between md:justify-start">
         {{-- Categories --}}
-        <a x-on:click="show"
-            class="flex flex-col items-center justify-center bg-white bg-opacity-10 font-semibold cursor-pointer text-white h-full px-4 hover:bg-trueGray-700">
-            <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <a x-on:click="show" :class="{'bg-opacity-100 text-trueGray-900 hover:text-trueGray-100': open}"
+            class="flex flex-col items-center justify-center order-last md:order-first bg-white bg-opacity-10 font-semibold cursor-pointer text-white h-full px-6 md:px-4 hover:bg-trueGray-700">
+            <svg :class="{'text-trueGray-900 hover:text-trueGray-100': open}" class="h-6 w-6 text-white"
+                stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <span>Categorías</span>
+            <span class="text-sm hidden md:block">Categorías</span>
         </a>
         {{-- Logo --}}
         <a href="/" class="mx-6">
@@ -15,10 +16,12 @@
         </a>
 
         {{-- Search --}}
-        @livewire('search')
+        <div class="flex-1 hidden md:block">
+            @livewire('search')
+        </div>
 
         {{-- Dropdown --}}
-        <div class="mx-6 relative">
+        <div class="mx-6 relative hidden md:block">
             @auth
                 <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -47,7 +50,7 @@
 
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                this.closest('form').submit();">
+                                                                                                                                                                                                                                                                                            this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-jet-dropdown-link>
                         </form>
@@ -71,18 +74,21 @@
         </div>
 
         {{-- Cart icon --}}
-        @livewire('dropdown-cart')
+        <div class="hidden md:block">
+            @livewire('dropdown-cart')
+        </div>
     </div>
 
     {{-- Navigation categories and subcategories --}}
     <nav id="navigation-menu" :class="{'block': open, 'hidden': !open}"
         class="bg-trueGray-700 bg-opacity-25 absolute w-full hidden">
-        <div class="container h-full">
+        {{-- Menu desktop --}}
+        <div class="container h-full hidden md:block">
             <div class="grid grid-cols-4 h-full relative">
                 <ul class="bg-white">
                     @foreach ($categories as $category)
                         <li class="navigation-link text-trueGray-500 hover:bg-trueGray-900 hover:text-white">
-                            <a href="" class="py-2 px-4 text-sm flex items-center">
+                            <a href="{{ route('categories.show', $category) }}" class="py-2 px-4 text-sm flex items-center">
                                 <span class="flex justify-center items-center w-9">
                                     {!! $category->icon !!}
                                 </span>
@@ -99,6 +105,64 @@
                 </div>
             </div>
         </div>
+        {{-- Menu responsive --}}
+        <div class="bg-white h-full overflow-y-auto">
+            <div class="container bg-gray-200 py-3 mb-2">
+                @livewire('search')
+            </div>
+            <ul>
+                @foreach ($categories as $category)
+                    <li class="text-trueGray-500 hover:bg-trueGray-900 hover:text-white">
+                        <a href="{{ route('categories.show', $category) }}"
+                            class="py-2 px-4 text-sm flex items-center">
+                            <span class="flex justify-center items-center w-9">
+                                {!! $category->icon !!}
+                            </span>
+                            {{ $category->name }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+
+            <p class="text-trueGray-500 px-5 my-2">USUARIOS</p>
+            @livewire('cart-mobil')
+            @auth
+                <a href="{{ route('profile.show') }}"
+                    class="py-2 px-4 text-sm flex items-center text-trueGray-500 hover:bg-trueGray-900 hover:text-white">
+                    <span class="flex justify-center items-center w-9">
+                        <i class="far fa-address-card"></i>
+                    </span>
+                    Perfil
+                </a>
+
+                <a href="" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                    class="py-2 px-4 text-sm flex items-center text-trueGray-500 hover:bg-trueGray-900 hover:text-white">
+                    <span class="flex justify-center items-center w-9">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                    Cerrar sesion
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    @csrf
+                </form>
+            @else
+                <a href="{{ route('login') }}"
+                    class="py-2 px-4 text-sm flex items-center text-trueGray-500 hover:bg-trueGray-900 hover:text-white">
+                    <span class="flex justify-center items-center w-9">
+                        <i class="fas fa-user-circle"></i>
+                    </span>
+                    Iniciar sesion
+                </a>
+                <a href="{{ route('register') }}"
+                    class="py-2 px-4 text-sm flex items-center text-trueGray-500 hover:bg-trueGray-900 hover:text-white">
+                    <span class="flex justify-center items-center w-9">
+                        <i class="fas fa-fingerprint"></i>
+                    </span>
+                    Registro
+                </a>
+            @endauth
+        </div>
+
     </nav>
 </header>
-

@@ -12,16 +12,25 @@ class Category extends Model
     protected $guarded = ['id'];
 
     //Relacion uno a muchos
-    public function subcategories(){
+    public function subcategories()
+    {
         return $this->hasMany(Subcategory::class);
     }
 
     //Relacion muchos a muchos
-    public function brands(){
+    public function brands()
+    {
         return $this->belongsToMany(Brand::class);
     }
     //Relacion uno a muchos atravez de subcategorias
-    public function products(){
-        return $this->hasManyThrough(Product::class,Subcategory::class);
+    public function products()
+    {
+        return $this->hasManyThrough(Product::class, Subcategory::class);
+    }
+
+    //Url amigables
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
