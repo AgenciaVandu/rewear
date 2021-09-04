@@ -19,7 +19,8 @@
             <div>
                 <h1 class="text-trueGray-700 font-bold text-xl">{{ $product->name }}</h1>
                 <div class="flex">
-                    <p class="text-trueGray-700">Marca: <a class="underline capitalize hover:text-trueGray-900" href="">{{ $product->brand->name }}</a> </p>
+                    <p class="text-trueGray-700">Marca: <a class="underline capitalize hover:text-trueGray-900"
+                            href="">{{ $product->brand->name }}</a> </p>
                     <p class="text-trueGray-700 mx-6">5 <i class="fas fa-star text-yellow-400 text-sm"></i></p>
                     <a href="" class="text-black underline hover:text-trueGray-700">39 Reseñas</a>
                 </div>
@@ -37,6 +38,13 @@
                         </div>
                     </div>
                 </div>
+                @if ($product->subcategory->size)
+                    @livewire('add-cart-item-size', ['product' => $product])
+                @elseif ($product->subcategory->color)
+                    @livewire('add-cart-item-color', ['product' => $product])
+                @else
+                    @livewire('add-cart-item', ['product' => $product])
+                @endif
             </div>
         </div>
     </div>
