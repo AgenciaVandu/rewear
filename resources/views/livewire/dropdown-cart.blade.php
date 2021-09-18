@@ -45,7 +45,7 @@
                     <p><span class="text-lg font-bold text-trueGray-700 mt-2">Total:</span> USD
                         ${{ Cart::subtotal() }}</p>
                 </div>
-                <x-button-link color="trueGray" class="w-full">
+                <x-button-link color="trueGray" href="{{ route('shopping-cart') }}" class="w-full">
                     Ir al carrito de compras
                 </x-button-link>
             @endif
