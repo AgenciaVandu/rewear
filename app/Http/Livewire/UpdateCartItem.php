@@ -21,14 +21,14 @@ class UpdateCartItem extends Component
     {
         $this->qty -= 1;
         Cart::update($this->rowId, $this->qty);
-        $this->emitTo('dropdown-cart', 'render');
+        $this->emit('render');
     }
 
     public function increment()
     {
         $this->qty += 1;
         Cart::update($this->rowId, $this->qty);
-        $this->emitTo('dropdown-cart', 'render');
+        $this->emit('render');
     }
 
     public function render()
