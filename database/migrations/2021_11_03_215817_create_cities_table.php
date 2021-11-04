@@ -17,9 +17,9 @@ class CreateCitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->float('cost');
-            $table->unsignedBigInteger('deparment_id');
+            $table->unsignedBigInteger('department_id');
 
-            $table->foreign('deparment_id')->references('id')->on('departments');
+            $table->foreign('department_id')->references('id')->on('departments');
 
             $table->timestamps();
         });
