@@ -3,13 +3,16 @@
         <div class="bg-white rounded-lg shadow p-6">
             <div>
                 <x-jet-label value="Nombre de contacto" />
-                <x-jet-input type="text" placeholder="Ingrese el nombre de la persona que recibirá el producto"
-                    class="w-full mb-4" />
+                <x-jet-input wire:model.defer="contact" type="text"
+                    placeholder="Ingrese el nombre de la persona que recibirá el producto" class="w-full mb-4" />
+                <x-jet-input-error for="contact" />
             </div>
 
             <div>
                 <x-jet-label value="Telefono de contacto" />
-                <x-jet-input type="text" placeholder="Ingrese un numero de contacto" class="w-full" />
+                <x-jet-input wire:model.defer="phone" type="text" placeholder="Ingrese un numero de contacto"
+                    class="w-full" />
+                <x-jet-input-error for="phone" />
             </div>
         </div>
         <div x-data="{shipping_type:@entangle('shipping_type')}">
@@ -40,6 +43,7 @@
                                 <option value="{{ $department->id }}">{{ $department->name }}</option>
                             @endforeach
                         </select>
+                        <x-jet-input-error for="department_id" />
                     </div>
 
                     {{-- Ciudades --}}
@@ -51,6 +55,7 @@
                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
                             @endforeach
                         </select>
+                        <x-jet-input-error for="city_id" />
                     </div>
                     {{-- Distritos --}}
                     <div>
@@ -61,20 +66,25 @@
                                 <option value="{{ $district->id }}">{{ $district->name }}</option>
                             @endforeach
                         </select>
+                        <x-jet-input-error for="district_id" />
                     </div>
                     <div>
                         <x-jet-label value="Dirección" />
                         <x-jet-input class="w-full" type="text" wire:model="address" />
+                        <x-jet-input-error for="address" />
+
                     </div>
                     <div class="col-span-2">
                         <x-jet-label value="Referencia" />
-                        <x-jet-input class="w-full" type="text" wire:model="reference" />
+                        <x-jet-input class="w-full" type="text" wire:model="references" />
+                        <x-jet-input-error for="references" />
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <x-jet-button class="mt-6 mb-4">
+            <x-jet-button class="mt-6 mb-4" wire:click="createOrder" wire:loading.attr='disabled'
+                wire:target='createOrder'>
                 Continuar con la compra
             </x-jet-button>
             <hr>
@@ -121,13 +131,21 @@
                 </p>
                 <p class="flex justify-between items-center">
                     Envio
-                    <span class="font-semibold">Gratis</span>
+                    @if ($shipping_type == 1 || $shipping_cost == 0)
+                        <span class="font-semibold">Gratis</span>
+                    @else
+                        <span class="font-semibold">{{ $shipping_cost }} USD</span>
+                    @endif
                 </p>
                 <hr class="mt-4 mb-3">
 
                 <p class="flex justify-between items-center">
                     <span class="text-lg">Total</span>
-                    {{ Cart::total() }} USD
+                    @if ($shipping_type == 1)
+                        {{ Cart::subtotal() }} USD
+                    @else
+                        {{ Cart::subtotal() + $shipping_cost }} USD</span>
+                    @endif
                 </p>
             </div>
         </div>
