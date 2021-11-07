@@ -1,4 +1,4 @@
-<header class="bg-trueGray-900 sticky z-50 top-0" x-data="dropdown()">
+<header class="bg-trueGray-900 sticky top-0" style="z-index: 200;" x-data="dropdown()">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         {{-- Categories --}}
         <a x-on:click="show" :class="{'bg-opacity-100 text-trueGray-900 hover:text-trueGray-100': open}"
@@ -40,6 +40,10 @@
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
                             {{ __('Profile') }}
+                        </x-jet-dropdown-link>
+
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            {{ __('Mis ordenes') }}
                         </x-jet-dropdown-link>
 
                         <div class="border-t border-gray-100"></div>

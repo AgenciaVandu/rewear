@@ -1,5 +1,5 @@
-<x-app-layout>
-    @php
+<div>
+    {{-- @php
         // SDK de Mercado Pago
         require base_path('/vendor/autoload.php');
         // Agrega credenciales
@@ -32,7 +32,7 @@
 
         $preference->items = $products;
         $preference->save();
-    @endphp
+    @endphp --}}
     <div class="grid grid-cols-5 gap-6 container py-8">
         <div class="col-span-3">
             <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6">
@@ -123,12 +123,12 @@
         </div>
 
         <div class="col-span-2">
-            <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="bg-white rounded-lg shadow-lg p-9">
                 <div>
                     <div class="text-center mb-2 bg-trueGray-900 text-white">
                         <h2 class="font-semibold text-xl">Metodos de pago</h2>
                     </div>
-                    <div class="text-trueGray-700 text-right">
+                    <div class="text-trueGray-700 mt-4">
                         <p class="font-semibold text-sm">
                             Subtotal: {{ $order->total - $order->shipping_cost }} USD
                         </p>
@@ -139,34 +139,79 @@
                             Total: {{ $order->total }} USD
                         </p>
                     </div>
-                    <div class="text-center">
-                        <div class="cho-container w-full ">
-                        </div>
+
+                    <div class="flex items-center justify-center py-4">
+                        <i class="fab fa-cc-visa text-4xl text-trueGray-700 mx-1"></i>
+                        <i class="fab fa-cc-mastercard text-4xl text-trueGray-700 mx-1"></i>
+                        <i class="fab fa-cc-amex text-4xl text-trueGray-700 mx-1"></i>
+                        <i class="fab fa-cc-discover text-4xl text-trueGray-700 mx-1"></i>
                     </div>
-                    <img class="h-10 mx-auto mt-4"
-                        src="https://lh3.googleusercontent.com/proxy/KhLaArJk9MYZH5rPhOFBo5qWumWlzd9a1rj4Lcx1tD9U6YnqmC3CVw_QyUFzfW09Ay0PYOauHgcPFwVczQLpdNGNP37IGntd3PHu5hHweYxeswZeoeAHWyN8UW01JQZ-9xHZRMBhBA4dktEdqS3e0g7Hf2uiWB_UgQ"
-                        alt="">
+                </div>
+                <div class="text-center">
+                    {{-- Botton de Mercado Pago --}}
+                    {{-- <div class="cho-container my-2">
+                    </div> --}}
+                    <hr class="divide-y divide-gray-400">
+                    <!-- Set up a container element for the button -->
+                    <div id="paypal-button-container"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
-    <script>
-        // Agrega credenciales de SDK
-        const mp = new MercadoPago("{{ config('services.mercadopago.key') }}", {
-            locale: 'es-AR'
-        });
+    @push('script')
+        {{-- <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script>
+            // Agrega credenciales de SDK
+            const mp = new MercadoPago("{{ config('services.mercadopago.key') }}", {
+                locale: 'es-AR'
+            });
 
-        // Inicializa el checkout
-        mp.checkout({
-            preference: {
-                id: "{{ $preference->id }}"
-            },
-            render: {
-                container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                label: 'Pagar con Mercado Pago', // Cambia el texto del botón de pago (opcional)
-            }
-        });
-    </script>
-</x-app-layout>
+            // Inicializa el checkout
+            mp.checkout({
+                preference: {
+                    id: "{{ $preference->id }}"
+                },
+                render: {
+                    container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
+                    label: 'Pagar con Mercado Pago', // Cambia el texto del botón de pago (opcional)
+                }
+            });
+        </script> --}}
+        <!-- Include the PayPal JavaScript SDK; replace "test" with your own sandbox Business account app client ID -->
+        <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.client_id') }}&currency=MXN">
+        </script>
+
+        <script>
+            paypal.Buttons({
+                // Sets up the transaction when a payment button is clicked
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: "{{ $order->total }}" // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                            }
+                        }]
+                    });
+                },
+                // Finalize the transaction after payer approval
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(orderData) {
+                        livewire.emit('payOrder');
+                        /* console.log(orderData);
+                        // Successful capture! For dev/demo purposes:
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                        var transaction = orderData.purchase_units[0].payments.captures[0];
+                        alert('Transaction ' + transaction.status + ': ' + transaction.id +
+                        '\n\nSee console for all available details'); */
+                        // When ready to go live, remove the alert and show a success message within this page. For example:
+                        // var element = document.getElementById('paypal-button-container');
+                        // element.innerHTML = '';
+                        // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                        // Or go to another URL:  actions.redirect('thank_you.html');
+                    });
+                }
+            }).render('#paypal-button-container');
+        </script>
+    @endpush
+</div>
