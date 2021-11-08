@@ -42,6 +42,10 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('admin.index') }}">
+                            {{ __('Administrador') }}
+                        </x-jet-dropdown-link>
+
                         <x-jet-dropdown-link href="{{ route('orders.index') }}">
                             {{ __('Mis ordenes') }}
                         </x-jet-dropdown-link>
