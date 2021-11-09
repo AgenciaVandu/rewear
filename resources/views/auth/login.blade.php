@@ -49,7 +49,7 @@
         </form>
 
 
-        <div class="mx-auto p-2">
+        <div class="text-center p-2">
             <span>¿No tienes cuenta? </span><a href="{{ route('register') }}" class="hover:underline">Registrarme</a>
         </div>
     </x-jet-authentication-card>
