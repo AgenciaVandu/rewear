@@ -49,8 +49,8 @@
         </form>
 
 
-        <div>
-            <span>¿No tienes cuenta?</span><a href="{{ route('register') }}">Registrarme</a>
+        <div class="mx-auto p-2">
+            <span>¿No tienes cuenta? </span><a href="{{ route('register') }}" class="hover:underline">Registrarme</a>
         </div>
     </x-jet-authentication-card>
 </x-guest-layout>
