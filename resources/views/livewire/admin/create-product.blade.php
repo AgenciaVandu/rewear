@@ -1,5 +1,6 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px8 py-12 text-trueGray-700">
     <h1 class="text-3xl text-center font-semibold mb-8">Complete esta información para crear un producto</h1>
+    
     <div class="grid grid-cols-2 gap-6 mb-4">
         {{-- Categorias --}}
         <div>
