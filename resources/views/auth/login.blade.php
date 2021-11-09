@@ -47,8 +47,10 @@
                 </x-jet-button>
             </div>
         </form>
+
+
+        <div>
+            <span>¿No tienes cuenta?</span><a href="{{ route('register') }}">Registrarme</a>
+        </div>
     </x-jet-authentication-card>
-    <div>
-        <span>¿No tienes cuenta?</span><a href="{{ route('register') }}">Registrarme</a>
-    </div>
 </x-guest-layout>
