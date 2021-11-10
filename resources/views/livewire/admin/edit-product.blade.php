@@ -7,6 +7,27 @@
         </form>
     </div>
 
+    @if ($product->images->count())
+        <section class="bg-white shadow-lg rounded-lg p-6 mb-4">
+            <h1 class="text-2xl text-center font-semibold mb-2">
+                Imagenes del producto
+            </h1>
+
+            <ul class="flex flex-wrap">
+                @foreach ($product->images as $image)
+                    <li class="relative" wire:key="image-{{ $image->id }}">
+                        <img src="{{ Storage::url($image->url) }}" class="w-32 h-20 mx-1 object-cover object-center"
+                            alt="">
+                        <x-jet-danger-button class="absolute right-2 top-2" wire:click="deleteImage({{ $image->id }})"
+                            wire:loading.attr="disabled" wire:target="deleteImage({{ $image->id }})">X
+                        </x-jet-danger-button>
+                    </li>
+                @endforeach
+            </ul>
+        </section>
+    @endif
+    @livewire('admin.status-product', ['product' => $product], key('status-product-'.$product->id))
+
     <div class="bg-white shadow-lg rounded-lg p-6">
         <div class="grid grid-cols-2 gap-6 mb-4">
             {{-- Categorias --}}
@@ -125,14 +146,75 @@
                 acceptedFiles: "image/*",
                 paramName: "file", // The name that will be used to transfer the file
                 maxFilesize: 2, // MB
-                accept: function(file, done) {
-                    if (file.name == "justinbieber.jpg") {
-                        done("Naha, you don't.");
-                    } else {
-                        done();
-                    }
+                complete: function(file) {
+                    this.removeFile(file);
+                },
+                queuecomplete: function() {
+                    Livewire.emit('refreshProduct');
                 }
             };
+
+            Livewire.on('deleteSize', sizeId => {
+                Swal.fire({
+                    title: 'Estas seguro?',
+                    text: "No podras revertir los cambios",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Livewire.emitTo('admin.size-product', 'delete', sizeId);
+                        Swal.fire(
+                            'Eliminado!',
+                            'La talla fue eliminada.',
+                            'success'
+                        )
+                    }
+                })
+            });
+
+            Livewire.on('deletePivot', pivot => {
+                Swal.fire({
+                    title: 'Estas seguro?',
+                    text: "No podras revertir los cambios",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Livewire.emitTo('admin.color-product', 'delete', pivot);
+                        Swal.fire(
+                            'Eliminado!',
+                            'El color fue eliminado.',
+                            'success'
+                        )
+                    }
+                })
+            });
+            Livewire.on('deleteColorSize', pivot => {
+                Swal.fire({
+                    title: 'Estas seguro?',
+                    text: "No podras revertir los cambios",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Livewire.emitTo('admin.color-size', 'delete', pivot);
+                        Swal.fire(
+                            'Eliminado!',
+                            'El color fue eliminado.',
+                            'success'
+                        )
+                    }
+                })
+            });
         </script>
     @endpush
 </div>

@@ -15,6 +15,7 @@ class ColorSize extends Component
         'color_id' => 'required',
         'quantity' => 'required|numeric',
     ];
+    protected $listeners = ['delete'];
 
     public function mount()
     {
