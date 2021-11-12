@@ -146,6 +146,17 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'createForm.name' => 'nombre',
+        'createForm.slug' => 'slug',
+        'createForm.icon' => 'icono',
+        'createForm.brands' => 'marcas',
+        'createForm.image' => 'imagen',
+        'editForm.name' => 'nombre',
+        'editForm.slug' => 'slug',
+        'editForm.icon' => 'icono',
+        'editForm.brands' => 'marcas',
+        'editForm.image' => 'imagen',
+    ],
 
 ];

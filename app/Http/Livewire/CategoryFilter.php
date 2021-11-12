@@ -14,9 +14,10 @@ class CategoryFilter extends Component
     public $category, $subcategoria, $marca;
     public $view = 'grid';
 
+    protected $queryString = ['subcategoria', 'marca'];
+
     public function render()
     {
-
         /* $products = $this->category->products()->where('status', Product::PUBLICADO)->paginate(10); */
         $productsQuery = Product::query()->whereHas('subcategory.category', function (Builder $query) {
             $query->where('id', $this->category->id);
@@ -24,7 +25,7 @@ class CategoryFilter extends Component
 
         if ($this->subcategoria) {
             $productsQuery = $productsQuery->whereHas('subcategory', function (Builder $query) {
-                $query->where('name', $this->subcategoria);
+                $query->where('slug', $this->subcategoria);
             });
         }
         if ($this->marca) {
@@ -37,9 +38,18 @@ class CategoryFilter extends Component
 
         return view('livewire.category-filter', compact('products'));
     }
+    public function updatedSubcategoria()
+    {
+        $this->resetPage();
+    }
 
+    public function updatedMarca()
+    {
+        $this->resetPage();
+    }
+    
     public function limpiar()
     {
-        $this->reset(['subcategoria', 'marca']);
+        $this->reset(['subcategoria', 'marca','page']);
     }
 }
