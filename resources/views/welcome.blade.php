@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container py-8">
-        @foreach ($categories as $category)
+        @forelse ($categories as $category)
             <section class="mb-6">
                 <div class="flex items-center mb-2">
                     <h1 class="text-lg uppercase font-semibold text-gray-700">
@@ -11,7 +11,11 @@
                 </div>
                 @livewire('category-products', ['category' => $category])
             </section>
-        @endforeach
+        @empty
+            <section class="mb-6">
+                <p>No hay productos en la base de datos</p>
+            </section>
+        @endforelse
     </div>
 
     @push('script')

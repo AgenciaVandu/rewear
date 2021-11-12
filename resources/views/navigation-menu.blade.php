@@ -15,8 +15,17 @@
                     <x-jet-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
                         {{ __('Productos') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.orders.index') }}" :active="request()->routeIs('admin.orders.*')">
+                        {{ __('Ordenes') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.*')">
                         {{ __('Categorias') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.*')">
+                        {{ __('Marcas') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.departments.index') }}" :active="request()->routeIs('admin.departments.*')">
+                        {{ __('Envios') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -148,8 +157,18 @@
             <x-jet-responsive-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
                 {{ __('Productos') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('admin.orders.index') }}" :active="request()->routeIs('admin.orders.*')">
+                {{ __('Ordenes') }}
+            </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.*')">
                 {{ __('Categorias') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.*')">
+                {{ __('Marcas') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('admin.departments.index') }}" :active="request()->routeIs('admin.departments.*')">
+                {{ __('Envios') }}
             </x-jet-responsive-nav-link>
         </div>
 
