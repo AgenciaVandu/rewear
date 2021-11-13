@@ -76,7 +76,7 @@ class ShowDepartment extends Component
     public function delete(City $city)
     {
         $city->delete();
-        $this->getBrands();
+        $this->getCities();
     }
 
 

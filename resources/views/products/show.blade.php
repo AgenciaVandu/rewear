@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <div class="container py-8">
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {{-- Column 1 --}}
             <div>
                 {{-- FlexSlider product --}}
@@ -14,6 +14,12 @@
                         @endforeach
                     </ul>
                 </div>
+                <div class="-mt-10 text-trueGray-700">
+                    <h2 class="font-bold text-lg">Descripción</h2>
+                    <p>{!! $product->description !!}</p>
+                </div>
+
+                @livewire('products-reviews', ['product' => $product], key('products-reviews'.$product->id))
             </div>
             {{-- Column 2 --}}
             <div>
@@ -21,8 +27,8 @@
                 <div class="flex">
                     <p class="text-trueGray-700">Marca: <a class="underline capitalize hover:text-trueGray-900"
                             href="">{{ $product->brand->name }}</a> </p>
-                    <p class="text-trueGray-700 mx-6">5 <i class="fas fa-star text-yellow-400 text-sm"></i></p>
-                    <a href="" class="text-black underline hover:text-trueGray-700">39 Reseñas</a>
+                    <p class="text-trueGray-700 mx-6">5<i class="fas fa-star text-yellow-400 text-sm"></i></p>
+                    <a href="" class="text-black underline hover:text-trueGray-700">{{ $product->reviews->count() }} Reseñas</a>
                 </div>
                 <p class="text-2xl font-semibold text-trueGray-700 my-4">
                     $USD {{ $product->price }}

@@ -68,7 +68,7 @@ class DepartmentComponent extends Component
     public function delete(Department $department)
     {
         $department->delete();
-        $this->getBrands();
+        $this->getDepartments();
     }
 
     public function render()

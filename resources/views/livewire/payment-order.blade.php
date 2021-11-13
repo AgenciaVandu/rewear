@@ -33,8 +33,8 @@
         $preference->items = $products;
         $preference->save();
     @endphp --}}
-    <div class="grid grid-cols-5 gap-6 container py-8">
-        <div class="col-span-3">
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 gap-6 container py-8">
+        <div class="order-2 lg:order-1 col-span-1 xl:col-span-3">
             <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6">
                 <p class="text-trueGray-700 uppercase">
                     <span class="font-semibold">Número de orden:</span> Orden-{{ $order->id }}
@@ -51,9 +51,9 @@
                             <p class="text-sm">Calle falsa 123</p>
                         @else
                             <p class="text-sm">Los productos serán enviados a</p>
-                            <p class="text-sm">{{ $order->address }}</p>
-                            <p>{{ $order->department->name }} - {{ $order->city->name }} -
-                                {{ $order->district->name }}</p>
+                            <p class="text-sm">{{ $envio->address }}</p>
+                            <p>{{ $envio->department }} - {{ $envio->city }} -
+                                {{ $envio->district }}</p>
                         @endif
                     </div>
                     <div>
@@ -122,7 +122,7 @@
 
         </div>
 
-        <div class="col-span-2">
+        <div class="order-1 lg:order-2 col-span-1 xl:col-span-2">
             <div class="bg-white rounded-lg shadow-lg p-9">
                 <div>
                     <div class="text-center mb-2 bg-trueGray-900 text-white">

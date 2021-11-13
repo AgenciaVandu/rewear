@@ -116,21 +116,21 @@
 
         @push('script')
             <script>
-                Livewire.on('deleteBrand', brand => {
+                Livewire.on('deleteCity', city => {
                     Swal.fire({
                         title: 'Estas seguro?',
-                        text: "La subcategoria sera eliminada asi como todos los productos relacionados a ella.",
+                        text: "La la ciudad sera eliminada asi como todos las colonias relacionadas a ella.",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
-                        confirmButtonText: 'Si, eliminar categoria!'
+                        confirmButtonText: 'Si, eliminar ciudad!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            Livewire.emitTo('admin.brand-component', 'delete', brand);
+                            Livewire.emitTo('admin.show-department', 'delete', city);
                             Swal.fire(
                                 'Eliminada!',
-                                'La categoria y todos los productos que pertenecian a ella se han eliminado.',
+                                'La ciudad y todas las colonias que pertenecian a ella se han eliminado.',
                                 'success'
                             )
                         }

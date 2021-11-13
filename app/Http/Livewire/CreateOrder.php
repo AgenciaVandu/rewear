@@ -74,11 +74,19 @@ class CreateOrder extends Component
 
         if ($this->shipping_type == 2) {
             $order->shipping_cost = $this->shipping_cost;
-            $order->department_id = $this->department_id;
+            /* $order->department_id = $this->department_id;
             $order->city_id = $this->city_id;
             $order->district_id = $this->district_id;
             $order->address = $this->address;
-            $order->references = $this->references;
+            $order->references = $this->references; */
+            $order->envio = json_encode([
+                'department' => Department::find($this->department_id)->name,
+                'city' => City::find($this->city_id)->name,
+                'district' => District::find($this->district_id)->name,
+                'address' => $this->address,
+                'reference' => $this->references,
+
+            ]);
         }
 
         $order->save();
@@ -86,7 +94,7 @@ class CreateOrder extends Component
         foreach (Cart::content() as $item) {
             discount($item);
         }
-        
+
         Cart::destroy();
         return redirect()->route('orders.payment', $order);
     }

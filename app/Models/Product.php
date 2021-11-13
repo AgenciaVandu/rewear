@@ -36,6 +36,11 @@ class Product extends Model
         return $this->hasMany(Size::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     //Relacion uno a muchos inversa
     public function brand()
     {
@@ -50,7 +55,12 @@ class Product extends Model
     //Relacion muchos a muchos
     public function colors()
     {
-        return $this->belongsToMany(Color::class)->withPivot('id','quantity');
+        return $this->belongsToMany(Color::class)->withPivot('id', 'quantity');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 
 

@@ -69,7 +69,7 @@ class CityComponent extends Component
         $this->getDistricts();
     }
 
-    public function mount(City $city)
+    public function mount(District $city)
     {
         $this->city = $city;
         $this->getDistricts();

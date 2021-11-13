@@ -47,7 +47,7 @@ class CategoryFilter extends Component
     {
         $this->resetPage();
     }
-    
+
     public function limpiar()
     {
         $this->reset(['subcategoria', 'marca','page']);
