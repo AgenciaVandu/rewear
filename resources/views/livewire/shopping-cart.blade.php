@@ -95,7 +95,7 @@
                 </a>
             </div>
         @else
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center py-4">
                 <x-cart />
                 <p class="text-lg text-trueGray-700 mt-4">Tu carro de compras esta vacio</p>
 
