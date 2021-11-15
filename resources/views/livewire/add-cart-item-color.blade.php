@@ -1,5 +1,4 @@
 <div x-data>
-
     <p class="text-xl text-trueGray-700">Color:</p>
     <select class="form-control w-full mb-4" wire:model="color_id">
         <option value="" selected disabled>Seleccionar un color</option>
