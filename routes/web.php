@@ -25,11 +25,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::get('/', WelcomeController::class);
+//index
 Route::get('/', function(){
     return view('rewear.index');
 });
+//nosotros
 Route::get('/nosotros', function(){
     return view('rewear.nosotros');
+});
+//catalogo
+Route::get('/catalogo-rewear', function(){
+    return view('rewear.catalogo.index');
+});
+//detalle de producto
+Route::get('/catalogo-rewear', function(){
+    return view('rewear.catalogo.producto');
+});
+//pagina de contacto
+Route::get('/contacto', function(){
+    return view('rewear.contacto');
 });
 Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
