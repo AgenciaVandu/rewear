@@ -24,7 +24,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', WelcomeController::class);
+//Route::get('/', WelcomeController::class);
+Route::get('/', function(){
+    return view('rewear.index');
+});
+Route::get('/nosotros', function(){
+    return view('rewear.nosotros');
+});
 Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
