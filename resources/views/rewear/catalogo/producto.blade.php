@@ -14,29 +14,29 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="lateral">
                                 <button type="button" href="" id="i-uno">
-                                    <img src="/img/catalogo/producto/1.png" class="fill" alt="">
+                                    <img src="{{asset('/img/catalogo/producto/1.png')}}" class="fill" alt="">
                                 </button>
                             </div>
                             <div class="lateral btn-pad">
                                <button type="button"  id="i-dos">
-                                    <img src="/img/catalogo/producto/2.png" class="fill" alt="">
+                                    <img src="{{asset('/img/catalogo/producto/2.png')}}" class="fill" alt="">
                                </button>
                             </div>
                             <div class="lateral btn-pad">
                                 <button type="button" id="i-tres">
-                                    <img src="/img/catalogo/producto/3.png" class="fill" alt="">
+                                    <img src="{{asset('/img/catalogo/producto/3.png')}}" class="fill" alt="">
                                 </button>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-6 col-sm-12">
                             <div class="principal" id="primera">
-                                <img src="/img/catalogo/producto/4.png" class="fill" alt="">
+                                <img src="{{asset('/img/catalogo/producto/4.png')}}" class="fill" alt="">
                             </div>
                             <div class="principal" id="segunda">
-                                <img src="/img/catalogo/producto/4-1.png" class="fill" alt="">
+                                <img src="{{asset('/img/catalogo/producto/4-1.png')}}" class="fill" alt="">
                             </div>
                             <div class="principal" id="tercera">
-                                <img src="/img/catalogo/producto/4-2.png" class="fill" alt="">
+                                <img src="{{asset('/img/catalogo/producto/4-2.png')}}" class="fill" alt="">
                             </div>
                         </div>
                     </div>
@@ -47,13 +47,13 @@
                             <div class="carousel__contenedor">
                                 <div class="carousel__lista text-center">
                                     <div class="carousel__elemento m-1">
-                                        <img src="/img/catalogo/producto/4.png" class="img-fluid" alt="">
+                                        <img src="{{asset('/img/catalogo/producto/4.png')}}" class="img-fluid" alt="">
                                     </div>
                                     <div class="carousel__elemento m-1">
-                                        <img src="/img/catalogo/producto/4-1.png" class="img-fluid" alt="">
+                                        <img src="{{asset('/img/catalogo/producto/4-1.png')}}" class="img-fluid" alt="">
                                     </div>
                                     <div class="carousel__elemento m-1">
-                                        <img src="/img/catalogo/producto/4-2.png" class="img-fluid" alt="">
+                                        <img src="{{asset('/img/catalogo/producto/4-2.png')}}" class="img-fluid" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@
                         </div>
                     </li>
                     <li class="pt-4">
-                        <img src="/img/catalogo/Etiqueta-de-lavado.png" class="img-fluid" alt="">
+                        <img src="{{asset('/img/catalogo/Etiqueta-de-lavado.png')}}" class="img-fluid" alt="">
                     </li>
                 </div>
             </div>
@@ -203,10 +203,10 @@
                     <div class="card espacio-card">
                        <div class="contenedor-1">
                            <a href="">
-                               <img src="/img/catalogo/producto-2.png" class="img-fluid" alt="Productos del catálogo">
+                               <img src="{{asset('/img/catalogo/producto-2.png')}}" class="img-fluid" alt="Productos del catálogo">
                            </a>
                            <a href="">
-                               <img src="/img/catalogo/producto.png" class="top img-fluid" alt="Productos del catálogo">
+                               <img src="{{asset('/img/catalogo/producto.png')}}" class="top img-fluid" alt="Productos del catálogo">
                            </a>
                         </div>
                         <a href="" style="color: #000; text-decoration: none;">
@@ -220,7 +220,7 @@
                         <li class="gelion-thin">Regular fit</li>
                         <div class="pt-3 d-flex">
                            <div class="hoja">
-                               <img src="/img/catalogo/rewear.svg" alt="">
+                               <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                            </div>
                            
                            
@@ -231,10 +231,10 @@
                    <div class="card espacio-card">
                        <div class="contenedor-1">
                            <a href="">
-                               <img src="/img/catalogo/producto-2.png" class="img-fluid" alt="Productos del catálogo">
+                               <img src="{{asset('/img/catalogo/producto-2.png')}}" class="img-fluid" alt="Productos del catálogo">
                            </a>
                            <a href="">
-                               <img src="/img/catalogo/producto.png" class="top img-fluid" alt="Productos del catálogo">
+                               <img src="{{asset('/img/catalogo/producto.png')}}" class="top img-fluid" alt="Productos del catálogo">
                            </a>
                         </div>
                         <a href="" style="color: #000; text-decoration: none;">
@@ -248,7 +248,7 @@
                         <li class="gelion-thin">Regular fit</li>
                         <div class="pt-3 d-flex">
                            <div class="hoja">
-                               <img src="/img/catalogo/rewear.svg" alt="">
+                               <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                            </div>
                            
                            
@@ -259,10 +259,10 @@
                     <div class="card espacio-card">
                         <div class="contenedor-1">
                             <a href="">
-                                <img src="/img/catalogo/producto-2.png" class="img-fluid" alt="Productos del catálogo">
+                                <img src="{{asset('/img/catalogo/producto-2.png')}}" class="img-fluid" alt="Productos del catálogo">
                             </a>
                             <a href="">
-                                <img src="/img/catalogo/producto.png" class="top img-fluid" alt="Productos del catálogo">
+                                <img src="{{asset('/img/catalogo/producto.png')}}" class="top img-fluid" alt="Productos del catálogo">
                             </a>
                          </div>
                          <a href="" style="color: #000; text-decoration: none;">
@@ -276,7 +276,7 @@
                          <li class="gelion-thin">Regular fit</li>
                          <div class="pt-3 d-flex">
                             <div class="hoja">
-                                <img src="/img/catalogo/rewear.svg" alt="">
+                                <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                             </div>
                             
                             
@@ -287,10 +287,10 @@
                    <div class="card espacio-card">
                        <div class="contenedor-1">
                            <a href="">
-                               <img src="/img/catalogo/producto-2.png" class="img-fluid" alt="Productos del catálogo">
+                               <img src="{{asset('/img/catalogo/producto-2.png')}}" class="img-fluid" alt="Productos del catálogo">
                            </a>
                            <a href="">
-                               <img src="/img/catalogo/producto.png" class="top img-fluid" alt="Productos del catálogo">
+                               <img src="{{asset('/img/catalogo/producto.png')}}" class="top img-fluid" alt="Productos del catálogo">
                            </a>
                         </div>
                         <a href="" style="color: #000; text-decoration: none;">
@@ -319,10 +319,10 @@
                     <div class="card espacio-card">
                         <div class="contenedor-4">
                             <a href="/catalogo/producto.html">
-                                <img src="/img/catalogo/producto-2.png" class="fill" alt="Productos del catálogo">
+                                <img src="{{asset('/img/catalogo/producto-2.png')}}" class="fill" alt="Productos del catálogo">
                             </a>
                             <a href="/catalogo/producto.html">
-                                <img src="/img/catalogo/producto.png" class="top fill" alt="Productos del catálogo">
+                                <img src="{{asset('/img/catalogo/producto.png')}}" class="top fill" alt="Productos del catálogo">
                             </a>
                          </div>
                          <a href="" style="color: #000; text-decoration: none;">
@@ -336,7 +336,7 @@
                          <li class="gelion-thin">Regular fit</li>
                          <div class="pt-3 d-flex">
                             <div class="hoja">
-                                <img src="/img/catalogo/rewear.svg" alt="">
+                                <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                             </div>
                             
                             
@@ -353,10 +353,10 @@
                             <div class="card espacio-card">
                                 <div class="contenedor-2">
                                     <a href="/catalogo/producto.html">
-                                        <img src="/img/catalogo/producto-2.png" class="img-fluid" alt="Productos del catálogo">
+                                        <img src="{{asset('/img/catalogo/producto-2.png')}}" class="img-fluid" alt="Productos del catálogo">
                                     </a>
                                     <a href="/catalogo/producto.html">
-                                        <img src="/img/catalogo/producto.png" class="top-1 img-fluid" alt="Productos del catálogo">
+                                        <img src="{{asset('/img/catalogo/producto.png')}}" class="top-1 img-fluid" alt="Productos del catálogo">
                                     </a>
                                  </div>
                                  <a href="" style="color: #000; text-decoration: none;">
@@ -370,7 +370,7 @@
                                  <li class="gelion-thin">Regular fit</li>-->
                                  <div class="pt-3 d-flex">
                                     <div class="hoja">
-                                        <img src="/img/catalogo/rewear.svg" alt="">
+                                        <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                                     </div>
                                     
                                     
@@ -381,10 +381,10 @@
                             <div class="card espacio-card">
                                 <div class="contenedor-2">
                                     <a href="/catalogo/producto.html">
-                                        <img src="/img/catalogo/producto-2.png" class="img-fluid" alt="Productos del catálogo">
+                                        <img src="{{asset('/img/catalogo/producto-2.png')}}" class="img-fluid" alt="Productos del catálogo">
                                     </a>
                                     <a href="/catalogo/producto.html">
-                                        <img src="/img/catalogo/producto.png" class="top-1 img-fluid" alt="Productos del catálogo">
+                                        <img src="{{asset('/img/catalogo/producto.png')}}" class="top-1 img-fluid" alt="Productos del catálogo">
                                     </a>
                                  </div>
                                  <a href="" style="color: #000; text-decoration: none;">
@@ -398,7 +398,7 @@
                                  <li class="gelion-thin">Regular fit</li>-->
                                  <div class="pt-3 d-flex">
                                     <div class="hoja">
-                                        <img src="/img/catalogo/rewear.svg" alt="">
+                                        <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                                     </div>
                                     
                                     
@@ -413,10 +413,10 @@
                             <div class="card espacio-card">
                                 <div class="contenedor-2">
                                     <a href="/catalogo/producto.html">
-                                        <img src="/img/catalogo/producto-2.png" class="img-fluid" alt="Productos del catálogo">
+                                        <img src="{{asset('/img/catalogo/producto-2.png')}}" class="img-fluid" alt="Productos del catálogo">
                                     </a>
                                     <a href="/catalogo/producto.html">
-                                        <img src="/img/catalogo/producto.png" class="top-1 img-fluid" alt="Productos del catálogo">
+                                        <img src="{{asset('/img/catalogo/producto.png')}}" class="top-1 img-fluid" alt="Productos del catálogo">
                                     </a>
                                  </div>
                                  <a href="" style="color: #000; text-decoration: none;">
@@ -430,7 +430,7 @@
                                  <li class="gelion-thin">Regular fit</li>-->
                                  <div class="pt-3 d-flex">
                                     <div class="hoja">
-                                        <img src="/img/catalogo/rewear.svg" alt="">
+                                        <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                                     </div>
                                     
                                     
@@ -441,10 +441,10 @@
                             <div class="card espacio-card">
                                 <div class="contenedor-2">
                                     <a href="/catalogo/producto.html">
-                                        <img src="/img/catalogo/producto-2.png" class="img-fluid" alt="Productos del catálogo">
+                                        <img src="{{asset('/img/catalogo/producto-2.png')}}" class="img-fluid" alt="Productos del catálogo">
                                     </a>
                                     <a href="/catalogo/producto.html">
-                                        <img src="/img/catalogo/producto.png" class="top-1 img-fluid" alt="Productos del catálogo">
+                                        <img src="{{asset('/img/catalogo/producto.png')}}" class="top-1 img-fluid" alt="Productos del catálogo">
                                     </a>
                                  </div>
                                  <a href="" style="color: #000; text-decoration: none;">
@@ -458,7 +458,7 @@
                                  <li class="gelion-thin">Regular fit</li>-->
                                  <div class="pt-3 d-flex">
                                     <div class="hoja">
-                                        <img src="/img/catalogo/rewear.svg" alt="">
+                                        <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                                     </div>
                                     
                                     
