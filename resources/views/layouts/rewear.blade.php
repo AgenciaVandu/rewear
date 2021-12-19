@@ -42,20 +42,67 @@
                     <a class="nav-link" href="/contacto.html">Contacto</a>
                 </li>
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color: #fff;" aria-expanded="false">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  aria-expanded="false" style="color: #fff">
                       MXN
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item gelion-bold" href="#">
+                      <a class="dropdown-item gelion-bold" href="#" style="color: #fff">
                           USD
                       </a>
                     </div>
                   </div>
-                <li class="nav-item pr-3">
-                    <a class="nav-link" href="/catalogo/cart.html">
-                        <i class="fas fa-shopping-bag"></i>
-                    </a>
-                </li>
+                  <div class="bag">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color: #fff;" aria-expanded="false">
+                            <i class="fas fa-shopping-bag"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <div class="gelion-bold pl-3 pt-2 text-left" style="color: #000">
+                               <small> Plan start <span class="gelion-thin">| hasta 72 piezas</span></small>
+                            </div>
+                            <li>
+                                <div class="contenid-bag">
+                                    <div class="row pt-3">
+                                        <div class="col-3">
+                                           <div class="contenedor-bag">
+                                               <img src="/img/catalogo/producto-2.png" class="fill" alt="">
+                                               <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                           </div>
+                                        </div>
+                                        <div class="col-9 m-auto text-left">
+                                            <span class="titulo gelion-bold modelo" style="color: #000;">
+                                               Modelo bahía
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000">
+                                               6 piezas
+                                            </span> <br>
+                                            
+                                        </div>
+                                    </div> 
+                                    <hr>
+                                    <div class="row pb-3">
+                                        <div class="col-3">
+                                           <div class="contenedor-bag">
+                                               <img src="/img/catalogo/producto-2.png" class="fill" alt="">
+                                               <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                           </div>
+                                        </div>
+                                        <div class="col-9 m-auto text-left">
+                                            <span class="titulo gelion-bold modelo" style="color: #000;">
+                                               Modelo bahía
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000">
+                                               12 piezas
+                                            </span> <br>
+                                            
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <a href="/catalogo/cart.html" class="btn btn-primary btn-block">Ver todo</a>
+                        </div>
+                    </div>
+                  </div>
                 <li class="nav-item pr-3">
                     <a class="nav-link" href="/user/login.html">
                         <i class="fas fa-user"></i>

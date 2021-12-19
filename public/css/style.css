@@ -33,12 +33,16 @@
     color: #fff !important;
 }
 .bag .dropdown-menu {
-    background: #fbfcfc;
-    width: 20em;
+    background: #fff;
+    width: 17em;
     height: auto;
     border-radius: 1em;
     padding: 0;
     
+}
+.contenid-bag {
+    padding-left: 1.3em;
+    padding-right: 0;
 }
 .bag .dropdown-menu .dropdown-item {
     color: #000;
@@ -49,16 +53,34 @@
 .bag .modelo {
     font-size: 1.2em;
 }
+.bag .size {
+    font-size: 1em;
+}
+
+.eliminar {
+    text-align: left;
+    font-size: 1em;
+    color: #1c1c1c;
+    background: none;
+    border: none;
+    
+}
 .contenedor-bag img {
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
 }
 .principal img{
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
 }
 .fill {
     object-fit: fill;
+}
+.bag .titulo .pieza {
+    padding-left: 5px;
+}
+.bag a {
+    border-radius: 0 0 10px 10px;
 }
 /*end Carrito*/
 .dropdown-menu {
