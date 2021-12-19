@@ -38,6 +38,7 @@
     height: auto;
     border-radius: 1em;
     padding: 0;
+    box-shadow: 0px 1px 5px 5px rgba(184, 184, 184, 0.1);
     
 }
 .contenid-bag {
@@ -87,6 +88,7 @@
     text-align: center;
     border: none;
     background: #003057;
+    box-shadow: 0px 1px 5px 5px rgba(184, 184, 184, 0.1);
 }
 .dropdown-menu  {
     color: #fff;

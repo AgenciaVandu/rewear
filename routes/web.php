@@ -49,6 +49,9 @@ Route::get('/cesta', function(){
 Route::get('/cesta-vacia', function(){
     return view('rewear.catalogo.empty-cart');
 });
+Route::get('/comprar', function(){
+    return view('rewear.catalogo.purchase');
+});
 //Preguntas frecuentes
 Route::get('/faq', function(){
     return view('rewear.faq');

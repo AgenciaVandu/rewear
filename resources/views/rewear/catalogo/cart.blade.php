@@ -353,7 +353,7 @@
                         <li class="gelion-thin">Regular fit</li>
                         <div class="pt-3 d-flex">
                            <div class="hoja">
-                               <img src="/img/catalogo/rewear.svg" alt="">
+                               <img src="{{asset('/img/catalogo/rewear.svg')}}" alt="">
                            </div>
                            
                            

@@ -1,39 +1,54 @@
 @extends('layouts.rewear-azul')
 @section('content')
 @push('css')
-<link rel="stylesheet" href="{{asset('/css/products.css')}}">
+<link rel="stylesheet" href="/css/products.css">
 @endpush
 <section id="cart">
     <div class="container">
         <div class="d-block d-sm-block d-md-block d-lg-block">
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-sm-12 pt-2">
-                    <div class="card p-4">
-                        <div class="d-none d-sm-none col-md-block d-lg-block">
-                            <div class="row">
-                                <div class="col-10">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-md-1 col-sm-12 text-right">
-                                            <img src="{{asset('/img/index/box.svg')}}" width="65" alt="">
-                                        </div>
-                                        <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
-                                            <li class="gelion-bold">Paquete Start 72 piezas $100/pieza</li>
-                                            <li class="gelion-thin">Faltan 12 para completar</li>
-                                            <li></li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <form>
+                        <div class="form-row">
+                          <div class="col gelion-bold">
+                            <label for="formGroupExampleInput">Nombres*</label>
+                            <input type="text" class="form-control" id="name" required>
+                          </div>
+                          <div class="col gelion-bold">
+                            <label for="formGroupExampleInput">Apellidos*</label>
+                            <input type="text" class="form-control" id="apellidos" required>
+                          </div>
+                          <div class="col gelion-bold">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" class="form-control" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                          </div>
                         </div>
-                        <div class="table-responsive">
-                            <div class="col-12" style="min-height: 14.6em;">
-                                <div class="inner text-center p-5">
-                                    <h4 class="gelion-bold">Aún no hay prendas en tu cesta</h4>
-                                    <a href="/catalogo/index.html" class="btn btn-secondary">Seguir comprando</a>
-                                </div>
-                            </div>
+                        <div class="pt-3 gelion-bold" id="f-emprendedor"> <!--Emprendedor-->
+                            <label for="formGroupExampleInput">Nombre de tu empresa (opcional)</label>
+                            <input type="text" class="form-control" required>
                         </div>
-                    </div>
+                        <div class="form-group gelion-bold pt-3">
+                            <label for="inputAddress">Dirección</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="8mile" required>
+                        </div>
+                        <div class="form-group gelion-bold">
+                            <label for="inputCity">Ciudad</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="México" required>
+                        </div>
+                        <div class="form-group gelion-bold">
+                            <label for="inputCity">Estado</label>
+                            <input type="text" class="form-control" id="inputState" placeholder="México" required>
+                        </div>
+                        <div class="form-group gelion-bold">
+                            <label for="inputCity">Código postal</label>
+                            <input type="text" class="form-control" id="inputState" placeholder="México" required>
+                        </div>
+                        <div class="mb-3 gelion-bold">
+                            <label for="validationTextarea">Mensaje</label>
+                            <textarea class="form-control" id="validationTextarea" placeholder="Déjanos tu mensaje" required></textarea>
+                        </div>
+                        <div type="submit" class="btn btn-primary gelion-bold mt-2">Regresar</div>
+                    </form>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 pt-2">
                     <div class="card p-4">
@@ -72,24 +87,7 @@
                         </div>
                         <div class="btn btn-secondary gelion-bold mt-2">Comprar ahora</div>
                         <div class="col-12 gelion-bold text-center pt-3">
-                            <p><button  id="aumentar-planes" class="gelion-bold aumentar" style="color: #000; text-decoration: none;">Quiero aumentar mi plan</button> <br>
-                                <div class="row" id="mostrar-planes">
-                                    <div class="col-12">
-                                        <p class="gelion-bold text-center">Selecciona un plan</p>
-                                    </div>
-                                    <div class="col">
-                                        <button type="checkbox" class="btn btn-primary btn-block">Start</button>
-                                    </div>
-                                    <div class="col">
-                                        <button type="checkbox" class="btn btn-primary btn-block">Plus</button>
-                                    </div>
-                                    <div class="col">
-                                        <button type="checkbox" class="btn btn-primary btn-block">Top</button>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <button id="cancelar-aumento" class="btn btn-outline-dark btn-sm">Cancelar</button>
-                                </div>
+                            <p>
                                 <span class="gelion-thin">Precio más costo de envío por cotizar</span>
                             </p>
                         </div>
@@ -380,8 +378,4 @@
         </div>
     </div>
 </section>
-@push('js')
-<script src="{{asset('/js/producto.js')}}"></script>
-<script src="{{asset('/js/show.js')}}"></script>
-@endpush
 @endsection
