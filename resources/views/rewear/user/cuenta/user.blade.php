@@ -15,13 +15,13 @@
                                 <div class="card p-4"> <!--Contenido de ordenes movil-->
                                     <div class="row">
                                         <div class="col-lg-7 col-md-12 col-sm-12 m-auto pt-1">
-                                        <h5 class="gelion-bold size-4">
-                                            ID de órden: <span class="gelion-regular size-5">545253887</span>
-                                            <span class="date pl-3"> <br class="d-block d-sm-block">
-                                                Fecha de orden: <span class="gelion-thin">16 de Diciembre del 2021</span>
-                                            </span>
-                                            
-                                        </h5>
+                                            <h5 class="gelion-bold size-4">
+                                                ID de órden: <span class="gelion-regular size-5">545253887</span>
+                                                <span class="date pl-3"> <br class="d-block d-sm-block">
+                                                    Fecha de orden: <span class="gelion-thin">16 de Diciembre del 2021</span>
+                                                </span>
+                                                
+                                            </h5>
                                         </div>
                                         <div class="col-lg-5 col-md-6 col-sm-12 control-but right-o right-r">
                                             <button href="" class="print-a">
@@ -58,13 +58,13 @@
                                 <div class="card p-4"> <!--Contenido de ordenes movil-->
                                     <div class="row">
                                         <div class="col-lg-7 col-md-12 col-sm-12 m-auto pt-1">
-                                        <h5 class="gelion-bold size-4">
-                                            ID de órden: <span class="gelion-regular size-5">545253887</span>
-                                            <span class="date pl-3"><br class="d-block d-sm-block">
-                                                Fecha de orden: <span class="gelion-thin">16 de Diciembre del 2021</span>
-                                            </span>
-                                            
-                                        </h5>
+                                            <h5 class="gelion-bold size-4">
+                                                ID de órden: <span class="gelion-regular size-5">545253887</span>
+                                                <span class="date pl-3"><br class="d-block d-sm-block">
+                                                    Fecha de orden: <span class="gelion-thin">16 de Diciembre del 2021</span>
+                                                </span>
+                                                
+                                            </h5>
                                         </div>
                                         <div class="col-lg-5 col-md-6 col-sm-12 right-o right-r">
                                             <a href="" class="print-a">
@@ -273,76 +273,75 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-block d-sm-block d-md-none d-lg-none">
-                                <div class="carousel mt-3">
-                                    <div class="carousel__contenedor">
-                                        <div class="carousel__lista5">
-                                            <div class="carousel__elemento m-1">
-                                                <div class="card p-4"> <!--Contenido de ordenes movil-->
-                                                    <div class="col-lg-6 col-md-6 col-sm-12"><!--Direccion 1-->
-                                                            <h5 class="gelion-bold pb-3">
-                                                                Casa
-                                                            </h5>
-                                                            <li class="gelion-thin">
-                                                                Calle 23d, colonia. CP 97173
-                                                            </li>
-                                                            <li class="gelion-thin">
-                                                                Ciudad, Estado
-                                                            </li>
-                                                            <li class="gelion-regular pt-3">
-                                                                <div class="row control-but">
-                                                                    <div class="col text-left">
-                                                                        <button class="gelion-bold">
-                                                                            Editar
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="col text-right">
-                                                                        <button class="gelion-regular" style="color: red;">
-                                                                            Eliminar
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="carrusel__elemento m-1">
-                                                <div class="card p-4"> <!--Contenido de ordenes movil-->
-                                                    <div class="col-lg-6 col-md-6 col-sm-12"><!--Direccion 1-->
-                                                            <h5 class="gelion-bold pb-3">
-                                                                Casa
-                                                            </h5>
-                                                            <li class="gelion-thin">
-                                                                Calle 23d, colonia. CP 97173
-                                                            </li>
-                                                            <li class="gelion-thin">
-                                                                Ciudad, Estado
-                                                            </li>
-                                                            <li class="gelion-regular pt-3">
-                                                                <div class="row control-but">
-                                                                    <div class="col text-left">
-                                                                        <button class="gelion-bold">
-                                                                            Editar
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="col text-right">
-                                                                        <button class="gelion-regular" style="color: red;">
-                                                                            Eliminar
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                    </div>
-                                                </div>
+                        </div>
+                    </div>
+                    <div class="d-block d-sm-block d-md-none d-lg-none">
+                        <div class="carousel mt-3">
+                            <div class="carousel__contenedor">
+                                <div class="carousel__lista5">
+                                    <div class="carousel__elemento m-1">
+                                        <div class="card p-4"> <!--Contenido de ordenes movil-->
+                                            <div class="col-lg-6 col-md-12 col-sm-12"><!--Direccion 1-->
+                                                    <h5 class="gelion-bold pb-3">
+                                                        Casa
+                                                    </h5>
+                                                    <li class="gelion-thin">
+                                                        Calle 23d, colonia. CP 97173
+                                                    </li>
+                                                    <li class="gelion-thin">
+                                                        Ciudad, Estado
+                                                    </li>
+                                                    <li class="gelion-regular pt-3">
+                                                        <div class="row control-but">
+                                                            <div class="col text-left">
+                                                                <button class="gelion-bold">
+                                                                    Editar
+                                                                </button>
+                                                            </div>
+                                                            <div class="col text-right">
+                                                                <button class="gelion-regular" style="color: red;">
+                                                                    Eliminar
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
                                             </div>
                                         </div>
                                     </div>
-                                    <div role="tabList" class="carousel__indicadores1"></div>
+                                    <div class="carousel__elemento m-1">
+                                        <div class="card p-4"> <!--Contenido de ordenes movil-->
+                                            <div class="col-lg-6 col-md-12 col-sm-12"><!--Direccion 1-->
+                                                    <h5 class="gelion-bold pb-3">
+                                                        Casa
+                                                    </h5>
+                                                    <li class="gelion-thin">
+                                                        Calle 23d, colonia. CP 97173
+                                                    </li>
+                                                    <li class="gelion-thin">
+                                                        Ciudad, Estado
+                                                    </li>
+                                                    <li class="gelion-regular pt-3">
+                                                        <div class="row control-but">
+                                                            <div class="col text-left">
+                                                                <button class="gelion-bold">
+                                                                    Editar
+                                                                </button>
+                                                            </div>
+                                                            <div class="col text-right">
+                                                                <button class="gelion-regular" style="color: red;">
+                                                                    Eliminar
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div role="tabList" class="carousel__indicadores1"></div>
                         </div>
                     </div>
-                    
                 </div>
                 <!--end Contenido ordenador-->
             </div>

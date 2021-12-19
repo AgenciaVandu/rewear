@@ -77,19 +77,27 @@
 .fill {
     object-fit: fill;
 }
+
 .bag .titulo .pieza {
     padding-left: 5px;
 }
 .bag a {
     border-radius: 0 0 10px 10px;
 }
+
 /*end Carrito*/
+span.navbar-toggler-icon {
+    border: #fff !important;
+}
+.dropdown .btn {
+    padding-left: 0;
+}
 .dropdown-menu {
     text-align: center;
     border: none;
     background: #003057;
     box-shadow: 0px 1px 5px 5px rgba(184, 184, 184, 0.1);
-}
+} 
 .dropdown-menu  {
     color: #fff;
 }

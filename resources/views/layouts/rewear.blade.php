@@ -13,7 +13,7 @@
         .bg-dark {
         background-color: transparent !important;
         transition: 0.5s ease;
-        } @media (max-width: 500px) {
+        } @media (max-width: 999px) {
             .bg-dark {
                 background-color: #003057 !important;
                 
@@ -39,19 +39,19 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="/index.html">Inicio</a>
                 </li>
-                <li class="nav-item pr-3">
+                <li class="nav-item">
                   <a class="nav-link" href="/nosotros.html">Nosotros</a>
                 </li>
-                <li class="nav-item pr-3">
+                <li class="nav-item">
                   <a class="nav-link" href="/catalogo/index.html">Catálogo</a>
                 </li>
-                <li class="nav-item pr-3">
+                <li class="nav-item">
                     <a class="nav-link" href="/blog/index.html">Blog</a>
                 </li>
-                <li class="nav-item pr-3">
+                <li class="nav-item">
                     <a class="nav-link" href="/faq.html">FAQ</a>
                 </li>
-                <li class="nav-item pr-3">
+                <li class="nav-item">
                     <a class="nav-link" href="/contacto.html">Contacto</a>
                 </li>
                 <div class="dropdown">
@@ -64,7 +64,85 @@
                       </a>
                     </div>
                   </div>
-                  <div class="bag">
+                 <div class="d-none d-sm-none d-md-none d-lg-block">
+                    <div class="bag">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color: #fff;" aria-expanded="false">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <div class="gelion-bold pl-3 pt-2 text-left" style="color: #000">
+                                   <small> Plan start <span class="gelion-thin">| hasta 72 piezas</span></small>
+                                </div>
+                                <li>
+                                    <div class="contenid-bag">
+                                        <div class="row pt-3">
+                                            <div class="col-3">
+                                               <div class="contenedor-bag">
+                                                   <img src="/img/catalogo/producto-2.png" class="fill" alt="">
+                                                   <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                               </div>
+                                            </div>
+                                            <div class="col-9 m-auto text-left">
+                                                <span class="titulo gelion-bold modelo" style="color: #000;">
+                                                   Modelo bahía
+                                                </span> <br>
+                                                <span class="pieza gelion-thin size" style="color: #000">
+                                                   6 piezas
+                                                </span> <br>
+                                                
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <div class="row pb-3">
+                                            <div class="col-3">
+                                               <div class="contenedor-bag">
+                                                   <img src="/img/catalogo/producto-2.png" class="fill" alt="">
+                                                   <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                               </div>
+                                            </div>
+                                            <div class="col-9 m-auto text-left">
+                                                <span class="titulo gelion-bold modelo" style="color: #000;">
+                                                   Modelo bahía
+                                                </span> <br>
+                                                <span class="pieza gelion-thin size" style="color: #000">
+                                                   12 piezas
+                                                </span> <br>
+                                                
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </li>
+                                <a href="/catalogo/cart.html" class="btn btn-primary btn-block">Ver todo</a>
+                            </div>
+                        </div>
+                      </div>
+                 </div>
+                <li class="nav-item pr-3">
+                    <a class="nav-link" href="/user/login.html">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        ES
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">
+                        |
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        EN
+                    </a>
+                </li>
+              </ul>
+            
+            </div>
+            <div class="d-block d-sm-block d-md-block d-lg-none">
+                <div class="bag">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color: #fff;" aria-expanded="false">
                             <i class="fas fa-shopping-bag"></i>
@@ -116,29 +194,8 @@
                         </div>
                     </div>
                   </div>
-                <li class="nav-item pr-3">
-                    <a class="nav-link" href="/user/login.html">
-                        <i class="fas fa-user"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        ES
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">
-                        |
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        EN
-                    </a>
-                </li>
-              </ul>
+                </div>
             </div>
-        </div>
     </nav>
     @yield('content')
 

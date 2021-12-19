@@ -8,8 +8,9 @@ $(document).ready(function(){
     });
 
     $('#cuenta').click(function(){
-        $('#tabs-2').show();
         $('#tabs-1').hide();
+        $('#tabs-2').show();
+        $('#tabs-3').show();
     });
     
 });
