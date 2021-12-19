@@ -2,7 +2,7 @@
 @section('content')
 <header>
     <div class="contenido-boton">
-        <video id="portada" src="{{asset('/img/portada.mp4')}}" autoplay muted no-controls loop class="w-100"></video>
+        <video id="portada" src="{{asset('./img/portada.mp4')}}" autoplay muted no-controls loop class="w-100"></video>
         <div class="boton-h">
             <button  id="boton-h" class="btn btn-warning gelion-bold">Ver productos</button>
         </div>
@@ -89,9 +89,9 @@
                                 </a>
                             </div>
 
-                            
-                            
-                            
+
+
+
                         </div>
                     </div>
                     <div role="tabList" class="carousel__indicadores1"></div>
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!--Planes-->
                 <div class="d-none d-sm-none d-md-block d-lg-block">
                     <div class="row pt-5 espacio-4">
@@ -378,7 +378,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -521,7 +521,7 @@
                         <div class="card espacio-5">
                             <img src="{{asset('/img/index/card-blog.jpg')}}" class="img-fluid" alt="Myrewear">
                             <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                            <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales. 
+                            <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales.
                             </p>
                             <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver más</a>
                         </div>
@@ -530,7 +530,7 @@
                         <div class="card espacio-5">
                             <img src="{{asset('/img/index/card-blog.jpg')}}" class="img-fluid" alt="Myrewear">
                             <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                            <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales. 
+                            <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales.
                             </p>
                             <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver más</a>
                         </div>
@@ -539,7 +539,7 @@
                         <div class="card espacio-5">
                             <img src="{{asset('/img/index/card-blog.jpg')}}" class="img-fluid" alt="Myrewear">
                             <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                            <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales. 
+                            <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales.
                             </p>
                             <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver más</a>
                         </div>
@@ -561,10 +561,10 @@
                                             <div class="card espacio-5">
                                                 <img src="{{asset('/img/index/card-blog.jpg')}}" class="img-fluid" alt="Myrewear">
                                                 <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                                                <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales. 
+                                                <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales.
                                                 </p>
                                                 <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver más</a>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -576,15 +576,15 @@
                                             <div class="card espacio-5">
                                                 <img src="{{asset('/img/index/card-blog.jpg')}}" class="img-fluid" alt="Myrewear">
                                                 <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                                                <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales. 
+                                                <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la rama de la economía que estudia los efectos de las políticas ambientales y les otorga un valor a los recursos naturales.
                                                 </p>
                                                 <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver más</a>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div role="tabList" class="carousel__indicadores1"></div>
