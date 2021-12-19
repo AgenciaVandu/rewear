@@ -74,6 +74,10 @@ Route::get('/login', function(){
 Route::get('/register', function(){
     return view('rewear.user.register');
 });
+//pagina de cuenta
+Route::get('/mi-perfil', function(){
+    return view('rewear.user.cuenta.user');
+});
 Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
