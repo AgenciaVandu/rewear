@@ -38,8 +38,28 @@ Route::get('/catalogo-rewear', function(){
     return view('rewear.catalogo.index');
 });
 //detalle de producto
-Route::get('/catalogo-rewear', function(){
+Route::get('/catalogo-producto', function(){
     return view('rewear.catalogo.producto');
+});
+//Carrito / cesta
+Route::get('/cesta', function(){
+    return view('rewear.catalogo.cart');
+});
+//Carrito / vacio
+Route::get('/cesta-vacia', function(){
+    return view('rewear.catalogo.empty-cart');
+});
+//Preguntas frecuentes
+Route::get('/faq', function(){
+    return view('rewear.faq');
+});
+//Página del blog 
+Route::get('/blog-index', function(){
+    return view('rewear.blog.index');
+});
+//pagina de articulo
+Route::get('/blog-articulo', function(){
+    return view('rewear.blog.articulo');
 });
 //pagina de contacto
 Route::get('/contacto', function(){

@@ -38,4 +38,19 @@ $(document).ready(function(){
     });
     
 });
+$(document).ready(function(){
+    $('#mostrar-planes').hide();
+    $('#cancelar-aumento').hide();
+    
+    $('#aumentar-planes').click(function() {
+        $('#mostrar-planes').show();
+        $('#cancelar-aumento').show();
+    });
+    
+    $('#cancelar-aumento').click(function() {
+        $('#mostrar-planes').hide();
+        $('#cancelar-aumento').hide();
+    });
+    
+});
 

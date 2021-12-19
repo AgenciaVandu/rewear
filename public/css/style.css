@@ -146,6 +146,10 @@
     background-color: #003057;
     color: #fff;
 }
+.aumentar {
+    background: none;
+    border: none;
+}
 /*end-buttons*/
 
 /*backgrounds*/
