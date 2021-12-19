@@ -65,6 +65,15 @@ Route::get('/blog-articulo', function(){
 Route::get('/contacto', function(){
     return view('rewear.contacto');
 });
+// COMIENZAN LAS VISTAS DE USUARIO
+//pagina de login
+Route::get('/login', function(){
+    return view('rewear.user.login');
+});
+//pagina de registro
+Route::get('/register', function(){
+    return view('rewear.user.register');
+});
 Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
