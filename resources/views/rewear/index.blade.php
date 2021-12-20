@@ -2,7 +2,7 @@
 @section('content')
 <header>
     <div class="contenido-boton">
-        <video id="portada" src="{{asset('./img/portada.mp4')}}" autoplay muted no-controls loop class="w-100"></video>
+        <video id="portada" src="{{asset('img/portada.mp4')}}" muted no-controls loop class="w-100"></video>
         <div class="boton-h">
             <button  id="boton-h" class="btn btn-warning gelion-bold">Ver productos</button>
         </div>
