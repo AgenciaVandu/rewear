@@ -111,7 +111,7 @@
         <div class="bg-3 mt-5 pt-5"><!--bg-azul-->
             <h1 class="gelion-bold text-center" style="color: #fff;">Cambia al mundo con cada camiseta. Arma tus cajas.</h1>
             <div class="container">
-                <div class="d-none d-block d-sm-block d-md-none d-lg-none">
+                <div class="d-block d-sm-block d-md-none d-lg-none">
                     <div class="row pt-5">
                         <div class="col-6 left-o">
                             <img src="{{asset('/img/index/hoja.svg')}}" alt="">
@@ -140,9 +140,10 @@
                     <div class="row pt-5">
                         <div class="col-lg-3 col-md-6 col-sm-6 left-o">
                             <img src="{{asset('/img/index/hoja.svg')}}" alt="">
-                            <h5 class="gelion-bold pt-3" style="color: #fff;">Elige de 6 en 6 piezas</h5>
-                            <p class="gelion-thin" style="color: #fff;">Configura tus cajas eligiendo de 6 en 6 piezas por talla y color.</p>
+                            <h5 class="gelion-bold pt-3" style="color: #fff;">Elige piezas de 6 en 6</h5>
+                            <p class="gelion-thin" style="color: #fff;">Configura tus cajas eligiendo de 6 en 6 piezas por talla y color.</p> <br>
                         </div>
+                       
                         <div class="col-lg-3 col-md-6 col-sm-6 left-o">
                             <img src="{{asset('/img/index/hoja.svg')}}" alt="">
                             <h5 class="gelion-bold pt-3" style="color: #fff;">Todas las tallas</h5>

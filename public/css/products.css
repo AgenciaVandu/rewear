@@ -3,6 +3,18 @@
 #product {
     padding-top: 6em;
 }
+#cesta {
+    height: 81px;
+    width: 72px;
+}
+#cesta img{
+    height: 81px;
+    width: 72px;
+}
+
+.fill-fit {
+    object-fit: cover;
+}
 
 .btn-success {
     background-color: transparent !important;
@@ -94,6 +106,15 @@
    border-width: 1px;
 }
 
+#productos-cajas #menos,
+#productos-cajas #cantidad,
+#productos-cajas #mas  {
+    margin: auto;
+}
+
+#productos-cajas #cantidad {
+    width: 1.3em;
+}
 
 .size-3 {
     font-size: 0.8em;

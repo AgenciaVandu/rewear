@@ -38,12 +38,48 @@ Route::get('/catalogo-rewear', function(){
     return view('rewear.catalogo.index');
 });
 //detalle de producto
-Route::get('/catalogo-rewear', function(){
+Route::get('/catalogo-producto', function(){
     return view('rewear.catalogo.producto');
+});
+//Carrito / cesta
+Route::get('/cesta', function(){
+    return view('rewear.catalogo.cart');
+});
+//Carrito / vacio
+Route::get('/cesta-vacia', function(){
+    return view('rewear.catalogo.empty-cart');
+});
+Route::get('/comprar', function(){
+    return view('rewear.catalogo.purchase');
+});
+//Preguntas frecuentes
+Route::get('/faq', function(){
+    return view('rewear.faq');
+});
+//Página del blog 
+Route::get('/blog-index', function(){
+    return view('rewear.blog.index');
+});
+//pagina de articulo
+Route::get('/blog-articulo', function(){
+    return view('rewear.blog.articulo');
 });
 //pagina de contacto
 Route::get('/contacto', function(){
     return view('rewear.contacto');
+});
+// COMIENZAN LAS VISTAS DE USUARIO
+//pagina de login
+Route::get('/login', function(){
+    return view('rewear.user.login');
+});
+//pagina de registro
+Route::get('/register', function(){
+    return view('rewear.user.register');
+});
+//pagina de cuenta
+Route::get('/mi-perfil', function(){
+    return view('rewear.user.cuenta.user');
 });
 Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');

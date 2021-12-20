@@ -2,195 +2,104 @@
 @section('content')
 @push('css')
 <link rel="stylesheet" href="{{asset('/css/products.css')}}">
-<link rel="stylesheet" href="{{asset('/lib/icomoon-v1.0/style.css')}}">
 @endpush
-<section id="product">
+<section id="cart">
     <div class="container">
-        <div class="product-inner">
+        <div class="d-block d-sm-block d-md-block d-lg-block">
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 espacio-pr">
-                   <div class="d-none d-sm-none d-md-none d-lg-block">
-                    <div class="row boton-producto">
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="lateral">
-                                <button type="button" href="" id="i-uno">
-                                    <img src="{{asset('/img/catalogo/producto/1.png')}}" class="fill" alt="">
-                                </button>
-                            </div>
-                            <div class="lateral btn-pad">
-                               <button type="button"  id="i-dos">
-                                    <img src="{{asset('/img/catalogo/producto/2.png')}}" class="fill" alt="">
-                               </button>
-                            </div>
-                            <div class="lateral btn-pad">
-                                <button type="button" id="i-tres">
-                                    <img src="{{asset('/img/catalogo/producto/3.png')}}" class="fill" alt="">
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-6 col-sm-12">
-                            <div class="principal" id="primera">
-                                <img src="{{asset('/img/catalogo/producto/4.png')}}" class="fill" alt="">
-                            </div>
-                            <div class="principal" id="segunda">
-                                <img src="{{asset('/img/catalogo/producto/4-1.png')}}" class="fill" alt="">
-                            </div>
-                            <div class="principal" id="tercera">
-                                <img src="{{asset('/img/catalogo/producto/4-2.png')}}" class="fill" alt="">
-                            </div>
-                        </div>
-                    </div>
-                   </div>
-                    <!--Movil images-->
-                    <div class="d-block d-sm-block d-md-block d-lg-none"> <!--movil-->
-                        <div class="carousel">
-                            <div class="carousel__contenedor">
-                                <div class="carousel__lista text-center">
-                                    <div class="carousel__elemento m-1">
-                                        <img src="{{asset('/img/catalogo/producto/4.png')}}" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="carousel__elemento m-1">
-                                        <img src="{{asset('/img/catalogo/producto/4-1.png')}}" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="carousel__elemento m-1">
-                                        <img src="{{asset('/img/catalogo/producto/4-2.png')}}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabList" class="carousel__indicadores1"></div>
-                        </div>
-                    </div>
-                    <!--Movil images-->
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h1 class="gelion-bold">Modelo Bahía</h1>
-                    <p class="gelion-thin" style="color: gray;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi explicabo voluptate dolore minus velit iste quia corporis illum blanditiis et.</p>
-                    <li class="gelion-bold pt-2">
-                        <div class="row">
-                            <div class="col">
-                                Medidas de la modelo:
-                            </div>
-                            <div class="col-8 gelion-thin">
-                                1.68mts
-                            </div>
-                        </div>
-                    </li>
-                    <li class="gelion-bold pt-3">
-                        <div class="row">
-                            <div class="col">
-                                Talla de la modelo:
-                            </div>
-                            <div class="col-8 gelion-thin">
-                                S
-                            </div>
-                        </div>
-                    </li>
-                    <li class="gelion-bold pt-3">
-                        <div class="row">
-                            <div class="col m-auto">
-                                Colores disponibles
-                            </div>
-                            <div class="col-8 gelion-thin">
-                                <div class="btn-group">
-                                    <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                      Elige un color
-                                    </button>
-                                    <div class="dropdown-menu modelos-dropdown">
-                                        <div class="btn-group btn-group-toggle btn-block" data-toggle="buttons">
-                                            <label class="btn btn-outline-dark">
-                                                <input type="checkbox" name="countries[]" value="negro" autocomplete="off"> Negro
-                                            </label>
-                                            <label class="btn btn-outline-dark">
-                                                <input type="checkbox" name="countries[]" value="negro" autocomplete="off"> Rojo
-                                            </label>
-                                            <label class="btn btn-outline-dark">
-                                                <input type="checkbox" name="countries[]" value="negro" autocomplete="off">Natural
-                                            </label>
+                <div class="col-lg-8 col-md-12 col-sm-12 pt-2">
+                    <div class="card p-4">
+                        <div class="d-none d-sm-none col-md-block d-lg-block">
+                            <div class="row">
+                                <div class="col-10">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-1 col-sm-12 text-right">
+                                            <img src="{{asset('/img/index/box.svg')}}" width="65" alt="">
+                                        </div>
+                                        <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
+                                            <li class="gelion-bold">Paquete Start 72 piezas $100/pieza</li>
+                                            <li class="gelion-thin">Faltan 12 para completar</li>
+                                            <li></li>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="gelion-bol pt-3 sizes gelion-regular">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-outline-dark">
-                                <input type="checkbox" name="talla" value="Small" autocomplete="off" checked> S
-                            </label>
-                        </div>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-outline-dark">
-                                <input type="checkbox" name="talla" value="Medium" autocomplete="off"> M
-                            </label>
-                        </div>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-outline-dark">
-                                <input type="checkbox" name="talla" value="Large" autocomplete="off"> L
-                            </label>
-                        </div>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-outline-dark">
-                                <input type="checkbox" name="talla" value="Xtra-large" autocomplete="off"> XL
-                            </label>
-                        </div>
-                    </li>
-                    <li class="gelion-bold pt-3 text-left productos-carrito">
-                        <div class="row pb-2">
-                            <div class="col-1">
-                                <div style="background-color: #003057; height: 30px; width: 30px; border-radius: 30px;">
-                                    <span class="icon-hoja-productorewear ico-xs" style="color: #fff;"></span>
-                                </div>
-                            </div>
-                            <div class="col m-auto">
-                                <div id="productos-carrito">
-                                    <input id="menos" type="button" name="minus" value="-" onclick="minus(1)">
-                                    <input id="cantidad" type="text" name="amount" value="6">
-                                    <input id="mas" type="button" name="plus" value="+" onclick="plus(1)">
+                        <div class="table-responsive">
+                            <div class="col-12" style="min-height: 14.6em;">
+                                <div class="inner text-center p-5">
+                                    <h4 class="gelion-bold">Aún no hay prendas en tu cesta</h4>
+                                    <a href="/catalogo/index.html" class="btn btn-secondary">Seguir comprando</a>
                                 </div>
                             </div>
                         </div>
-                        <small class="gelion-regular">* Se agregarán en múltipos de 6</small>
-                    </li>
-                    <li class="gelion-bold pt-3"><a href="" style="color: #000; text-decoration: none;">Descargar PDF</a></li>
-                    <li class="gelion-bold pt-3">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 pt-2">
+                    <div class="card p-4">
+                        <p class="gelion-bold">Total a pagar</p>
                         <div class="row">
-                            <div class="col">
-                                <a href="/catalogo/cart.html" class="btn btn-secondary">
-                                    Agregar prenda
-                                </a>
-                                
+                            <div class="col-6">
+                                <p class="gelion-thin">
+                                    Subtotal
+                                </p>
                             </div>
-                            <div class="col gelion-bold m-auto">
-                               <a href="" style="color: #000; text-decoration: none;"> Tabla de medidas</a>
+                            <div class="col-6 text-right">
+                                <p class="gelion-thin">
+                                    $7,200.00
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p class="gelion-thin">
+                                    Impuestos
+                                </p>
+                            </div>
+                            <div class="col-6 text-right">
+                                <p class="gelion-thin">
+                                    $1,152.00
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p class="gelion-thin">
+                                    Precio total
+                                </p>
+                            </div>
+                            <div class="col-6 text-right">
+                                <p class="gelion-thin">
+                                    $8,352.00
+                                </p>
                             </div>
                         </div>
-                    </li>
-                    <li class="gelion-bold pt-3">
-                        <p><img src="/img/catalogo/hoja-1.svg" alt="Producto ecológico">
-                        <span class="pl-2 m-auto">
-                            50% algodón reciclado, 50% poliéster reciclado.
-                        </span></p>
-                    </li>
-                    <li class="gelion-bold pt-1">
-                        Compartir:
-                        <div class="row pt-2">
-                            <div class="col-12">
-                                <a class="btn btn-outline-dark m-auto pr-4 pl-4">
-                                    <i class="fab fa-facebook-f pb-1 pr-2"></i>Facebook
-                                </a>
-                                <a class="btn btn-outline-dark m-auto pr-4 pl-4">
-                                    <i class="fab fa-whatsapp pb-1 pr-2"></i>Whatsapp
-                                </a>
-                            </div>
-                            
+                        <div class="btn btn-secondary gelion-bold mt-2">Comprar ahora</div>
+                        <div class="col-12 gelion-bold text-center pt-3">
+                            <p><button  id="aumentar-planes" class="gelion-bold aumentar" style="color: #000; text-decoration: none;">Quiero aumentar mi plan</button> <br>
+                                <div class="row" id="mostrar-planes">
+                                    <div class="col-12">
+                                        <p class="gelion-bold text-center">Selecciona un plan</p>
+                                    </div>
+                                    <div class="col">
+                                        <button type="checkbox" class="btn btn-primary btn-block">Start</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="checkbox" class="btn btn-primary btn-block">Plus</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="checkbox" class="btn btn-primary btn-block">Top</button>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button id="cancelar-aumento" class="btn btn-outline-dark btn-sm">Cancelar</button>
+                                </div>
+                                <span class="gelion-thin">Precio más costo de envío por cotizar</span>
+                            </p>
                         </div>
-                    </li>
-                    <li class="pt-4">
-                        <img src="{{asset('/img/catalogo/Etiqueta-de-lavado.png')}}" class="img-fluid" alt="">
-                    </li>
+                    </div>
+                    <div class="col-12 gelion-bold pt-4">
+                        <p>Política de privacidad:</p>
+                        <p class="gelion-thin size-2 text-justify">Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 999 9999 o contacto@myrewear.com</p>
+                    </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </section>
@@ -473,5 +382,6 @@
 </section>
 @push('js')
 <script src="{{asset('/js/producto.js')}}"></script>
+<script src="{{asset('/js/show.js')}}"></script>
 @endpush
 @endsection

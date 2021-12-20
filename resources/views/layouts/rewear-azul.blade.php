@@ -48,7 +48,7 @@
                       MXN
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item gelion-bold" href="#">
+                      <a class="dropdown-item gelion-bold" style="color: #fff;" href="#">
                           USD
                       </a>
                     </div>

@@ -8,8 +8,9 @@ $(document).ready(function(){
     });
 
     $('#cuenta').click(function(){
-        $('#tabs-2').show();
         $('#tabs-1').hide();
+        $('#tabs-2').show();
+        $('#tabs-3').show();
     });
     
 });
@@ -35,6 +36,21 @@ $(document).ready(function(){
         $('#f-emprendedor').hide();
         $('#f-asociacion').hide();
         $('#f-distribuidor').show();
+    });
+    
+});
+$(document).ready(function(){
+    $('#mostrar-planes').hide();
+    $('#cancelar-aumento').hide();
+    
+    $('#aumentar-planes').click(function() {
+        $('#mostrar-planes').show();
+        $('#cancelar-aumento').show();
+    });
+    
+    $('#cancelar-aumento').click(function() {
+        $('#mostrar-planes').hide();
+        $('#cancelar-aumento').hide();
     });
     
 });
