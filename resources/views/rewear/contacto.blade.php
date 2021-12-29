@@ -148,4 +148,7 @@
         </div>
     </div>
 </section>
+@push('js')
+<script src="{{asset('/js/show.js')}}"></script>
+@endpush
 @endsection
