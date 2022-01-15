@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -25,22 +26,14 @@ class ProductFactory extends Factory
     {
         $name = $this->faker->sentence(2);
         $subcategory = Subcategory::all()->random();
-        $category = $subcategory->category;
-        $brand = $category->brands->random();
-
-        if ($subcategory->color) {
-            $quantity = null;
-        } else {
-            $quantity = 15;
-        }
+        $category = Category::all()->random();
         return [
             'name' => $name,
             'slug' => Str::slug($name),
+            'measure' => $this->faker->word(),
             'description' => $this->faker->paragraph(),
-            'price' => $this->faker->randomElement([19.99, 49.99, 99.99]),
+            'category_id' => $category->id,
             'subcategory_id' => $subcategory->id,
-            'brand_id' => $brand->id,
-            'quantity' => $quantity,
             'status' => 2,
         ];
     }

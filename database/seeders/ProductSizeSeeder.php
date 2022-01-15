@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Color;
-use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Builder;
 use App\Models\Product;
+use App\Models\Size;
+use Illuminate\Database\Seeder;
 
-class ColorProductSeeder extends Seeder
+class ProductSizeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,11 +16,11 @@ class ColorProductSeeder extends Seeder
     public function run()
     {
         $products = Product::all();
-        $colors = Color::all();
+        $sizes = Size::all();
 
         foreach($products as $product){
-            foreach ($colors as $color) {
-                $product->colors()->attach($color);
+            foreach ($sizes as $size) {
+                $product->sizes()->attach($size);
             }
         }
     }

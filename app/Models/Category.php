@@ -17,11 +17,6 @@ class Category extends Model
         return $this->hasMany(Subcategory::class);
     }
 
-    //Relacion muchos a muchos
-    public function brands()
-    {
-        return $this->belongsToMany(Brand::class);
-    }
     //Relacion uno a muchos atravez de subcategorias
     public function products()
     {

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Department;
+use App\Models\Color;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DepartmentFactory extends Factory
+class ColorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Department::class;
+    protected $model = Color::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class DepartmentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word()
+            'image' => 'colors/' . $this->faker->image('public/storage/colors', 640, 480, null, false)
         ];
     }
 }

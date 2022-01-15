@@ -5,20 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ColorSize extends Model
+class ProductSize extends Model
 {
     use HasFactory;
 
-    protected $table = "color_size";
+    protected $table = "product_size";
 
     //Relacion uno a muchos inversa
-    public function color()
-    {
-        return $this->belongsTo(Color::class);
-    }
 
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    
     public function size()
     {
         return $this->belongsTo(Size::class);
     }
+
+
 }

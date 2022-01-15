@@ -56,7 +56,7 @@ Route::get('/comprar', function(){
 Route::get('/faq', function(){
     return view('rewear.faq');
 });
-//Página del blog 
+//Página del blog
 Route::get('/blog-index', function(){
     return view('rewear.blog.index');
 });
@@ -70,13 +70,13 @@ Route::get('/contacto', function(){
 });
 // COMIENZAN LAS VISTAS DE USUARIO
 //pagina de login
-Route::get('/login', function(){
+/* Route::get('/login', function(){
     return view('rewear.user.login');
-});
+}); */
 //pagina de registro
-Route::get('/register', function(){
+/* Route::get('/register', function(){
     return view('rewear.user.register');
-});
+}); */
 //pagina de cuenta
 Route::get('/mi-perfil', function(){
     return view('rewear.user.cuenta.user');
