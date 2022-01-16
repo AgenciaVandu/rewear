@@ -23,11 +23,11 @@ class Product extends Model
     //Relacion muchos a muchos
     public function colors()
     {
-        return $this->belongsToMany(Color::class)->withPivot('id', 'quantity');
+        return $this->belongsToMany(Color::class);
     }
     public function sizes()
     {
-        return $this->belongsToMany(Size::class)->withPivot('id', 'quantity');
+        return $this->belongsToMany(Size::class);
     }
 
     public function users()

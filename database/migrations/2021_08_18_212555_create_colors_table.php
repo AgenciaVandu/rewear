@@ -17,7 +17,7 @@ class CreateColorsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('bgcolor');
-            $table->string('txtColor');
+            $table->string('txtcolor');
             $table->string('image');
             $table->timestamps();
         });

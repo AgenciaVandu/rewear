@@ -21,6 +21,14 @@ class SubcategorySeeder extends Seeder
                 'name' => 'Corta',
             ],
             [
+                'category_id' => 1,
+                'name' => 'Larga',
+            ],
+            [
+                'category_id' => 2,
+                'name' => 'Corta',
+            ],
+            [
                 'category_id' => 2,
                 'name' => 'Larga',
             ],

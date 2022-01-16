@@ -1,24 +1,34 @@
 $(document).ready(function() {
-    $('#primera').show();
-    $('#segunda').hide();
-    $('#tercera').hide();
+    $('#p1').show();
+    $('#p2').hide();
+    $('#p3').hide();
+    $('#p4').hide();
 
-    $('#i-uno').click(function(){
-        $('#primera').show();
-        $('#segunda').hide();
-        $('#tercera').hide();
+    $('#i-1').click(function(){
+        $('#p1').show();
+        $('#p2').hide();
+        $('#p3').hide();
+        $('#p4').hide();
     });
 
-    $('#i-dos').click(function(){
-        $('#primera').hide();
-        $('#segunda').show();
-        $('#tercera').hide();
+    $('#i-2').click(function(){
+        $('#p1').hide();
+        $('#p2').show();
+        $('#p3').hide();
+        $('#p4').hide();
     });
 
-    $('#i-tres').click(function(){
-        $('#primera').hide();
-        $('#segunda').hide();
-        $('#tercera').show();
+    $('#i-3').click(function(){
+        $('#p1').hide();
+        $('#p2').hide();
+        $('#p3').show();
+        $('#p4').hide();
+    });
+    $('#i-4').click(function(){
+        $('#p1').hide();
+        $('#p2').hide();
+        $('#p3').hide();
+        $('#p4').show();
     });
 });
 

@@ -22,7 +22,7 @@ class ColorSeeder extends Seeder
         ],
         [
             'name'=>'blue',
-            'bgcolor' => '#fffff',
+            'bgcolor' => '#00AEF9',
             'txtcolor' => '#000000'
         ],
         ];

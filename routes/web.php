@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -34,13 +35,9 @@ Route::get('/nosotros', function(){
     return view('rewear.nosotros');
 });
 //catalogo
-Route::get('/catalogo-rewear', function(){
-    return view('rewear.catalogo.index');
-});
+Route::get('/catalogo-rewear', [CatalogueController::class,'index'])->name('catalogue.index');
 //detalle de producto
-Route::get('/catalogo-producto', function(){
-    return view('rewear.catalogo.producto');
-});
+Route::get('/catalogo-producto/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
 //Carrito / cesta
 Route::get('/cesta', function(){
     return view('rewear.catalogo.cart');
