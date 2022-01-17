@@ -36,7 +36,7 @@
                 </ul>
             </section>
         @endif
-        @livewire('admin.status-product', ['product' => $product], key('status-product-'.$product->id))
+        {{-- @livewire('admin.status-product', ['product' => $product], key('status-product-'.$product->id)) --}}
 
         <div class="bg-white shadow-lg rounded-lg p-6">
             <div class="grid grid-cols-2 gap-6 mb-4">
@@ -102,7 +102,7 @@
                     <x-jet-label value="Medidas del modelo" />
                     <x-jet-input wire:model="product.measure" type="text" placeholder="Ingrese las medidas del modelo"
                         class="w-full" />
-                        <x-jet-input-error for="product.measure"/>
+                    <x-jet-input-error for="product.measure" />
                 </div>
 
                 {{-- Talla del modelo --}}
@@ -110,16 +110,29 @@
                     <x-jet-label value="Talla del modelo" />
                     <x-jet-input wire:model="product.size" type="text" placeholder="Ingrese la talla del modelo"
                         class="w-full" />
-                        <x-jet-input-error for="product.size"/>
+                    <x-jet-input-error for="product.size" />
                 </div>
             </div>
             <div class="flex justify-end items-center mt-4">
                 <x-jet-action-message class="mr-3" on="saved">
                     Actualizado
                 </x-jet-action-message>
-                <x-jet-button wire:click="save" wire:loading.attr="disabled" wire:target="save">Actualizar producto
+                <x-jet-button wire:click="update" wire:loading.attr="disabled">Actualizar producto
                 </x-jet-button>
             </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+            <h2 class="text-xl font-bold">Colores</h2>
+            <p class="text-sm">Selecciona los diferentes colores de la prenda</p>
+            @livewire('admin.color-product', ['product' => $product],key('color-product-'.$product->id))
+        </div>
+
+
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+            <h2 class="text-xl font-bold">Tallas</h2>
+            <p class="text-sm">Selecciona las diferentes tallas de la prenda</p>
+            @livewire('admin.product-size', ['product' => $product],key('product-size'.$product->id))
         </div>
     </div>
     @push('script')
@@ -140,7 +153,7 @@
                 }
             };
 
-            Livewire.on('deleteSize', sizeId => {
+           /*  Livewire.on('deleteSize', sizeId => {
                 Swal.fire({
                     title: 'Estas seguro?',
                     text: "No podras revertir los cambios",
@@ -200,7 +213,7 @@
                         )
                     }
                 })
-            });
+            }); */
 
             Livewire.on('deleteProduct', () => {
                 Swal.fire({

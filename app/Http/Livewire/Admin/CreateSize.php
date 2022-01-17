@@ -62,7 +62,7 @@ class CreateSize extends Component
     {
         $this->reset('editImage');
         $this->resetValidation();
-        $this->color = $size;
+        $this->size = $size;
         $this->editForm['open'] = true;
         $this->editForm['name'] = $size->name;
         $this->editForm['code'] = $size->code;
@@ -77,8 +77,8 @@ class CreateSize extends Component
 
         $this->validate($rules);
 
-        $this->color->update($this->editForm);
-
+        $this->size->update($this->editForm);
+        $this->getSizes();
         $this->reset(['editForm', 'editImage']);
     }
 

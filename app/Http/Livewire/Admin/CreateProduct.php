@@ -2,17 +2,16 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Brand;
+
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
-use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
 class CreateProduct extends Component
 {
-    public $categories, $subcategories = [], $brands = [];
+    public $categories, $subcategories = [];
     public $category_id = "", $subcategory_id = "";
     public $name, $slug, $description, $measure, $size;
 

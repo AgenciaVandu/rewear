@@ -2,19 +2,17 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Subcategory;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
 class EditProduct extends Component
 {
-    public $product, $categories, $subcategories, $brands, $slug;
+    public $product, $categories, $subcategories, $slug;
     public $category_id;
 
     protected $listeners = ['refreshProduct', 'delete'];
@@ -27,7 +25,6 @@ class EditProduct extends Component
         'product.description' => 'required',
         'product.measure' => 'required',
         'product.size' => 'required',
-
     ];
 
     public function mount(Product $product)
@@ -42,7 +39,6 @@ class EditProduct extends Component
     public function updatedCategoryId($value)
     {
         $this->subcategories = Subcategory::where('category_id', $value)->get();
-        /* $this->reset(['subcategory_id', 'brand_id']); */
         $this->product->subcategory_id = "";
     }
 
@@ -61,7 +57,8 @@ class EditProduct extends Component
         $this->product = $this->product->fresh();
     }
 
-    public function save()
+
+    public function update()
     {
         $rules = $this->rules;
 
@@ -96,6 +93,7 @@ class EditProduct extends Component
 
         return redirect()->route('admin.index');
     }
+
 
     public function render()
     {

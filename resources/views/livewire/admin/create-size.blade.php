@@ -73,12 +73,12 @@
     </x-jet-action-section>
 
     <x-jet-dialog-modal wire:model="editForm.open">
-        <x-slot name="title">Editar Color</x-slot>
+        <x-slot name="title">Editar Talla</x-slot>
         <x-slot name="content">
             <div class="space-y-3">
                 <div>
                     <x-jet-label value="Nombre" />
-                    <x-jet-input wire:model="editForm.name" type="text" placeholder="Nombre de color"
+                    <x-jet-input wire:model="editForm.name" type="text" placeholder="Nombre de la talla"
                         class="w-full" />
                     <x-jet-input-error for="editForm.name" />
                 </div>

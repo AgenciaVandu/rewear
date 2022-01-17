@@ -7,7 +7,7 @@ use App\Models\Subcategory;
 
 class ProductObserver
 {
-    public function updated(Product $product)
+    /* public function updated(Product $product)
     {
         $subcategory_id = $product->subcategory_id;
         $subcategory = Subcategory::find($subcategory_id);
@@ -33,5 +33,5 @@ class ProductObserver
                 }
             }
         }
-    }
+    } */
 }

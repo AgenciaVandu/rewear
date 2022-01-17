@@ -99,7 +99,7 @@ class CreateColor extends Component
             $this->editForm['image'] = $this->editImage->store('colors');
         }
         $this->color->update($this->editForm);
-
+        $this->getColors();
         $this->reset(['editForm', 'editImage']);
     }
 
