@@ -153,68 +153,6 @@
                 }
             };
 
-           /*  Livewire.on('deleteSize', sizeId => {
-                Swal.fire({
-                    title: 'Estas seguro?',
-                    text: "No podras revertir los cambios",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Livewire.emitTo('admin.size-product', 'delete', sizeId);
-                        Swal.fire(
-                            'Eliminado!',
-                            'La talla fue eliminada.',
-                            'success'
-                        )
-                    }
-                })
-            });
-
-            Livewire.on('deletePivot', pivot => {
-                Swal.fire({
-                    title: 'Estas seguro?',
-                    text: "No podras revertir los cambios",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Livewire.emitTo('admin.color-product', 'delete', pivot);
-                        Swal.fire(
-                            'Eliminado!',
-                            'El color fue eliminado.',
-                            'success'
-                        )
-                    }
-                })
-            });
-            Livewire.on('deleteColorSize', pivot => {
-                Swal.fire({
-                    title: 'Estas seguro?',
-                    text: "No podras revertir los cambios",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Livewire.emitTo('admin.color-size', 'delete', pivot);
-                        Swal.fire(
-                            'Eliminado!',
-                            'El color fue eliminado.',
-                            'success'
-                        )
-                    }
-                })
-            }); */
-
             Livewire.on('deleteProduct', () => {
                 Swal.fire({
                     title: 'Estas seguro?',

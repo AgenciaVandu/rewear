@@ -16,7 +16,7 @@ use App\Http\Livewire\Admin\ShowCategory;
 use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\UserComponent;
 
-Route::get('/', ShowProducts::class)->name('admin.index');
+Route::get('/', ShowProducts::class)->name('admin.products');
 Route::get('products/create', CreateProduct::class)->name('admin.products.create');
 Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.edit');
 Route::post('products/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');

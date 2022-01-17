@@ -2,12 +2,20 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\ColorProduct;
+use App\Models\Image;
+use App\Models\Product;
 use Livewire\Component;
 
 class AddItemsCart extends Component
 {
-    public $product;
+    public $product,$images,$colors,$color_id="";
     public $qty=6;
+
+    public function mount(Product $product){
+        $this->images = $product->images;
+        $this->colors = $product->colors;
+    }
 
     public function increment(){
         $this->qty = $this->qty + 6;
@@ -19,9 +27,9 @@ class AddItemsCart extends Component
         }
     }
 
+    public function render(){
+        $imagesColor = Image::where('imageable_id',$this->color_id)->where('imageable_type','App\Models\ColorProduct')->get();
 
-    public function render()
-    {
-        return view('livewire.add-items-cart');
+        return view('livewire.add-items-cart',compact('imagesColor'));
     }
 }

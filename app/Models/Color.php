@@ -16,10 +16,5 @@ class Color extends Model
         return $this->belongsToMany(Product::class);
     }
 
-    //Relacion uno a muchos polimorfica
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
 
 }
