@@ -31,6 +31,7 @@ class ProductFactory extends Factory
             'name' => $name,
             'slug' => Str::slug($name),
             'measure' => $this->faker->word(),
+            'size' => $this->faker->word(),
             'description' => $this->faker->paragraph(),
             'category_id' => $category->id,
             'subcategory_id' => $subcategory->id,

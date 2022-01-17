@@ -4,7 +4,7 @@
     <li class="gelion-bold pt-2">
         <div class="row">
             <div class="col">
-                Medidas de la modelo:
+                Medidas del modelo:
             </div>
             <div class="col-8 gelion-thin">
                 {{ $product->measure }}
@@ -14,7 +14,7 @@
     <li class="gelion-bold pt-3">
         <div class="row">
             <div class="col">
-                Talla de la modelo:
+                Talla del modelo:
             </div>
             <div class="col-8 gelion-thin">
                 S
@@ -31,8 +31,7 @@
                     <select class="form-control form-control-sm">
                         <option value="" disabled selected>Selecciones un color</option>
                         @foreach ($product->colors as $color)
-                            <option class="text-capitalize" value="{{ $color->id }}">{{ __($color->name) }}
-                            </option>
+                            <option class="text-capitalize" value="{{ $color->id }}">{{ __($color->name) }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -57,7 +56,7 @@
             </div>
             <div class="col m-auto">
                 <div id="productos-carrito">
-                    <input id="menos" type="button" value="-" >
+                    <input id="menos" type="button" value="-" wire:click="decrement" >
                     <input id="cantidad" type="text" name="amount" disabled value="{{ $qty }}">
                     <input id="mas" type="button" value="+" wire:click="increment">
                 </div>

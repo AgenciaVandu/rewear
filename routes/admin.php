@@ -6,7 +6,9 @@ use App\Http\Livewire\Admin\EditProduct;
 use App\Http\Livewire\Admin\ShowProducts;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\SizeController;
 use App\Http\Livewire\Admin\BrandComponent;
 use App\Http\Livewire\Admin\CityComponent;
 use App\Http\Livewire\Admin\DepartmentComponent;
@@ -20,6 +22,8 @@ Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.
 Route::post('products/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');
 Route::get('categories', [CategoryController::class, 'index'])->name('admin.categories.index');
 Route::get('categories/{category}', ShowCategory::class)->name('admin.categories.show');
+Route::get('colors', [ColorController::class, 'index'])->name('admin.colors.index');
+Route::get('sizes', [SizeController::class, 'index'])->name('admin.sizes.index');
 Route::get('brands', BrandComponent::class, 'index')->name('admin.brands.index');
 Route::get('orders', [OrderController::class, 'index'])->name('admin.orders.index');
 Route::get('orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');

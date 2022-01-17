@@ -11,17 +11,17 @@
         <x-slot name="form">
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label value="Nombre" />
-                <x-jet-input wire:model="createForm.name" type="text" placeholder="Nombre de categoria"
+                <x-jet-input wire:model="createForm.name" type="text" placeholder="Nombre de subcategoria"
                     class="w-full" />
                 <x-jet-input-error for="createForm.name" />
             </div>
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label value="Slug" />
-                <x-jet-input wire:model="createForm.slug" disabled type="text" placeholder="Slug de categoria"
+                <x-jet-input wire:model="createForm.slug" disabled type="text" placeholder="Slug de subcategoria"
                     class="w-full bg-trueGray-100" />
                 <x-jet-input-error for="createForm.slug" />
             </div>
-            <div class="col-span-6 sm:col-span-4">
+            {{-- <div class="col-span-6 sm:col-span-4">
                 <div class="flex items-center">
                     <p>Esta subcategoria necesita especificar color?</p>
                     <div class="ml-auto">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <x-jet-input-error for="createForm.size" />
-            </div>
+            </div> --}}
         </x-slot>
 
         <x-slot name="actions">
@@ -112,13 +112,13 @@
                         class="w-full" />
                     <x-jet-input-error for="editForm.name" />
                 </div>
-                <div>
+{{--                 <div>
                     <x-jet-label value="Slug" />
                     <x-jet-input wire:model="editForm.slug" disabled type="text" placeholder="Slug de categoria"
                         class="w-full bg-trueGray-100" />
                     <x-jet-input-error for="editForm.slug" />
-                </div>
-                <div>
+                </div> --}}
+                {{-- <div>
                     <div class="flex items-center">
                         <p>Esta subcategoria necesita especificar color?</p>
                         <div class="ml-auto">
@@ -149,7 +149,7 @@
                         </div>
                     </div>
                     <x-jet-input-error for="editForm.size" />
-                </div>
+                </div> --}}
             </div>
         </x-slot>
         <x-slot name="footer">

@@ -47,22 +47,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/index.html">Inicio</a>
+                        <a class="nav-link" href="{{ route('home.index') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/nosotros.html">Nosotros</a>
+                        <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog/index.html">Blog</a>
+                        <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/faq.html">FAQ</a>
+                        <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contacto.html">Contacto</a>
+                        <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
                     </li>
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"

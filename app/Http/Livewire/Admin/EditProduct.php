@@ -25,9 +25,8 @@ class EditProduct extends Component
         'product.name' => 'required',
         'slug' => 'required|unique:products,slug',
         'product.description' => 'required',
-        'product.brand_id' => 'required',
-        'product.price' => 'required',
-        'product.quantity' => 'numeric',
+        'product.measure' => 'required',
+        'product.size' => 'required',
 
     ];
 
@@ -38,20 +37,13 @@ class EditProduct extends Component
         $this->category_id = $product->subcategory->category->id;
         $this->subcategories = Subcategory::where('category_id', $this->category_id)->get();
         $this->slug = $this->product->slug;
-        $this->brands = Brand::whereHas('categories', function (Builder $query) {
-            $query->where('category_id', $this->category_id);
-        })->get();
     }
 
     public function updatedCategoryId($value)
     {
         $this->subcategories = Subcategory::where('category_id', $value)->get();
-        $this->brands = Brand::whereHas('categories', function (Builder $query) use ($value) {
-            $query->where('category_id', $value);
-        })->get();
         /* $this->reset(['subcategory_id', 'brand_id']); */
         $this->product->subcategory_id = "";
-        $this->product->brand_id = "";
     }
 
     public function updatedProductName($value)
@@ -75,11 +67,6 @@ class EditProduct extends Component
 
         $rules['slug'] = 'required|unique:products,slug,' . $this->product->id;
 
-        if ($this->product->subcategory_id) {
-            if (!$this->subcategory->color && !$this->subcategory->size) {
-                $rules['product.quantity'] = 'required|numeric';
-            }
-        }
         $this->validate($rules);
 
         $this->product->slug = $this->slug;

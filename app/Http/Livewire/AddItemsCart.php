@@ -12,6 +12,14 @@ class AddItemsCart extends Component
     public function increment(){
         $this->qty = $this->qty + 6;
     }
+
+    public function decrement(){
+        if ($this->qty > 6) {
+            $this->qty = $this->qty - 6;
+        }
+    }
+
+
     public function render()
     {
         return view('livewire.add-items-cart');

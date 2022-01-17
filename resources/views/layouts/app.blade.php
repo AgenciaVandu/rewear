@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/FlexSlider/flexslider.css') }}">
     @livewireStyles
 
+
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
     {{-- Glider --}}
@@ -35,7 +36,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     {{-- Flexslider --}}
     <script src="{{ asset('vendor/FlexSlider/jquery.flexslider-min.js') }}"></script>
-
+    @stack('css')
 </head>
 
 <body class="font-sans antialiased">

@@ -13,8 +13,8 @@ use Illuminate\Support\Str;
 class CreateProduct extends Component
 {
     public $categories, $subcategories = [], $brands = [];
-    public $category_id = "", $subcategory_id = "", $brand_id = "";
-    public $name, $slug, $description, $price, $quantity;
+    public $category_id = "", $subcategory_id = "";
+    public $name, $slug, $description, $measure, $size;
 
     protected $rules = [
         'category_id' => 'required',
@@ -22,9 +22,6 @@ class CreateProduct extends Component
         'name' => 'required',
         'slug' => 'required|unique:products',
         'description' => 'required',
-        'brand_id' => 'required',
-        'price' => 'required',
-
     ];
 
     public function mount()
@@ -40,10 +37,7 @@ class CreateProduct extends Component
     public function updatedCategoryId($value)
     {
         $this->subcategories = Subcategory::where('category_id', $value)->get();
-        $this->brands = Brand::whereHas('categories', function (Builder $query) use ($value) {
-            $query->where('category_id', $value);
-        })->get();
-        $this->reset(['subcategory_id', 'brand_id']);
+        $this->reset(['subcategory_id']);
     }
 
     public function getSubcategoryProperty()
@@ -53,27 +47,18 @@ class CreateProduct extends Component
 
     public function save()
     {
-        $rules = $this->rules;
-        if ($this->subcategory_id) {
-            if (!$this->subcategory->color && !$this->subcategory->size) {
-                $rules['quantity'] = 'required';
-            }
-        }
-        $this->validate($rules);
+        $this->validate();
 
         $product = new Product();
 
         $product->name = $this->name;
         $product->slug = $this->slug;
         $product->description = $this->description;
+        $product->category_id = $this->category_id;
         $product->subcategory_id = $this->subcategory_id;
-        $product->brand_id = $this->brand_id;
-        $product->price = $this->price;
-        if ($this->subcategory_id) {
-            if (!$this->subcategory->color && !$this->subcategory->size) {
-                $product->quantity = $this->quantity;
-            }
-        }
+        $product->measure = $this->measure;
+        $product->size = $this->size;
+
         $product->save();
 
         return redirect()->route('admin.products.edit', $product);

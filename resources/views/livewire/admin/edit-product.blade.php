@@ -96,39 +96,23 @@
                 </div>
                 <x-jet-input-error for="product.description" />
             </div>
-
             <div class="grid grid-cols-2 gap-6 mb-4">
-                {{-- Marca --}}
+                {{-- Medidas del modelo --}}
                 <div class="mb-4">
-                    <x-jet-label value="Marca" />
-                    <select class="w-full form-control" wire:model="product.brand_id">
-                        <option value="" selected disabled>Selecciona una marca</option>
-                        @foreach ($brands as $brand)
-                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
-                        @endforeach
-                    </select>
-                    <x-jet-input-error for="product.brand_id" />
+                    <x-jet-label value="Medidas del modelo" />
+                    <x-jet-input wire:model="product.measure" type="text" placeholder="Ingrese las medidas del modelo"
+                        class="w-full" />
+                        <x-jet-input-error for="product.measure"/>
                 </div>
-                {{-- Precio --}}
+
+                {{-- Talla del modelo --}}
                 <div class="mb-4">
-                    <x-jet-label value="Precio" />
-                    <x-jet-input wire:model="product.price" type="number" placeholder="Ingrese el precio del producto"
-                        class="w-full" step=".01" />
-                    <x-jet-input-error for="product.price" />
+                    <x-jet-label value="Talla del modelo" />
+                    <x-jet-input wire:model="product.size" type="text" placeholder="Ingrese la talla del modelo"
+                        class="w-full" />
+                        <x-jet-input-error for="product.size"/>
                 </div>
             </div>
-            @if ($this->subcategory)
-                @if (!$this->subcategory->color && !$this->subcategory->size)
-                    {{-- Precio --}}
-                    <div class="mb-4">
-                        <x-jet-label value="Stock" />
-                        <x-jet-input wire:model="product.quantity" type="number"
-                            placeholder="Ingrese el stock del producto" class="w-full" />
-                        <x-jet-input-error for="product.quantity" />
-                    </div>
-                @endif
-            @endif
-
             <div class="flex justify-end items-center mt-4">
                 <x-jet-action-message class="mr-3" on="saved">
                     Actualizado
@@ -137,14 +121,6 @@
                 </x-jet-button>
             </div>
         </div>
-
-        @if ($this->subcategory)
-            @if ($this->subcategory->size)
-                @livewire('admin.size-product', ['product' => $product], key('size-product-'.$product->id))
-            @elseif($this->subcategory->color)
-                @livewire('admin.color-product', ['product' => $product], key('color-product-'.$product->id))
-            @endif
-        @endif
     </div>
     @push('script')
         <script>

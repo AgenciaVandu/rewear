@@ -2,30 +2,29 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Brand;
-use App\Models\Category;
+use App\Models\Color;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 
-class CreateCategory extends Component
+class CreateColor extends Component
 {
     use WithFileUploads;
 
-    public $rand, $categories, $category;
+    public $rand, $colors, $color;
     protected $listeners = ['delete'];
     public $createForm = [
         'name' => null,
-        'slug' => null,
+        'bgcolor' => '#000000 ',
+        'txtcolor' => '#FFFFFF',
         'image' => null,
-
     ];
 
     public $editForm = [
         'open' => false,
         'name' => null,
-        'slug' => null,
+        'bgcolor' => null,
+        'txtcolor' => null,
         'image' => null,
     ];
 
@@ -33,66 +32,60 @@ class CreateCategory extends Component
 
     protected $rules = [
         'createForm.name' => 'required',
-        'createForm.slug' => 'required|unique:categories,slug',
+        'createForm.bgcolor' => 'required',
+        'createForm.txtcolor' => 'required',
         'createForm.image' => 'required|image|max:1024',
     ];
 
 
     public function mount()
     {
-        $this->getCategories();
+        $this->getColors();
         $this->rand = rand();
     }
 
-    public function getCategories()
+    public function getColors()
     {
-        $this->categories = Category::all();
-    }
-
-    public function updatedCreateFormName($value)
-    {
-        $this->createForm['slug'] = Str::slug($value);
-    }
-
-    public function updatedEditFormName($value)
-    {
-        $this->editForm['slug'] = Str::slug($value);
+        $this->colors = Color::all();
     }
 
     public function save()
     {
         $this->validate();
 
-        $image = $this->createForm['image']->store('categories');
+        $image = $this->createForm['image']->store('colors');
 
-        $category = Category::create([
+        $color = Color::create([
             'name' => $this->createForm['name'],
-            'slug' => $this->createForm['slug'],
+            'bgcolor' => $this->createForm['bgcolor'],
+            'txtcolor' => $this->createForm['txtcolor'],
             'image' => $image,
         ]);
 
         $this->rand = rand();
-        $this->getCategories();
+        $this->getColors();
         $this->reset('createForm');
         $this->emit('saved');
     }
 
-    public function edit(Category $category)
+    public function edit(Color $color)
     {
         $this->reset('editImage');
         $this->resetValidation();
-        $this->category = $category;
+        $this->color = $color;
         $this->editForm['open'] = true;
-        $this->editForm['name'] = $category->name;
-        $this->editForm['slug'] = $category->slug;
-        $this->editForm['image'] = $category->image;
+        $this->editForm['name'] = $color->name;
+        $this->editForm['bgcolor'] = $color->bgcolor;
+        $this->editForm['txtcolor'] = $color->txtcolor;
+        $this->editForm['image'] = $color->image;
     }
 
     public function update()
     {
         $rules = [
             'editForm.name' => 'required',
-            'editForm.slug' => 'required|unique:categories,slug,' . $this->category->id,
+            'editForm.bgcolor' => 'required',
+            'editForm.txtcolor' => 'required',
         ];
 
         if ($this->editImage) {
@@ -103,22 +96,22 @@ class CreateCategory extends Component
 
         if ($this->editImage) {
             Storage::delete($this->editForm['image']);
-            $this->editForm['image'] = $this->editImage->store('categories');
+            $this->editForm['image'] = $this->editImage->store('colors');
         }
-        $this->category->update($this->editForm);
+        $this->color->update($this->editForm);
 
         $this->reset(['editForm', 'editImage']);
-        $this->getCategories();
     }
 
-    public function delete(Category $category)
+    public function delete(Color $color)
     {
-        $category->delete();
-        $this->getCategories();
+        $color->delete();
+        $this->getColors();
     }
+
 
     public function render()
     {
-        return view('livewire.admin.create-category');
+        return view('livewire.admin.create-color');
     }
 }

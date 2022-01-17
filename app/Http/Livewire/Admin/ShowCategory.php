@@ -15,24 +15,24 @@ class ShowCategory extends Component
 
     public $createForm = [
         'name' => null,
-        'slug' => null,
+/*         'slug' => null,
         'color' => false,
-        'size' => false,
+        'size' => false, */
     ];
 
     public $editForm = [
         'open' => false,
         'name' => null,
-        'slug' => null,
+/*         'slug' => null,
         'color' => false,
-        'size' => false,
+        'size' => false, */
     ];
 
     protected $rules = [
         'createForm.name' => 'required',
-        'createForm.slug' => 'required|unique:subcategories,slug',
+/*         'createForm.slug' => 'required|unique:subcategories,slug',
         'createForm.color' => 'required',
-        'createForm.size' => 'required',
+        'createForm.size' => 'required', */
     ];
 
     public function mount(Category $category)
@@ -70,9 +70,9 @@ class ShowCategory extends Component
         $this->subcategory = $subcategory;
         $this->editForm['open'] = true;
         $this->editForm['name'] = $subcategory->name;
-        $this->editForm['slug'] = $subcategory->slug;
+/*         $this->editForm['slug'] = $subcategory->slug;
         $this->editForm['color'] = $subcategory->color;
-        $this->editForm['size'] = $subcategory->size;
+        $this->editForm['size'] = $subcategory->size; */
 
         $this->resetValidation();
     }
@@ -81,9 +81,7 @@ class ShowCategory extends Component
     {
         $this->validate([
             'editForm.name' => 'required',
-            'editForm.slug' => 'required|unique:subcategories,slug,' . $this->subcategory->id,
-            'editForm.color' => 'required',
-            'editForm.size' => 'required',
+            /* 'editForm.slug' => 'required|unique:subcategories,slug,' . $this->subcategory->id, */
         ]);
 
         $this->subcategory->update($this->editForm);

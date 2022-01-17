@@ -21,7 +21,7 @@ class CatalogueFilter extends Component
         $this->sizes = Size::all();
         $this->categories = Category::all();
         $this->subcategories = Subcategory::where('category_id',$this->category_id)->get();
-        $this->products = Product::all();
+        $this->products = Product::where('status',2)->get();
     }
 
     public function filter(){
@@ -39,7 +39,8 @@ class CatalogueFilter extends Component
                 $query->where('size_id',$this->size_id);
             });
         }
-        $this->products = $productsQuery->get();
+
+        $this->products = $productsQuery->where('status',2)->get();
     }
 
     public function getSubcategories(){
