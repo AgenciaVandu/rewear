@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
@@ -40,9 +41,7 @@ Route::get('/catalogo-rewear', [CatalogueController::class,'index'])->name('cata
 //detalle de producto
 Route::middleware(['auth'])->get('/catalogo-producto/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
 //Carrito / cesta
-Route::get('/cesta', function(){
-    return view('rewear.catalogo.cart');
-});
+Route::get('/cesta',[CartController::class,'index'])->name('cart.index');
 //Carrito / vacio
 Route::get('/cesta-vacia', function(){
     return view('rewear.catalogo.empty-cart');

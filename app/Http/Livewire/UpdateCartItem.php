@@ -12,22 +12,34 @@ class UpdateCartItem extends Component
 
     public function mount()
     {
-        $item = Cart::get($this->rowId);
+        $item = Cart::instance('caja1')->get($this->rowId);
         $this->qty = $item->qty;
         $this->quantity = qty_available($item->id);
     }
 
     public function decrement()
     {
-        $this->qty -= 1;
-        Cart::update($this->rowId, $this->qty);
+        if ($this->qty > 6) {
+            $this->qty = $this->qty - 6;
+        }
+        Cart::instance('caja1')->update($this->rowId, $this->qty);
         $this->emit('render');
     }
 
     public function increment()
     {
-        $this->qty += 1;
-        Cart::update($this->rowId, $this->qty);
+        switch (session()->get('plan')) {
+            case '1':
+                if (Cart::instance('caja1')->count()+$this->qty >= 72) {
+                    $this->qty += 6;
+                }
+                break;
+
+            default:
+                # code...
+                break;
+        }
+        Cart::instance('caja1')->update($this->rowId, $this->qty);
         $this->emit('render');
     }
 

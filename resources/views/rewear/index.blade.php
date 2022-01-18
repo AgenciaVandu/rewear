@@ -143,9 +143,24 @@
                                             <span class="gelion-thin size-1">Por pieza. IVA incluído.</span>
                                         </h3>
                                         <h2 class="gelion-bold">{{ $plan->name }}</h2>
-                                        <p class="gelion-thin" style="text-align:justify;">Ideal para emprendedores y
-                                            negocios en crecimiento. Todo listo para que inicies con el mejor proyecto de tu
-                                            vida.</p>
+                                        <p class="gelion-thin" style="text-align:justify;">
+                                            @switch($plan->id)
+                                                @case(1)
+                                                    Ideal para emprendedores y
+                                                    negocios en crecimiento. Todo listo para que inicies con el mejor proyecto
+                                                    de tu
+                                                    vida.
+                                                @break
+                                                @case(2)
+                                                    No te quedes sin stock. Incrementa tus posibilidades y capta más clientes
+                                                    con una nueva línea sustentable.
+                                                @break
+                                                @case(3)
+                                                    Perfecto para todo profesional de la industria de la moda. Personaliza o
+                                                    distribuye las mejores camisetas para cuidar el planeta.
+                                                @break
+                                            @endswitch
+                                        </p>
                                         <li class="gelion-bold pt-2">
                                             <div class="row">
                                                 <div class="col-2">
@@ -157,7 +172,18 @@
                                                     </svg>
                                                 </div>
                                                 <div class="col-10">
-                                                    1 caja de 72 camisetas
+                                                    @switch($plan->id)
+                                                        @case(1)
+                                                            1 caja de 72 camisetas
+                                                        @break
+                                                        @case(2)
+                                                            2 cajas (144 camisetas)<br>o 3 cajas (216 camisetas).
+                                                        @break
+                                                        @case(3)
+                                                            4 cajas (288 camisetas) <br> o las que necesites
+                                                        @break
+
+                                                    @endswitch
                                                 </div>
                                             </div>
                                         </li>
@@ -172,7 +198,18 @@
                                                     </svg>
                                                 </div>
                                                 <div class="col-10">
-                                                    Elige 2 colores
+                                                    @switch($plan->id)
+                                                        @case(1)
+                                                            Elige 2 colores
+                                                        @break
+                                                        @case(2)
+                                                            Elige 6 colores
+                                                        @break
+                                                        @case(3)
+                                                            Elige 6 colores
+                                                        @break
+
+                                                    @endswitch
                                                 </div>
                                             </div>
                                         </li>

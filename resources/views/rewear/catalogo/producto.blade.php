@@ -8,8 +8,8 @@
         <div class="container">
             <div class="product-inner">
 
-                    @livewire('add-items-cart', ['product' => $product])
-                
+                @livewire('add-items-cart', ['product' => $product])
+
             </div>
         </div>
     </section>
@@ -22,16 +22,16 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="card espacio-card">
                                 <div class="contenedor-1">
-                                    <a href="">
+                                    <a href="{{ route('catalogue.product', $product) }}">
                                         <img src="{{ Storage::url($product->images->first()->url) }}"
                                             class="img-fluid" alt="Productos del catálogo">
                                     </a>
-                                    <a href="">
+                                    <a href="{{ route('catalogue.product', $product) }}">
                                         <img src="{{ Storage::url($product->images->last()->url) }}"
                                             class="top img-fluid" alt="Productos del catálogo">
                                     </a>
                                 </div>
-                                <a href="" style="color: #000; text-decoration: none;">
+                                <a href="{{ route('catalogue.product', $product) }}" style="color: #000; text-decoration: none;">
                                     <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
                                 </a>
                                 <li class="gelion-bold size-2">{!! $product->description !!}</li>
@@ -58,11 +58,11 @@
                         <div class="col-md-6">
                             <div class="card espacio-card">
                                 <div class="contenedor-4">
-                                    <a href="/catalogo/producto.html">
+                                    <a href="{{ route('catalogue.product', $product) }}">
                                         <img src="{{ Storage::url($product->images->first()->url) }}"
                                             class="fill img-fluid" alt="Productos del catálogo">
                                     </a>
-                                    <a href="/catalogo/producto.html">
+                                    <a href="{{ route('catalogue.product', $product) }}">
                                         <img src="{{ Storage::url($product->images->last()->url) }}"
                                             class="top fill img-fluid" alt="Productos del catálogo">
                                     </a>
@@ -96,11 +96,11 @@
                                 <div class="col-6">
                                     <div class="card espacio-card">
                                         <div class="contenedor-2">
-                                            <a href="/catalogo/producto.html">
+                                            <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($product->images->first()->url) }}"
                                                     class="img-fluid" alt="Productos del catálogo">
                                             </a>
-                                            <a href="/catalogo/producto.html">
+                                            <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($product->images->last()->url) }}"
                                                     class="top-1 img-fluid" alt="Productos del catálogo">
                                             </a>

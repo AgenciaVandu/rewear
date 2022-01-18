@@ -92,7 +92,6 @@
             <div class="row">
                 <div class="col m-auto">
                     Colores disponibles
-                    {{ $color_id }}
                 </div>
                 <div class="col-8 gelion-thin">
                     <div class="btn-group">
@@ -117,7 +116,6 @@
                     </label>
                 @endforeach
             </div>
-            {{ $size_id }}
         </li>
         <li class="gelion-bold pt-3 text-left productos-carrito">
             <div class="row pb-2">
@@ -141,21 +139,15 @@
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col">
-
                     <button wire:click="addItems" class="btn btn-secondary" @if (!($color_id && $size_id)) disabled @endif>
                         Agregar prenda
                     </button>
-
-                    {{-- @foreach (Cart::instance('caja1')->content() as $item)
-                        {{ $item->options->size_id }}
-                    @endforeach --}}
-
-                    {{ $color_limite }}
                 </div>
                 <div class="col gelion-bold m-auto">
                     <a href="" style="color: #000; text-decoration: none;"> Tabla de medidas</a>
                 </div>
             </div>
+            <small class="gelion-regular">* Debes seleccionar un color y talla para poder agregar a tu cesta</small>
         </li>
         <li class="gelion-bold pt-3">
             <p><img src="/img/catalogo/hoja-1.svg" alt="Producto ecológico">
