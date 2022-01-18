@@ -19,7 +19,7 @@
                             </div>
                         @endforeach
                     </div>
-                    @else
+                @else
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         @foreach ($imagesColor as $image)
                             <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
@@ -58,6 +58,14 @@
         <!--Movil images-->
     </div>
     <div class="col-lg-6 col-md-12 col-sm-12">
+        @if (session()->has('message'))
+            <div class="alert alert-warning alert-dismissible fade show " role="alert">
+                {!! session('message') !!}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <h1 class="gelion-bold">{{ $product->name }}</h1>
         <p class="gelion-thin" style="color: gray;">{!! $product->description !!}</p>
         <li class="gelion-bold pt-2">
@@ -84,13 +92,15 @@
             <div class="row">
                 <div class="col m-auto">
                     Colores disponibles
+                    {{ $color_id }}
                 </div>
                 <div class="col-8 gelion-thin">
                     <div class="btn-group">
                         <select wire:model="color_id" class="form-control form-control-sm">
                             <option value="" disabled selected>Selecciones un color</option>
                             @foreach ($product->colors as $color)
-                                <option class="text-capitalize" value="{{ $color->pivot->id }}">{{ __($color->name) }}
+                                <option class="text-capitalize" value="{{ $color->pivot->id }}">
+                                    {{ __($color->name) }}
                                 </option>
                             @endforeach
                         </select>
@@ -102,10 +112,12 @@
             <div class="btn-group btn-group-toggle" data-toggle="buttons" wire:ignore>
                 @foreach ($product->sizes as $size)
                     <label class="btn btn-outline-dark">
-                        <input type="radio" name="sizes" value="{{ $size->id }}"> {{ $size->code }}
+                        <input type="radio" wire:model="size_id" name="sizes" value="{{ $size->id }}">
+                        {{ $size->code }}
                     </label>
                 @endforeach
             </div>
+            {{ $size_id }}
         </li>
         <li class="gelion-bold pt-3 text-left productos-carrito">
             <div class="row pb-2">
@@ -129,9 +141,16 @@
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col">
-                    <a href="/catalogo/cart.html" class="btn btn-secondary">
+
+                    <button wire:click="addItems" class="btn btn-secondary" @if (!($color_id && $size_id)) disabled @endif>
                         Agregar prenda
-                    </a>
+                    </button>
+
+                    {{-- @foreach (Cart::instance('caja1')->content() as $item)
+                        {{ $item->options->size_id }}
+                    @endforeach --}}
+
+                    {{ $color_limite }}
                 </div>
                 <div class="col gelion-bold m-auto">
                     <a href="" style="color: #000; text-decoration: none;"> Tabla de medidas</a>

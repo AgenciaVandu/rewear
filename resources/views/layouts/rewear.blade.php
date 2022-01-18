@@ -135,7 +135,7 @@
                         </div>
                     </div>
                     <li class="nav-item pr-3">
-                        <a class="nav-link" href="/user/login.html">
+                        <a class="nav-link" href="{{ route('profile.index') }}">
                             <i class="fas fa-user"></i>
                         </a>
                     </li>

@@ -33,10 +33,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class,'index'])->name('home.index');
 //nosotros
 Route::get('/nosotros', [PageController::class,'about'])->name('about');
+
+Route::get('/plan/{plan}', [PageController::class,'setPlan'])->name('plan');
 //catalogo
 Route::get('/catalogo-rewear', [CatalogueController::class,'index'])->name('catalogue.index');
 //detalle de producto
-Route::get('/catalogo-producto/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
+Route::middleware(['auth'])->get('/catalogo-producto/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
 //Carrito / cesta
 Route::get('/cesta', function(){
     return view('rewear.catalogo.cart');
@@ -61,16 +63,16 @@ Route::get('/contacto', [PageController::class,'contact'])->name('contact');
 // COMIENZAN LAS VISTAS DE USUARIO
 //pagina de login
 /* Route::get('/login', function(){
-    return view('rewear.user.login');
+    return view('auth.login');
 }); */
 //pagina de registro
 /* Route::get('/register', function(){
     return view('rewear.user.register');
 }); */
 //pagina de cuenta
-Route::get('/mi-perfil', function(){
+Route::middleware(['auth'])->get('/mi-perfil', function(){
     return view('rewear.user.cuenta.user');
-});
+})->name('profile.index');
 Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
@@ -86,6 +88,10 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::post('webhooks', WebhooksController::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 
 /* Route::get('prueba', function () {

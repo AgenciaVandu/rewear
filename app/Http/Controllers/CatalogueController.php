@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class CatalogueController extends Controller
 {
     public function index(){
+            
             return view('rewear.catalogo.index');
     }
 

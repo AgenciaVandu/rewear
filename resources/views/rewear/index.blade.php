@@ -130,441 +130,164 @@
                     </div>
 
                     <!--Planes-->
-                    <div class="d-none d-sm-none d-md-block d-lg-block">
+                    <div class="d-none d-sm-none d-md-block d-lg-block" id="planes">
                         <div class="row pt-5 espacio-4">
-                            <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                <!--uno-->
-                                <div class="card espacio-1">
-                                    <div class="icon pt-2 pb-3">
-                                        <img src="{{ asset('/img/index/box.svg') }}" width="70" alt="icono box">
-                                    </div>
-                                    <h3 class="gelion-bold espacio-2">$100.00 MXN <br>
-                                        <span class="gelion-thin size-1">Por pieza. IVA incluído.</span>
-                                    </h3>
-                                    <h2 class="gelion-bold">Plan Start</h2>
-                                    <p class="gelion-thin" style="text-align:justify;">Ideal para emprendedores y
-                                        negocios en crecimiento. Todo listo para que inicies con el mejor proyecto de tu
-                                        vida.</p>
-                                    <li class="gelion-bold pt-2">
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div class="col-10">
-                                                1 caja de 72 camisetas
-                                            </div>
+                            @foreach ($plans->except(session('plan')) as $plan)
+                                <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
+                                    <!--uno-->
+                                    <div class="card espacio-1">
+                                        <div class="icon pt-2 pb-3">
+                                            <img src="{{ asset('/img/index/box.svg') }}" width="70" alt="icono box">
                                         </div>
-                                    </li>
-                                    <li class="gelion-bold pt-3">
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
+                                        <h3 class="gelion-bold espacio-2">{{ $plan->price }} MXN <br>
+                                            <span class="gelion-thin size-1">Por pieza. IVA incluído.</span>
+                                        </h3>
+                                        <h2 class="gelion-bold">{{ $plan->name }}</h2>
+                                        <p class="gelion-thin" style="text-align:justify;">Ideal para emprendedores y
+                                            negocios en crecimiento. Todo listo para que inicies con el mejor proyecto de tu
+                                            vida.</p>
+                                        <li class="gelion-bold pt-2">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                </div>
+                                                <div class="col-10">
+                                                    1 caja de 72 camisetas
+                                                </div>
                                             </div>
-                                            <div class="col-10">
-                                                Elige 2 colores
+                                        </li>
+                                        <li class="gelion-bold pt-3">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                </div>
+                                                <div class="col-10">
+                                                    Elige 2 colores
+                                                </div>
                                             </div>
+                                        </li>
+                                        <li class="gelion-bold pt-3" style="padding-bottom: 1.2em;">
+                                            <div class="row">
+                                                <div class="col-2 m-auto">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                </div>
+                                                <div class="col-10">
+                                                    50% algodón reciclado pre-consumo + 50% poliéster reciclado (RPET) <br>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <div class="boton text-center mt-4">
+                                            <a href="{{ route('plan', $plan) }}"
+                                                class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
+                                                style="font-size: 1.3rem;">¡lo quiero!</a>
                                         </div>
-                                    </li>
-                                    <li class="gelion-bold pt-3" style="padding-bottom: 1.2em;">
-                                        <div class="row">
-                                            <div class="col-2 m-auto">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div class="col-10">
-                                                50% algodón reciclado pre-consumo + 50% poliéster reciclado (RPET) <br>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <div class="boton text-center mt-4">
-                                        <a href="" class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                            style="font-size: 1.3rem;">¡lo quiero!</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                <!--dos-->
-                                <div class="card espacio-1">
-                                    <div class="icon pt-2 pb-3">
-                                        <img src="{{ asset('/img/index/box.svg') }}" width="70" alt="icono box">
-                                    </div>
-                                    <h3 class="gelion-bold espacio-2">$90.00 MXN <br>
-                                        <span class="gelion-thin size-1">Por pieza. IVA incluído.</span>
-                                    </h3>
-                                    <h2 class="gelion-bold">Plan Plus</h2>
-                                    <p class="gelion-thin" style="text-align:justify;">No te quedes sin stock.
-                                        Incrementa tus posibilidades y capta más clientes con una nueva línea sustentable.
-                                    </p>
-                                    <li class="gelion-bold pt-2">
-                                        <div class="row">
-                                            <div class="col-2 m-auto">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div class="col-10">
-                                                2 cajas (144 camisetas)<br>o 3 cajas (216 camisetas).
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="gelion-bold pt-3">
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div class="col-10">
-                                                Elige 6 colores
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="gelion-bold pt-3">
-                                        <div class="row">
-                                            <div class="col-2 m-auto">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div class="col-10">
-                                                50% algodón reciclado pre-consumo + 50% poliéster reciclado (RPET)
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <div class="boton text-center mt-4">
-                                        <a href="" class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                            style="font-size: 1.3rem;">¡lo quiero!</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                <!--tres-->
-                                <div class="card espacio-1">
-                                    <div class="icon pt-2 pb-3">
-                                        <img src="{{ asset('/img/index/box.svg') }}" width="70" alt="icono box">
-                                    </div>
-                                    <h3 class="gelion-bold espacio-2">$80.00 MXN <br>
-                                        <span class="gelion-thin size-1">Por pieza. IVA incluído.</span>
-                                    </h3>
-                                    <h2 class="gelion-bold">Plan Start</h2>
-                                    <p class="gelion-thin" style="text-align:justify;">Perfecto para todo profesional de
-                                        la industria de la moda. Personaliza o distribuye las mejores camisetas para cuidar
-                                        el planeta.</p>
-                                    <li class="gelion-bold pt-2">
-                                        <div class="row">
-                                            <div class="col-2 m-auto">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div class="col-10">
-                                                4 cajas (288 camisetas) <br> o las que necesites
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="gelion-bold pt-3">
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div class="col-10">
-                                                Elige 2 colores
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="gelion-bold pt-3">
-                                        <div class="row">
-                                            <div class="col-2 m-auto">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div class="col-10">
-                                                50% algodón reciclado pre-consumo + 50% poliéster reciclado (RPET)
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <div class="boton text-center mt-4">
-                                        <a href="" class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                            style="font-size: 1.3rem;">¡lo quiero!</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="d-block d-sm-block d-md-none d-lg-none">
                         <div class="carousel">
                             <div class="carousel__contenedor">
                                 <div class="carousel__lista1">
-                                    <div class="carousel__elemento m-1">
-                                        <div class=" p-4">
-                                            <!--Contenido de ordenes movil-->
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                                    <!--uno-->
-                                                    <div class="card espacio-1">
-                                                        <div class="icon pt-2 pb-3">
-                                                            <img src="{{ asset('/img/index/box.svg') }}" width="70"
-                                                                alt="icono box">
-                                                        </div>
-                                                        <h3 class="gelion-bold espacio-2">$100.00 MXN <br>
-                                                            <span class="gelion-thin size-1">Por pieza. IVA
-                                                                incluído.</span>
-                                                        </h3>
-                                                        <h2 class="gelion-bold">Plan Start</h2>
-                                                        <p class="gelion-thin" style="text-align:justify;">Ideal para
-                                                            emprendedores y negocios en crecimiento. Todo listo para que
-                                                            inicies con el mejor proyecto de tu vida.</p>
-                                                        <li class="gelion-bold pt-2">
-                                                            <div class="row">
-                                                                <div class="col-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
-                                                                </div>
-                                                                <div class="col-10">
-                                                                    1 caja de 72 camisetas
-                                                                </div>
+                                    @foreach ($plans as $plan)
+                                        <div class="carousel__elemento m-1">
+                                            <div class=" p-4">
+                                                <!--Contenido de ordenes movil-->
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                                        <!--uno-->
+                                                        <div class="card espacio-1">
+                                                            <div class="icon pt-2 pb-3">
+                                                                <img src="{{ asset('/img/index/box.svg') }}" width="70"
+                                                                    alt="icono box">
                                                             </div>
-                                                        </li>
-                                                        <li class="gelion-bold pt-3">
-                                                            <div class="row">
-                                                                <div class="col-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
+                                                            <h3 class="gelion-bold espacio-2">${{ $plan->price }} MXN
+                                                                <br>
+                                                                <span class="gelion-thin size-1">Por pieza. IVA
+                                                                    incluído.</span>
+                                                            </h3>
+                                                            <h2 class="gelion-bold">{{ $plan->name }}</h2>
+                                                            <p class="gelion-thin" style="text-align:justify;">Ideal
+                                                                para
+                                                                emprendedores y negocios en crecimiento. Todo listo para que
+                                                                inicies con el mejor proyecto de tu vida.</p>
+                                                            <li class="gelion-bold pt-2">
+                                                                <div class="row">
+                                                                    <div class="col-2">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            class="h-5 w-5" viewBox="0 0 20 20"
+                                                                            fill="currentColor">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="col-10">
+                                                                        1 caja de 72 camisetas
+                                                                    </div>
                                                                 </div>
-                                                                <div class="col-10">
-                                                                    Elige 2 colores
+                                                            </li>
+                                                            <li class="gelion-bold pt-3">
+                                                                <div class="row">
+                                                                    <div class="col-2">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            class="h-5 w-5" viewBox="0 0 20 20"
+                                                                            fill="currentColor">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="col-10">
+                                                                        Elige 2 colores
+                                                                    </div>
                                                                 </div>
+                                                            </li>
+                                                            <li class="gelion-bold pt-3" style="padding-bottom: 1.2em;">
+                                                                <div class="row">
+                                                                    <div class="col-2 m-auto">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            class="h-5 w-5" viewBox="0 0 20 20"
+                                                                            fill="currentColor">
+                                                                            <path fill-rule="evenodd"
+                                                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                                                clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="col-10">
+                                                                        50% algodón reciclado pre-consumo + 50% poliéster
+                                                                        reciclado (RPET) <br>
+                                                                    </div>
+                                                                </div>
+                                                            </li><br>
+                                                            <div class="boton text-center mt-4">
+                                                                <a href="{{ route('plan', $plan) }}"
+                                                                    class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
+                                                                    style="font-size: 1.3rem;">¡lo quiero!</a>
                                                             </div>
-                                                        </li>
-                                                        <li class="gelion-bold pt-3" style="padding-bottom: 1.2em;">
-                                                            <div class="row">
-                                                                <div class="col-2 m-auto">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
-                                                                </div>
-                                                                <div class="col-10">
-                                                                    50% algodón reciclado pre-consumo + 50% poliéster
-                                                                    reciclado (RPET) <br>
-                                                                </div>
-                                                            </div>
-                                                        </li><br>
-                                                        <div class="boton text-center mt-4">
-                                                            <a href=""
-                                                                class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                                                style="font-size: 1.3rem;">¡lo quiero!</a>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carrusel__elemento m-1">
-                                        <div class="p-4">
-                                            <!--Contenido de ordenes movil-->
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                                    <!--dos-->
-                                                    <div class="card espacio-1">
-                                                        <div class="icon pt-2 pb-3">
-                                                            <img src="{{ asset('/img/index/box.svg') }}" width="70"
-                                                                alt="icono box">
-                                                        </div>
-                                                        <h3 class="gelion-bold espacio-2">$90.00 MXN <br>
-                                                            <span class="gelion-thin size-1">Por pieza. IVA
-                                                                incluído.</span>
-                                                        </h3>
-                                                        <h2 class="gelion-bold">Plan Plus</h2>
-                                                        <p class="gelion-thin" style="text-align:justify;">No te quedes
-                                                            sin stock. Incrementa tus posibilidades y capta más clientes con
-                                                            una nueva línea sustentable.</p>
-                                                        <li class="gelion-bold pt-2">
-                                                            <div class="row">
-                                                                <div class="col-2 m-auto">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
-                                                                </div>
-                                                                <div class="col-10">
-                                                                    2 cajas (144 camisetas)<br>o 3 cajas (216 camisetas).
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="gelion-bold pt-3">
-                                                            <div class="row">
-                                                                <div class="col-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
-                                                                </div>
-                                                                <div class="col-10">
-                                                                    Elige 6 colores
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="gelion-bold pt-3">
-                                                            <div class="row">
-                                                                <div class="col-2 m-auto">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
-                                                                </div>
-                                                                <div class="col-10">
-                                                                    50% algodón reciclado pre-consumo + 50% poliéster
-                                                                    reciclado (RPET)
-                                                                </div>
-                                                            </div>
-                                                        </li> <br>
-                                                        <div class="boton text-center mt-4">
-                                                            <a href=""
-                                                                class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                                                style="font-size: 1.3rem;">¡lo quiero!</a>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="carrusel__elemento m-1">
-                                        <div class="p-4">
-                                            <!--Contenido de ordenes movil-->
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                                    <!--tres-->
-                                                    <div class="card espacio-1">
-                                                        <div class="icon pt-2 pb-3">
-                                                            <img src="{{ asset('/img/index/box.svg') }}" width="70"
-                                                                alt="icono box">
-                                                        </div>
-                                                        <h3 class="gelion-bold espacio-2">$80.00 MXN <br>
-                                                            <span class="gelion-thin size-1">Por pieza. IVA
-                                                                incluído.</span>
-                                                        </h3>
-                                                        <h2 class="gelion-bold">Plan Start</h2>
-                                                        <p class="gelion-thin" style="text-align:justify;">Perfecto para
-                                                            todo profesional de la industria de la moda. Personaliza o
-                                                            distribuye las mejores camisetas para cuidar el planeta.</p>
-                                                        <li class="gelion-bold pt-2">
-                                                            <div class="row">
-                                                                <div class="col-2 m-auto">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
-                                                                </div>
-                                                                <div class="col-10">
-                                                                    4 cajas (288 camisetas) <br> o las que necesites
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="gelion-bold pt-3">
-                                                            <div class="row">
-                                                                <div class="col-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
-                                                                </div>
-                                                                <div class="col-10">
-                                                                    Elige 2 colores
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="gelion-bold pt-3">
-                                                            <div class="row">
-                                                                <div class="col-2 m-auto">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        class="h-5 w-5" viewBox="0 0 20 20"
-                                                                        fill="currentColor">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                            clip-rule="evenodd" />
-                                                                    </svg>
-                                                                </div>
-                                                                <div class="col-10">
-                                                                    50% algodón reciclado pre-consumo + 50% poliéster
-                                                                    reciclado (RPET)
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <div class="boton text-center mt-4">
-                                                            <a href=""
-                                                                class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                                                style="font-size: 1.3rem;">¡lo quiero!</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div role="tabList" class="carousel__indicadores"></div>
