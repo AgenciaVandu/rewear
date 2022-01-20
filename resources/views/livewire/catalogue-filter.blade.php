@@ -14,7 +14,7 @@
                                         <div class="form-check">
                                             <label class="form-check-label">
                                                 <input class="form-check-input" wire:model="category_id"
-                                                    wire:click="getSubcategories" type="radio" name="categories"
+                                                    wire:click="getSubcategories" type="radio" name="categories-1"
                                                     value="{{ $category->id }}">
                                                 {{ $category->name }}
                                             </label>
@@ -29,7 +29,7 @@
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
                                             <label class="form-check-label">
-                                                <input class="form-check-input" type="radio" name="subcategories"
+                                                <input class="form-check-input" type="radio" name="subcategories-1"
                                                     wire:model="subcategory_id" value="{{ $subcategory->id }}">
                                                 {{ $subcategory->name }}
                                             </label>
@@ -44,7 +44,7 @@
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
                                             <label class="form-check-label">
-                                                <input class="form-check-input" type="radio" name="colors"
+                                                <input class="form-check-input" type="radio" name="colors-1"
                                                     wire:model="color_id" value="{{ $color->id }}">
                                                 <div class="text-center m-auto">
                                                     <div
@@ -65,7 +65,7 @@
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
                                             <label class="form-check-label">
-                                                <input class="form-check-input" type="radio" name="sizes"
+                                                <input class="form-check-input" type="radio" name="sizes-1"
                                                     wire:model="size_id" value="{{ $size->id }}">
                                                 {{ $size->code }}
                                             </label>
