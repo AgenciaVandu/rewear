@@ -45,6 +45,7 @@ class AddItemsCart extends Component
 
 
         $color_limite=0;
+        $colors_array=[];
         if (session()->has('plan')) {
             $plan = Plan::find(session()->get('plan'));
             $price = $plan->price;
@@ -52,9 +53,15 @@ class AddItemsCart extends Component
 
                 //Validaciones para el plan Start
                 case '1':
-                    foreach (Cart::instance('caja1')->content() as $item) {
-                        if ($item->options->color != $color->color->name) {
-                            $color_limite = $color_limite+1;
+                    if (Cart::instance('caja1')->count()) {
+                        foreach (Cart::instance('caja1')->content() as $item) {
+                            array_push($colors_array,$item->options->color);
+                        }
+                        $colors_array = array_unique($colors_array);
+                        foreach ($colors_array as $color_item) {
+                            if ($color_item != $color->color->name) {
+                                $color_limite++;
+                            }
                         }
                     }
                     if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $color_limite < 2) {
@@ -68,7 +75,11 @@ class AddItemsCart extends Component
                         ])->associate('App\Models\Product');
                     }else{
                         if ($color_limite >= 2) {
-                            session()->flash('message', 'Tu plan no permite agregar mas de 2 colores diferentes, aumenta tu plan <strong><a href="/#planes">Aqui</a></strong>');
+                            if (Cart::instance('caja1')->count() == 72) {
+                                session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/#planes">Aqui</a></strong>');
+                            }else{
+                                session()->flash('message', 'Tu plan no permite agregar mas de 2 colores diferentes, aumenta tu plan <strong><a href="/#planes">Aqui</a></strong>');
+                            }
                         }else{
                             session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/#planes">Aqui</a></strong>');
                         }
