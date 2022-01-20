@@ -16,7 +16,8 @@ class CreatePlansTable extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('price');
+            $table->float('MXN');
+            $table->float('USD');
             $table->timestamps();
         });
     }
