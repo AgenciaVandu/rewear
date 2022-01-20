@@ -45,6 +45,7 @@ class AddItemsCart extends Component
 
 
         $color_limite=0;
+        $manga_limit = 0;
         $colors_array=[];
         if (session()->has('plan')) {
             $plan = Plan::find(session()->get('plan'));
@@ -53,18 +54,27 @@ class AddItemsCart extends Component
 
                 //Validaciones para el plan Start
                 case '1':
+                    //Creamos el array para validar que solo 2 colores se pueden agregar a la cesta en este plan
                     if (Cart::instance('caja1')->count()) {
                         foreach (Cart::instance('caja1')->content() as $item) {
                             array_push($colors_array,$item->options->color);
                         }
+                        //Generamos un array de los valores del color sin repetir
                         $colors_array = array_unique($colors_array);
                         foreach ($colors_array as $color_item) {
                             if ($color_item != $color->color->name) {
                                 $color_limite++;
                             }
                         }
+                        foreach (Cart::instance('caja1')->content() as $item) {
+                            if ($item->model->subcategory->name != $this->product->subcategory->name) {
+                                $manga_limit++;
+                            }
+                        }
                     }
-                    if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $color_limite < 2) {
+
+                    //Condiciones para agregar mas productos segun la cantidad del paquete y los colores permitidos
+                    if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $color_limite < 2 && $manga_limit == 0) {
                         Cart::instance('caja1')->add([
                             'id' => $this->product->id,
                             'name' => $this->product->name,
@@ -76,12 +86,18 @@ class AddItemsCart extends Component
                     }else{
                         if ($color_limite >= 2) {
                             if (Cart::instance('caja1')->count() == 72) {
-                                session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/#planes">Aqui</a></strong>');
+                                session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/planes">Aqui</a></strong>');
+                            }elseif($manga_limit!=0){
+                                session()->flash('message', 'Las cajas solo deben ser de un tipo de manga');
                             }else{
-                                session()->flash('message', 'Tu plan no permite agregar mas de 2 colores diferentes, aumenta tu plan <strong><a href="/#planes">Aqui</a></strong>');
+                                session()->flash('message', 'Tu plan no permite agregar mas de 2 colores diferentes, aumenta tu plan <strong><a href="/planes">Aqui</a></strong>');
                             }
                         }else{
-                            session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/#planes">Aqui</a></strong>');
+                            if ($manga_limit != 0) {
+                                session()->flash('message', 'Las cajas solo deben ser de un tipo de manga');
+                            }else{
+                                session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/planes">Aqui</a></strong>');
+                            }
                         }
                     }
                     break;
@@ -96,12 +112,12 @@ class AddItemsCart extends Component
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
                         }else{
-                            session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/#planes">Aqui</a></strong>');
+                            session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/planes">Aqui</a></strong>');
                         }
                     break;
             }
         }else{
-            return redirect('/#planes');
+            return redirect('/planes');
         }
         $this->reset('qty');
         $this->emitTo('dropdown-cart','render');

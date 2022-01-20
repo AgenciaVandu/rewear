@@ -66,7 +66,9 @@
                 </button>
             </div>
         @endif
+
         <h1 class="gelion-bold">{{ $product->name }}</h1>
+        
         <p class="gelion-thin" style="color: gray;">{!! $product->description !!}</p>
         <li class="gelion-bold pt-2">
             <div class="row">

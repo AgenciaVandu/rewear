@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\WebhooksController;
@@ -36,16 +37,14 @@ Route::get('/', [PageController::class,'index'])->name('home.index');
 Route::get('/nosotros', [PageController::class,'about'])->name('about');
 
 Route::get('/plan/{plan}', [PageController::class,'setPlan'])->name('plan');
+Route::get('/planes', [PlanController::class,'index'])->name('planes');
 //catalogo
-Route::get('/catalogo-rewear', [CatalogueController::class,'index'])->name('catalogue.index');
+Route::get('/catalogo-rewear/{color?}', [CatalogueController::class,'index'])->name('catalogue.index');
 //detalle de producto
 Route::middleware(['auth'])->get('/catalogo-producto/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
 //Carrito / cesta
 Route::get('/cesta',[CartController::class,'index'])->name('cart.index');
-//Carrito / vacio
-Route::get('/cesta-vacia', function(){
-    return view('rewear.catalogo.empty-cart');
-});
+
 Route::get('/comprar', function(){
     return view('rewear.catalogo.purchase');
 });
@@ -72,6 +71,8 @@ Route::get('/contacto', [PageController::class,'contact'])->name('contact');
 Route::middleware(['auth'])->get('/mi-perfil', function(){
     return view('rewear.user.cuenta.user');
 })->name('profile.index');
+
+
 Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');

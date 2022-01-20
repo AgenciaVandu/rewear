@@ -1,6 +1,6 @@
-@extends('layouts.rewear')
+@extends('layouts.rewear-azul')
 @section('content')
-    <header>
+    {{-- <header>
         <div class="contenido-boton">
             <video id="portada" src="{{ asset('img/portada.mp4') }}" muted no-controls loop class="w-100"></video>
             <div class="boton-h">
@@ -41,9 +41,8 @@
                                         <a href="">
                                             <div class="row">
                                                 <div class="col">
-                                                    <a href="{{ route('catalogue.index', $color->id) }}">
-                                                        <img src="{{ Storage::url($color->image) }}"
-                                                            class="img-fluid"></a>
+                                                    <img src="{{ Storage::url($color->image) }}" class="img-fluid"
+                                                        alt="">
                                                 </div>
                                             </div>
                                         </a>
@@ -56,17 +55,17 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section id="planes">
         <div class="bg-2">
-            <div class="container text-center">
+            {{-- <div class="container text-center">
                 <h1 class="gelion-bold">Colores que aman la vida</h1>
                 <p class="gelion-light size">Cada color genera un impacto positivo con el medio ambiente ya que nuestro
                     proceso <br class="d-none d-sm-none d-md-none d-lg-block"> ahorra miles de litros de agua y no utiliza
                     tintes o químicos para teñir.
                 </p>
                 <a href="{{ route('catalogue.index') }}" class="btn btn-secondary gelion-bold">CONOCE MÁS</a>
-            </div>
+            </div> --}}
             <div class="bg-3 mt-5 pt-5">
                 <!--bg-azul-->
                 <h1 class="gelion-bold text-center" style="color: #fff;">Cambia al mundo con cada camiseta. Arma tus cajas.
@@ -133,7 +132,7 @@
                     <!--Planes-->
                     <div class="d-none d-sm-none d-md-block d-lg-block" id="planes">
                         <div class="row pt-5 espacio-4">
-                            @foreach ($plans->except(session('plan')) as $plan)
+                            @foreach ($plans as $plan)
                                 <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
                                     <!--uno-->
                                     <div class="card espacio-1">
@@ -230,9 +229,14 @@
                                             </div>
                                         </li>
                                         <div class="boton text-center mt-4">
-                                            <a href="{{ route('plan', $plan) }}"
-                                                class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                                style="font-size: 1.3rem;">¡lo quiero!</a>
+                                            @if (session()->get('plan') == $plan->id)
+                                                <a class="btn btn-secondary disabled gelion-bold btn-block pt-2 pb-2"
+                                                    style="font-size: 1.3rem;">Plan actual</a>
+                                            @else
+                                                <a href="{{ route('plan', $plan) }}"
+                                                    class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
+                                                    style="font-size: 1.3rem;">¡lo quiero!</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -315,13 +319,17 @@
                                                                 </div>
                                                             </li><br>
                                                             <div class="boton text-center mt-4">
-                                                                <a href="{{ route('plan', $plan) }}"
-                                                                    class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                                                    style="font-size: 1.3rem;">¡lo quiero!</a>
+                                                                @if (session()->get('plan') == $plan->id)
+                                                                    <a class="btn btn-secondary disabled gelion-bold btn-block pt-2 pb-2"
+                                                                        style="font-size: 1.3rem;">Plan actual</a>
+                                                                @else
+                                                                    <a href="{{ route('plan', $plan) }}"
+                                                                        class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
+                                                                        style="font-size: 1.3rem;">¡lo quiero!</a>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -331,18 +339,18 @@
                             <div role="tabList" class="carousel__indicadores"></div>
                         </div>
                     </div>
-                    <h4 class="gelion-bold text-center pt-5" style="color: #fff;">Suscríbete a nuestro newsletter</h4>
+                    {{-- <h4 class="gelion-bold text-center pt-5" style="color: #fff;">Suscríbete a nuestro newsletter</h4>
                     <div class="form-inline espacio-3">
                         <div class="form-group mr-lg-3 mb-2">
                             <input type="password" class="form-control" id="inputPassword2" placeholder="E-mail">
                         </div>
                         <button type="submit" class="btn btn-light gelion-bold mb-2">ENVIAR</button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
     </section>
-    <section id="index-blog-1">
+    {{-- <section id="index-blog-1">
         <div class="d-none d-sm-none d-md-none d-lg-block">
             <div class="contenido-blog-index">
                 <div class="container desfase">
@@ -460,5 +468,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection

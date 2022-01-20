@@ -15,13 +15,23 @@ class CatalogueFilter extends Component
     public $colors=[],$sizes=[],$categories=[],$subcategories=[];
     public $products=[];
     public $category_id=1,$subcategory_id=1,$color_id,$size_id;
+    public $color;
 
     public function mount(){
         $this->colors = Color::all();
         $this->sizes = Size::all();
         $this->categories = Category::all();
         $this->subcategories = Subcategory::where('category_id',$this->category_id)->get();
-        $this->products = Product::where('status',2)->get();
+
+        if ($this->color) {
+            $this->color_id = $this->color->id;
+            $this->products = Product::whereHas('colors',function(Builder $query){
+                $query->where('color_id',$this->color->id);
+            })->get();
+        }else{
+            $this->products = Product::where('status',2)->get();
+        }
+
     }
 
     public function filter(){
