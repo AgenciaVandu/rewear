@@ -25,7 +25,7 @@
 
                                             @endswitch ${{ $plan->price }}/pieza
                                         </li>
-                                        <li class="gelion-thin">Faltan 12 para completar</li>
+                                        <li class="gelion-thin">Faltan {{ 72-Cart::instance('caja1')->count() }} piezas para completar</li>
                                         <li></li>
                                     </div>
                                 </div>
@@ -55,13 +55,13 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                    <img src="{{ $item->options->image }}" class="fill-fit w-5">
+                                                    <img src="{{ $item->options->image }}" class="image-fluid">
                                                 </div>
                                                 <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                     <p class="gelion-bold size-3">{{ $item->name }} <br>
                                                         <span>
-                                                            <a href="" class="size-2 gelion-thin"
-                                                                style="text-decoration: none; color: #000;">Eliminar</a>
+                                                            <a wire:click="delete('{{ $item->rowId }}')" class="size-2 gelion-thin"
+                                                                style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
                                                         </span>
                                                     </p>
                                                 </div>
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                     <div class="btn btn-secondary gelion-bold mt-2">Comprar ahora</div>
-                    <div class="col-12 gelion-bold text-center pt-3">
+                    <div class="col-12 gelion-bold text-center pt-3" wire:ignore>
                         <p><button id="aumentar-planes" class="gelion-bold aumentar"
                                 style="color: #000; text-decoration: none;">Quiero aumentar mi plan</button> <br>
                         <div class="row" id="mostrar-planes">
