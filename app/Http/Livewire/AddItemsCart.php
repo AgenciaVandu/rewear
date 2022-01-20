@@ -49,7 +49,7 @@ class AddItemsCart extends Component
         $colors_array=[];
         if (session()->has('plan')) {
             $plan = Plan::find(session()->get('plan'));
-            $price = $plan->price;
+            $price = $plan->MXN;
             switch (session()->get('plan')) {
 
                 //Validaciones para el plan Start
@@ -78,7 +78,7 @@ class AddItemsCart extends Component
                         Cart::instance('caja1')->add([
                             'id' => $this->product->id,
                             'name' => $this->product->name,
-                            'price' => $price,
+                            'price' => 100,
                             'qty' => $this->qty,
                             'weight' => 550,
                             'options' => $this->options
