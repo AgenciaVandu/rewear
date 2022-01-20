@@ -21,4 +21,11 @@ class ColorProduct extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    //Relacion uno a muchos polimorfica
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
 }

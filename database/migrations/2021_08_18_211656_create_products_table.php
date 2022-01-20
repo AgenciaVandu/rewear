@@ -19,8 +19,9 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('measure');
+            $table->string('size');
             $table->text('description');
-            $table->enum('status', [Product::BORRADOR, Product::PUBLICADO])->default(Product::BORRADOR);
+            $table->enum('status', [Product::BORRADOR, Product::PUBLICADO])->default(Product::PUBLICADO);
 
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

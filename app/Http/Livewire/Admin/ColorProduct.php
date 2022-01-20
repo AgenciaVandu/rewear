@@ -3,74 +3,64 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Color;
-use App\Models\ColorProduct as Pivot;
+use App\Models\ColorProduct as ModelsColorProduct;
+use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ColorProduct extends Component
 {
-    public $product, $colors;
-    public $color_id, $quantity, $open = false;
-    public $pivot, $pivot_color_id, $pivot_quantity;
-    protected $listeners = ['delete'];
+    use WithFileUploads;
+    public $product,$colors,$colors_id,$color_product;
+    protected $listeners = ['render'];
+    public $images,$rand,$open=false,$files=[],$color_id,$color;
+    protected $rules = ['files.*' => 'required|image|mimes:jpg,jpeg,png,svg,gif',];
 
-    public $rules = [
-        'color_id' => 'required',
-        'quantity' => 'required|numeric',
-    ];
 
-    public function mount()
-    {
+    public function mount(){
         $this->colors = Color::all();
+        $this->color_product = ModelsColorProduct::where('product_id',$this->product->id)->get();
     }
 
+    public function save(){
+        $product = $this->product;
+        $product->colors()->attach($this->colors_id);
+        $this->color_product = ModelsColorProduct::where('product_id',$product->id)->get();
+    }
 
-    public function save()
-    {
-        $this->validate();
+    public function edit(ModelsColorProduct $color){
+        $this->open = true;
+        $this->images = $color->images;
+        $this->color_id = $color->id;
+        $this->color = $color;
+    }
 
-        $pivot = Pivot::where('color_id', $this->color_id)->where('product_id', $this->product->id)->first();
+    public function uploadPhotos(ModelsColorProduct $color){
 
-        if ($pivot) {
-            $pivot->quantity = $pivot->quantity + $this->quantity;
-            $pivot->save();
-        } else {
-            $this->product->colors()->attach([
-                $this->color_id => ['quantity' => $this->quantity],
+        foreach ($this->files as $file) {
+            $url = $file->store('colors');
+            $color->images()->create([
+                'url' => $url,
             ]);
         }
-        
-        $this->reset(['color_id', 'quantity']);
-        $this->emit('saved');
-        $this->product = $this->product->fresh();
+        $this->images = $color->images;
+        $this->reset('files');
     }
 
-    public function edit(Pivot $pivot)
-    {
-        $this->open = true;
-        $this->pivot = $pivot;
-        $this->pivot_color_id = $pivot->color_id;
-        $this->pivot_quantity = $pivot->quantity;
+    public function deleteImage(Image $image,ModelsColorProduct $color){
+        Storage::delete($image->url);
+        $image->delete();
+        $this->images = $color->images;
     }
 
-    public function update()
-    {
-        $this->pivot->color_id = $this->pivot_color_id;
-        $this->pivot->quantity = $this->pivot_quantity;
-        $this->pivot->save();
-        $this->product = $this->product->fresh();
-        $this->open = false;
+    public function delete(ModelsColorProduct $color){
+        $color->delete();
+        $this->color_product = ModelsColorProduct::where('product_id',$this->product->id)->get();
     }
-
-    public function delete(Pivot $pivot)
-    {
-        $pivot->delete();
-        $this->product = $this->product->fresh();
-    }
-
 
     public function render()
     {
-        $product_colors = $this->product->colors;
-        return view('livewire.admin.color-product', compact('product_colors'));
+        return view('livewire.admin.color-product');
     }
 }

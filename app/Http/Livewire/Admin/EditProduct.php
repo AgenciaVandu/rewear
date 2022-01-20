@@ -2,19 +2,17 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Subcategory;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
 class EditProduct extends Component
 {
-    public $product, $categories, $subcategories, $brands, $slug;
+    public $product, $categories, $subcategories, $slug;
     public $category_id;
 
     protected $listeners = ['refreshProduct', 'delete'];
@@ -25,10 +23,8 @@ class EditProduct extends Component
         'product.name' => 'required',
         'slug' => 'required|unique:products,slug',
         'product.description' => 'required',
-        'product.brand_id' => 'required',
-        'product.price' => 'required',
-        'product.quantity' => 'numeric',
-
+        'product.measure' => 'required',
+        'product.size' => 'required',
     ];
 
     public function mount(Product $product)
@@ -38,20 +34,12 @@ class EditProduct extends Component
         $this->category_id = $product->subcategory->category->id;
         $this->subcategories = Subcategory::where('category_id', $this->category_id)->get();
         $this->slug = $this->product->slug;
-        $this->brands = Brand::whereHas('categories', function (Builder $query) {
-            $query->where('category_id', $this->category_id);
-        })->get();
     }
 
     public function updatedCategoryId($value)
     {
         $this->subcategories = Subcategory::where('category_id', $value)->get();
-        $this->brands = Brand::whereHas('categories', function (Builder $query) use ($value) {
-            $query->where('category_id', $value);
-        })->get();
-        /* $this->reset(['subcategory_id', 'brand_id']); */
         $this->product->subcategory_id = "";
-        $this->product->brand_id = "";
     }
 
     public function updatedProductName($value)
@@ -69,17 +57,13 @@ class EditProduct extends Component
         $this->product = $this->product->fresh();
     }
 
-    public function save()
+
+    public function update()
     {
         $rules = $this->rules;
 
         $rules['slug'] = 'required|unique:products,slug,' . $this->product->id;
 
-        if ($this->product->subcategory_id) {
-            if (!$this->subcategory->color && !$this->subcategory->size) {
-                $rules['product.quantity'] = 'required|numeric';
-            }
-        }
         $this->validate($rules);
 
         $this->product->slug = $this->slug;
@@ -109,6 +93,7 @@ class EditProduct extends Component
 
         return redirect()->route('admin.index');
     }
+
 
     public function render()
     {

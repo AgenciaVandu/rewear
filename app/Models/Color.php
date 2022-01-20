@@ -16,4 +16,5 @@ class Color extends Model
         return $this->belongsToMany(Product::class);
     }
 
+
 }

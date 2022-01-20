@@ -1,6 +1,6 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px8 py-12 text-trueGray-700">
     <h1 class="text-3xl text-center font-semibold mb-8">Complete esta información para crear un producto</h1>
-    
+
     <div class="grid grid-cols-2 gap-6 mb-4">
         {{-- Categorias --}}
         <div>
@@ -58,37 +58,22 @@
     </div>
 
     <div class="grid grid-cols-2 gap-6 mb-4">
-        {{-- Marca --}}
+        {{-- Medidas del modelo --}}
         <div class="mb-4">
-            <x-jet-label value="Marca" />
-            <select class="w-full form-control" wire:model="brand_id">
-                <option value="" selected disabled>Selecciona una marca</option>
-                @foreach ($brands as $brand)
-                    <option value="{{ $brand->id }}">{{ $brand->name }}</option>
-                @endforeach
-            </select>
-            <x-jet-input-error for="brand_id"/>
+            <x-jet-label value="Medidas del modelo" />
+            <x-jet-input wire:model="measure" type="text" placeholder="Ingrese las medidas del modelo"
+                class="w-full" />
+                <x-jet-input-error for="measure"/>
         </div>
-        {{-- Precio --}}
+
+        {{-- Talla del modelo --}}
         <div class="mb-4">
-            <x-jet-label value="Precio" />
-            <x-jet-input wire:model="price" type="number" placeholder="Ingrese el precio del producto"
-                class="w-full" step=".01" />
-                <x-jet-input-error for="price"/>
+            <x-jet-label value="Talla del modelo" />
+            <x-jet-input wire:model="size" type="text" placeholder="Ingrese la talla del modelo"
+                class="w-full" />
+                <x-jet-input-error for="size"/>
         </div>
     </div>
-    @if ($subcategory_id)
-        @if (!$this->subcategory->color && !$this->subcategory->size)
-            {{-- Precio --}}
-            <div class="mb-4">
-                <x-jet-label value="Stock" />
-                <x-jet-input wire:model="quantity" type="number" placeholder="Ingrese el stock del producto"
-                    class="w-full" />
-                    <x-jet-input-error for="quantity"/>
-            </div>
-        @endif
-    @endif
-
     <div class="flex justify-end mt-4">
         <x-jet-button wire:click="save" wire:loading.attr="disabled" wire:target="save">Crear producto</x-jet-button>
     </div>

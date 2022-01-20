@@ -7,49 +7,9 @@
     <section id="product">
         <div class="container">
             <div class="product-inner">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12 espacio-pr">
-                        <div class="d-none d-sm-none d-md-none d-lg-block">
-                            <div class="row boton-producto">
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    @foreach ($product->images as $image)
-                                        <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
-                                            <button type="button" id="i-{{ $loop->iteration }}">
-                                                <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
-                                            </button>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <div class="col-lg-8 col-md-6 col-sm-12">
-                                    @foreach ($product->images as $image)
-                                        <div class="principal" id="p{{ $loop->iteration }}">
-                                            <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                        <!--Movil images-->
-                        <div class="d-block d-sm-block d-md-block d-lg-none">
-                            <!--movil-->
-                            <div class="carousel">
-                                <div class="carousel__contenedor">
-                                    <div class="carousel__lista text-center">
-                                        @foreach ($product->images as $image)
-                                            <div class="carousel__elemento m-1">
-                                                <img src="{{ Storage::url($image->url) }}"
-                                                    class="img-fluid" alt="">
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div role="tabList" class="carousel__indicadores1"></div>
-                            </div>
-                        </div>
-                        <!--Movil images-->
-                    </div>
-                    @livewire('add-items-cart', ['product' => $product])
-                </div>
+
+                @livewire('add-items-cart', ['product' => $product])
+
             </div>
         </div>
     </section>
@@ -62,16 +22,16 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="card espacio-card">
                                 <div class="contenedor-1">
-                                    <a href="">
+                                    <a href="{{ route('catalogue.product', $product) }}">
                                         <img src="{{ Storage::url($product->images->first()->url) }}"
                                             class="img-fluid" alt="Productos del catálogo">
                                     </a>
-                                    <a href="">
+                                    <a href="{{ route('catalogue.product', $product) }}">
                                         <img src="{{ Storage::url($product->images->last()->url) }}"
                                             class="top img-fluid" alt="Productos del catálogo">
                                     </a>
                                 </div>
-                                <a href="" style="color: #000; text-decoration: none;">
+                                <a href="{{ route('catalogue.product', $product) }}" style="color: #000; text-decoration: none;">
                                     <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
                                 </a>
                                 <li class="gelion-bold size-2">{!! $product->description !!}</li>
@@ -98,11 +58,11 @@
                         <div class="col-md-6">
                             <div class="card espacio-card">
                                 <div class="contenedor-4">
-                                    <a href="/catalogo/producto.html">
+                                    <a href="{{ route('catalogue.product', $product) }}">
                                         <img src="{{ Storage::url($product->images->first()->url) }}"
                                             class="fill img-fluid" alt="Productos del catálogo">
                                     </a>
-                                    <a href="/catalogo/producto.html">
+                                    <a href="{{ route('catalogue.product', $product) }}">
                                         <img src="{{ Storage::url($product->images->last()->url) }}"
                                             class="top fill img-fluid" alt="Productos del catálogo">
                                     </a>
@@ -136,11 +96,11 @@
                                 <div class="col-6">
                                     <div class="card espacio-card">
                                         <div class="contenedor-2">
-                                            <a href="/catalogo/producto.html">
+                                            <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($product->images->first()->url) }}"
                                                     class="img-fluid" alt="Productos del catálogo">
                                             </a>
-                                            <a href="/catalogo/producto.html">
+                                            <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($product->images->last()->url) }}"
                                                     class="top-1 img-fluid" alt="Productos del catálogo">
                                             </a>

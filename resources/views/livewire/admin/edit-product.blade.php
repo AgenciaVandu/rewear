@@ -36,7 +36,7 @@
                 </ul>
             </section>
         @endif
-        @livewire('admin.status-product', ['product' => $product], key('status-product-'.$product->id))
+        {{-- @livewire('admin.status-product', ['product' => $product], key('status-product-'.$product->id)) --}}
 
         <div class="bg-white shadow-lg rounded-lg p-6">
             <div class="grid grid-cols-2 gap-6 mb-4">
@@ -96,55 +96,44 @@
                 </div>
                 <x-jet-input-error for="product.description" />
             </div>
-
             <div class="grid grid-cols-2 gap-6 mb-4">
-                {{-- Marca --}}
+                {{-- Medidas del modelo --}}
                 <div class="mb-4">
-                    <x-jet-label value="Marca" />
-                    <select class="w-full form-control" wire:model="product.brand_id">
-                        <option value="" selected disabled>Selecciona una marca</option>
-                        @foreach ($brands as $brand)
-                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
-                        @endforeach
-                    </select>
-                    <x-jet-input-error for="product.brand_id" />
+                    <x-jet-label value="Medidas del modelo" />
+                    <x-jet-input wire:model="product.measure" type="text" placeholder="Ingrese las medidas del modelo"
+                        class="w-full" />
+                    <x-jet-input-error for="product.measure" />
                 </div>
-                {{-- Precio --}}
+
+                {{-- Talla del modelo --}}
                 <div class="mb-4">
-                    <x-jet-label value="Precio" />
-                    <x-jet-input wire:model="product.price" type="number" placeholder="Ingrese el precio del producto"
-                        class="w-full" step=".01" />
-                    <x-jet-input-error for="product.price" />
+                    <x-jet-label value="Talla del modelo" />
+                    <x-jet-input wire:model="product.size" type="text" placeholder="Ingrese la talla del modelo"
+                        class="w-full" />
+                    <x-jet-input-error for="product.size" />
                 </div>
             </div>
-            @if ($this->subcategory)
-                @if (!$this->subcategory->color && !$this->subcategory->size)
-                    {{-- Precio --}}
-                    <div class="mb-4">
-                        <x-jet-label value="Stock" />
-                        <x-jet-input wire:model="product.quantity" type="number"
-                            placeholder="Ingrese el stock del producto" class="w-full" />
-                        <x-jet-input-error for="product.quantity" />
-                    </div>
-                @endif
-            @endif
-
             <div class="flex justify-end items-center mt-4">
                 <x-jet-action-message class="mr-3" on="saved">
                     Actualizado
                 </x-jet-action-message>
-                <x-jet-button wire:click="save" wire:loading.attr="disabled" wire:target="save">Actualizar producto
+                <x-jet-button wire:click="update" wire:loading.attr="disabled">Actualizar producto
                 </x-jet-button>
             </div>
         </div>
 
-        @if ($this->subcategory)
-            @if ($this->subcategory->size)
-                @livewire('admin.size-product', ['product' => $product], key('size-product-'.$product->id))
-            @elseif($this->subcategory->color)
-                @livewire('admin.color-product', ['product' => $product], key('color-product-'.$product->id))
-            @endif
-        @endif
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+            <h2 class="text-xl font-bold">Colores</h2>
+            <p class="text-sm">Selecciona los diferentes colores de la prenda</p>
+            @livewire('admin.color-product', ['product' => $product],key('color-product-'.$product->id))
+        </div>
+
+
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+            <h2 class="text-xl font-bold">Tallas</h2>
+            <p class="text-sm">Selecciona las diferentes tallas de la prenda</p>
+            @livewire('admin.product-size', ['product' => $product],key('product-size'.$product->id))
+        </div>
     </div>
     @push('script')
         <script>
@@ -163,68 +152,6 @@
                     Livewire.emit('refreshProduct');
                 }
             };
-
-            Livewire.on('deleteSize', sizeId => {
-                Swal.fire({
-                    title: 'Estas seguro?',
-                    text: "No podras revertir los cambios",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Livewire.emitTo('admin.size-product', 'delete', sizeId);
-                        Swal.fire(
-                            'Eliminado!',
-                            'La talla fue eliminada.',
-                            'success'
-                        )
-                    }
-                })
-            });
-
-            Livewire.on('deletePivot', pivot => {
-                Swal.fire({
-                    title: 'Estas seguro?',
-                    text: "No podras revertir los cambios",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Livewire.emitTo('admin.color-product', 'delete', pivot);
-                        Swal.fire(
-                            'Eliminado!',
-                            'El color fue eliminado.',
-                            'success'
-                        )
-                    }
-                })
-            });
-            Livewire.on('deleteColorSize', pivot => {
-                Swal.fire({
-                    title: 'Estas seguro?',
-                    text: "No podras revertir los cambios",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Livewire.emitTo('admin.color-size', 'delete', pivot);
-                        Swal.fire(
-                            'Eliminado!',
-                            'El color fue eliminado.',
-                            'success'
-                        )
-                    }
-                })
-            });
 
             Livewire.on('deleteProduct', () => {
                 Swal.fire({
