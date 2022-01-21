@@ -68,10 +68,10 @@
             </div> --}}
             <div class="bg-3 mt-5 pt-5">
                 <!--bg-azul-->
-                <h1 class="gelion-bold text-center" style="color: #fff;">Cambia al mundo con cada camiseta. Arma tus cajas.
-                </h1>
+                {{-- <h1 class="gelion-bold text-center" style="color: #fff;">Cambia al mundo con cada camiseta. Arma tus cajas.
+                </h1> --}}
                 <div class="container">
-                    <div class="d-block d-sm-block d-md-none d-lg-none">
+{{--                     <div class="d-block d-sm-block d-md-none d-lg-none">
                         <div class="row pt-5">
                             <div class="col-6 left-o">
                                 <img src="{{ asset('/img/index/hoja.svg') }}" alt="">
@@ -127,7 +127,7 @@
                                     partes de México y Estados Unidos con costos preferenciales.</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!--Planes-->
                     <div class="d-none d-sm-none d-md-block d-lg-block" id="planes">
@@ -139,7 +139,7 @@
                                         <div class="icon pt-2 pb-3">
                                             <img src="{{ asset('/img/index/box.svg') }}" width="70" alt="icono box">
                                         </div>
-                                        <h3 class="gelion-bold espacio-2">{{ $plan->price }} MXN <br>
+                                        <h3 class="gelion-bold espacio-2">{{ $plan->MXN }} MXN <br>
                                             <span class="gelion-thin size-1">Por pieza. IVA incluído.</span>
                                         </h3>
                                         <h2 class="gelion-bold">{{ $plan->name }}</h2>
@@ -259,7 +259,7 @@
                                                                 <img src="{{ asset('/img/index/box.svg') }}" width="70"
                                                                     alt="icono box">
                                                             </div>
-                                                            <h3 class="gelion-bold espacio-2">${{ $plan->price }} MXN
+                                                            <h3 class="gelion-bold espacio-2">${{ $plan->MXN }} MXN
                                                                 <br>
                                                                 <span class="gelion-thin size-1">Por pieza. IVA
                                                                     incluído.</span>

@@ -41,7 +41,7 @@ Route::get('/planes', [PlanController::class,'index'])->name('planes');
 //catalogo
 Route::get('/catalogo-rewear/{color?}', [CatalogueController::class,'index'])->name('catalogue.index');
 //detalle de producto
-Route::middleware(['auth'])->get('/catalogo-producto/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
+Route::get('/catalogo-producto/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
 //Carrito / cesta
 Route::get('/cesta',[CartController::class,'index'])->name('cart.index');
 
