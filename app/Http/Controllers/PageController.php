@@ -20,7 +20,8 @@ class PageController extends Controller
     }
 
     public function about(){
-        return view('rewear.nosotros');
+        $plans = Plan::all();
+        return view('rewear.nosotros',compact('plans'));
     }
 
     public function faq(){

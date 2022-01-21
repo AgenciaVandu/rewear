@@ -35,7 +35,7 @@
                         <a class="nav-link" href="{{ route('home.index') }}">{{ __('Inicio') }}</a>
                     </li>
                     <li class="nav-item pr-3">
-                        <a class="nav-link" href="{{ route('about') }}">{{ __('Us') }}</a>
+                        <a class="nav-link" href="{{ route('about') }}">{{ __('Nosotros') }}</a>
                     </li>
                     <li class="nav-item pr-3">
                         <a class="nav-link" href="{{ route('catalogue.index') }}">{{ __('Catálogo') }}</a>

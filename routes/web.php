@@ -75,7 +75,6 @@ Route::middleware(['auth'])->get('/mi-perfil', [ClientController::class,'index']
 
 Route::get('locale/{locale}',function($locale){
     session()->put('locale',$locale);
-
     return Redirect::back();
 })->name('set.lang');
 
