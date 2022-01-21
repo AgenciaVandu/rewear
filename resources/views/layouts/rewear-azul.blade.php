@@ -50,15 +50,29 @@
                         <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
                     </li>
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            style="color: #003057;" aria-expanded="false">
-                            MXN
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item gelion-bold" style="color: #fff;" href="#">
+                        @if (session()->get('divisa')=='MXN')
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-expanded="false" style="color: #f003057ff">
+                                MXN
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item gelion-bold" href="{{ route('divisas', 'USD') }}"
+                                    style="color: #fff">
+                                    USD
+                                </a>
+                            </div>
+                        @else
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-expanded="false" style="color: #f003057ff">
                                 USD
-                            </a>
-                        </div>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item gelion-bold" href="{{ route('divisas', 'MXN') }}"
+                                    style="color: #fff">
+                                    MXN
+                                </a>
+                            </div>
+                        @endif
                     </div>
                     <div class="bag">
                         @livewire('dropdown-cart')

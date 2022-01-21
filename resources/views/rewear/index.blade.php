@@ -133,7 +133,7 @@
                     <!--Planes-->
                     <div class="d-none d-sm-none d-md-block d-lg-block" id="planes">
                         <div class="row pt-5 espacio-4">
-                            @foreach ($plans->except(session('plan')) as $plan)
+                            @foreach ($plans as $plan)
                                 <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
                                     <!--uno-->
                                     <div class="card espacio-1">

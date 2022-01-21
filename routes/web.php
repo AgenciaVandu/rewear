@@ -35,9 +35,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class,'index'])->name('home.index');
 //nosotros
 Route::get('/nosotros', [PageController::class,'about'])->name('about');
+Route::get('/divisas/{divisa}',[PageController::class,'setDivisas'])->name('divisas');
 
 Route::get('/plan/{plan}', [PageController::class,'setPlan'])->name('plan');
-Route::get('/planes', [PlanController::class,'index'])->name('planes');
+Route::middleware('auth')->get('/planes', [PlanController::class,'index'])->name('planes');
 //catalogo
 Route::get('/catalogo-rewear/{color?}', [CatalogueController::class,'index'])->name('catalogue.index');
 //detalle de producto

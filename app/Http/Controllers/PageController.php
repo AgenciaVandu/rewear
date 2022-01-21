@@ -35,8 +35,6 @@ class PageController extends Controller
         /* Cart::destroy('default'); */
         switch ($plan->id) {
             case '1':
-                Cart::instance('caja1')->destroy();
-                Cart::instance('caja2')->destroy();
                 session(['plan'=> $plan->id]);
                 break;
             case '2':
@@ -47,5 +45,12 @@ class PageController extends Controller
                 break;
         }
         return redirect()->route('catalogue.index');
+    }
+
+
+    public function setDivisas($divisa){
+        session(['divisa'=> $divisa]);
+
+        return back();
     }
 }

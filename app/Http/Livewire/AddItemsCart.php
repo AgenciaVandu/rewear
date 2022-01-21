@@ -26,7 +26,9 @@ class AddItemsCart extends Component
     }
 
     public function increment(){
-        $this->qty = $this->qty + 6;
+        if ($this->qty < 72) {
+            $this->qty = $this->qty + 6;
+        }
     }
 
     public function decrement(){
@@ -50,6 +52,7 @@ class AddItemsCart extends Component
         $manga_limit = 0;
         $manga_limit2 = 0;
         $manga_limit3 = 0;
+        $manga_limit4 = 0;
         $colors_array=[];
         if (session()->has('plan')) {
             $plan = Plan::find(session()->get('plan'));
@@ -80,7 +83,7 @@ class AddItemsCart extends Component
                         Cart::instance('caja1')->add([
                             'id' => $this->product->id,
                             'name' => $this->product->name,
-                            'price' => $price,
+                            'price' => 1,
                             'qty' => $this->qty,
                             'weight' => 550,
                             'options' => $this->options
@@ -130,7 +133,7 @@ class AddItemsCart extends Component
                             Cart::instance('caja1')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
-                                'price' => $price,
+                                'price' => 1,
                                 'qty' => $this->qty,
                                 'weight' => 550,
                                 'options' => $this->options
@@ -139,22 +142,101 @@ class AddItemsCart extends Component
                             Cart::instance('caja2')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
-                                'price' => $price,
+                                'price' => 1,
                                 'qty' => $this->qty,
                                 'weight' => 550,
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
-                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() <= 216 && $manga_limit3 == 0){
+                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja2')->count() <= 216 && $manga_limit3 == 0 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()==144){
                             Cart::instance('caja3')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
-                                'price' => $price,
+                                'price' => 1,
                                 'qty' => $this->qty,
                                 'weight' => 550,
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
                         }else{
-                            session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/planes">Aqui</a></strong>');
+                            if ($manga_limit != 0 || $manga_limit2 != 0 || $manga_limit3 != 0) {
+                                session()->flash('message', 'Las cajas solo deben ser de un tipo de manga');
+                            }else{
+                                session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/planes">Aqui</a></strong>');
+                            }
+                        }
+                    break;
+                    case '3':
+                        //Validacion de managas por caja
+                        if (Cart::instance('caja1')->count()) {
+                            foreach (Cart::instance('caja1')->content() as $item) {
+                                if ($item->model->subcategory->name != $this->product->subcategory->name) {
+                                    $manga_limit++;
+                                }
+                            }
+                        }
+                        if (Cart::instance('caja2')->count()) {
+                            foreach (Cart::instance('caja2')->content() as $item) {
+                                if ($item->model->subcategory->name != $this->product->subcategory->name) {
+                                    $manga_limit2++;
+                                }
+                            }
+                        }
+                        if (Cart::instance('caja3')->count()) {
+                            foreach (Cart::instance('caja3')->content() as $item) {
+                                if ($item->model->subcategory->name != $this->product->subcategory->name) {
+                                    $manga_limit3++;
+                                }
+                            }
+                        }
+                        if (Cart::instance('caja4')->count()) {
+                            foreach (Cart::instance('caja4')->content() as $item) {
+                                if ($item->model->subcategory->name != $this->product->subcategory->name) {
+                                    $manga_limit4++;
+                                }
+                            }
+                        }
+                        if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $manga_limit == 0) {
+                            Cart::instance('caja1')->add([
+                                'id' => $this->product->id,
+                                'name' => $this->product->name,
+                                'price' => 1,
+                                'qty' => $this->qty,
+                                'weight' => 550,
+                                'options' => $this->options
+                            ])->associate('App\Models\Product');
+                        }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() <= 144 && $manga_limit2 == 0){
+                            Cart::instance('caja2')->add([
+                                'id' => $this->product->id,
+                                'name' => $this->product->name,
+                                'price' => 1,
+                                'qty' => $this->qty,
+                                'weight' => 550,
+                                'options' => $this->options
+                            ])->associate('App\Models\Product');
+                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count() <= 216 && $manga_limit3 == 0 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()==144){
+                            Cart::instance('caja3')->add([
+                                'id' => $this->product->id,
+                                'name' => $this->product->name,
+                                'price' => 1,
+                                'qty' => $this->qty,
+                                'weight' => 550,
+                                'options' => $this->options
+                            ])->associate('App\Models\Product');
+                        }
+                        else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+$this->qty <= 288 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() <= 288 && $manga_limit4 == 0 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()==216){
+                            Cart::instance('caja4')->add([
+                                'id' => $this->product->id,
+                                'name' => $this->product->name,
+                                'price' => 1,
+                                'qty' => $this->qty,
+                                'weight' => 550,
+                                'options' => $this->options
+                            ])->associate('App\Models\Product');
+                        }else{
+                            if ($manga_limit != 0 || $manga_limit2 != 0 || $manga_limit3 != 0) {
+                                session()->flash('message', 'Las cajas solo deben ser de un tipo de manga');
+                            }else{
+                                session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/planes">Aqui</a></strong>');
+                            }
                         }
                     break;
             }

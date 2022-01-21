@@ -65,15 +65,29 @@
                         <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
                     </li>
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-expanded="false" style="color: #fff">
-                            MXN
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item gelion-bold" href="#" style="color: #fff">
+                        @if (session()->get('divisa') == 'MXN')
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-expanded="false" style="color: #fff">
+                                MXN
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item gelion-bold" href="{{ route('divisas', 'USD') }}"
+                                    style="color: #fff">
+                                    USD
+                                </a>
+                            </div>
+                        @else
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-expanded="false" style="color: #fff">
                                 USD
-                            </a>
-                        </div>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item gelion-bold" href="{{ route('divisas', 'MXN') }}"
+                                    style="color: #fff">
+                                    MXN
+                                </a>
+                            </div>
+                        @endif
                     </div>
                     <div class="d-none d-sm-none d-md-none d-lg-block">
                         <div class="bag">

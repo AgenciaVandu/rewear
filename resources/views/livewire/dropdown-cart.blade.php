@@ -2,7 +2,7 @@
     @if (session()->has('plan'))
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                style="color: @if(Route::is('home.index')) #FFF @else #003057 @endif;" aria-expanded="false">
+                style="color: @if (Route::is('home.index')) #FFF @else #003057 @endif;" aria-expanded="false">
                 <i class="fas fa-shopping-bag"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -12,7 +12,7 @@
                                     72
                                 @break
                                 @case(2)
-                                    144
+                                144 ó 216
                                 @break
                                 @case(3)
                                     288
@@ -20,11 +20,13 @@
                                 @default
 
                             @endswitch
-                            piezas</span> agregadas
-                        {{ Cart::instance('caja1')->count() }}</small>
+                            piezas
+                        </span> agregadas
+                        {{ Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() }}</small>
                 </div>
                 <li>
-                    <div class="contenid-bag overflow-y-auto">
+                    <div class="contenid-bag" style="height:350px;
+                    overflow-y: scroll;">
                         @switch(session()->get('plan'))
                             @case(1)
                                 @foreach (Cart::instance('caja1')->content() as $item)
@@ -37,8 +39,8 @@
                                         </div>
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
-                                                <a
-                                                <a class="text-secondary" href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                <a <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>Talla: {{ $item->options->size }} - Color:
@@ -64,7 +66,8 @@
                                         </div>
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
-                                                <a class="text-secondary" href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>Talla: {{ $item->options->size }} - Color:
@@ -88,7 +91,135 @@
                                         </div>
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
-                                                <a class="text-secondary" href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000;">
+                                                <small>Talla: {{ $item->options->size }} - Color:
+                                                    {{ $item->options->color }}</small>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000">
+                                                {{ $item->qty }} piezas
+                                            </span> <br>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endforeach
+                                @foreach (Cart::instance('caja3')->content() as $item)
+                                    <div class="row pt-3">
+                                        <div class="col-3">
+                                            <div class="contenedor-bag">
+                                                <img src="{{ $item->options->image }}" class="fill" alt="">
+                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 m-auto text-left">
+                                            <span class="titulo gelion-bold modelo" style="color: #000;">
+                                                <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000;">
+                                                <small>Talla: {{ $item->options->size }} - Color:
+                                                    {{ $item->options->color }}</small>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000">
+                                                {{ $item->qty }} piezas
+                                            </span> <br>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endforeach
+                            @break
+                            @case(3)
+                                @foreach (Cart::instance('caja1')->content() as $item)
+                                    <div class="row pt-3">
+                                        <div class="col-3">
+                                            <div class="contenedor-bag">
+                                                <img src="{{ $item->options->image }}" class="fill" alt="">
+                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 m-auto text-left">
+                                            <span class="titulo gelion-bold modelo" style="color: #000;">
+                                                <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000;">
+                                                <small>Talla: {{ $item->options->size }} - Color:
+                                                    {{ $item->options->color }}</small>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000">
+                                                {{ $item->qty }} piezas
+                                            </span> <br>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endforeach
+                                @foreach (Cart::instance('caja2')->content() as $item)
+                                    <div class="row pt-3">
+                                        <div class="col-3">
+                                            <div class="contenedor-bag">
+                                                <img src="{{ $item->options->image }}" class="fill" alt="">
+                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 m-auto text-left">
+                                            <span class="titulo gelion-bold modelo" style="color: #000;">
+                                                <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000;">
+                                                <small>Talla: {{ $item->options->size }} - Color:
+                                                    {{ $item->options->color }}</small>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000">
+                                                {{ $item->qty }} piezas
+                                            </span> <br>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endforeach
+                                @foreach (Cart::instance('caja3')->content() as $item)
+                                    <div class="row pt-3">
+                                        <div class="col-3">
+                                            <div class="contenedor-bag">
+                                                <img src="{{ $item->options->image }}" class="fill" alt="">
+                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 m-auto text-left">
+                                            <span class="titulo gelion-bold modelo" style="color: #000;">
+                                                <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000;">
+                                                <small>Talla: {{ $item->options->size }} - Color:
+                                                    {{ $item->options->color }}</small>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000">
+                                                {{ $item->qty }} piezas
+                                            </span> <br>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endforeach
+                                @foreach (Cart::instance('caja4')->content() as $item)
+                                    <div class="row pt-3">
+                                        <div class="col-3">
+                                            <div class="contenedor-bag">
+                                                <img src="{{ $item->options->image }}" class="fill" alt="">
+                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 m-auto text-left">
+                                            <span class="titulo gelion-bold modelo" style="color: #000;">
+                                                <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>Talla: {{ $item->options->size }} - Color:

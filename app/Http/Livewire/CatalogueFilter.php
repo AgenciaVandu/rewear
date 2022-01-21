@@ -14,7 +14,7 @@ class CatalogueFilter extends Component
 {
     public $colors=[],$sizes=[],$categories=[],$subcategories=[];
     public $products=[];
-    public $category_id=1,$subcategory_id=1,$color_id,$size_id;
+    public $category_id,$subcategory_id,$color_id,$size_id;
     public $color;
 
     public function mount(){
