@@ -7,9 +7,7 @@
     <section id="product">
         <div class="container">
             <div class="product-inner">
-
                 @livewire('add-items-cart', ['product' => $product])
-
             </div>
         </div>
     </section>

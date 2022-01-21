@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-6 col-md-12 col-sm-12 espacio-pr">
+    <div class="col-lg-7 col-md-12 col-sm-12 espacio-pr">
         <div class="d-none d-sm-none d-md-none d-lg-block">
             <div class="row boton-producto">
                 @if (!$color_id)
@@ -63,7 +63,7 @@
         </div>
         <!--Movil images-->
     </div>
-    <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="col-lg-5 col-md-12 col-sm-12">
         @if (session()->has('message'))
             <div class="alert alert-warning alert-dismissible fade show " role="alert">
                 {!! session('message') !!}
