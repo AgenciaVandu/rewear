@@ -22,7 +22,8 @@ class AddItemsCart extends Component
         $this->colors = $product->colors;
         /* Cart::instance('caja1')->destroy();
         Cart::instance('caja2')->destroy();
-        Cart::instance('caja3')->destroy(); */
+        Cart::instance('caja3')->destroy();
+        Cart::instance('caja4')->destroy(); */
     }
 
     public function increment(){

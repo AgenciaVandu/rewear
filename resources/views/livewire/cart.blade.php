@@ -579,6 +579,9 @@
                                 case 'USD':
                                     $mon = 'USD';
                                     break;
+                                case '':
+                                    $mon = 'USD';
+                                    break;
                             }
                         @endphp
                         <div class="col-6 text-right">
@@ -610,21 +613,30 @@
                     @switch(session()->get('plan'))
                         @case(1)
                             @if (Cart::instance('caja1')->count() == 72)
-                                <div class="btn btn-secondary gelion-bold mt-2">Comprar ahora</div>
+                                <div class="gelion-bold mt-2">
+                                    <a class="btn btn-secondary d-block" href="{{ route('checkout') }}">Comprar
+                                        ahora</a>
+                                </div>
                             @else
                                 <div class="btn btn-secondary gelion-bold mt-2 disabled">Comprar ahora</div>
                             @endif
                         @break
                         @case(2)
                             @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 144 || Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 216)
-                                <div class="btn btn-secondary gelion-bold mt-2">Comprar ahora</div>
+                                <div class="gelion-bold mt-2">
+                                    <a class="btn btn-secondary d-block" href="{{ route('checkout') }}">Comprar
+                                        ahora</a>
+                                </div>
                             @else
                                 <div class="btn btn-secondary gelion-bold mt-2 disabled">Comprar ahora</div>
                             @endif
                         @break
                         @case(3)
                             @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() == 288)
-                                <div class="btn btn-secondary gelion-bold mt-2">Comprar ahora</div>
+                                <div class="gelion-bold mt-2">
+                                    <a class="btn btn-secondary d-block" href="{{ route('checkout') }}">Comprar
+                                        ahora</a>
+                                </div>
                             @else
                                 <div class="btn btn-secondary gelion-bold mt-2 disabled">Comprar ahora</div>
                             @endif

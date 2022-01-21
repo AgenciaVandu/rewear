@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Plan;
+use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
@@ -52,5 +53,13 @@ class PageController extends Controller
         session(['divisa'=> $divisa]);
 
         return back();
+    }
+
+
+
+    public function checkout(){
+        $plan = Plan::find(session()->get('plan'));
+        $products = Product::inRandomOrder()->paginate(4);
+        return view('rewear.catalogo.purchase',compact('plan','products'));
     }
 }

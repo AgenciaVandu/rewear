@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
@@ -46,9 +47,7 @@ Route::get('/catalogo-producto/{product}',[CatalogueController::class,'product']
 //Carrito / cesta
 Route::get('/cesta',[CartController::class,'index'])->name('cart.index');
 
-Route::get('/comprar', function(){
-    return view('rewear.catalogo.purchase');
-});
+Route::get('/comprar', [PageController::class,'checkout'])->name('checkout');
 //Preguntas frecuentes
 Route::get('/faq', [PageController::class,'faq'])->name('faq');
 //Página del blog
@@ -69,9 +68,7 @@ Route::get('/contacto', [PageController::class,'contact'])->name('contact');
     return view('rewear.user.register');
 }); */
 //pagina de cuenta
-Route::middleware(['auth'])->get('/mi-perfil', function(){
-    return view('rewear.user.cuenta.user');
-})->name('profile.index');
+Route::middleware(['auth'])->get('/mi-perfil', [ClientController::class,'index'])->name('profile.index');
 
 
 Route::get('search', SearchController::class)->name('search');
@@ -81,7 +78,7 @@ Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
-    Route::get('orders/create', CreateOrder::class)->name('orders.create');
+    Route::post('orders/create', [OrderController::class,'create'])->name('orders.create');
     Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.show');
     Route::get('orders/{order}/payment', PaymentOrder::class)->name('orders.payment');
     /* Route::get('orders/{order}/payment', [OrderController::class, 'payment'])->name('orders.payment'); */

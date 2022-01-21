@@ -20,11 +20,16 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('contact');
             $table->string('phone');
+            $table->string('bussiness')->nullable();
             $table->enum('status', [Order::PENDIENTE, Order::RECIBIDO, Order::ENVIADO, Order::ENTREGADO, Order::ANULADO]);
-            $table->enum('shipping_type', [1, 2]);
-            $table->float('shipping_cost');
+            /* $table->float('shipping_cost'); */
             $table->float('total');
-            $table->json('content');
+            $table->string('plan_name');
+            $table->string('plan_id');
+            $table->string('currency');
+            $table->float('currency_value');
+            $table->text('message');
+            /* $table->json('content'); */
             /* $table->unsignedBigInteger('department_id')->nullable();
             $table->foreign('department_id')->references('id')->on('departments');
             $table->unsignedBigInteger('city_id')->nullable();
