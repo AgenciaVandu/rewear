@@ -19,7 +19,7 @@
                     @foreach ($products as $product)
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="card espacio-card">
-                                <div class="contenedor-1">
+                                <div class="contenedor">
                                     @foreach ($product->images as $image)
                                         @if ($image->main == 'si')
                                             <a href="{{ route('catalogue.product', $product) }}">
@@ -29,8 +29,7 @@
                                         @endif
                                     @endforeach
                                 </div>
-                                <a href="{{ route('catalogue.product', $product) }}"
-                                    style="color: #000; text-decoration: none;">
+                                <a href="{{ route('catalogue.product', $product) }}" style="color: #000; text-decoration: none;">
                                     <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
                                 </a>
                                 <li class="gelion-bold size-2">{!! $product->description !!}</li>
