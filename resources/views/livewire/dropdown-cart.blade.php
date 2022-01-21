@@ -78,6 +78,30 @@
                                     </div>
                                     <hr>
                                 @endforeach
+                                @foreach (Cart::instance('caja2')->content() as $item)
+                                    <div class="row pt-3">
+                                        <div class="col-3">
+                                            <div class="contenedor-bag">
+                                                <img src="{{ $item->options->image }}" class="fill" alt="">
+                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 m-auto text-left">
+                                            <span class="titulo gelion-bold modelo" style="color: #000;">
+                                                <a class="text-secondary" href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000;">
+                                                <small>Talla: {{ $item->options->size }} - Color:
+                                                    {{ $item->options->color }}</small>
+                                            </span> <br>
+                                            <span class="pieza gelion-thin size" style="color: #000">
+                                                {{ $item->qty }} piezas
+                                            </span> <br>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endforeach
                             @break
                             @default
 

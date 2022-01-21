@@ -20,7 +20,9 @@ class AddItemsCart extends Component
     public function mount(Product $product){
         $this->images = $product->images;
         $this->colors = $product->colors;
-        /* Cart::instance('caja1')->destroy(); */
+        /* Cart::instance('caja1')->destroy();
+        Cart::instance('caja2')->destroy();
+        Cart::instance('caja3')->destroy(); */
     }
 
     public function increment(){
@@ -46,12 +48,13 @@ class AddItemsCart extends Component
 
         $color_limite=0;
         $manga_limit = 0;
+        $manga_limit2 = 0;
+        $manga_limit3 = 0;
         $colors_array=[];
         if (session()->has('plan')) {
             $plan = Plan::find(session()->get('plan'));
             $price = $plan->MXN;
             switch (session()->get('plan')) {
-
                 //Validaciones para el plan Start
                 case '1':
                     //Creamos el array para validar que solo 2 colores se pueden agregar a la cesta en este plan
@@ -101,8 +104,48 @@ class AddItemsCart extends Component
                     }
                     break;
                     case '2':
-                        if (Cart::instance('caja1')->count()+$this->qty <= 144 && Cart::instance('caja1')->count() <= 144 ) {
+                        //Validacion de managas por caja
+                        if (Cart::instance('caja1')->count()) {
+                            foreach (Cart::instance('caja1')->content() as $item) {
+                                if ($item->model->subcategory->name != $this->product->subcategory->name) {
+                                    $manga_limit++;
+                                }
+                            }
+                        }
+                        if (Cart::instance('caja2')->count()) {
+                            foreach (Cart::instance('caja2')->content() as $item) {
+                                if ($item->model->subcategory->name != $this->product->subcategory->name) {
+                                    $manga_limit2++;
+                                }
+                            }
+                        }
+                        if (Cart::instance('caja3')->count()) {
+                            foreach (Cart::instance('caja3')->content() as $item) {
+                                if ($item->model->subcategory->name != $this->product->subcategory->name) {
+                                    $manga_limit3++;
+                                }
+                            }
+                        }
+                        if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $manga_limit == 0) {
                             Cart::instance('caja1')->add([
+                                'id' => $this->product->id,
+                                'name' => $this->product->name,
+                                'price' => $price,
+                                'qty' => $this->qty,
+                                'weight' => 550,
+                                'options' => $this->options
+                            ])->associate('App\Models\Product');
+                        }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() <= 144 && $manga_limit2 == 0){
+                            Cart::instance('caja2')->add([
+                                'id' => $this->product->id,
+                                'name' => $this->product->name,
+                                'price' => $price,
+                                'qty' => $this->qty,
+                                'weight' => 550,
+                                'options' => $this->options
+                            ])->associate('App\Models\Product');
+                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() <= 216 && $manga_limit3 == 0){
+                            Cart::instance('caja3')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
                                 'price' => $price,
