@@ -6,6 +6,7 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PlanController;
@@ -18,6 +19,8 @@ use App\Http\Livewire\PaymentOrder;
 use App\Http\Livewire\ShoppingCart;
 use App\Models\Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,6 +73,11 @@ Route::get('/contacto', [PageController::class,'contact'])->name('contact');
 //pagina de cuenta
 Route::middleware(['auth'])->get('/mi-perfil', [ClientController::class,'index'])->name('profile.index');
 
+Route::get('locale/{locale}',function($locale){
+    session()->put('locale',$locale);
+
+    return Redirect::back();
+})->name('set.lang');
 
 Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');

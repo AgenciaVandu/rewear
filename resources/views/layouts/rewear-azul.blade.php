@@ -32,22 +32,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('home.index') }}">Inicio</a>
+                        <a class="nav-link" href="{{ route('home.index') }}">{{ __('Inicio') }}</a>
                     </li>
                     <li class="nav-item pr-3">
-                        <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
+                        <a class="nav-link" href="{{ route('about') }}">{{ __('Us') }}</a>
                     </li>
                     <li class="nav-item pr-3">
-                        <a class="nav-link" href="{{ route('catalogue.index') }}">Catálogo</a>
+                        <a class="nav-link" href="{{ route('catalogue.index') }}">{{ __('Catálogo') }}</a>
                     </li>
                     <li class="nav-item pr-3">
                         <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                     </li>
                     <li class="nav-item pr-3">
-                        <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
+                        <a class="nav-link" href="{{ route('faq') }}">{{ __('FAQ') }}</a>
                     </li>
                     <li class="nav-item pr-3">
-                        <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
+                        <a class="nav-link" href="{{ route('contact') }}">{{ __('Contacto') }}</a>
                     </li>
                     <div class="dropdown">
                         @if (session()->get('divisa')=='MXN')
@@ -83,7 +83,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('set.lang','es') }}" class="nav-link">
                             ES
                         </a>
                     </li>
@@ -93,7 +93,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('set.lang','en') }}" class="nav-link">
                             EN
                         </a>
                     </li>

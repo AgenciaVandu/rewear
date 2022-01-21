@@ -2,7 +2,8 @@
 @section('content')
     <header>
         <div class="contenido-boton">
-            <video id="portada" src="{{ asset('img/portada.mp4') }}" muted no-controls loop autoplay class="w-100"></video>
+            <video id="portada" src="{{ asset('img/portada.mp4') }}" muted no-controls loop autoplay
+                class="w-100"></video>
             <div class="boton-h">
                 <a href="{{ route('catalogue.index') }}" id="boton-h" class="btn btn-warning gelion-bold">Ver productos</a>
             </div>
@@ -11,11 +12,11 @@
     <section>
         <div class="bg-1">
             <div class="container text-center pt-4 espacio-1">
-                <h2 class="gelion-bold">Tenemos un compromiso con el planeta
+                <h2 class="gelion-bold">{{ __('Tenemos un compromiso con el planeta') }}
 
                 </h2>
-                <p class="gelion-light size">Creamos las mejores prendas hechas de materiales 100% reciclados con hilo <br
-                        class="d-none d-sm-none d-md-none d-lg-block"> certificado por Global Recycled Standard.
+                <p class="gelion-light size mx-5">
+                    {{ __('Creamos las mejores prendas hechas de materiales 100% reciclados con hilo certificado por Global Recycled Standard.') }}
                 </p>
                 <div class="row text-center">
                     <div class="col-lg-6 col-md-12 col-sm-12 contenido-imagen">
@@ -60,29 +61,31 @@
     <section id="planes">
         <div class="bg-2">
             <div class="container text-center">
-                <h1 class="gelion-bold">Colores que aman la vida</h1>
-                <p class="gelion-light size">Cada color genera un impacto positivo con el medio ambiente ya que nuestro
-                    proceso <br class="d-none d-sm-none d-md-none d-lg-block"> ahorra miles de litros de agua y no utiliza
-                    tintes o químicos para teñir.
+                <h1 class="gelion-bold">{{ __('Colores que aman la vida') }}</h1>
+                <p class="gelion-light size">
+                    {{ __('Cada color genera un impacto positivo con el medio ambiente ya que nuestro
+                                        proceso ahorra miles de litros de agua y no utiliza
+                                        tintes o químicos para teñir.') }}
                 </p>
                 <a href="{{ route('catalogue.index') }}" class="btn btn-secondary gelion-bold">CONOCE MÁS</a>
             </div>
             <div class="bg-3 mt-5 pt-5">
                 <!--bg-azul-->
-                <h1 class="gelion-bold text-center" style="color: #fff;">Cambia al mundo con cada camiseta. Arma tus cajas.
+                <h1 class="gelion-bold text-center" style="color: #fff;">
+                    {{ __('Cambia al mundo con cada camiseta. Arma tus cajas.') }}
                 </h1>
                 <div class="container">
                     <div class="d-block d-sm-block d-md-none d-lg-none">
                         <div class="row pt-5">
                             <div class="col-6 left-o">
                                 <img src="{{ asset('/img/index/hoja.svg') }}" alt="">
-                                <h5 class="gelion-bold pt-3" style="color: #fff;">Elige de 6 en 6 piezas</h5>
+                                <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Elige de 6 en 6 piezas') }}</h5>
                                 <p class="gelion-thin" style="color: #fff;">Configura tus cajas eligiendo de 6 en 6
                                     piezas por talla y color.</p>
                             </div>
                             <div class="col-6 left-o">
                                 <img src="{{ asset('/img/index/hoja.svg') }}" alt="">
-                                <h5 class="gelion-bold pt-3" style="color: #fff;">Todas las tallas</h5>
+                                <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Todas las tallas') }}</h5>
                                 <p class="gelion-thin" style="color: #fff;">Elige todas las tallas que quieras (S-M-L-XL)
                                     siguiendo un orden de 6 en 6 piezas.</p>
                             </div>
@@ -104,14 +107,14 @@
                         <div class="row pt-5">
                             <div class="col-lg-3 col-md-6 col-sm-6 left-o">
                                 <img src="{{ asset('/img/index/hoja.svg') }}" alt="">
-                                <h5 class="gelion-bold pt-3" style="color: #fff;">Elige piezas de 6 en 6</h5>
+                                <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Elige de 6 en 6 piezas') }}</h5>
                                 <p class="gelion-thin" style="color: #fff;">Configura tus cajas eligiendo de 6 en 6
                                     piezas por talla y color.</p> <br>
                             </div>
 
                             <div class="col-lg-3 col-md-6 col-sm-6 left-o">
                                 <img src="{{ asset('/img/index/hoja.svg') }}" alt="">
-                                <h5 class="gelion-bold pt-3" style="color: #fff;">Todas las tallas</h5>
+                                <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Todas las tallas') }}</h5>
                                 <p class="gelion-thin" style="color: #fff;">Elige todas las tallas que quieras (S-M-L-XL)
                                     siguiendo un orden de 6 en 6 piezas.</p>
                             </div>
@@ -140,7 +143,12 @@
                                         <div class="icon pt-2 pb-3">
                                             <img src="{{ asset('/img/index/box.svg') }}" width="70" alt="icono box">
                                         </div>
-                                        <h3 class="gelion-bold espacio-2">{{ $plan->price }} MXN <br>
+                                        <h3 class="gelion-bold espacio-2">
+                                            @if (session()->get('divisa') == 'MXN')
+                                                {{ $plan->MXN }}MXN
+                                            @else
+                                                {{ $plan->USD }} USD
+                                            @endif <br>
                                             <span class="gelion-thin size-1">Por pieza. IVA incluído.</span>
                                         </h3>
                                         <h2 class="gelion-bold">{{ $plan->name }}</h2>
