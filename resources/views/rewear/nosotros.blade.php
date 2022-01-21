@@ -172,28 +172,28 @@
         <div class="">
             <div class="container">
                 <div class="text-center pt-5">
-                    <h1 class="gelion-bold pb-5" style="color: #fff;"></h1>
+                    <h1 class="gelion-bold pb-5" style="color: #fff;">{{ __('Conoce al talento detrás de Rewear') }}</h1>
                     <div class="d-block d-sm-block d-md-block d-lg-none">
                         <div class="row">
                             <div class="col-6 pt-3">
                                 <img src="{{ asset('/img/nosotros/team/alice-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alice Dissegna <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        {{ __('Directora General') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
                                 <img src="{{ asset('/img/nosotros/team/carola-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Carola Caneparo <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        Ejecutiva de marca / Brand executive
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
                                 <img src="{{ asset('/img/nosotros/team/silvia-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Silvia López <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        Relaciones publicas / Public relations
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
@@ -201,7 +201,7 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Nalleli Antonio <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        Vinculacion empresarial / Brand executive
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
@@ -209,7 +209,7 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alejandra Aguilar <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        Manager Comercial / Commercial manager
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
@@ -217,14 +217,14 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">William Marrufo <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        Marketing comercial
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
                                 <img src="{{ asset('/img/nosotros/team/luis-1.png') }}" alt="" class="img-fluid">
-                                <h3 class="gelion-bold pt-3" style="color: #fff;">Luis Vivas Núñez <br>
+                                <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramirez <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        Marketing Digital / Digital Marketing
                                     </span>
                             </div>
                         </div>
@@ -235,7 +235,7 @@
                                 <img src="{{ asset('/img/nosotros/team/alice-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alice Dissegna <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        {{ __('Directora General') }}
                                     </span>
                                 </h3>
                             </div>
