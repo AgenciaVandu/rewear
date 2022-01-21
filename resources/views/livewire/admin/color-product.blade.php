@@ -39,7 +39,7 @@
                                     </h3>
                                     <div class="w-full">
                                         <x-jet-input wire:model="SKU" type="text"
-                                            placeholder="SKU" class="py-1" />
+                                            placeholder="Ingresa SKU" class="py-1" />
                                     </div>
                                     <div class="flex flex-wrap p-4">
                                         @isset($images)
