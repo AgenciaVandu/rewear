@@ -50,9 +50,11 @@
                 <div class="carousel__contenedor">
                     <div class="carousel__lista text-center">
                         @foreach ($product->images as $image)
-                            <div class="carousel__elemento m-1">
-                                <img src="{{ Storage::url($image->url) }}" class="img-fluid" alt="">
-                            </div>
+                            @if ($image->main != 'si')
+                                <div class="carousel__elemento m-1">
+                                    <img src="{{ Storage::url($image->url) }}" class="img-fluid" alt="">
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>
