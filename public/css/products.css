@@ -51,11 +51,11 @@
 /*end hover productos*/
 .lateral button img {
     height: 180px;
-    width: 163px;
+    width: 135px;
 }
 .principal img{
     height: 574.31px;
-    width: 350px;
+    width: 380px;
 }
 .fill {
     object-fit: fill;
