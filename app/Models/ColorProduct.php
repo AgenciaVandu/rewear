@@ -10,6 +10,7 @@ class ColorProduct extends Model
     use HasFactory;
 
     protected $table = "color_product";
+    protected $fillable = ['SKU'];
 
     //Relacion uno a muchos inversa
     public function color()

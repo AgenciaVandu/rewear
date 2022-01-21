@@ -15,6 +15,7 @@ class ColorProduct extends Component
     public $product,$colors,$colors_id,$color_product;
     protected $listeners = ['render'];
     public $images,$rand,$open=false,$files=[],$color_id,$color;
+    public $SKU;
     protected $rules = ['files.*' => 'required|image|mimes:jpg,jpeg,png,svg,gif',];
 
 
@@ -31,13 +32,16 @@ class ColorProduct extends Component
 
     public function edit(ModelsColorProduct $color){
         $this->open = true;
+        $this->SKU = $color->SKU;
         $this->images = $color->images;
         $this->color_id = $color->id;
         $this->color = $color;
     }
 
     public function uploadPhotos(ModelsColorProduct $color){
-
+        $color->update([
+            'SKU' => $this->SKU,
+        ]);
         foreach ($this->files as $file) {
             $url = $file->store('colors');
             $color->images()->create([
