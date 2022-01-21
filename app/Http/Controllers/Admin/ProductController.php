@@ -20,4 +20,17 @@ class ProductController extends Controller
             'url' => $url
         ]);
     }
+
+    public function filesmain(Product $product, Request $request)
+    {
+        $request->validate([
+            'file' => 'required|image|max:2048'
+        ]);
+        $url = Storage::put('products', $request->file('file'));
+
+        $product->images()->create([
+            'url' => $url,
+            'main'=> 'si'
+        ]);
+    }
 }

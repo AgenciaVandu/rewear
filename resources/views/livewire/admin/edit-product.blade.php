@@ -10,6 +10,37 @@
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-trueGray-700">
         <h1 class="text-3xl text-center font-semibold mb-8">Complete esta información para crear un producto</h1>
+
+        <div class="mb-4" wire:ignore>
+            <form action="{{ route('admin.products.filesmain', $product) }}" class="dropzone" id="my-dropzone"
+                method="POST">
+            </form>
+        </div>
+
+        @if ($product->images->count())
+            <section class="bg-white shadow-lg rounded-lg p-6 mb-4">
+                <h1 class="text-2xl text-center font-semibold mb-2">
+                    Imagenes destacadas del producto
+                </h1>
+
+                <ul class="flex flex-wrap">
+                    @foreach ($product->images as $image)
+                        @if ($image->main == 'si')
+                            <li class="relative" wire:key="image-{{ $image->id }}">
+                                <img src="{{ Storage::url($image->url) }}"
+                                    class="w-32 h-20 mx-1 object-cover object-center" alt="">
+                                <x-jet-danger-button class="absolute right-2 top-2"
+                                    wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled"
+                                    wire:target="deleteImage({{ $image->id }})">X
+                                </x-jet-danger-button>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+            </section>
+        @endif
+
+
         <div class="mb-4" wire:ignore>
             <form action="{{ route('admin.products.files', $product) }}" class="dropzone"
                 id="my-awesome-dropzone" method="POST">
@@ -24,18 +55,21 @@
 
                 <ul class="flex flex-wrap">
                     @foreach ($product->images as $image)
-                        <li class="relative" wire:key="image-{{ $image->id }}">
-                            <img src="{{ Storage::url($image->url) }}"
-                                class="w-32 h-20 mx-1 object-cover object-center" alt="">
-                            <x-jet-danger-button class="absolute right-2 top-2"
-                                wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled"
-                                wire:target="deleteImage({{ $image->id }})">X
-                            </x-jet-danger-button>
-                        </li>
+                        @if ($image->main != 'si')
+                            <li class="relative" wire:key="image-{{ $image->id }}">
+                                <img src="{{ Storage::url($image->url) }}"
+                                    class="w-32 h-20 mx-1 object-cover object-center" alt="">
+                                <x-jet-danger-button class="absolute right-2 top-2"
+                                    wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled"
+                                    wire:target="deleteImage({{ $image->id }})">X
+                                </x-jet-danger-button>
+                            </li>
+                        @endif
                     @endforeach
                 </ul>
             </section>
         @endif
+
         {{-- @livewire('admin.status-product', ['product' => $product], key('status-product-'.$product->id)) --}}
 
         <div class="bg-white shadow-lg rounded-lg p-6">
@@ -142,6 +176,22 @@
                     'X-CSRF-TOKEN': "{{ csrf_token() }}"
                 },
                 dictDefaultMessage: "Arraste las imagenes al recuadro",
+                acceptedFiles: "image/*",
+                paramName: "file", // The name that will be used to transfer the file
+                maxFilesize: 2, // MB
+                complete: function(file) {
+                    this.removeFile(file);
+                },
+                queuecomplete: function() {
+                    Livewire.emit('refreshProduct');
+                }
+            };
+
+            Dropzone.options.myDropzone = { // camelized version of the `id`
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                dictDefaultMessage: "Arraste las imagenes destacadas del producto al recuadro",
                 acceptedFiles: "image/*",
                 paramName: "file", // The name that will be used to transfer the file
                 maxFilesize: 2, // MB

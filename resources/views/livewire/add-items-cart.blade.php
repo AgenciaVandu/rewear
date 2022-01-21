@@ -5,18 +5,22 @@
                 @if (!$color_id)
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         @foreach ($images as $image)
-                            <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
-                                <button type="button" id="i-{{ $loop->iteration }}">
-                                    <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
-                                </button>
-                            </div>
+                            @if ($image->main != 'si')
+                                <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
+                                    <button type="button" id="i-{{ $loop->iteration }}">
+                                        <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
+                                    </button>
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                     <div class="col-lg-8 col-md-6 col-sm-12">
                         @foreach ($product->images as $image)
-                            <div class="principal" id="p{{ $loop->iteration }}">
-                                <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
-                            </div>
+                            @if ($image->main != 'si')
+                                <div class="principal" id="p{{ $loop->iteration }}">
+                                    <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 @else

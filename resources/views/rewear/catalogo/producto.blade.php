@@ -74,9 +74,6 @@
                                 </li>
                                 <li class="gelion-thin">Peso de tela: <span>{{ $product->measure }}</span>
                                 </li>
-                                <li class="gelion-thin">Tipo de tejido: <span>Jersey</span>
-                                </li>
-                                <li class="gelion-thin">Regular fit</li>
                                 <div class="pt-3 d-flex">
                                     <div class="hoja">
                                         <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
