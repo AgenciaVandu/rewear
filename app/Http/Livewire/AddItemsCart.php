@@ -72,13 +72,12 @@ class AddItemsCart extends Component
                             }
                         }
                     }
-
                     //Condiciones para agregar mas productos segun la cantidad del paquete y los colores permitidos
                     if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $color_limite < 2 && $manga_limit == 0) {
                         Cart::instance('caja1')->add([
                             'id' => $this->product->id,
                             'name' => $this->product->name,
-                            'price' => 100,
+                            'price' => $price,
                             'qty' => $this->qty,
                             'weight' => 550,
                             'options' => $this->options
