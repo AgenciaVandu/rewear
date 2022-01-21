@@ -651,14 +651,30 @@
                             <div class="col-12">
                                 <p class="gelion-bold text-center">Selecciona un plan</p>
                             </div>
+
                             <div class="col">
-                                <button type="checkbox" class="btn btn-primary btn-block">Start</button>
+                                @if (session()->get('plan') == 1)
+                                    <a class="btn btn-primary btn-block disabled ">Start</a>
+                                @else
+                                    <a href="{{ route('plan', 1) }}"
+                                        class="btn btn-primary btn-block">Start</a>
+                                @endif
                             </div>
                             <div class="col">
-                                <button type="checkbox" class="btn btn-primary btn-block">Plus</button>
+                                @if (session()->get('plan') == 2)
+                                    <a class="btn btn-primary btn-block disabled ">Plus</a>
+                                @else
+                                    <a href="{{ route('plan', 2) }}"
+                                        class="btn btn-primary btn-block">Plus</a>
+                                @endif
                             </div>
                             <div class="col">
-                                <button type="checkbox" class="btn btn-primary btn-block">Top</button>
+                                @if (session()->get('plan') == 3)
+                                    <a class="btn btn-primary btn-block disabled ">Top</a>
+                                @else
+                                    <a href="{{ route('plan', 3) }}"
+                                        class="btn btn-primary btn-block">Top</a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-12 mt-3">
