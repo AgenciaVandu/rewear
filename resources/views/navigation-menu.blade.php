@@ -30,6 +30,9 @@
                     <x-jet-nav-link href="{{ route('admin.sizes.index') }}" :active="request()->routeIs('admin.sizes.*')">
                         {{ __('Tallas') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.plans') }}" :active="request()->routeIs('admin.plans.*')">
+                        {{ __('Planes') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.users.index') }}"
                         :active="request()->routeIs('admin.users.*')">
                         {{ __('Usuarios del sistema') }}

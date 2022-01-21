@@ -12,8 +12,10 @@ use App\Http\Controllers\Admin\SizeController;
 use App\Http\Livewire\Admin\BrandComponent;
 use App\Http\Livewire\Admin\CityComponent;
 use App\Http\Livewire\Admin\DepartmentComponent;
+use App\Http\Livewire\Admin\EditPlan;
 use App\Http\Livewire\Admin\ShowCategory;
 use App\Http\Livewire\Admin\ShowDepartment;
+use App\Http\Livewire\Admin\ShowPlans;
 use App\Http\Livewire\Admin\UserComponent;
 
 Route::get('/', ShowProducts::class)->name('admin.products');
@@ -31,6 +33,8 @@ Route::get('departments', DepartmentComponent::class)->name('admin.departments.i
 Route::get('departments/{department}', ShowDepartment::class)->name('admin.departments.show');
 Route::get('departments/cities/{city}', CityComponent::class)->name('admin.cities.show');
 Route::get('users', UserComponent::class)->name('admin.users.index');
+Route::get('plans',ShowPlans::class)->name('admin.plans');
+Route::get('plans/{plan}/edit', EditPlan::class)->name('admin.plans.edit');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
