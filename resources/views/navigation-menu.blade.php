@@ -12,7 +12,8 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin.products') }}" :active="request()->routeIs('admin.products.*')">
+                    <x-jet-nav-link href="{{ route('admin.products') }}"
+                        :active="request()->routeIs('admin.products.*')">
                         {{ __('Productos') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.orders.index') }}"
@@ -27,11 +28,15 @@
                         :active="request()->routeIs('admin.colors.*')">
                         {{ __('Colores') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('admin.sizes.index') }}" :active="request()->routeIs('admin.sizes.*')">
+                    <x-jet-nav-link href="{{ route('admin.sizes.index') }}"
+                        :active="request()->routeIs('admin.sizes.*')">
                         {{ __('Tallas') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.plans') }}" :active="request()->routeIs('admin.plans.*')">
                         {{ __('Planes') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.blog.index') }}" :active="request()->routeIs('admin.blog.*')">
+                        {{ __('Blog') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.users.index') }}"
                         :active="request()->routeIs('admin.users.*')">
@@ -179,7 +184,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('admin.products') }}" :active="request()->routeIs('admin.products.*')">
+            <x-jet-responsive-nav-link href="{{ route('admin.products') }}"
+                :active="request()->routeIs('admin.products.*')">
                 {{ __('Productos') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('admin.orders.index') }}"

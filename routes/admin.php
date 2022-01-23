@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Livewire\Admin\CreateProduct;
 use App\Http\Livewire\Admin\EditProduct;
@@ -8,11 +9,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\PostCategoryController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Livewire\Admin\BrandComponent;
 use App\Http\Livewire\Admin\CityComponent;
 use App\Http\Livewire\Admin\DepartmentComponent;
 use App\Http\Livewire\Admin\EditPlan;
+use App\Http\Livewire\Admin\PostCategory;
 use App\Http\Livewire\Admin\ShowCategory;
 use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\ShowPlans;
@@ -36,6 +40,14 @@ Route::get('departments/cities/{city}', CityComponent::class)->name('admin.citie
 Route::get('users', UserComponent::class)->name('admin.users.index');
 Route::get('plans',ShowPlans::class)->name('admin.plans');
 Route::get('plans/{plan}/edit', EditPlan::class)->name('admin.plans.edit');
+
+Route::get('/blog', [BlogController::class, 'index'])->name('admin.blog.index');
+Route::resource('/posts', PostController::class)->names('admin.posts');
+Route::get('/post/categories', PostCategory::class)->name('admin.postcategories');
+
+
+Route::post('uploadimage', [PostController::class, 'uploadImage'])->name('admin.posts.upload');
+Route::post('images/upload', [PostController::class, 'uploadImages'])->name('ckeditor.upload');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

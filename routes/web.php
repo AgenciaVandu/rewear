@@ -56,9 +56,7 @@ Route::get('/faq', [PageController::class,'faq'])->name('faq');
 //Página del blog
 Route::get('/blog-index', [BlogController::class,'index'])->name('blog.index');
 //pagina de articulo
-Route::get('/blog-articulo', function(){
-    return view('rewear.blog.articulo');
-});
+Route::get('/blog-articulo/{post}', [BlogController::class,'show'])->name('post.show');
 //pagina de contacto
 Route::get('/contacto', [PageController::class,'contact'])->name('contact');
 // COMIENZAN LAS VISTAS DE USUARIO

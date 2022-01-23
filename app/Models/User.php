@@ -81,4 +81,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Product::class);
     }
+
+    public function posts()
+    {
+        return $this->belongsToMany(Pots::class);
+    }
+
+
 }
