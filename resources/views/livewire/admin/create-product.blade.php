@@ -39,6 +39,19 @@
             class="w-full bg-trueGray-200" />
         <x-jet-input-error for="slug" />
     </div>
+
+    <div class="mb-4">
+        <x-jet-label value="Name" />
+        <x-jet-input wire:model="name_en" type="text" placeholder="Name product" class="w-full" />
+        <x-jet-input-error for="name_en" />
+    </div>
+    {{-- Slug --}}
+    <div class="mb-4">
+        <x-jet-label value="Slug" />
+        <x-jet-input wire:model="slug_en" disabled type="text" placeholder="Slug product"
+            class="w-full bg-trueGray-200" />
+        <x-jet-input-error for="slug_en" />
+    </div>
     {{-- Descripcion --}}
     <div class="mb-4">
         <div wire:ignore>
@@ -57,6 +70,25 @@
         <x-jet-input-error for="description" />
     </div>
 
+
+    {{-- Descripcion --}}
+    <div class="mb-4">
+        <div wire:ignore>
+            <x-jet-label value="Description" />
+            <textarea wire:model="description_en" class="w-full form-control" x-ref="mieditor_en" rows="4" x-data x-init="ClassicEditor
+            .create( $refs.mieditor_en )
+            .then(function(editor){
+                editor.model.document.on('change:data',() => {
+                    @this.set('description_en',editor.getData())
+                })
+            })
+            .catch( error => {
+                console.error( error );
+            } );"></textarea>
+        </div>
+        <x-jet-input-error for="description_en" />
+    </div>
+
     <div class="grid grid-cols-2 gap-6 mb-4">
         {{-- Medidas del modelo --}}
         <div class="mb-4">
@@ -72,6 +104,23 @@
             <x-jet-input wire:model="size" type="text" placeholder="Ingrese la talla del modelo"
                 class="w-full" />
                 <x-jet-input-error for="size"/>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 gap-6 mb-4">
+        {{-- Medidas del modelo --}}
+        <div class="mb-4">
+            <x-jet-label value="Measurements of the model" />
+            <x-jet-input wire:model="measure_en" type="text" placeholder="Ingrese las medidas del modelo"
+                class="w-full" />
+                <x-jet-input-error for="measure_en"/>
+        </div>
+
+        {{-- Talla del modelo --}}
+        <div class="mb-4">
+            <x-jet-label value="Modelo sizes" />
+            <x-jet-input wire:model="size_en" type="text" placeholder="Ingrese la talla del modelo"
+                class="w-full" />
+                <x-jet-input-error for="size_en"/>
         </div>
     </div>
     <div class="flex justify-end mt-4">

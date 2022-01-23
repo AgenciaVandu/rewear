@@ -14,6 +14,7 @@ class CreateProduct extends Component
     public $categories, $subcategories = [];
     public $category_id = "", $subcategory_id = "";
     public $name, $slug, $description, $measure, $size;
+    public $name_en, $slug_en, $description_en, $measure_en, $size_en;
 
     protected $rules = [
         'category_id' => 'required',
@@ -21,6 +22,9 @@ class CreateProduct extends Component
         'name' => 'required',
         'slug' => 'required|unique:products',
         'description' => 'required',
+        'name_en' => 'required',
+        'slug_en' => 'required|unique:products',
+        'description_en' => 'required',
     ];
 
     public function mount()
@@ -31,6 +35,11 @@ class CreateProduct extends Component
     public function updatedName($value)
     {
         $this->slug = Str::slug($value);
+    }
+
+    public function updatedNameEn($value)
+    {
+        $this->slug_en = Str::slug($value);
     }
 
     public function updatedCategoryId($value)
@@ -57,6 +66,11 @@ class CreateProduct extends Component
         $product->subcategory_id = $this->subcategory_id;
         $product->measure = $this->measure;
         $product->size = $this->size;
+        $product->name_en = $this->name_en;
+        $product->slug_en = $this->slug_en;
+        $product->description_en = $this->description_en;
+        $product->measure_en = $this->measure_en;
+        $product->size_en = $this->size_en;
 
         $product->save();
 

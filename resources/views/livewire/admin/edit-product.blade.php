@@ -112,6 +112,21 @@
                     class="w-full bg-trueGray-200" />
                 <x-jet-input-error for="slug" />
             </div>
+
+            {{-- Name --}}
+            <div class="mb-4">
+                <x-jet-label value="Name" />
+                <x-jet-input wire:model="product.name_en" type="text" placeholder="Ingrese el nombre del producto"
+                    class="w-full" />
+                <x-jet-input-error for="product.name_en" />
+            </div>
+            {{-- Slug --}}
+            <div class="mb-4">
+                <x-jet-label value="Slug" />
+                <x-jet-input wire:model="slug_en" disabled type="text" placeholder="Ingrese el slug del producto"
+                    class="w-full bg-trueGray-200" />
+                <x-jet-input-error for="slug_en" />
+            </div>
             {{-- Descripcion --}}
             <div class="mb-4">
                 <div wire:ignore>
@@ -122,6 +137,24 @@
                     .then(function(editor){
                         editor.model.document.on('change:data',() => {
                             @this.set('product.description',editor.getData())
+                        })
+                    })
+                    .catch( error => {
+                        console.error( error );
+                    } );"></textarea>
+                </div>
+                <x-jet-input-error for="product.description" />
+            </div>
+
+            <div class="mb-4">
+                <div wire:ignore>
+                    <x-jet-label value="Descripción" />
+                    <textarea wire:model="product.description_en" class="w-full form-control" x-ref="mieditor_en" rows="4"
+                        x-data x-init="ClassicEditor
+                    .create( $refs.mieditor_en )
+                    .then(function(editor){
+                        editor.model.document.on('change:data',() => {
+                            @this.set('product.description_en',editor.getData())
                         })
                     })
                     .catch( error => {
@@ -145,6 +178,24 @@
                     <x-jet-input wire:model="product.size" type="text" placeholder="Ingrese la talla del modelo"
                         class="w-full" />
                     <x-jet-input-error for="product.size" />
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 mb-4">
+                {{-- Medidas del modelo --}}
+                <div class="mb-4">
+                    <x-jet-label value="Medidas del modelo" />
+                    <x-jet-input wire:model="product.measure_en" type="text" placeholder="Ingrese las medidas del modelo"
+                        class="w-full" />
+                    <x-jet-input-error for="product.measure_en" />
+                </div>
+
+                {{-- Talla del modelo --}}
+                <div class="mb-4">
+                    <x-jet-label value="Talla del modelo" />
+                    <x-jet-input wire:model="product.size_en" type="text" placeholder="Ingrese la talla del modelo"
+                        class="w-full" />
+                    <x-jet-input-error for="product.size_en" />
                 </div>
             </div>
             <div class="flex justify-end items-center mt-4">

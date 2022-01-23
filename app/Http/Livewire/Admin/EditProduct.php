@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 
 class EditProduct extends Component
 {
-    public $product, $categories, $subcategories, $slug;
+    public $product, $categories, $subcategories, $slug,$slug_en;
     public $category_id;
 
     protected $listeners = ['refreshProduct', 'delete'];
@@ -25,6 +25,11 @@ class EditProduct extends Component
         'product.description' => 'required',
         'product.measure' => 'required',
         'product.size' => 'required',
+        'product.name_en' => 'required',
+        'slug_en' => 'required|unique:products,slug_em',
+        'product.description_en' => 'required',
+        'product.measure_en' => 'required',
+        'product.size_en' => 'required',
     ];
 
     public function mount(Product $product)
@@ -34,6 +39,7 @@ class EditProduct extends Component
         $this->category_id = $product->subcategory->category->id;
         $this->subcategories = Subcategory::where('category_id', $this->category_id)->get();
         $this->slug = $this->product->slug;
+        $this->slug_en = $this->product->slug_en;
     }
 
     public function updatedCategoryId($value)
@@ -45,6 +51,10 @@ class EditProduct extends Component
     public function updatedProductName($value)
     {
         $this->slug = Str::slug($value);
+    }
+    public function updatedProductNameEn($value)
+    {
+        $this->slug_en = Str::slug($value);
     }
 
     public function getSubcategoryProperty()
@@ -63,10 +73,12 @@ class EditProduct extends Component
         $rules = $this->rules;
 
         $rules['slug'] = 'required|unique:products,slug,' . $this->product->id;
+        $rules['slug_en'] = 'required|unique:products,slug_en,' . $this->product->id;
 
         $this->validate($rules);
 
         $this->product->slug = $this->slug;
+        $this->product->slug_en = $this->slug_en;
         $this->product->save();
 
         $this->emit('saved');
