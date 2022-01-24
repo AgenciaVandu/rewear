@@ -321,7 +321,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6 pt-4">
-                        <div class="row">
+                        <div class="row mb-2">
                             @foreach ($products as $product)
                                 <div class="col-6">
                                     <div class="card espacio-card">
