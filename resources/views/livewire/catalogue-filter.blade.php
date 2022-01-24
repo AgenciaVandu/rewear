@@ -249,15 +249,17 @@
                                 <div class="col">
                                     <div class="card espacio-card">
                                         <div class="contenedor-7">
-                                            <a href="{{ route('catalogue.product', $product) }}">
-                                                <img src="{{ Storage::url($product->images->first()->url) }}"
-                                                    class="fill" alt="Productos del catálogo">
-                                            </a>
-                                            <a href="{{ route('catalogue.product', $product) }}">
-                                                <img src="{{ Storage::url($product->images->last()->url) }}"
-                                                    class="top fill" alt="Productos del catálogo">
-                                            </a>
+                                            @foreach ($product->images as $image)
+                                                @if ($image->main == 'si')
+                                                    <a href="{{ route('catalogue.product', $product) }}">
+                                                        <img src="{{ Storage::url($image->url) }}"
+                                                            class="@if ($loop->iteration != 1) top @endif fill"
+                                                            alt="Productos del catálogo">
+                                                    </a>
+                                                @endif
+                                            @endforeach
                                         </div>
+
                                         <a href="" style="color: #000; text-decoration: none;">
                                             <h5 class="gelion-bold pt-2 size-product-1">
                                                 @if (session('locale') == 'es')
@@ -324,14 +326,15 @@
                                 <div class="col-6">
                                     <div class="card espacio-card">
                                         <div class="contenedor-2">
-                                            <a href="{{ route('catalogue.product', $product) }}">
-                                                <img src="{{ Storage::url($product->images->first()->url) }}"
-                                                    class="img-fluid" alt="Productos del catálogo">
-                                            </a>
-                                            <a href="{{ route('catalogue.product', $product) }}">
-                                                <img src="{{ Storage::url($product->images->last()->url) }}"
-                                                    class="top-1 img-fluid" alt="Productos del catálogo">
-                                            </a>
+                                            @foreach ($product->images as $image)
+                                                @if ($image->main == 'si')
+                                                    <a href="{{ route('catalogue.product', $product) }}">
+                                                        <img src="{{ Storage::url($image->url) }}"
+                                                            class="@if ($loop->iteration != 1) top @endif fill"
+                                                            alt="Productos del catálogo">
+                                                    </a>
+                                                @endif
+                                            @endforeach
                                         </div>
                                         <a href="" style="color: #000; text-decoration: none;">
                                             <h5 class="gelion-bold pt-2">
@@ -344,9 +347,9 @@
                                         </a>
                                         <li class="gelion-thin size-product">
                                             @if (session('locale') == 'es')
-                                            {!! $product->description !!}
+                                                {!! $product->description !!}
                                             @else
-                                            {!! $product->description_en !!}
+                                                {!! $product->description_en !!}
                                             @endif
                                         </li>
                                         <div class="pt-3 d-flex">

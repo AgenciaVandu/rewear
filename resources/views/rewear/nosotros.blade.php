@@ -159,9 +159,8 @@
                 </div>
                 <div class="row pt-4">
                     <div class="col-lg-7 col-md-12 col-sm-12 left-o">
-                        <h2 class="gelion-bold">{{ __('Nuestra calidad la respaldamos') }} <br
-                                class="d-none d-sm-none d-md-block d-lg-block"> con las mejores certificaciones</h2>
-                        <p class="gelio-regular">El hilo con el que creamos nuestras prendas está certiicado por:</p>
+                        <h2 class="gelion-bold">{!! __("Nuestra calidad la respaldamos <br class='d-none d-sm-none d-md-block d-lg-block'> con las mejores certificaciones") !!} </h2>
+                        {{-- <p class="gelio-regular">El hilo con el que creamos nuestras prendas está certiicado por:</p> --}}
                     </div>
                     <div class="col-lg-5 col-md-12 text-center col-sm-12">
                         <img src="{{ asset('/img/nosotros/certificados.png') }}"
