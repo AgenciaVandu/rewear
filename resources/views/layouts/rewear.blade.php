@@ -138,24 +138,24 @@
                     <div class="row">
                         <div class="col-6">
                             <li>
-                                <a href="" class="gelion-thin" style="color: #fff;">Inicio</a>
+                                <a href="{{ route('home.index') }}" class="gelion-thin" style="color: #fff;">Inicio</a>
                             </li>
                             <li>
-                                <a href="" class="gelion-thin" style="color: #fff;">Nosotros</a>
+                                <a href="{{ route('about') }}" class="gelion-thin" style="color: #fff;">Nosotros</a>
                             </li>
                             <li>
-                                <a href="" class="gelion-thin" style="color: #fff;">Catálogo</a>
+                                <a href="{{ route('catalogue.index') }}" class="gelion-thin" style="color: #fff;">Catálogo</a>
                             </li>
                             <li>
-                                <a href="" class="gelion-thin" style="color: #fff;">Blog</a>
+                                <a href="{{ route('blog.index') }}" class="gelion-thin" style="color: #fff;">Blog</a>
                             </li>
                         </div>
                         <div class="col-6">
                             <li>
-                                <a href="" class="gelion-thin" style="color: #fff;">FAQ</a>
+                                <a href="{{ route('faq') }}" class="gelion-thin" style="color: #fff;">FAQ</a>
                             </li>
                             <li>
-                                <a href="" class="gelion-thin" style="color: #fff;">Contacto</a>
+                                <a href="{{ route('contact') }}" class="gelion-thin" style="color: #fff;">Contacto</a>
                             </li>
                         </div>
                     </div>
@@ -165,17 +165,17 @@
                             <li>
                                 <div class="row pt-2">
                                     <div class="col-2 pt-2">
-                                        <a href="" style="color: #fff;">
+                                        <a href="https://www.facebook.com/myrewear" style="color: #fff;">
                                             <i class="fab fa-facebook-square" style="color: #fff; font-size: 2em;"></i>
                                         </a>
                                     </div>
                                     <div class="col-2 pt-2">
-                                        <a href="" style="color: #fff;">
+                                        <a href="https://www.instagram.com/myrewear.mx/" style="color: #fff;">
                                             <i class="fab fa-instagram" style="color: #fff; font-size: 2em;"></i>
                                         </a>
                                     </div>
                                     <div class="col-2 pt-2">
-                                        <a href="" style="color: #fff;">
+                                        <a href="https://www.linkedin.com/company/myrewear/" style="color: #fff;">
                                             <i class="fab fa-linkedin" style="color: #fff; font-size: 2em;"></i>
                                         </a>
                                     </div>
@@ -204,7 +204,7 @@
                                         <img src="{{ asset('/img/index/cel.svg') }}" width="20">
                                     </div>
                                     <div class="col-11 ">
-                                        <p class="gelion-thin m-auto" style="color: #fff;">Teléfono: (999) 999 9999</p>
+                                        <p class="gelion-thin m-auto" style="color: #fff;">Teléfono: (999) 324 7922</p>
                                     </div>
                                 </div>
                             </li>

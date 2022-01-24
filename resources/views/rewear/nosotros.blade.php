@@ -205,7 +205,7 @@
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
-                                <img src="{{ asset('/img/nosotros/team/alejandra-1.png') }}" alt=""
+                                <img src="{{ asset('/img/nosotros/team/alejandra.png') }}" alt=""
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alejandra Aguilar <br>
                                     <span class="gelion-regular size-4">
@@ -213,7 +213,7 @@
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
-                                <img src="{{ asset('/img/nosotros/team/william-1.png') }}" alt=""
+                                <img src="{{ asset('/img/nosotros/team/william.png') }}" alt=""
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">William Marrufo <br>
                                     <span class="gelion-regular size-4">
@@ -221,7 +221,7 @@
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
-                                <img src="{{ asset('/img/nosotros/team/luis-1.png') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('/img/nosotros/team/antonio.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramirez <br>
                                     <span class="gelion-regular size-4">
                                          {{ __('Marketing Digital') }}
@@ -267,7 +267,7 @@
                         </div>
                         <div class="row m-auto over pt-4">
                             <div class="col">
-                                <img src="{{ asset('/img/nosotros/team/alejandra-1.png') }}" alt=""
+                                <img src="{{ asset('/img/nosotros/team/alejandra.png') }}" alt=""
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alejandra Aguilar <br>
                                     <span class="gelion-regular size-4">
@@ -276,7 +276,7 @@
                                 </h3>
                             </div>
                             <div class="col">
-                                <img src="{{ asset('/img/nosotros/team/william-1.png') }}" alt=""
+                                <img src="{{ asset('/img/nosotros/team/william.png') }}" alt=""
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">William Marrufo <br>
                                     <span class="gelion-regular size-4">
@@ -285,7 +285,7 @@
                                 </h3>
                             </div>
                             <div class="col">
-                                <img src="{{ asset('/img/nosotros/team/luis-1.png') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('/img/nosotros/team/antonio.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramirez <br>
                                     <span class="gelion-regular size-4">
                                         {{ __('Marketing Digital') }}
