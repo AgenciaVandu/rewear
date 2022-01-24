@@ -39,7 +39,7 @@
     border-radius: 1em;
     padding: 0;
     box-shadow: 0px 1px 5px 5px rgba(184, 184, 184, 0.1);
-    
+
 }
 .contenid-bag {
     padding-left: 1.3em;
@@ -64,7 +64,7 @@
     color: #1c1c1c;
     background: none;
     border: none;
-    
+
 }
 .contenedor-bag img {
     height: 50px;
@@ -97,7 +97,7 @@ span.navbar-toggler-icon {
     border: none;
     background: #003057;
     box-shadow: 0px 1px 5px 5px rgba(184, 184, 184, 0.1);
-} 
+}
 .dropdown-menu  {
     color: #fff;
 }
@@ -282,20 +282,20 @@ span.navbar-toggler-icon {
     padding-right: 1em;
     padding-left: 1em;
     padding-bottom: 1em;
-}  
+}
 .card {
     border-radius: .6em;
     border: none;
     box-shadow: 0px 1px 5px 5px rgba(184, 184, 184, 0.1);
 
-} 
+}
 .espacio-card {
     padding: 0.8rem;
 }
 li {
     list-style: none;
     font-size: 0.9rem;
-    
+
 }
 .espacio-3 {
     align-items: center;
@@ -556,7 +556,7 @@ li {
 }@media (max-width:768px) {
     .contenedor-7 img{
         height: 230px;
-        width: 230.34px; 
+        width: 230.34px;
     }
 }
 .contenedor-7 img.top:hover {
@@ -630,7 +630,7 @@ li {
 }
 .mapa {
     padding-top: 6em;
-    
+
 }
 .mapa iframe{
     width: 100%;

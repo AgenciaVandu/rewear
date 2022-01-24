@@ -73,16 +73,32 @@
             </div>
         @endif
 
-        <h1 class="gelion-bold">{{ $product->name }}</h1>
+        <h1 class="gelion-bold">
+            @if (session('locale') == 'es')
+                {{ $product->name }}
+            @else
+                {{ $product->name_en }}
+            @endif
+        </h1>
 
-        <p class="gelion-thin" style="color: gray;">{!! $product->description !!}</p>
+        <p class="gelion-thin" style="color: gray;">
+            @if (session('locale') == 'es')
+                {!! $product->description !!}
+            @else
+                {!! $product->description_en !!}
+            @endif
+        </p>
         <li class="gelion-bold pt-2">
             <div class="row">
                 <div class="col">
                     Medidas del modelo:
                 </div>
                 <div class="col-8 gelion-thin">
-                    {{ $product->measure }}
+                    @if (session('locale') == 'es')
+                        {{ $product->measure }}
+                    @else
+                        {{ $product->measure_en }}
+                    @endif
                 </div>
             </div>
         </li>
@@ -92,7 +108,11 @@
                     Talla del modelo:
                 </div>
                 <div class="col-8 gelion-thin">
-                    S
+                    @if (session('locale') == 'es')
+                        {{ $product->size }}
+                    @else
+                        {{ $product->size_en }}
+                    @endif
                 </div>
             </div>
         </li>
@@ -104,7 +124,7 @@
                 <div class="col-8 gelion-thin">
                     <div class="btn-group">
                         <select wire:model="color_id" class="form-control form-control-sm">
-                            <option value="" disabled selected>Selecciones un color</option>
+                            <option value="" disabled selected>{{ __('Selecciones un color') }}</option>
                             @foreach ($product->colors as $color)
                                 <option class="text-capitalize" value="{{ $color->pivot->id }}">
                                     {{ __($color->name) }}

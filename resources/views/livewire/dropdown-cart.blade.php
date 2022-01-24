@@ -15,10 +15,8 @@
                                 144 ó 216
                                 @break
                                 @case(3)
-                                    288
+                                288
                                 @break
-                                @default
-
                             @endswitch
                             piezas
                         </span> agregadas
@@ -239,7 +237,7 @@
                         @endswitch
                     </div>
                 </li>
-                <a href="{{ route('cart.index') }}" class="btn btn-primary btn-block">Ver todo</a>
+                <a href="{{ route('cart.index') }}" class="btn btn-primary btn-block">{{ __('Ver todo') }}</a>
             </div>
         </div>
     @endif

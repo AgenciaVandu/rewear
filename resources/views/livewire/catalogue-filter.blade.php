@@ -16,7 +16,7 @@
                                                 <input class="form-check-input" wire:model="category_id"
                                                     wire:click="getSubcategories" type="radio" name="categories-1"
                                                     value="{{ $category->id }}">
-                                                {{ $category->name }}
+                                                {{ __($category->name) }}
                                             </label>
                                         </div>
                                     </div>
@@ -95,21 +95,38 @@
                                                     @if ($image->main == 'si')
                                                         <a href="{{ route('catalogue.product', $product) }}">
                                                             <img src="{{ Storage::url($image->url) }}"
-                                                                class="@if ($loop->iteration != 1) top @endif fill" alt="Productos del catálogo">
+                                                                class="@if ($loop->iteration != 1) top @endif fill"
+                                                                alt="Productos del catálogo">
                                                         </a>
                                                     @endif
                                                 @endforeach
                                             </div>
-                                            <a href="" style="color: #000; text-decoration: none;">
-                                                <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
+                                            <a href="{{ route('catalogue.product', $product) }}"
+                                                style="color: #000; text-decoration: none;">
+                                                <h5 class="gelion-bold pt-2">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $product->name }}
+                                                    @else
+                                                        {{ $product->name_en }}
+                                                    @endif
+                                                </h5>
                                             </a>
-                                            <li class="gelion-bold">{!! $product->description !!}</li>
-                                            <li class="gelion-thin">Peso de tela:
-                                                <span>{{ $product->measure }}</span>
+                                            <li class="gelion-bold">
+                                                @if (session('locale') == 'es')
+                                                    {!! $product->description !!}
+                                                @else
+                                                    {!! $product->description_en !!}
+                                                @endif
                                             </li>
-                                            <li class="gelion-thin">Tipo de tejido: <span>Jersey</span>
+                                            <li class="gelion-thin">Medidas del modelo:
+                                                @if (session('locale') == 'es')
+                                                    <span>{{ $product->measure }}</span>
+                                                @else
+                                                    <span>{{ $product->measure_en }}</span>
+                                                @endif
                                             </li>
-                                            <li class="gelion-thin">Regular fit</li>
+                                            </li>
+                                            <li class="gelion-thin">Fit: {{ $product->subcategory->name }}</li>
                                             <div class="pt-3 d-flex">
                                                 <div class="hoja">
                                                     <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
@@ -161,7 +178,7 @@
                                                 <input class="form-check-input" wire:model="category_id"
                                                     wire:click="getSubcategories" type="radio" name="categories"
                                                     value="{{ $category->id }}">
-                                                {{ $category->name }}
+                                                {{ __($category->name) }}
                                             </label>
                                         </div>
                                     </div>
@@ -242,14 +259,29 @@
                                             </a>
                                         </div>
                                         <a href="" style="color: #000; text-decoration: none;">
-                                            <h5 class="gelion-bold pt-2 size-product-1">{{ $product->name }}</h5>
+                                            <h5 class="gelion-bold pt-2 size-product-1">
+                                                @if (session('locale') == 'es')
+                                                    {{ $product->name }}
+                                                @else
+                                                    {{ $product->name_en }}
+                                                @endif
+                                            </h5>
                                         </a>
-                                        <li class="gelion-bold">{!! $product->description !!}</li>
-                                        <li class="gelion-thin">Peso de tela: <span>{{ $product->measure }}</span>
+                                        <li class="gelion-bold">
+                                            @if (session('locale') == 'es')
+                                                {!! $product->description !!}
+                                            @else
+                                                {!! $product->description_en !!}
+                                            @endif
                                         </li>
-                                        <li class="gelion-thin">Tipo de tejido: <span>Jersey</span>
+                                        <li class="gelion-thin">Peso de tela:
+                                            @if (session('locale') == 'es')
+                                                <span>{{ $product->measure }}</span>
+                                            @else
+                                                <span>{{ $product->measure_en }}</span>
+                                            @endif
                                         </li>
-                                        <li class="gelion-thin">Regular fit</li>
+                                        <li class="gelion-thin">Fit: {{ $product->subcategory->name }}</li>
                                         <div class="pt-3 d-flex">
                                             <div class="hoja">
                                                 <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
@@ -302,9 +334,21 @@
                                             </a>
                                         </div>
                                         <a href="" style="color: #000; text-decoration: none;">
-                                            <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
+                                            <h5 class="gelion-bold pt-2">
+                                                @if (session('locale') == 'es')
+                                                    {{ $product->name }}
+                                                @else
+                                                    {{ $product->name_en }}
+                                                @endif
+                                            </h5>
                                         </a>
-                                        <li class="gelion-thin size-product">{!! $product->description !!}</li>
+                                        <li class="gelion-thin size-product">
+                                            @if (session('locale') == 'es')
+                                            {!! $product->description !!}
+                                            @else
+                                            {!! $product->description_en !!}
+                                            @endif
+                                        </li>
                                         <div class="pt-3 d-flex">
                                             <div class="hoja">
                                                 <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
