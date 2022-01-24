@@ -571,22 +571,137 @@
                                 Subtotal
                             </p>
                         </div>
-                        @php
-                            switch (session()->get('divisa')) {
-                                case 'MXN':
-                                    $mon = 'MXN';
-                                    break;
-                                case 'USD':
-                                    $mon = 'USD';
-                                    break;
-                                case '':
-                                    $mon = 'USD';
-                                    break;
-                            }
-                        @endphp
                         <div class="col-6 text-right">
+                            @php
+                                $mon = 'MXN';
+                                $mon1 = 'MXN';
+                                $mon2 = 'MXN';
+                                $mon3 = 'MXN';
+                                $mon4 = 'MXN';
+
+                                if (Cart::instance('caja1')->count()) {
+                                    foreach (Cart::instance('caja1')->content() as $item) {
+                                        $manga1 = $item->model->subcategory->name;
+                                    }
+                                    if ($manga1 == 'Corta' || $manga1 == 'corta') {
+                                        switch (session()->get('divisa')) {
+                                            case 'MXN':
+                                                $mon1 = 'MXN';
+                                                break;
+                                            case 'USD':
+                                                $mon1 = 'USD';
+                                                break;
+                                            case '':
+                                                $mon1 = 'MXN';
+                                                break;
+                                        }
+                                    } else {
+                                        switch (session()->get('divisa')) {
+                                            case 'MXN':
+                                                $mon1 = 'MXN_L';
+                                                break;
+                                            case 'USD':
+                                                $mon1 = 'USD_L';
+                                                break;
+                                            case '':
+                                                $mon1 = 'MXN_L';
+                                                break;
+                                        }
+                                    }
+                                }
+                                if (Cart::instance('caja2')->count()) {
+                                    foreach (Cart::instance('caja2')->content() as $item) {
+                                        $manga2 = $item->model->subcategory->name;
+                                    }
+                                    if ($manga2 == 'Corta' || $manga2 == 'corta') {
+                                        switch (session()->get('divisa')) {
+                                            case 'MXN':
+                                                $mon2 = 'MXN';
+                                                break;
+                                            case 'USD':
+                                                $mon2 = 'USD';
+                                                break;
+                                            case '':
+                                                $mon2 = 'MXN';
+                                                break;
+                                        }
+                                    } else {
+                                        switch (session()->get('divisa')) {
+                                            case 'MXN':
+                                                $mon2 = 'MXN_L';
+                                                break;
+                                            case 'USD':
+                                                $mon2 = 'USD_L';
+                                                break;
+                                            case '':
+                                                $mon2 = 'MXN_L';
+                                                break;
+                                        }
+                                    }
+                                }
+                                if (Cart::instance('caja3')->count()) {
+                                    foreach (Cart::instance('caja3')->content() as $item) {
+                                        $manga3 = $item->model->subcategory->name;
+                                    }
+                                    if ($manga3 == 'Corta' || $manga3 == 'corta') {
+                                        switch (session()->get('divisa')) {
+                                            case 'MXN':
+                                                $mon3 = 'MXN';
+                                                break;
+                                            case 'USD':
+                                                $mon3 = 'USD';
+                                                break;
+                                            case '':
+                                                $mon3 = 'MXN';
+                                                break;
+                                        }
+                                    } else {
+                                        switch (session()->get('divisa')) {
+                                            case 'MXN':
+                                                $mon3 = 'MXN_L';
+                                                break;
+                                            case 'USD':
+                                                $mon3 = 'USD_L';
+                                                break;
+                                            case '':
+                                                $mon3 = 'MXN_L';
+                                                break;
+                                        }
+                                    }
+                                }
+                                if (Cart::instance('caja4')->count()) {
+                                    foreach (Cart::instance('caja4')->content() as $item) {
+                                        $manga4 = $item->model->subcategory->name;
+                                    }
+                                    if ($manga4 == 'Corta' || $manga4 == 'corta') {
+                                        switch (session()->get('divisa')) {
+                                            case 'MXN':
+                                                $mon4 = 'MXN';
+                                                break;
+                                            case 'USD':
+                                                $mon4 = 'USD';
+                                                break;
+                                            case '':
+                                                $mon4 = 'MXN';
+                                                break;
+                                        }
+                                    } else {
+                                        switch (session()->get('divisa')) {
+                                            case 'MXN':
+                                                $mon4 = 'MXN_L';
+                                                break;
+                                            case 'USD':
+                                                $mon4 = 'USD_L';
+                                                break;
+                                            case '':
+                                                $mon4 = 'MXN_L';
+                                                break;
+                                        }
+                                    }
+                                }
+                            @endphp
                             <p class="gelion-thin">
-                                ${{ number_format((Cart::instance('caja1')->subtotal() + Cart::instance('caja2')->subtotal() + Cart::instance('caja3')->subtotal() + Cart::instance('caja4')->subtotal()) * $plan->$mon, 2) }}
+                                ${{ number_format(Cart::instance('caja1')->subtotal() * $plan->$mon1 + Cart::instance('caja2')->subtotal() * $plan->$mon2 + Cart::instance('caja3')->subtotal() * $plan->$mon3 + Cart::instance('caja4')->subtotal() * $plan->$mon4, 2) }}
                             </p>
                         </div>
                         <div class="col-6">
@@ -596,7 +711,7 @@
                         </div>
                         <div class="col-6 text-right">
                             <p class="gelion-thin">
-                                ${{ number_format((Cart::instance('caja1')->tax(16) + Cart::instance('caja2')->tax(16) + Cart::instance('caja3')->tax(16) + Cart::instance('caja4')->tax(16)) * $plan->$mon, 2) }}
+                                ${{ number_format(Cart::instance('caja1')->tax(16) * $plan->$mon1 + Cart::instance('caja2')->tax(16) * $plan->$mon2 + Cart::instance('caja3')->tax(16) * $plan->$mon3 + Cart::instance('caja4')->tax(16) * $plan->$mon4, 2) }}
                             </p>
                         </div>
                         <div class="col-6">
@@ -606,7 +721,7 @@
                         </div>
                         <div class="col-6 text-right">
                             <p class="gelion-thin">
-                                ${{ number_format((Cart::instance('caja1')->total() + Cart::instance('caja2')->total() + Cart::instance('caja3')->total() + Cart::instance('caja4')->total()) * $plan->$mon, 2) }}
+                                ${{ number_format((Cart::instance('caja1')->total()* $plan->$mon1 + Cart::instance('caja2')->total()* $plan->$mon2 + Cart::instance('caja3')->total()* $plan->$mon3 + Cart::instance('caja4')->total()* $plan->$mon4), 2) }}
                             </p>
                         </div>
                     </div>
@@ -656,24 +771,21 @@
                                 @if (session()->get('plan') == 1)
                                     <a class="btn btn-primary btn-block disabled ">Start</a>
                                 @else
-                                    <a href="{{ route('plan', 1) }}"
-                                        class="btn btn-primary btn-block">Start</a>
+                                    <a href="{{ route('plan', 1) }}" class="btn btn-primary btn-block">Start</a>
                                 @endif
                             </div>
                             <div class="col">
                                 @if (session()->get('plan') == 2)
                                     <a class="btn btn-primary btn-block disabled ">Plus</a>
                                 @else
-                                    <a href="{{ route('plan', 2) }}"
-                                        class="btn btn-primary btn-block">Plus</a>
+                                    <a href="{{ route('plan', 2) }}" class="btn btn-primary btn-block">Plus</a>
                                 @endif
                             </div>
                             <div class="col">
                                 @if (session()->get('plan') == 3)
                                     <a class="btn btn-primary btn-block disabled ">Top</a>
                                 @else
-                                    <a href="{{ route('plan', 3) }}"
-                                        class="btn btn-primary btn-block">Top</a>
+                                    <a href="{{ route('plan', 3) }}" class="btn btn-primary btn-block">Top</a>
                                 @endif
                             </div>
                         </div>

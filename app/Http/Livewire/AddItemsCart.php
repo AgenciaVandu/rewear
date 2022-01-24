@@ -50,14 +50,18 @@ class AddItemsCart extends Component
 
 
         $color_limite=0;
+        $color_limite2=0;
+        $color_limite3=0;
         $manga_limit = 0;
         $manga_limit2 = 0;
         $manga_limit3 = 0;
         $manga_limit4 = 0;
         $colors_array=[];
+
+
+
         if (session()->has('plan')) {
             $plan = Plan::find(session()->get('plan'));
-            $price = $plan->MXN;
             switch (session()->get('plan')) {
                 //Validaciones para el plan Start
                 case '1':
@@ -79,6 +83,7 @@ class AddItemsCart extends Component
                             }
                         }
                     }
+
                     //Condiciones para agregar mas productos segun la cantidad del paquete y los colores permitidos
                     if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $color_limite < 2 && $manga_limit == 0) {
                         Cart::instance('caja1')->add([
@@ -111,26 +116,62 @@ class AddItemsCart extends Component
                         //Validacion de managas por caja
                         if (Cart::instance('caja1')->count()) {
                             foreach (Cart::instance('caja1')->content() as $item) {
+                                array_push($colors_array,$item->options->color);
+                            }
+                            //Generamos un array de los valores del color sin repetir
+                            $colors_array = array_unique($colors_array);
+                            foreach ($colors_array as $color_item) {
+                                if ($color_item != $color->color->name) {
+                                    $color_limite++;
+                                }
+                            }
+                            foreach (Cart::instance('caja1')->content() as $item) {
                                 if ($item->model->subcategory->name != $this->product->subcategory->name) {
                                     $manga_limit++;
                                 }
                             }
                         }
+
+
                         if (Cart::instance('caja2')->count()) {
+                            foreach (Cart::instance('caja2')->content() as $item) {
+                                array_push($colors_array,$item->options->color);
+                            }
+                            //Generamos un array de los valores del color sin repetir
+                            $colors_array = array_unique($colors_array);
+                            foreach ($colors_array as $color_item) {
+                                if ($color_item != $color->color->name) {
+                                    $color_limite2++;
+                                }
+                            }
                             foreach (Cart::instance('caja2')->content() as $item) {
                                 if ($item->model->subcategory->name != $this->product->subcategory->name) {
                                     $manga_limit2++;
                                 }
                             }
                         }
+
+
                         if (Cart::instance('caja3')->count()) {
+                            foreach (Cart::instance('caja3')->content() as $item) {
+                                array_push($colors_array,$item->options->color);
+                            }
+                            //Generamos un array de los valores del color sin repetir
+                            $colors_array = array_unique($colors_array);
+                            foreach ($colors_array as $color_item) {
+                                if ($color_item != $color->color->name) {
+                                    $color_limite3++;
+                                }
+                            }
                             foreach (Cart::instance('caja3')->content() as $item) {
                                 if ($item->model->subcategory->name != $this->product->subcategory->name) {
                                     $manga_limit3++;
                                 }
                             }
                         }
-                        if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $manga_limit == 0) {
+
+
+                        if (Cart::instance('caja1')->count()+$this->qty <= 72 && Cart::instance('caja1')->count() <= 72 && $color_limite < 4 && $manga_limit == 0) {
                             Cart::instance('caja1')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
@@ -139,7 +180,7 @@ class AddItemsCart extends Component
                                 'weight' => 550,
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
-                        }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() <= 144 && $manga_limit2 == 0){
+                        }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() <= 144 && $color_limite2 < 4 && $manga_limit2 == 0){
                             Cart::instance('caja2')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
@@ -148,7 +189,7 @@ class AddItemsCart extends Component
                                 'weight' => 550,
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
-                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja2')->count() <= 216 && $manga_limit3 == 0 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()==144){
+                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja2')->count() <= 216 && $color_limite3 < 4 && $manga_limit3 == 0 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()==144){
                             Cart::instance('caja3')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
@@ -160,6 +201,8 @@ class AddItemsCart extends Component
                         }else{
                             if ($manga_limit != 0 || $manga_limit2 != 0 || $manga_limit3 != 0) {
                                 session()->flash('message', 'Las cajas solo deben ser de un tipo de manga');
+                            }else if($color_limite < 4 || $color_limite2 < 4 || $color_limite3 < 4){
+                                session()->flash('message', 'Tu plan solo acepta 4 colores por caja, puedes aumentar tu plan <strong><a href="/planes">Aqui</a></strong>');
                             }else{
                                 session()->flash('message', 'Limite de prendas alcanzado, puedes aumentar tu plan <strong><a href="/planes">Aqui</a></strong>');
                             }

@@ -12,7 +12,9 @@ class EditPlan extends Component
     protected $rules = [
         'plan.name' => 'required',
         'plan.MXN' => 'required',
+        'plan.MXN_L' => 'required',
         'plan.USD' => 'required',
+        'plan.USD_L' => 'required',
     ];
 
 

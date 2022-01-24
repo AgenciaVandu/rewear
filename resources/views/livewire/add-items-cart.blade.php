@@ -139,7 +139,7 @@
             <div class="btn-group btn-group-toggle" data-toggle="buttons" wire:ignore>
                 @foreach ($product->sizes as $size)
                     <label class="btn btn-outline-dark">
-                        <input type="radio" wire:model="size_id" name="sizes" value="{{ $size->id }}">
+                        <input type="radio" wire:model="size_id" name="sizes" value="{{ $size->pivot->id }}">
                         {{ $size->code }}
                     </label>
                 @endforeach

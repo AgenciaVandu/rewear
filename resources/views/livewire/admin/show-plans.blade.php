@@ -21,7 +21,11 @@
                                             </th>
                                             <th scope="col"
                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Precio por prenda
+                                                Precio manga corta
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Precio manga larga
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
                                                 <span class="sr-only">Edit</span>
@@ -44,6 +48,12 @@
                                                     <div class="text-sm text-gray-900">
                                                         {{ number_format($plan->MXN, 2) }} MXN /
                                                         {{ number_format($plan->USD, 2) }} USD
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="text-sm text-gray-900">
+                                                        {{ number_format($plan->MXN_L, 2) }} MXN /
+                                                        {{ number_format($plan->USD_L, 2) }} USD
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
