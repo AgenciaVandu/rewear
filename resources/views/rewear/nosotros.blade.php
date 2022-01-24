@@ -517,8 +517,16 @@
                                                                 <img src="{{ asset('/img/index/box.svg') }}" width="70"
                                                                     alt="icono box">
                                                             </div>
-                                                            <h3 class="gelion-bold espacio-2">${{ $plan->price }} MXN
-                                                                <br>
+                                                            <h3 class="gelion-bold espacio-2">
+                                                                @if (session()->get('divisa') == 'MXN')
+                                                                    ${{ $plan->MXN }} MXN / ${{ $plan->MXN_L }} MXN
+                                                                    <br>
+                                                                    <small>{{ __('Manga corta / Manga larga') }}</small>
+                                                                @else
+                                                                    ${{ $plan->USD }} USD / ${{ $plan->USD_L }}
+                                                                    <br>
+                                                                    <small>{{ __('Manga corta / Manga larga') }}</small>
+                                                                @endif <br>
                                                                 <span class="gelion-thin size-1">Por pieza. IVA
                                                                     incluído.</span>
                                                             </h3>
@@ -579,7 +587,7 @@
                                                                                 {{ __('Elige 2 colores') }}
                                                                             @break
                                                                             @case(2)
-                                                                                {{ __('Elige 6 colores') }}
+                                                                                {{ __('Elige 4 colores') }}
                                                                             @break
                                                                             @case(3)
                                                                                 {{ __('Elige 6 colores') }}
