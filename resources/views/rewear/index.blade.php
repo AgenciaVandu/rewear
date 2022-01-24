@@ -343,7 +343,7 @@
                                                                                 {{ __('Elige 2 colores') }}
                                                                             @break
                                                                             @case(2)
-                                                                                {{ __('Elige 6 colores') }}
+                                                                                {{ __('Elige 4 colores') }}
                                                                             @break
                                                                             @case(3)
                                                                                 {{ __('Elige 6 colores') }}
