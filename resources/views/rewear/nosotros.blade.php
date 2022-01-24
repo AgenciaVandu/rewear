@@ -45,25 +45,29 @@
                         <div class="col">
                             <img src="{{ asset('/img/nosotros/Rectangle 215.png') }}" class="img-fluid" alt="">
                             <h3 class=" gelion-bold line-h pt-3">{{ __('3.75 Millones') }}<br>
-                                <span class="gelion-regular size-3">{{ __('de Kg de residuos textiles transformados en algodón') }}</span>
+                                <span
+                                    class="gelion-regular size-3">{{ __('de Kg de residuos textiles transformados en algodón') }}</span>
                             </h3>
                         </div>
                         <div class="col">
                             <img src="{{ asset('/img/nosotros/Rectangle 216.png') }}" class="img-fluid" alt="">
-                            <h3 class="gelion-bold line-h pt-3">{{ ('4.2 Millones') }} <br>
-                                <span class="gelion-regular size-3">{{ __('de botellas de plástico PET reciclado') }}</span>
+                            <h3 class="gelion-bold line-h pt-3">{{ '4.2 Millones' }} <br>
+                                <span
+                                    class="gelion-regular size-3">{{ __('de botellas de plástico PET reciclado') }}</span>
                             </h3>
                         </div>
                         <div class="col">
                             <img src="{{ asset('/img/nosotros/Rectangle 217.png') }}" class="img-fluid" alt="">
                             <h3 class="gelion-bold line-h pt-3">{{ __('157 Millones') }} <br>
-                                <span class="gelion-regular size-3">{{ __('de kWh energía ahorrada en nuestros procesos') }}</span>
+                                <span
+                                    class="gelion-regular size-3">{{ __('de kWh energía ahorrada en nuestros procesos') }}</span>
                             </h3>
                         </div>
                         <div class="col">
                             <img src="{{ asset('/img/nosotros/Rectangle 218.png') }}" class="img-fluid" alt="">
                             <h3 class="gelion-bold line-h pt-3">{{ __('0 Químicos') }} <br>
-                                <span class="gelion-regular size-3">{{ __('ni tintes vertidos al subsuelo en nuestro proceso') }}</span>
+                                <span
+                                    class="gelion-regular size-3">{{ __('ni tintes vertidos al subsuelo en nuestro proceso') }}</span>
                             </h3>
                         </div>
                     </div>
@@ -82,7 +86,8 @@
                                                     class="img-fluid" alt="">
                                                 <h3 class="gelion-bold line-h pt-3">{{ __('5.99 Millones') }} <br>
                                                 </h3>
-                                                <p class="gelion-regular">{{ __('de litros de agua ahorrados al año') }}</p>
+                                                <p class="gelion-regular">{{ __('de litros de agua ahorrados al año') }}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +101,8 @@
                                                     class="img-fluid" alt="">
                                                 <h3 class="gelion-bold line-h pt-3">{{ __('3.75 Millones') }} <br>
                                                 </h3>
-                                                <p class="gelion-regular">{{ __('de Kg de residuos textiles transformados en algodón') }}</p>
+                                                <p class="gelion-regular">
+                                                    {{ __('de Kg de residuos textiles transformados en algodón') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -108,9 +114,10 @@
                                             <div class="col">
                                                 <img src="{{ asset('/img/nosotros/Rectangle 216.png') }}"
                                                     class="img-fluid" alt="">
-                                                <h3 class="gelion-bold line-h pt-3">{{ ('4.2 Millones') }} <br>
+                                                <h3 class="gelion-bold line-h pt-3">{{ '4.2 Millones' }} <br>
                                                 </h3>
-                                                <p class="gelion-regular">{{ __('de botellas de plástico PET reciclado') }}</p>
+                                                <p class="gelion-regular">
+                                                    {{ __('de botellas de plástico PET reciclado') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +131,8 @@
                                                     class="img-fluid" alt="">
                                                 <h3 class="gelion-bold line-h pt-3">{{ __('157 Millones') }} <br>
                                                 </h3>
-                                                <p class="gelion-regular">{{ __('de kWh energía ahorrada en nuestros procesos') }}</p>
+                                                <p class="gelion-regular">
+                                                    {{ __('de kWh energía ahorrada en nuestros procesos') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +146,8 @@
                                                     class="img-fluid" alt="">
                                                 <h3 class="gelion-bold line-h pt-3">{{ __('0 Químicos') }} <br>
                                                 </h3>
-                                                <p class="gelion-regular">{{ __('ni tintes vertidos al subsuelo en nuestro proceso') }}</p>
+                                                <p class="gelion-regular">
+                                                    {{ __('ni tintes vertidos al subsuelo en nuestro proceso') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -193,7 +202,7 @@
                                 <img src="{{ asset('/img/nosotros/team/silvia-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Silvia López <br>
                                     <span class="gelion-regular size-4">
-                                         {{ __('Relaciones publicas') }}
+                                        {{ __('Relaciones publicas') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
@@ -209,12 +218,11 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alejandra Aguilar <br>
                                     <span class="gelion-regular size-4">
-                                         {{ __('Manager Comercial') }}
+                                        {{ __('Manager Comercial') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
-                                <img src="{{ asset('/img/nosotros/team/william.png') }}" alt=""
-                                    class="img-fluid">
+                                <img src="{{ asset('/img/nosotros/team/william.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">William Marrufo <br>
                                     <span class="gelion-regular size-4">
                                         {{ __('Marketing comercial') }}
@@ -224,7 +232,7 @@
                                 <img src="{{ asset('/img/nosotros/team/antonio.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramirez <br>
                                     <span class="gelion-regular size-4">
-                                         {{ __('Marketing Digital') }}
+                                        {{ __('Marketing Digital') }}
                                     </span>
                             </div>
                         </div>
@@ -276,8 +284,7 @@
                                 </h3>
                             </div>
                             <div class="col">
-                                <img src="{{ asset('/img/nosotros/team/william.png') }}" alt=""
-                                    class="img-fluid">
+                                <img src="{{ asset('/img/nosotros/team/william.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">William Marrufo <br>
                                     <span class="gelion-regular size-4">
                                         {{ __('Marketing comercial') }}
@@ -316,10 +323,11 @@
                         <div class="row pt-5">
                             <div class="col-6 left-o">
                                 <img src="{{ asset('/img/index/hoja.svg') }}" alt="">
-                                <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Elige de 6 en 6 piezas') }}</h5>
+                                <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Elige de 6 en 6 piezas') }}
+                                </h5>
                                 <p class="gelion-thin" style="color: #fff;">
                                     {{ __('Configura tus cajas eligiendo de 6 en 6 piezas por talla y color.') }}
-                                    </p>
+                                </p>
                             </div>
                             <div class="col-6 left-o">
                                 <img src="{{ asset('/img/index/hoja.svg') }}" alt="">
@@ -349,10 +357,11 @@
                         <div class="row pt-5">
                             <div class="col-lg-3 col-md-6 col-sm-6 left-o">
                                 <img src="{{ asset('/img/index/hoja.svg') }}" alt="">
-                                <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Elige de 6 en 6 piezas') }}</h5>
+                                <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Elige de 6 en 6 piezas') }}
+                                </h5>
                                 <p class="gelion-thin" style="color: #fff;">
                                     {{ __('Configura tus cajas eligiendo de 6 en 6 piezas por talla y color.') }}
-                                    </p> <br>
+                                </p> <br>
                             </div>
 
                             <div class="col-lg-3 col-md-6 col-sm-6 left-o">
@@ -392,11 +401,16 @@
                                         </div>
                                         <h3 class="gelion-bold espacio-2">
                                             @if (session()->get('divisa') == 'MXN')
-                                                ${{ $plan->MXN }} MXN
+                                                ${{ $plan->MXN }} MXN / ${{ $plan->MXN_L }} MXN
+                                                <br>
+                                                <small>{{ __('Manga corta / Manga larga') }}</small>
                                             @else
-                                                ${{ $plan->USD }} USD
+                                                ${{ $plan->USD }} USD / ${{ $plan->USD_L }}
+                                                <br>
+                                                <small>{{ __('Manga corta / Manga larga') }}</small>
                                             @endif <br>
-                                            <span class="gelion-thin size-1">{{ __('Por pieza. IVA incluído.') }}</span>
+                                            <span
+                                                class="gelion-thin size-1">{{ __('Por pieza. IVA incluído.') }}</span>
                                         </h3>
                                         <h2 class="gelion-bold">{{ $plan->name }}</h2>
                                         <p class="gelion-thin" style="text-align:justify;">
@@ -453,7 +467,7 @@
                                                             {{ __('Elige 2 colores') }}
                                                         @break
                                                         @case(2)
-                                                            {{ __('Elige 6 colores') }}
+                                                            {{ __('Elige 4 colores') }}
                                                         @break
                                                         @case(3)
                                                             {{ __('Elige 6 colores') }}
@@ -587,7 +601,8 @@
                                                                         </svg>
                                                                     </div>
                                                                     <div class="col-10">
-                                                                        {{ __('50% algodón reciclado pre-consumo + 50% poliéster reciclado (RPET)') }} <br>
+                                                                        {{ __('50% algodón reciclado pre-consumo + 50% poliéster reciclado (RPET)') }}
+                                                                        <br>
                                                                     </div>
                                                                 </div>
                                                             </li><br>
