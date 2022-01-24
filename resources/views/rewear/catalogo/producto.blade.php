@@ -92,14 +92,15 @@
                                 <div class="col-6">
                                     <div class="card espacio-card">
                                         <div class="contenedor-2">
-                                            <a href="{{ route('catalogue.product', $product) }}">
-                                                <img src="{{ Storage::url($product->images->first()->url) }}"
-                                                    class="img-fluid" alt="Productos del catálogo">
-                                            </a>
-                                            <a href="{{ route('catalogue.product', $product) }}">
-                                                <img src="{{ Storage::url($product->images->last()->url) }}"
-                                                    class="top-1 img-fluid" alt="Productos del catálogo">
-                                            </a>
+                                            @foreach ($product->images as $image)
+                                                @if ($image->main == 'si')
+                                                    <a href="{{ route('catalogue.product', $product) }}">
+                                                        <img src="{{ Storage::url($image->url) }}"
+                                                            class="img-fluid"
+                                                            alt="Productos del catálogo">
+                                                    </a>
+                                                @endif
+                                            @endforeach
                                         </div>
                                         <a href="" style="color: #000; text-decoration: none;">
                                             <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
