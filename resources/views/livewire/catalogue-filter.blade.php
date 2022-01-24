@@ -260,7 +260,7 @@
                                             @endforeach
                                         </div>
 
-                                        <a href="" style="color: #000; text-decoration: none;">
+                                        <a href="{{ route('catalogue.product', $product) }}" style="color: #000; text-decoration: none;">
                                             <h5 class="gelion-bold pt-2 size-product-1">
                                                 @if (session('locale') == 'es')
                                                     {{ $product->name }}
