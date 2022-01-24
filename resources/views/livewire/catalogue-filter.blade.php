@@ -246,7 +246,7 @@
                     <div class="col-md-9">
                         <div class="row">
                             @foreach ($products as $product)
-                                <div class="col">
+                                <div class="col-md-6 mt-2">
                                     <div class="card espacio-card">
                                         <div class="contenedor-7">
                                             @foreach ($product->images as $image)
