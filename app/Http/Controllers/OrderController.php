@@ -56,6 +56,10 @@ class OrderController extends Controller
 
         ]);
 
+        $order->update([
+            'status'=>2
+        ]);
+
         if (Cart::instance('caja1')->count()) {
             $order->boxes()->create([
                 'content' => Cart::instance('caja1')->content()

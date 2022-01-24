@@ -179,21 +179,21 @@
                                 <img src="{{ asset('/img/nosotros/team/alice-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alice Dissegna <br>
                                     <span class="gelion-regular size-4">
-                                        {{ __('Directora General') }}
+                                        {{ __('Directora general') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
                                 <img src="{{ asset('/img/nosotros/team/carola-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Carola Caneparo <br>
                                     <span class="gelion-regular size-4">
-                                        Ejecutiva de marca / Brand executive
+                                        {{ __('Ejecutiva de marca') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
                                 <img src="{{ asset('/img/nosotros/team/silvia-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Silvia López <br>
                                     <span class="gelion-regular size-4">
-                                        Relaciones publicas / Public relations
+                                         {{ __('Relaciones publicas') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
@@ -201,7 +201,7 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Nalleli Antonio <br>
                                     <span class="gelion-regular size-4">
-                                        Vinculacion empresarial / Brand executive
+                                        {{ __('Vinculacion empresarial') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
@@ -209,7 +209,7 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alejandra Aguilar <br>
                                     <span class="gelion-regular size-4">
-                                        Manager Comercial / Commercial manager
+                                         {{ __('Manager Comercial') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
@@ -217,14 +217,14 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">William Marrufo <br>
                                     <span class="gelion-regular size-4">
-                                        Marketing comercial
+                                        {{ __('Marketing comercial') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
                                 <img src="{{ asset('/img/nosotros/team/luis-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramirez <br>
                                     <span class="gelion-regular size-4">
-                                        Marketing Digital / Digital Marketing
+                                         {{ __('Marketing Digital') }}
                                     </span>
                             </div>
                         </div>
@@ -235,7 +235,7 @@
                                 <img src="{{ asset('/img/nosotros/team/alice-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alice Dissegna <br>
                                     <span class="gelion-regular size-4">
-                                        {{ __('Directora General') }}
+                                        {{ __('Directora general') }}
                                     </span>
                                 </h3>
                             </div>
@@ -243,7 +243,7 @@
                                 <img src="{{ asset('/img/nosotros/team/carola-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Carola Caneparo <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        {{ __('Ejecutiva de marca') }}
                                     </span>
                                 </h3>
                             </div>
@@ -251,7 +251,7 @@
                                 <img src="{{ asset('/img/nosotros/team/silvia-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Silvia López <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        {{ __('Relaciones publicas') }}
                                     </span>
                                 </h3>
                             </div>
@@ -260,7 +260,7 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Nalleli Antonio <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        {{ __('Vinculacion empresarial') }}
                                     </span>
                                 </h3>
                             </div>
@@ -271,7 +271,7 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alejandra Aguilar <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        {{ __('Manager Comercial') }}
                                     </span>
                                 </h3>
                             </div>
@@ -280,15 +280,15 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">William Marrufo <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        {{ __('Marketing comercial') }}
                                     </span>
                                 </h3>
                             </div>
                             <div class="col">
                                 <img src="{{ asset('/img/nosotros/team/luis-1.png') }}" alt="" class="img-fluid">
-                                <h3 class="gelion-bold pt-3" style="color: #fff;">Luis Vivas Núñez <br>
+                                <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramirez <br>
                                     <span class="gelion-regular size-4">
-                                        Director General
+                                        {{ __('Marketing Digital') }}
                                     </span>
                                 </h3>
                             </div>
@@ -297,7 +297,6 @@
                 </div>
             </div>
     </section>
-
     <section id="planes">
         <div class="bg-2">
             {{-- <div class="container text-center">

@@ -9,7 +9,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id', 'status'];
+    protected $guarded = ['id'];
 
     const PENDIENTE = 1;
     const RECIBIDO = 2;

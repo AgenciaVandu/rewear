@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="col gelion-bold">
                                     <label for="formGroupExampleInput">Apellidos*</label>
-                                    <input type="text" class="form-control" name="laste_name" id="apellidos" required>
+                                    <input type="text" class="form-control" name="last_name" id="apellidos" required>
                                 </div>
                                 <div class="col gelion-bold">
                                     <label for="phone">Phone:</label>

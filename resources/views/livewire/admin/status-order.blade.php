@@ -75,15 +75,15 @@
                 <p class="text-lg font-semibold uppercase">
                     Envío
                 </p>
-                @if ($order->shipping_type == 1)
-                    <p class="text-sm">Los productos deben ser recogidos en tienda</p>
-                    <p class="text-sm">Calle falsa 123</p>
-                @else
+                <p class="text-sm">Los productos serán enviados a</p>
+                <p class="text-sm">{{ $envio->address }}</p>
+                <p class="text-sm">{{ $envio->city }} - {{ $envio->state }}</p>
+                <p class="text-sm">CP:{{ $envio->postal_code }}</p>
+                {{-- @else
                     <p class="text-sm">Los productos serán enviados a</p>
                     <p class="text-sm">{{ $envio->address }}</p>
                     <p>{{ $envio->department }} - {{ $envio->city }} -
-                        {{ $envio->district }}</p>
-                @endif
+                        {{ $envio->district }}</p> --}}
             </div>
             <div>
                 <p class="text-lg font-semibold uppercase">
@@ -106,14 +106,26 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Precio</th>
+                    <th>#Caja</th>
                     <th>Cant</th>
                     <th>Total</th>
                 </tr>
             </thead>
-
             <tbody class="divide-y divide-gray-200">
-                @foreach ($items as $product)
+                @foreach ($order->boxes as $box)
+                    @php
+                        $products = json_decode($box->content);
+                    @endphp
+                    @foreach ($products as $product)
+                        <tr class="text-center">
+                            <td></td>
+                            <td>{{ $box->id }} </td>
+                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->qty }}</td>
+                        </tr>
+                    @endforeach
+                @endforeach
+                {{-- @foreach ($items as $product)
                     <tr>
                         <td>
                             <div class="flex">
@@ -142,7 +154,7 @@
                             {{ $product->price * $product->qty }}
                         </td>
                     </tr>
-                @endforeach
+                @endforeach --}}
             </tbody>
         </table>
     </div>

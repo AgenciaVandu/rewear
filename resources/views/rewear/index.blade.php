@@ -117,7 +117,7 @@
                                 <h5 class="gelion-bold pt-3" style="color: #fff;">{{ __('Elige de 6 en 6 piezas') }}</h5>
                                 <p class="gelion-thin" style="color: #fff;">
                                     {{ __('Configura tus cajas eligiendo de 6 en 6 piezas por talla y color.') }}
-                                    </p> <br>
+                                </p> <br>
                             </div>
 
                             <div class="col-lg-3 col-md-6 col-sm-6 left-o">
@@ -157,9 +157,13 @@
                                         </div>
                                         <h3 class="gelion-bold espacio-2">
                                             @if (session()->get('divisa') == 'MXN')
-                                                ${{ $plan->MXN }} MXN
+                                                ${{ $plan->MXN }} MXN / ${{ $plan->MXN_L }} MXN
+                                                <br>
+                                                <small>{{ __('Manga corta / Manga larga') }}</small>
                                             @else
-                                                ${{ $plan->USD }} USD
+                                                ${{ $plan->USD }} USD / ${{ $plan->USD_L }}
+                                                <br>
+                                                <small>{{ __('Manga corta / Manga larga') }}</small>
                                             @endif <br>
                                             <span class="gelion-thin size-1">{{ __('Por pieza. IVA incluído.') }}</span>
                                         </h3>
@@ -218,7 +222,7 @@
                                                             {{ __('Elige 2 colores') }}
                                                         @break
                                                         @case(2)
-                                                            {{ __('Elige 6 colores') }}
+                                                            {{ __('Elige 4 colores') }}
                                                         @break
                                                         @case(3)
                                                             {{ __('Elige 6 colores') }}
@@ -269,10 +273,18 @@
                                                                 <img src="{{ asset('/img/index/box.svg') }}" width="70"
                                                                     alt="icono box">
                                                             </div>
-                                                            <h3 class="gelion-bold espacio-2">${{ $plan->price }} MXN
-                                                                <br>
-                                                                <span class="gelion-thin size-1">Por pieza. IVA
-                                                                    incluído.</span>
+                                                            <h3 class="gelion-bold espacio-2">
+                                                                @if (session()->get('divisa') == 'MXN')
+                                                                    ${{ $plan->MXN }} MXN / ${{ $plan->MXN_L }} MXN
+                                                                    <br>
+                                                                    <small>{{ __('Manga corta / Manga larga') }}</small>
+                                                                @else
+                                                                    ${{ $plan->USD }} USD / ${{ $plan->USD_L }}
+                                                                    <br>
+                                                                    <small>{{ __('Manga corta / Manga larga') }}</small>
+                                                                @endif <br>
+                                                                <span
+                                                                    class="gelion-thin size-1">{{ __('Por pieza. IVA incluído.') }}</span>
                                                             </h3>
                                                             <h2 class="gelion-bold">{{ $plan->name }}</h2>
                                                             <p class="gelion-thin" style="text-align:justify;">
@@ -352,7 +364,8 @@
                                                                         </svg>
                                                                     </div>
                                                                     <div class="col-10">
-                                                                        {{ __('50% algodón reciclado pre-consumo + 50% poliéster reciclado (RPET)') }} <br>
+                                                                        {{ __('50% algodón reciclado pre-consumo + 50% poliéster reciclado (RPET)') }}
+                                                                        <br>
                                                                     </div>
                                                                 </div>
                                                             </li><br>
@@ -389,42 +402,32 @@
             <div class="contenido-blog-index">
                 <div class="container desfase">
                     <div class="row desfase-1">
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="card espacio-5">
-                                <img src="{{ asset('/img/index/card-blog.jpg') }}" class="img-fluid"
-                                    alt="Myrewear">
-                                <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                                <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la
-                                    rama de la economía que estudia los efectos de las políticas ambientales y les otorga un
-                                    valor a los recursos naturales.
-                                </p>
-                                <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver más</a>
+                        @foreach ($posts as $post)
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card espacio-5">
+                                    <img src="{{ Storage::url($post->image->url) }}" class="img-fluid"
+                                        alt="Myrewear">
+                                    <h5 class="gelion-bold pt-3">
+                                        @if (session('locale') == 'es')
+                                            {{ $post->title }}
+                                        @else
+                                            {{ $post->title_en }}
+                                        @endif
+                                    </h5>
+                                    @if (session('locale') == 'es')
+                                        <p class="gelion-thin">
+                                            {!! $post->extract !!}
+                                        </p>
+                                    @else
+                                        <p class="gelion-thin">
+                                            {!! $post->extract_en !!}
+                                        </p>
+                                    @endif
+                                    <a href="{{ route('post.show', $post) }}" class="btn btn-secondary gelion-bold">Ver
+                                        más</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="card espacio-5">
-                                <img src="{{ asset('/img/index/card-blog.jpg') }}" class="img-fluid"
-                                    alt="Myrewear">
-                                <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                                <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la
-                                    rama de la economía que estudia los efectos de las políticas ambientales y les otorga un
-                                    valor a los recursos naturales.
-                                </p>
-                                <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver más</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="card espacio-5">
-                                <img src="{{ asset('/img/index/card-blog.jpg') }}" class="img-fluid"
-                                    alt="Myrewear">
-                                <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                                <p class="gelion-thin">La definición técnica de economía ambiental nos dice que es la
-                                    rama de la economía que estudia los efectos de las políticas ambientales y les otorga un
-                                    valor a los recursos naturales.
-                                </p>
-                                <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver más</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -435,51 +438,41 @@
                     <div class="carousel">
                         <div class="carousel__contenedor">
                             <div class="carousel__lista3">
-                                <div class="carousel__elemento m-1">
-                                    <div class=" p-4">
-                                        <!--Contenido de ordenes movil-->
-                                        <div class="row">
-                                            <div class="col">
-                                                <!--uno-->
-                                                <div class="card espacio-5">
-                                                    <img src="{{ asset('/img/index/card-blog.jpg') }}"
-                                                        class="img-fluid" alt="Myrewear">
-                                                    <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                                                    <p class="gelion-thin">La definición técnica de economía ambiental
-                                                        nos dice que es la rama de la economía que estudia los efectos de
-                                                        las políticas ambientales y les otorga un valor a los recursos
-                                                        naturales.
-                                                    </p>
-                                                    <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver
-                                                        más</a>
+                                @foreach ($posts as $post)
+                                    <div class="carousel__elemento m-1">
+                                        <div class=" p-4">
+                                            <!--Contenido de ordenes movil-->
+                                            <div class="row">
+                                                <div class="col">
+                                                    <!--uno-->
+                                                    <div class="card espacio-5">
+                                                        <img src="{{ Storage::url($post->image->url) }}"
+                                                            class="img-fluid" alt="Myrewear">
+                                                        <h5 class="gelion-bold pt-3">
+                                                            @if (session('locale') == 'es')
+                                                                {{ $post->title }}
+                                                            @else
+                                                                {{ $post->title_en }}
+                                                            @endif
+                                                        </h5>
+                                                        @if (session('locale') == 'es')
+                                                            <p class="gelion-thin">
+                                                                {!! $post->extract !!}
+                                                            </p>
+                                                        @else
+                                                            <p class="gelion-thin">
+                                                                {!! $post->extract_en !!}
+                                                            </p>
+                                                        @endif
+                                                        <a href="{{ route('post.show', $post) }}"
+                                                            class="btn btn-secondary gelion-bold">Ver
+                                                            más</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="carousel__elemento m-1">
-                                    <div class=" p-4">
-                                        <!--Contenido de ordenes movil-->
-                                        <div class="row">
-                                            <div class="col">
-                                                <!--uno-->
-                                                <div class="card espacio-5">
-                                                    <img src="{{ asset('/img/index/card-blog.jpg') }}"
-                                                        class="img-fluid" alt="Myrewear">
-                                                    <h5 class="gelion-bold pt-3">¿Qué es la economía ambiental?</h5>
-                                                    <p class="gelion-thin">La definición técnica de economía ambiental
-                                                        nos dice que es la rama de la economía que estudia los efectos de
-                                                        las políticas ambientales y les otorga un valor a los recursos
-                                                        naturales.
-                                                    </p>
-                                                    <a href="/blog/articulo.html" class="btn btn-secondary gelion-bold">Ver
-                                                        más</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                @endforeach
                             </div>
                         </div>
                         <div role="tabList" class="carousel__indicadores1"></div>

@@ -240,14 +240,14 @@
                                                 <tr>
                                                     <th scope="row">
                                                         <li class="gelion-thin">
-                                                            Nombre: <span>Luis Nuñez</span>
+                                                            Nombre: <span>{{ auth()->user()->name }}</span>
                                                         </li>
                                                         <li class="gelion-thin">
-                                                            Teléfono: <span>+(52) 55 5284 0400</span>
+                                                            Teléfono: <span>{{ auth()->user()->phone }}</span>
                                                         </li>
-                                                        <li class="gelion-thin">
+                                                        {{-- <li class="gelion-thin">
                                                             Fecha de nacimiento: <span>17/08/90</span>
-                                                        </li>
+                                                        </li> --}}
                                                     </th>
                                                 </tr>
                                             </tbody>

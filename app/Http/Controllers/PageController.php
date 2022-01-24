@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Plan;
+use App\Models\Post;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class PageController extends Controller
         $hombre = Category::where('name','LIKE','Hombre')->first();
         $mujer = Category::where('name','LIKE','Mujer')->first();
         $plans = Plan::all();
-        return view('rewear.index',compact('colors','hombre','mujer','plans'));
+        $posts = Post::paginate(3);
+        return view('rewear.index',compact('colors','hombre','mujer','plans','posts'));
     }
 
     public function about(){
