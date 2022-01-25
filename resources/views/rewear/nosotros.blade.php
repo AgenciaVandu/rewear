@@ -213,7 +213,7 @@
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
-                                <img src="{{ asset('/img/nosotros/team/alejandra.png') }}" alt=""
+                                <img src="{{ asset('/img/nosotros/team/alejandra-1.png') }}" alt=""
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Alejandra Aguilar <br>
                                     <span class="gelion-regular size-4">
