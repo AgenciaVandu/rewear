@@ -63,11 +63,11 @@
         </h1>
 
         <p class="gelion-thin" style="color: gray;">
-            @if (session('locale') == 'es')
+            {{-- @if (session('locale') == 'es')
                 {!! $product->description !!}
             @else
                 {!! $product->description_en !!}
-            @endif
+            @endif --}}
         </p>
         <li class="gelion-bold pt-2">
             <div class="row">

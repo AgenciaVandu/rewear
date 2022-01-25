@@ -270,11 +270,11 @@
                                             </h5>
                                         </a>
                                         <li class="gelion-bold">
-                                            @if (session('locale') == 'es')
+                                            {{-- @if (session('locale') == 'es')
                                                 {!! $product->description !!}
                                             @else
                                                 {!! $product->description_en !!}
-                                            @endif
+                                            @endif --}}
                                         </li>
                                         <li class="gelion-thin">Peso de tela:
                                             @if (session('locale') == 'es')
@@ -346,11 +346,11 @@
                                             </h5>
                                         </a>
                                         <li class="gelion-thin size-product">
-                                            @if (session('locale') == 'es')
+                                            {{-- @if (session('locale') == 'es')
                                                 {!! $product->description !!}
                                             @else
                                                 {!! $product->description_en !!}
-                                            @endif
+                                            @endif --}}
                                         </li>
                                         <div class="pt-3 d-flex">
                                             <div class="hoja">
