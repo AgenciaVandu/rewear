@@ -8,7 +8,7 @@
                         <div class="control-box p-3">
                             <div class="filtro">
                                 <!--Filtro-->
-                                <p class="gelion-bold">FIT</p>
+                                <p class="gelion-bold">{{ __('CORTE') }}</p>
                                 @foreach ($categories as $category)
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
@@ -24,7 +24,7 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <p class="gelion-bold">TIPO DE MANGA </p>
+                                <p class="gelion-bold">{{ __('TIPO DE MANGA') }}</p>
                                 @foreach ($subcategories as $subcategory)
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
@@ -39,7 +39,7 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <p class="gelion-bold">POR COLOR</p>
+                                <p class="gelion-bold">{{ __('COLORES') }}</p>
                                 @foreach ($colors as $color)
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <p class="gelion-bold">POR TALLA</p>
+                                <p class="gelion-bold">{{ __('TALLAS') }}</p>
                                 @foreach ($sizes as $size)
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
@@ -170,7 +170,7 @@
                         <div class="control-box p-3">
                             <div class="filtro">
                                 <!--Filtro-->
-                                <p class="gelion-bold">FIT</p>
+                                <p class="gelion-bold">{{ __('FIT') }}</p>
                                 @foreach ($categories as $category)
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
@@ -186,7 +186,7 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <p class="gelion-bold">TIPO DE MANGA </p>
+                                <p class="gelion-bold">{{ __('TIPO DE MANGA') }}</p>
                                 @foreach ($subcategories as $subcategory)
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
@@ -201,7 +201,7 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <p class="gelion-bold">POR COLOR</p>
+                                <p class="gelion-bold">{{ __('COLORES') }}</p>
                                 @foreach ($colors as $color)
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
@@ -222,7 +222,7 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <p class="gelion-bold">POR TALLA</p>
+                                <p class="gelion-bold">{{ __('TALLAS') }}</p>
                                 @foreach ($sizes as $size)
                                     <div class="form-group d-flex justify-center">
                                         <div class="form-check">
@@ -260,7 +260,8 @@
                                             @endforeach
                                         </div>
 
-                                        <a href="{{ route('catalogue.product', $product) }}" style="color: #000; text-decoration: none;">
+                                        <a href="{{ route('catalogue.product', $product) }}"
+                                            style="color: #000; text-decoration: none;">
                                             <h5 class="gelion-bold pt-2 size-product-1">
                                                 @if (session('locale') == 'es')
                                                     {{ $product->name }}
@@ -330,8 +331,7 @@
                                                 @if ($image->main == 'si')
                                                     <a href="{{ route('catalogue.product', $product) }}">
                                                         <img src="{{ Storage::url($image->url) }}"
-                                                            class="img-fluid"
-                                                            alt="Productos del catálogo">
+                                                            class="img-fluid" alt="Productos del catálogo">
                                                     </a>
                                                 @endif
                                             @endforeach
