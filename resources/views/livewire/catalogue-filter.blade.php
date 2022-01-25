@@ -112,11 +112,11 @@
                                                 </h5>
                                             </a>
                                             <li class="gelion-bold">
-                                                @if (session('locale') == 'es')
+                                                {{-- @if (session('locale') == 'es')
                                                     {!! $product->description !!}
                                                 @else
                                                     {!! $product->description_en !!}
-                                                @endif
+                                                @endif --}}
                                             </li>
                                             <li class="gelion-thin">Medidas del modelo:
                                                 @if (session('locale') == 'es')
