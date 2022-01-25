@@ -116,7 +116,8 @@
                             <img src="{{asset('/img/user/Telefono.svg')}}" width="50">
                         </div>
                         <div class="col-11 pl-5 m-auto">
-                            Teléfono: (999) 324 7922
+                            Teléfono: (
+                                999) 324 7922
                         </div>
                     </div>
                 </li>

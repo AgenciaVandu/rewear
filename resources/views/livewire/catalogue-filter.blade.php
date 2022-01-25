@@ -88,7 +88,7 @@
                         <div class="control-box p-3 main-content">
                             <div class="row">
                                 @foreach ($products as $product)
-                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
                                         <div class="card espacio-card">
                                             <div class="contenedor">
                                                 @foreach ($product->images as $image)

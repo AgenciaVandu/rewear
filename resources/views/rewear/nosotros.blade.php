@@ -258,7 +258,7 @@
                                 <img src="{{ asset('/img/nosotros/team/silvia-1.png') }}" alt="" class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Silvia López <br>
                                     <span class="gelion-regular size-4">
-                                        {{ __('Relaciones publicas') }}
+                                        {{ __('Relaciones públicas') }}
                                     </span>
                                 </h3>
                             </div>
@@ -267,7 +267,7 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Nalleli Antonio <br>
                                     <span class="gelion-regular size-4">
-                                        {{ __('Vinculacion empresarial') }}
+                                        {{ __('Vinculación empresarial') }}
                                     </span>
                                 </h3>
                             </div>
@@ -292,7 +292,7 @@
                             </div>
                             <div class="col">
                                 <img src="{{ asset('/img/nosotros/team/antonio.png') }}" alt="" class="img-fluid">
-                                <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramirez <br>
+                                <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramírez <br>
                                     <span class="gelion-regular size-4">
                                         {{ __('Marketing Digital') }}
                                     </span>
