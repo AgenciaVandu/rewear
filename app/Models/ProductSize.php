@@ -10,6 +10,7 @@ class ProductSize extends Model
     use HasFactory;
 
     protected $table = "product_size";
+    protected $fillable = ['sku'];
 
     //Relacion uno a muchos inversa
 
@@ -17,7 +18,7 @@ class ProductSize extends Model
     {
         return $this->belongsTo(Product::class);
     }
-    
+
     public function size()
     {
         return $this->belongsTo(Size::class);

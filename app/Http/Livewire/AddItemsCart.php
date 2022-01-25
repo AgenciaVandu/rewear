@@ -20,6 +20,7 @@ class AddItemsCart extends Component
     public function mount(Product $product){
         $this->images = $product->images;
         $this->colors = $product->colors;
+        $this->color_id = $product->colors->first()->pivot->id;
         /* Cart::instance('caja1')->destroy();
         Cart::instance('caja2')->destroy();
         Cart::instance('caja3')->destroy();
@@ -46,7 +47,9 @@ class AddItemsCart extends Component
         $this->options['color'] = $color->color->name;
         $this->options['color_id'] = $color->color->id;
         $this->options['size'] = $size->size->code;
-        $this->options['size_id'] = $size->size->id;
+        $this->options['size_id'] = $size->id;
+        $this->options['sku'] = $size->sku;
+        $this->options['manga'] = $this->product->subcategory->name;
 
 
         $color_limite=0;
@@ -180,7 +183,7 @@ class AddItemsCart extends Component
                                 'weight' => 550,
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
-                        }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() <= 144 && $color_limite2 < 4 && $color_limite < 4 && $manga_limit2 == 0){
+                        }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() >= 72 && $color_limite2 < 4 && $color_limite < 4 && $manga_limit2 == 0){
                             Cart::instance('caja2')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
@@ -189,7 +192,7 @@ class AddItemsCart extends Component
                                 'weight' => 550,
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
-                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja2')->count() <= 216 && $color_limite3 < 4 && $color_limite2 < 4 && $color_limite < 4 && $manga_limit3 == 0 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()==144){
+                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count() >= 144 && $color_limite3 < 4 && $color_limite2 < 4 && $color_limite < 4 && $manga_limit3 == 0){
                             Cart::instance('caja3')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
@@ -248,7 +251,7 @@ class AddItemsCart extends Component
                                 'weight' => 550,
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
-                        }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() <= 144 && $manga_limit2 == 0){
+                        }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() >= 72 && $manga_limit2 == 0){
                             Cart::instance('caja2')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
@@ -257,7 +260,7 @@ class AddItemsCart extends Component
                                 'weight' => 550,
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
-                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count() <= 216 && $manga_limit3 == 0 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()==144){
+                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count() >= 144 && $manga_limit3 == 0){
                             Cart::instance('caja3')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,
@@ -267,7 +270,7 @@ class AddItemsCart extends Component
                                 'options' => $this->options
                             ])->associate('App\Models\Product');
                         }
-                        else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+$this->qty <= 288 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() <= 288 && $manga_limit4 == 0 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()==216){
+                        else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+$this->qty <= 288 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() >= 216 && $manga_limit4 == 0){
                             Cart::instance('caja4')->add([
                                 'id' => $this->product->id,
                                 'name' => $this->product->name,

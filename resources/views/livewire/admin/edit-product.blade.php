@@ -212,13 +212,16 @@
             <p class="text-sm">Selecciona los diferentes colores de la prenda</p>
             @livewire('admin.color-product', ['product' => $product],key('color-product-'.$product->id))
         </div>
-
-
         <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
             <h2 class="text-xl font-bold">Tallas</h2>
             <p class="text-sm">Selecciona las diferentes tallas de la prenda</p>
             @livewire('admin.product-size', ['product' => $product],key('product-size'.$product->id))
         </div>
+{{--         <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+            <h2 class="text-xl font-bold">SKUs</h2>
+            <p class="text-sm">Asigna los SKUs</p>
+            @livewire('admin.sku-product', ['product' => $product],key('sku-product'.$product))
+        </div> --}}
     </div>
     @push('script')
         <script>

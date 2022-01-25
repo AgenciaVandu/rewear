@@ -14,6 +14,7 @@ class EditProduct extends Component
 {
     public $product, $categories, $subcategories, $slug,$slug_en;
     public $category_id;
+    public $id_color="",$id_size="",$SKU,$colors,$sizes;
 
     protected $listeners = ['refreshProduct', 'delete'];
 
@@ -40,6 +41,8 @@ class EditProduct extends Component
         $this->subcategories = Subcategory::where('category_id', $this->category_id)->get();
         $this->slug = $this->product->slug;
         $this->slug_en = $this->product->slug_en;
+        $this->colors = $this->product->colors;
+        $this->sizes = $this->product->sizes;
     }
 
     public function updatedCategoryId($value)

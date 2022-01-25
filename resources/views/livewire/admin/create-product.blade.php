@@ -53,7 +53,7 @@
         <x-jet-input-error for="slug_en" />
     </div>
     {{-- Descripcion --}}
-    <div class="mb-4">
+    {{-- <div class="mb-4">
         <div wire:ignore>
             <x-jet-label value="Descripción" />
             <textarea wire:model="description" class="w-full form-control" x-ref="mieditor" rows="4" x-data x-init="ClassicEditor
@@ -68,11 +68,11 @@
             } );"></textarea>
         </div>
         <x-jet-input-error for="description" />
-    </div>
+    </div> --}}
 
 
     {{-- Descripcion --}}
-    <div class="mb-4">
+    {{-- <div class="mb-4">
         <div wire:ignore>
             <x-jet-label value="Description" />
             <textarea wire:model="description_en" class="w-full form-control" x-ref="mieditor_en" rows="4" x-data x-init="ClassicEditor
@@ -87,7 +87,7 @@
             } );"></textarea>
         </div>
         <x-jet-input-error for="description_en" />
-    </div>
+    </div> --}}
 
     <div class="grid grid-cols-2 gap-6 mb-4">
         {{-- Medidas del modelo --}}
@@ -110,7 +110,7 @@
         {{-- Medidas del modelo --}}
         <div class="mb-4">
             <x-jet-label value="Measurements of the model" />
-            <x-jet-input wire:model="measure_en" type="text" placeholder="Ingrese las medidas del modelo"
+            <x-jet-input wire:model="measure_en" type="text" placeholder="Measurements of the model"
                 class="w-full" />
                 <x-jet-input-error for="measure_en"/>
         </div>
@@ -118,7 +118,7 @@
         {{-- Talla del modelo --}}
         <div class="mb-4">
             <x-jet-label value="Modelo sizes" />
-            <x-jet-input wire:model="size_en" type="text" placeholder="Ingrese la talla del modelo"
+            <x-jet-input wire:model="size_en" type="text" placeholder="Modelo sizes"
                 class="w-full" />
                 <x-jet-input-error for="size_en"/>
         </div>

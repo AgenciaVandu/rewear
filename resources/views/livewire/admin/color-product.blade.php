@@ -14,15 +14,15 @@
                     {{ __($item->color->name) }}
                 </div>
                 <div>
-                    <a wire:click="edit({{ $item->id }})"
-                        class="text-sm cursor-pointer mr-2 hover:text-gray-400">Editar</a>
+                   {{--  <a wire:click="edit({{ $item->id }})"
+                        class="text-sm cursor-pointer mr-2 hover:text-gray-400">Editar</a> --}}
                     <a wire:click="delete({{ $item->id }})"
                         class="text-sm cursor-pointer hover:text-gray-400">Eliminar</a>
                 </div>
             </div>
         @endforeach
 
-        @if ($open)
+        {{-- @if ($open)
             <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
                 aria-modal="true">
                 <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -74,8 +74,7 @@
                                                 class="w-52 flex flex-col items-center ml-2 mt-4 px-4 py-10 bg-white text-gray-700 rounded-l-lg shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-gray-100 hover:text-pink-500">
                                                 <i class="far fa-plus-square text-5xl"></i>
                                                 <span class="mt-4 text-sm">Seleccionar archivo(s)</span>
-                                                <input type='file' wire:model="files" class="hidden" multiple
-                                                    {{-- accept="image/*,video/*" --}}>
+                                                <input type='file' wire:model="files" class="hidden" multiple>
                                             </label>
                                             <!-- Progress Bar -->
                                             <div class="text-center py-6 text-white font-bold" x-show="isUploading">
@@ -102,7 +101,7 @@
                     </div>
                 </div>
             </div>
-        @endif
+        @endif --}}
 
     </div>
     <div class="flex items-center justify-end mt-8">

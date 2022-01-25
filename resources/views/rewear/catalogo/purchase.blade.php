@@ -27,7 +27,7 @@
                             <div class="pt-3 gelion-bold" id="f-emprendedor">
                                 <!--Emprendedor-->
                                 <label for="formGroupExampleInput">Nombre de tu empresa (opcional)</label>
-                                <input type="text" class="form-control" name="bussines">
+                                <input type="text" class="form-control" name="bussiness">
                             </div>
                             <div class="form-group gelion-bold pt-3">
                                 <label for="inputAddress">Dirección</label>
@@ -199,7 +199,7 @@
                                         ${{ number_format(Cart::instance('caja1')->subtotal() * $plan->$mon1 + Cart::instance('caja2')->subtotal() * $plan->$mon2 + Cart::instance('caja3')->subtotal() * $plan->$mon3 + Cart::instance('caja4')->subtotal() * $plan->$mon4, 2) }}
                                     </p>
                                 </div>
-                                <div class="col-6">
+                                {{-- <div class="col-6">
                                     <p class="gelion-thin">
                                         Impuestos
                                     </p>
@@ -208,7 +208,7 @@
                                     <p class="gelion-thin">
                                         ${{ number_format(Cart::instance('caja1')->tax(16) * $plan->$mon1 + Cart::instance('caja2')->tax(16) * $plan->$mon2 + Cart::instance('caja3')->tax(16) * $plan->$mon3 + Cart::instance('caja4')->tax(16) * $plan->$mon4, 2) }}
                                     </p>
-                                </div>
+                                </div> --}}
                                 <div class="col-6">
                                     <p class="gelion-thin">
                                         Precio total

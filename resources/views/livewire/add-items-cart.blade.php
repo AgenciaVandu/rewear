@@ -1,46 +1,27 @@
 <div class="row">
     <div class="col-lg-7 col-md-12 col-sm-12 espacio-pr">
         <div class="d-none d-sm-none d-md-none d-lg-block">
-            <div class="row boton-producto">
-                @if (!$color_id)
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        @foreach ($images as $image)
-                            @if ($image->main != 'si')
-                                <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
-                                    <button type="button" id="i-{{ $loop->iteration }}">
-                                        <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
-                                    </button>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                    <div class="col-lg-8 col-md-6 col-sm-12">
-                        @foreach ($product->images as $image)
-                            @if ($image->main != 'si')
-                                <div class="principal" id="p{{ $loop->iteration }}">
-                                    <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                @else
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        @foreach ($imagesColor as $image)
+            <div class="row boton-producto" wire:ignore>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    @foreach ($images as $image)
+                        @if ($image->main != 'si')
                             <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
                                 <button type="button" id="i-{{ $loop->iteration }}">
                                     <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
                                 </button>
                             </div>
-                        @endforeach
-                    </div>
-                    <div class="col-lg-8 col-md-6 col-sm-12">
-                        @foreach ($imagesColor as $image)
+                        @endif
+                    @endforeach
+                </div>
+                <div class="col-lg-8 col-md-6 col-sm-12">
+                    @foreach ($product->images as $image)
+                        @if ($image->main != 'si')
                             <div class="principal" id="p{{ $loop->iteration }}">
                                 <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
                             </div>
-                        @endforeach
-                    </div>
-                @endif
+                        @endif
+                    @endforeach
+                </div>
             </div>
         </div>
         <!--Movil images-->
@@ -48,7 +29,7 @@
             <!--movil-->
             <div class="carousel">
                 <div class="carousel__contenedor">
-                    <div class="carousel__lista text-center">
+                    <div class="carousel__lista text-center" wire:ignore>
                         @foreach ($product->images as $image)
                             @if ($image->main != 'si')
                                 <div class="carousel__elemento m-1">
@@ -119,18 +100,20 @@
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col m-auto">
-                    Colores disponibles
+                    Colore disponible
+                    {{-- {{ var_dump($color_id) }} --}}
                 </div>
                 <div class="col-8 gelion-thin">
                     <div class="btn-group">
-                        <select wire:model="color_id" class="form-control form-control-sm">
+                        {{ $product->colors->first()->name }}
+{{--                         <select wire:model="color_id" class="form-control form-control-sm">
                             <option value="" disabled selected>{{ __('Selecciones un color') }}</option>
                             @foreach ($product->colors as $color)
                                 <option class="text-capitalize" value="{{ $color->pivot->id }}">
                                     {{ __($color->name) }}
                                 </option>
                             @endforeach
-                        </select>
+                        </select> --}}
                     </div>
                 </div>
             </div>

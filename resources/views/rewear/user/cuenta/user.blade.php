@@ -126,8 +126,8 @@
                     <div class="col-lg-4 col-md-12 col-sm-12 user pt-2 right-o">
                         <!--Navegación-->
                         <!--<div class="text-center pb-2">
-                                                            <h2 class="gelion-bold">Hola, <span>Luis</span>👋🏻</h2>
-                                                        </div>-->
+                                                                                                                <h2 class="gelion-bold">Hola, <span>Luis</span>👋🏻</h2>
+                                                                                                            </div>-->
                         <div class="d-block d-sm-block d-md-block d-lg-block">
                             <div class="card p-4 text-center">
                                 <div class="d-none d-sm-none d-md-none d-lg-block">
@@ -140,26 +140,27 @@
                                         <button class="gelion-bold user-font btn-block">Mi cuenta</button>
                                     </div>
                                 </div>
-                                <div class="d-block d-sm-block d-md-block d-lg-block">
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <a class="gelion-bold user-font btn-block" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                            this.closest('form').submit();">
-                                            {{ __('Log Out') }}
-                                        </a>
-                                    </form>
-                                </div>
                             </div>
                         </div>
-
+                        <div class="mt-3">
+                            <form method="POST" action="{{ route('logout') }}" class="text-center">
+                                @csrf
+                                <a class="gelion-bold user-font btn-block" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                                                                                        this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </a>
+                            </form>
+                        </div>
                     </div>
+
                     <!--Contenido ordenador-->
                     <div class="col-lg-8 col-md-12 right-o-1 col-sm-12 pt-2">
                         <div id="tabs-1">
                             <div class="d-none d-sm-none d-md-none d-lg-block">
                                 <!--Contenido de ordenes ordenador-->
                                 @foreach ($orders as $order)
-                                    <div class="card p-4">
+                                    <div class="card p-4 mb-4">
                                         <!--Contenido de ordenes ordenador-->
                                         <div class="row">
                                             <div class="col-lg-7 col-md-6 col-sm-12 m-auto pt-1">
@@ -225,6 +226,7 @@
                                     </div>
                                 @endforeach
                             </div>
+                            {{ $orders->links('vendor.pagination.bootstrap-4') }}
                         </div>
                         <div id="tabs-2">
                             <div class="d-block d-sm-block d-md-block d-lg-block">
@@ -233,7 +235,56 @@
                                     <!--Info personal-->
                                     <div class="row control-but">
                                         <div class="col-lg-12 col-md-12 col-sm-12 text-right">
-                                            <button class="gelion-bold size-2">Editar</button>
+                                            {{-- <button class="gelion-bold size-2">Editar</button> --}}
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="gelion-bold size-2" data-toggle="modal"
+                                                data-target="#infouserModal">
+                                                Editar
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="infouserModal" tabindex="-1"
+                                                aria-labelledby="infouserModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="infouserModalLabel">Informacion
+                                                                de contacto
+                                                            </h5>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('profile.updateInfo') }}" method="POST"
+                                                            class="text-left">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                    <label for="name">{{ __('Nombre') }}</label>
+                                                                    <input type="text" class="form-control" id="name"
+                                                                        name="name" value="{{ auth()->user()->name }}"
+                                                                        required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="phone">{{ __('Telefono') }}</label>
+                                                                    <input type="text" class="form-control" name="phone"
+                                                                        value="{{ auth()->user()->phone }}" id="phone"
+                                                                        required>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn"
+                                                                    data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-outline-success">Save
+                                                                    changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <table class="table table-borderless">
                                             <tbody>
@@ -258,7 +309,57 @@
                                     <!--Contraseña-->
                                     <div class="row control-but">
                                         <div class="col-lg-12 col-md-12 col-sm-12 text-right">
-                                            <button class="gelion-bold size-2">Editar</button>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="gelion-bold size-2" data-toggle="modal"
+                                                data-target="#password">
+                                                Editar
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="password" tabindex="-1"
+                                                aria-labelledby="passwordLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="passwordLabel">Cambio de
+                                                                contraseña
+                                                            </h5>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form method="POST" action="{{ route('user.update.password') }}"
+                                                            class="text-left">
+                                                            @csrf
+                                                            <div class="mt-5 p-4">
+                                                                <div class="form-row">
+                                                                    <div class="col form-group col-12">
+                                                                        <label>Current Password</label>
+                                                                        <input type="password" name="current_password"
+                                                                            class="form-control">
+                                                                    </div> <!-- form-group end.// -->
+                                                                    <div class="form-group col-md-6">
+                                                                        <label>New Password</label>
+                                                                        <input type="password" name="password"
+                                                                            class="form-control">
+                                                                    </div> <!-- form-group end.// -->
+                                                                    <div class="form-group col-md-6">
+                                                                        <label>Confirm Password</label>
+                                                                        <input type="password" name="password_confirmation"
+                                                                            class="form-control">
+                                                                    </div> <!-- form-group end.// -->
+                                                                </div> <!-- form-row.// -->
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn"
+                                                                    data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-outline-success">Save
+                                                                    changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 text-left">
                                             <li class="gelion-thin">Contraseña: <span>****</span></li>
@@ -268,62 +369,109 @@
                                 <div class="d-none d-sm-none d-md-block d-lg-block">
                                     <div class="row">
                                         <!--Direcciones ordenador-->
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <!--Direccion 1-->
-                                            <div class="card mt-3 p-4">
-                                                <h5 class="gelion-bold pb-3">
-                                                    Casa
-                                                </h5>
-                                                <li class="gelion-thin">
-                                                    Calle 23d, colonia. CP 97173
-                                                </li>
-                                                <li class="gelion-thin">
-                                                    Ciudad, Estado
-                                                </li>
-                                                <li class="gelion-regular pt-3">
-                                                    <div class="row control-but">
-                                                        <div class="col text-left">
-                                                            <button class="gelion-bold">
-                                                                Editar
-                                                            </button>
+                                        @foreach ($addresses as $address)
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <!--Direccion 1-->
+                                                <div class="card mt-3 p-4">
+                                                    <h5 class="gelion-bold pb-3">
+                                                        Casa
+                                                    </h5>
+                                                    <li class="gelion-thin">
+                                                        {{ $address->address }}, CP {{ $address->postal_code }}
+                                                    </li>
+                                                    <li class="gelion-thin">
+                                                        {{ $address->city }}, {{ $address->state }}
+                                                    </li>
+                                                    <li class="gelion-regular pt-3">
+                                                        <div class="row control-but">
+                                                            <div class="col text-left">
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="gelion-bold"
+                                                                    data-toggle="modal"
+                                                                    data-target="#address{{ $address->id }}">
+                                                                    Editar
+                                                                </button>
+                                                                <!-- Modal -->
+                                                                <div class="modal fade"
+                                                                    id="address{{ $address->id }}" tabindex="-1"
+                                                                    aria-labelledby="address{{ $address->id }}Label"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="address{{ $address->id }}Label">
+                                                                                    Editar direccion {{ $address->id }}
+                                                                                </h5>
+                                                                                <button type="button"
+                                                                                    class="close"
+                                                                                    data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <form method="POST"
+                                                                                action="{{ route('user.update.address', $address) }}"
+                                                                                class="text-left">
+                                                                                @csrf
+                                                                                <div class="p-4">
+                                                                                    <div class="form-row">
+                                                                                        <div class="col form-group col-6">
+                                                                                            <label>{{ __('Address') }}</label>
+                                                                                            <input type="text"
+                                                                                                name="address"
+                                                                                                value="{{ $address->address }}"
+                                                                                                class="form-control">
+                                                                                        </div>
+                                                                                        <div class="col form-group col-6">
+                                                                                            <label>{{ __('Codigo Postal') }}</label>
+                                                                                            <input type="text"
+                                                                                                name="postal_code"
+                                                                                                value="{{ $address->postal_code }}"
+                                                                                                class="form-control">
+                                                                                        </div>
+                                                                                        <div class="form-group col-md-6">
+                                                                                            <label>{{ __('Ciudad') }}</label>
+                                                                                            <input type="text" name="city"
+                                                                                                value="{{ $address->city }}"
+                                                                                                class="form-control">
+                                                                                        </div> <!-- form-group end.// -->
+                                                                                        <div class="form-group col-md-6">
+                                                                                            <label>{{ __('Estado') }}</label>
+                                                                                            <input type="text" name="state"
+                                                                                                value="{{ $address->state }}"
+                                                                                                class="form-control">
+                                                                                        </div> <!-- form-group end.// -->
+                                                                                    </div> <!-- form-row.// -->
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button"
+                                                                                        class="btn"
+                                                                                        data-dismiss="modal">Close</button>
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-outline-success">Save
+                                                                                        changes</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col text-right">
+                                                                <form
+                                                                    action="{{ route('user.delete.address', $address) }}"
+                                                                    method="post">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button class="gelion-regular" style="color: red;">
+                                                                        Eliminar
+                                                                    </button>
+                                                                </form>
+                                                            </div>
                                                         </div>
-                                                        <div class="col text-right">
-                                                            <button class="gelion-regular" style="color: red;">
-                                                                Eliminar
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <!--Direccion 1-->
-                                            <div class="card mt-3 p-4">
-                                                <h5 class="gelion-bold pb-3">
-                                                    Oficina
-                                                </h5>
-                                                <li class="gelion-thin">
-                                                    Calle 23d, colonia. CP 97173
-                                                </li>
-                                                <li class="gelion-thin">
-                                                    Ciudad, Estado
-                                                </li>
-                                                <li class="gelion-regular pt-3">
-                                                    <div class="row control-but">
-                                                        <div class="col text-left">
-                                                            <button class="gelion-bold">
-                                                                Editar
-                                                            </button>
-                                                        </div>
-                                                        <div class="col text-right">
-                                                            <button class="gelion-regular" style="color: red;">
-                                                                Eliminar
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

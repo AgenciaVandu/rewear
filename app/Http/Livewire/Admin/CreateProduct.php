@@ -21,10 +21,8 @@ class CreateProduct extends Component
         'subcategory_id' => 'required',
         'name' => 'required',
         'slug' => 'required|unique:products',
-        'description' => 'required',
         'name_en' => 'required',
         'slug_en' => 'required|unique:products',
-        'description_en' => 'required',
     ];
 
     public function mount()
@@ -61,14 +59,13 @@ class CreateProduct extends Component
 
         $product->name = $this->name;
         $product->slug = $this->slug;
-        $product->description = $this->description;
+        $product->description = "";
         $product->category_id = $this->category_id;
         $product->subcategory_id = $this->subcategory_id;
         $product->measure = $this->measure;
         $product->size = $this->size;
         $product->name_en = $this->name_en;
         $product->slug_en = $this->slug_en;
-        $product->description_en = $this->description_en;
         $product->measure_en = $this->measure_en;
         $product->size_en = $this->size_en;
 
