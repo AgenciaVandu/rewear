@@ -100,12 +100,12 @@
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col m-auto">
-                    Colore disponible
+                    Color disponible
                     {{-- {{ var_dump($color_id) }} --}}
                 </div>
                 <div class="col-8 gelion-thin">
                     <div class="btn-group">
-                        {{ $product->colors->first()->name }}
+                        <span>{{ $product->colors->first()->name }}</span>  <span class="ml-3"><a href="{{ route('catalogue.index') }}">Ver mas colores</a></span>
 {{--                         <select wire:model="color_id" class="form-control form-control-sm">
                             <option value="" disabled selected>{{ __('Selecciones un color') }}</option>
                             @foreach ($product->colors as $color)
@@ -131,8 +131,8 @@
         <li class="gelion-bold pt-3 text-left productos-carrito">
             <div class="row pb-2">
                 <div class="col-1">
-                    <div style="background-color: #003057; height: 30px; width: 30px; border-radius: 30px;">
-                        <span class="icon-hoja-productorewear ico-xs" style="color: #fff;"></span>
+                    <div style="background-color: {{ $product->colors->first()->bgcolor }}; height: 30px; width: 30px; border-radius: 30px;">
+                        <span class="icon-hoja-productorewear ico-xs" style="color: {{ $product->colors->first()->txtcolor}};"></span>
                     </div>
                 </div>
                 <div class="col m-auto">
