@@ -105,7 +105,7 @@
                 </div>
                 <div class="col-8 gelion-thin">
                     <div class="btn-group">
-                        <span>{{ $product->colors->first()->name }}</span>  <span class="ml-3"><a href="{{ route('catalogue.index') }}">Ver mas colores</a></span>
+                        <span>{{ $product->colors->first()->name }}</span>  <span class="ml-3"><a href="{{ route('catalogue.index') }}" style="color:#000;">Ver más colores</a></span>
 {{--                         <select wire:model="color_id" class="form-control form-control-sm">
                             <option value="" disabled selected>{{ __('Selecciones un color') }}</option>
                             @foreach ($product->colors as $color)

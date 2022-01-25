@@ -26,13 +26,13 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 contenido-imagen">
                         <img src="{{ Storage::url($hombre->image) }}" class="img-fluid" alt="">
                         <div class="boton-i">
-                            <a href="" class="btn btn-primary gelion-bold">{{ __('ORDENAR AHORA') }}</a>
+                            <a href="{{ route('catalogue.index') }}" class="btn btn-primary gelion-bold">{{ __('ORDENAR AHORA') }}</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 contenido-imagen">
                         <img src="{{ Storage::url($mujer->image) }}" class="img-fluid" alt="">
                         <div class="boton-i">
-                            <a href="" class="btn btn-primary gelion-bold">{{ __('ORDENAR AHORA') }}</a>
+                            <a href="{{ route('catalogue.index') }}" class="btn btn-primary gelion-bold">{{ __('ORDENAR AHORA') }}</a>
                         </div>
                     </div>
                 </div>
