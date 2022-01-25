@@ -29,18 +29,146 @@ class OrderController extends Controller
     public function create(Request $request){
         $plan = Plan::find(session()->get('plan'));
         $total = 1;
-        if (session()->get('divisa') == 'MXN') {
-            $total = (Cart::instance('caja1')->total() + Cart::instance('caja2')->total() + Cart::instance('caja3')->total() + Cart::instance('caja4')->total())*$plan->MXN;
-            $currency_value = $plan->MXN;
-        }else{
-            $total = (Cart::instance('caja1')->total() + Cart::instance('caja2')->total() + Cart::instance('caja3')->total() + Cart::instance('caja4')->total())*$plan->USD;
-            $currency_value = $plan->USD;
+        $mon = 'MXN';
+        $mon1 = 'MXN';
+        $mon2 = 'MXN';
+        $mon3 = 'MXN';
+        $mon4 = 'MXN';
+
+        if (Cart::instance('caja1')->count()) {
+            foreach (Cart::instance('caja1')->content() as $item) {
+                $manga1 = $item->model->subcategory->name;
+            }
+            if ($manga1 == 'Corta' || $manga1 == 'corta') {
+                switch (session()->get('divisa')) {
+                    case 'MXN':
+                        $mon1 = 'MXN';
+                        break;
+                    case 'USD':
+                        $mon1 = 'USD';
+                        break;
+                    case '':
+                        $mon1 = 'MXN';
+                        break;
+                }
+            } else {
+                switch (session()->get('divisa')) {
+                    case 'MXN':
+                        $mon1 = 'MXN_L';
+                        break;
+                    case 'USD':
+                        $mon1 = 'USD_L';
+                        break;
+                    case '':
+                        $mon1 = 'MXN_L';
+                        break;
+                }
+            }
         }
+        if (Cart::instance('caja2')->count()) {
+            foreach (Cart::instance('caja2')->content() as $item) {
+                $manga2 = $item->model->subcategory->name;
+            }
+            if ($manga2 == 'Corta' || $manga2 == 'corta') {
+                switch (session()->get('divisa')) {
+                    case 'MXN':
+                        $mon2 = 'MXN';
+                        break;
+                    case 'USD':
+                        $mon2 = 'USD';
+                        break;
+                    case '':
+                        $mon2 = 'MXN';
+                        break;
+                }
+            } else {
+                switch (session()->get('divisa')) {
+                    case 'MXN':
+                        $mon2 = 'MXN_L';
+                        break;
+                    case 'USD':
+                        $mon2 = 'USD_L';
+                        break;
+                    case '':
+                        $mon2 = 'MXN_L';
+                        break;
+                }
+            }
+        }
+        if (Cart::instance('caja3')->count()) {
+            foreach (Cart::instance('caja3')->content() as $item) {
+                $manga3 = $item->model->subcategory->name;
+            }
+            if ($manga3 == 'Corta' || $manga3 == 'corta') {
+                switch (session()->get('divisa')) {
+                    case 'MXN':
+                        $mon3 = 'MXN';
+                        break;
+                    case 'USD':
+                        $mon3 = 'USD';
+                        break;
+                    case '':
+                        $mon3 = 'MXN';
+                        break;
+                }
+            } else {
+                switch (session()->get('divisa')) {
+                    case 'MXN':
+                        $mon3 = 'MXN_L';
+                        break;
+                    case 'USD':
+                        $mon3 = 'USD_L';
+                        break;
+                    case '':
+                        $mon3 = 'MXN_L';
+                        break;
+                }
+            }
+        }
+        if (Cart::instance('caja4')->count()) {
+            foreach (Cart::instance('caja4')->content() as $item) {
+                $manga4 = $item->model->subcategory->name;
+            }
+            if ($manga4 == 'Corta' || $manga4 == 'corta') {
+                switch (session()->get('divisa')) {
+                    case 'MXN':
+                        $mon4 = 'MXN';
+                        break;
+                    case 'USD':
+                        $mon4 = 'USD';
+                        break;
+                    case '':
+                        $mon4 = 'MXN';
+                        break;
+                }
+            } else {
+                switch (session()->get('divisa')) {
+                    case 'MXN':
+                        $mon4 = 'MXN_L';
+                        break;
+                    case 'USD':
+                        $mon4 = 'USD_L';
+                        break;
+                    case '':
+                        $mon4 = 'MXN_L';
+                        break;
+                }
+            }
+        }
+        $total = (Cart::instance('caja1')->total()* $plan->$mon1) + (Cart::instance('caja2')->total()* $plan->$mon2) + (Cart::instance('caja3')->total()* $plan->$mon3) + (Cart::instance('caja4')->total()* $plan->$mon4);
+        if (session()->get('divisa') == 'MXN') {
+            $currency_value = $plan->MXN;
+            $currency_value_L = $plan->MXN_L;
+        }else{
+            $currency_value = $plan->USD;
+            $currency_value_L = $plan->USD_L;
+        }
+
         $order = Order::create([
             'user_id' => auth()->user()->id,
             'contact' => $request->name .' '. $request->last_name,
             'phone' => $request->phone,
-            'bussines' => $request->bussines,
+            'bussiness' => $request->bussiness,
             'envio' => json_encode([
                 'address' => $request->address,
                 'city' => $request->city,
@@ -52,6 +180,7 @@ class OrderController extends Controller
             'plan_id' => $plan->id,
             'currency' => session()->get('divisa'),
             'currency_value' => $currency_value,
+            'currency_value_L' => $currency_value_L,
             'message' => $request->message,
 
         ]);

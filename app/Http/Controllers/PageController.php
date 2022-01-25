@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Plan;
@@ -65,6 +66,7 @@ class PageController extends Controller
     public function checkout(){
         $plan = Plan::find(session()->get('plan'));
         $products = Product::inRandomOrder()->paginate(4);
-        return view('rewear.catalogo.purchase',compact('plan','products'));
+        $addresses = Address::where('user_id',auth()->user()->id)->get();
+        return view('rewear.catalogo.purchase',compact('plan','products','address'));
     }
 }

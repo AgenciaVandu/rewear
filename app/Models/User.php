@@ -29,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
     ];
 
     /**
@@ -63,7 +64,6 @@ class User extends Authenticatable
 
 
 
-
     //Relacion uno a muchos
 
     public function orders()
@@ -87,5 +87,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Pots::class);
     }
 
+    public function addresses(){
+        return $this->hasMany(Address::class);
+    }
 
 }

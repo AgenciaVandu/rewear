@@ -101,14 +101,14 @@
 
     <div class="bg-white rounded-lg shadow-lg p-6 text-trueGray-700 mb-6">
         <p class="text-xl font-semibold mb-4">Resumen</p>
-
+        <h2 class="text-xl text-gray-700">Plan {{ $order->plan_name }}</h2>
         <table class="table-auto w-full">
             <thead>
                 <tr>
                     <th></th>
-                    <th>#Caja</th>
-                    <th>Cant</th>
-                    <th>Total</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>SKU</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
@@ -116,14 +116,37 @@
                     @php
                         $products = json_decode($box->content);
                     @endphp
+                    <tr>
+                        <td>
+                            <span class="ml-4 font-bold text-gray-700">Caja {{ $loop->iteration }}</span>
+                        </td>
+                    </tr>
                     @foreach ($products as $product)
                         <tr class="text-center">
-                            <td></td>
-                            <td>{{ $box->id }} </td>
-                            <td>{{ $product->name }}</td>
+                            <td>
+                                <div class="flex">
+                                    <img src="{{ $product->options->image }}" alt="" class="h-15 w-20 object-cover mr-4">
+                                    <article>
+                                        <h1 class="font-bold">{{ $product->name }}</h1>
+                                        <div class="flex text-xs">
+                                            @isset($product->options->color)
+                                                Color: {{ __($product->options->color) }}
+                                            @endisset
+
+                                            @isset($product->options->size)
+                                                Talla: {{ __($product->options->size) }}
+                                            @endisset
+                                            <br>
+                                        </div>
+                                    </article>
+                                </div>
+                            </td>
                             <td>{{ $product->qty }}</td>
+                            <td>{{ $order->currency_value }}</td>
+                            <td>{{ $product->options->sku }}</td>
                         </tr>
                     @endforeach
+
                 @endforeach
                 {{-- @foreach ($items as $product)
                     <tr>
