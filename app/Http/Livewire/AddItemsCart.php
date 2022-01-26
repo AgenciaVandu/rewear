@@ -13,12 +13,12 @@ use Livewire\Component;
 
 class AddItemsCart extends Component
 {
-    public $product,$images,$colors,$color_id="",$size_id="", $color_limite=0;
+    public $product,$images=[],$colors,$color_id="",$size_id="", $color_limite=0;
     public $qty=6;
     public $options = [];
 
     public function mount(Product $product){
-        $this->images = $product->images;
+        $this->images = $product->images->where('main','!=','si');
         $this->colors = $product->colors;
         $this->color_id = $product->colors->first()->pivot->id;
         /* Cart::instance('caja1')->destroy();

@@ -4,6 +4,7 @@
             <div class="row boton-producto" wire:ignore>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     @foreach ($images as $image)
+
                         @if ($image->main != 'si')
                             <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
                                 <button type="button" id="i-{{ $loop->iteration }}">
