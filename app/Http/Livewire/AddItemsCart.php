@@ -42,7 +42,7 @@ class AddItemsCart extends Component
     public function addItems(){
         $color = ColorProduct::find($this->color_id);
         $size = ProductSize::find($this->size_id);
-        $this->options['image'] = Storage::url($this->product->images->first()->url);
+        $this->options['image'] = Storage::url($this->product->images->where('main','si')->first()->url);
         /* $size = $this->product->size->find($this->color_id); */
         $this->options['color'] = $color->color->name;
         $this->options['color_id'] = $color->color->id;
