@@ -25,11 +25,11 @@
             </div>
         </div>
         <!--Movil images-->
-        <div class="d-block d-sm-block d-md-block d-lg-none">
+        <div class="d-block d-sm-block d-md-block d-lg-none" wire:ignore>
             <!--movil-->
             <div class="carousel">
                 <div class="carousel__contenedor">
-                    <div class="carousel__lista text-center" wire:ignore>
+                    <div class="carousel__lista text-center">
                         @foreach ($product->images as $image)
                             @if ($image->main != 'si')
                                 <div class="carousel__elemento m-1">
