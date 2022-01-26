@@ -142,17 +142,17 @@
                             <li>
                                 <div class="row pt-2">
                                     <div class="col-2 pt-2">
-                                        <a href="https://www.facebook.com/myrewear" style="color: #fff;">
+                                        <a href="https://www.facebook.com/myrewear" target="_blank" style="color: #fff;">
                                             <i class="fab fa-facebook-square" style="color: #fff; font-size: 2em;"></i>
                                         </a>
                                     </div>
                                     <div class="col-2 pt-2">
-                                        <a href="https://www.instagram.com/myrewear.mx/" style="color: #fff;">
+                                        <a href="https://www.instagram.com/myrewear.mx/" target="_blank" style="color: #fff;">
                                             <i class="fab fa-instagram" style="color: #fff; font-size: 2em;"></i>
                                         </a>
                                     </div>
                                     <div class="col-2 pt-2">
-                                        <a href="https://www.linkedin.com/company/myrewear/" style="color: #fff;">
+                                        <a href="https://www.linkedin.com/company/myrewear/" target="_blank" style="color: #fff;">
                                             <i class="fab fa-linkedin" style="color: #fff; font-size: 2em;"></i>
                                         </a>
                                     </div>
