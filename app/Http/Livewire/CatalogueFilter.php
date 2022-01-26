@@ -36,7 +36,7 @@ class CatalogueFilter extends Component
 
     public function filter(){
 
-        $productsQuery = Product::query();
+        $productsQuery = Product::query()->where('status',2);
 
         if ($this->color_id) {
             $productsQuery = $productsQuery->whereHas('colors',function(Builder $query){
