@@ -75,8 +75,11 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <button wire:click="filter" class="btn btn-secondary">
+                                <button wire:click="filter" class="btn btn-secondary btn-sm">
                                     Filtrar
+                                </button>
+                                <button wire:click="filterClean" class="btn btn-danger btn-sm mt-2">
+                                    Eliminar filtros
                                 </button>
                             </div>
                         </div>

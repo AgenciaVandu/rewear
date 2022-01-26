@@ -57,6 +57,12 @@ class CatalogueFilter extends Component
         $this->products = $productsQuery->get();
     }
 
+    public function filterClean(){
+        $this->products = Product::where('status',2)->get();
+
+        $this->reset(['color_id','size_id','subcategory_id']);
+    }
+
     public function getSubcategories(){
         $this->subcategories = Subcategory::where('category_id',$this->category_id)->get();
         $this->subcategory_id = $this->subcategories->first()->id;
