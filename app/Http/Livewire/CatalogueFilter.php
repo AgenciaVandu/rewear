@@ -50,7 +50,11 @@ class CatalogueFilter extends Component
             });
         }
 
-        $this->products = $productsQuery->where('status',2)->get();
+        if ($this->subcategory_id) {
+            $productsQuery = $productsQuery->where('subcategory_id',$this->subcategory_id);
+        }
+
+        $this->products = $productsQuery->get();
     }
 
     public function getSubcategories(){
