@@ -243,6 +243,9 @@
                                 <button wire:click="filter" class="btn btn-secondary">
                                     Filtrar
                                 </button>
+                                <button wire:click="filterClean" class="btn btn-danger btn-sm mt-2">
+                                    Eliminar filtros
+                                </button>
                             </div>
                         </div>
                     </div>
