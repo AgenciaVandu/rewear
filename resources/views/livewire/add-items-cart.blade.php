@@ -61,6 +61,13 @@
                 {{ $product->name_en }}
             @endif
         </h1>
+        <li class="gelion-bold pt-3">
+            <p><img src="/img/catalogo/hoja-1.svg" alt="Producto ecológico">
+                <span class="pl-2 m-auto">
+                    {{ __('50% algodón reciclado, 50% poliéster reciclado.') }}
+                </span>
+            </p>
+        </li>
 
         <p class="gelion-thin" style="color: gray;">
             {{-- @if (session('locale') == 'es')
@@ -224,13 +231,6 @@
             </div>
             <small
                 class="gelion-regular">{{ __('* Debes seleccionar un color y talla para poder agregar a tu cesta') }}</small>
-        </li>
-        <li class="gelion-bold pt-3">
-            <p><img src="/img/catalogo/hoja-1.svg" alt="Producto ecológico">
-                <span class="pl-2 m-auto">
-                    {{ __('50% algodón reciclado, 50% poliéster reciclado.') }}
-                </span>
-            </p>
         </li>
         <li class="gelion-bold pt-1">
             {{ __('Compartir:') }}
