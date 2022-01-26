@@ -13,7 +13,7 @@
     </section>
     <section id="cruzada" class="pt-5 pb-5">
         <div class="container cruzada">
-            <h5 class="gelion-bold text-center pt-3 pb-4">TAMBIÉN TE PODRÍA INTERESAR</h5>
+            <h5 class="gelion-bold text-center pt-3 pb-4">{{ __('TAMBIÉN TE PODRÍA INTERESAR') }}</h5>
             <div class="d-none d-sm-none d-md-none d-lg-block">
                 <div class="row">
                     @foreach ($products as $product)
@@ -23,17 +23,23 @@
                                     @foreach ($product->images as $image)
                                         @if ($image->main == 'si')
                                             <a href="{{ route('catalogue.product', $product) }}">
-                                                <img src="{{ Storage::url($image->url) }}"
-                                                    class="img-fluid" alt="Productos del catálogo">
+                                                <img src="{{ Storage::url($image->url) }}" class="img-fluid"
+                                                    alt="Productos del catálogo">
                                             </a>
                                         @endif
                                     @endforeach
                                 </div>
                                 <a href="{{ route('catalogue.product', $product) }}"
                                     style="color: #000; text-decoration: none;">
-                                    <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
+                                    <h5 class="gelion-bold pt-2">
+                                        @if (session('locale') == 'es')
+                                            {{ $product->name }}
+                                            @else
+                                            {{ $product->name_en }}
+                                        @endif
+                                    </h5>
                                 </a>
-                                <li class="gelion-bold size-2">{!! $product->description !!}</li>
+                                {{-- <li class="gelion-bold size-2">{!! $product->description !!}</li> --}}
                                 </li>
                                 <li class="gelion-thin">Peso de tela: <span>{{ $product->measure }}</span>
                                 </li>
@@ -95,8 +101,7 @@
                                             @foreach ($product->images as $image)
                                                 @if ($image->main == 'si')
                                                     <a href="{{ route('catalogue.product', $product) }}">
-                                                        <img src="{{ Storage::url($image->url) }}"
-                                                            class="img-fluid"
+                                                        <img src="{{ Storage::url($image->url) }}" class="img-fluid"
                                                             alt="Productos del catálogo">
                                                     </a>
                                                 @endif

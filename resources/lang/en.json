@@ -837,8 +837,19 @@
     "CORTE":"FIT",
     "TIPO DE MANGA":"SLEEVE TYPE",
     "COLORES":"COLORS",
-    "TALLAS": "SIZES"
-
+    "TALLAS": "SIZES",
+    "Tabla de medidas":"Measurement table",
+    "Agregar prenda": "Add product",
+    "Medidas del modelo:": "Model measurements:",
+    "Talla del modelo:":"Model size",
+    "Color disponible": "Color available",
+    "Descargar PDF": "Download PDF",
+    "* Se agregarán en múltipos de 6": "* Will be added in multiples of 6",
+    "Ver más colores":"See more colors",
+    "* Debes seleccionar un color y talla para poder agregar a tu cesta":"* You must select a color and size to be able to add to your basket",
+    "50% algodón reciclado, 50% poliéster reciclado.":"50% recycled cotton, 50% recycled polyester.",
+    "Compartir:":"Share:",
+    "TAMBIÉN TE PODRÍA INTERESAR":"YOU MAY ALSO BE INTERESTED"
 
 
 }

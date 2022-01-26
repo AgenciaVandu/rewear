@@ -72,7 +72,7 @@
         <li class="gelion-bold pt-2">
             <div class="row">
                 <div class="col">
-                    Medidas del modelo:
+                    {{ __('Medidas del modelo:') }}
                 </div>
                 <div class="col-8 gelion-thin">
                     @if (session('locale') == 'es')
@@ -86,7 +86,7 @@
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col">
-                    Talla del modelo:
+                    {{ __('Talla del modelo:') }}
                 </div>
                 <div class="col-8 gelion-thin">
                     @if (session('locale') == 'es')
@@ -100,13 +100,15 @@
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col m-auto">
-                    Color disponible
+                    {{ __('Color disponible') }}
                     {{-- {{ var_dump($color_id) }} --}}
                 </div>
                 <div class="col-8 gelion-thin">
                     <div class="btn-group">
-                        <span>{{ $product->colors->first()->name }}</span>  <span class="ml-3"><a href="{{ route('catalogue.index') }}" style="color:#000;">Ver más colores</a></span>
-{{--                         <select wire:model="color_id" class="form-control form-control-sm">
+                        <span>{{ __($product->colors->first()->name) }}</span> <span class="ml-3"><a
+                                href="{{ route('catalogue.index') }}"
+                                style="color:#000;">{{ __('Ver más colores') }}</a></span>
+                        {{-- <select wire:model="color_id" class="form-control form-control-sm">
                             <option value="" disabled selected>{{ __('Selecciones un color') }}</option>
                             @foreach ($product->colors as $color)
                                 <option class="text-capitalize" value="{{ $color->pivot->id }}">
@@ -131,8 +133,10 @@
         <li class="gelion-bold pt-3 text-left productos-carrito">
             <div class="row pb-2">
                 <div class="col-1">
-                    <div style="background-color: {{ $product->colors->first()->bgcolor }}; height: 30px; width: 30px; border-radius: 30px;">
-                        <span class="icon-hoja-productorewear ico-xs" style="color: {{ $product->colors->first()->txtcolor}};"></span>
+                    <div
+                        style="background-color: {{ $product->colors->first()->bgcolor }}; height: 30px; width: 30px; border-radius: 30px;">
+                        <span class="icon-hoja-productorewear ico-xs"
+                            style="color: {{ $product->colors->first()->txtcolor }};"></span>
                     </div>
                 </div>
                 <div class="col m-auto">
@@ -143,32 +147,88 @@
                     </div>
                 </div>
             </div>
-            <small class="gelion-regular">* Se agregarán en múltipos de 6</small>
+            <small class="gelion-regular">{{ __('* Se agregarán en múltipos de 6') }}</small>
         </li>
-        <li class="gelion-bold pt-3"><a href="" style="color: #000; text-decoration: none;">Descargar
-                PDF</a></li>
+        <li class="gelion-bold pt-3"><a href=""
+                style="color: #000; text-decoration: none;">{{ __('Descargar PDF') }}</a></li>
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col">
                     <button wire:click="addItems" class="btn btn-secondary" @if (!($color_id && $size_id)) disabled @endif>
-                        Agregar prenda
+                        {{ __('Agregar prenda') }}
                     </button>
                 </div>
                 <div class="col gelion-bold m-auto">
-                    <a href="" style="color: #000; text-decoration: none;"> Tabla de medidas</a>
+                    {{-- <a href="" style="color: #000; text-decoration: none;"> {{ __('Tabla de medidas') }}</a> --}}
+                    @if (session('locale') == 'es')
+                        <a style="color: #000; text-decoration: none;" data-toggle="modal" data-target="#exampleModal">
+                           {{ __('Tabla de medidas') }}
+                        </a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{ asset('tablas/tabla-esp.png') }}" class="w-100" alt="">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <a style="color: #000; text-decoration: none;" data-toggle="modal" data-target="#exampleModal">
+                           {{ __('Tabla de medidas') }}
+                        </a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{ asset('tablas/table-eng.png') }}" class="w-100" alt="">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
-            <small class="gelion-regular">* Debes seleccionar un color y talla para poder agregar a tu cesta</small>
+            <small
+                class="gelion-regular">{{ __('* Debes seleccionar un color y talla para poder agregar a tu cesta') }}</small>
         </li>
         <li class="gelion-bold pt-3">
             <p><img src="/img/catalogo/hoja-1.svg" alt="Producto ecológico">
                 <span class="pl-2 m-auto">
-                    50% algodón reciclado, 50% poliéster reciclado.
+                    {{ __('50% algodón reciclado, 50% poliéster reciclado.') }}
                 </span>
             </p>
         </li>
         <li class="gelion-bold pt-1">
-            Compartir:
+            {{ __('Compartir:') }}
             <div class="row pt-2">
                 <div class="col-12">
                     <a class="btn btn-outline-dark m-auto pr-4 pl-4">
