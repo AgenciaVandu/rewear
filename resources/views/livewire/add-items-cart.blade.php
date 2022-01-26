@@ -5,8 +5,8 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     @foreach ($images as $image)
                         @if ($image->main != 'si')
-                            <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
-                                <button type="button" id="i-{{ $loop->iteration }}">
+                            <div class="lateral @if ($loop != 0) btn-pad @endif">
+                                <button type="button" id="i-{{ $loop }}">
                                     <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
                                 </button>
                             </div>
@@ -16,7 +16,7 @@
                 <div class="col-lg-8 col-md-6 col-sm-12">
                     @foreach ($images as $image)
                         @if ($image->main != 'si')
-                            <div class="principal" id="p{{ $loop->iteration }}">
+                            <div class="principal" id="p{{ $loop }}">
                                 <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
                             </div>
                         @endif
