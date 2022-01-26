@@ -19,7 +19,8 @@
                                         @if ($image->main == 'si')
                                             <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($image->url) }}"
-                                                    class="img-fluid" alt="Productos del catálogo">
+                                                    class="@if ($loop->iteration != 1) top @endif fill"
+                                                    alt="Productos del catálogo">
                                             </a>
                                         @endif
                                     @endforeach
