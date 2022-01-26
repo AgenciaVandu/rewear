@@ -67,10 +67,10 @@
                                                 <!--producto-->
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                        <div class="col-lg-4 col-md-3 col-sm-6" id="cesta">
                                                             <img src="{{ $item->options->image }}" class="img-fluid">
                                                         </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                        <div class="col-lg-8 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
                                                                 <span>
                                                                     <a wire:click="delete('{{ $item->rowId }}')"
