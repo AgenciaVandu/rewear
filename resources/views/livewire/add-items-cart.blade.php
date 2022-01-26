@@ -149,8 +149,13 @@
             </div>
             <small class="gelion-regular">{{ __('* Se agregarán en múltipos de 6') }}</small>
         </li>
-        <li class="gelion-bold pt-3"><a href=""
-                style="color: #000; text-decoration: none;">{{ __('Descargar PDF') }}</a></li>
+        <li class="gelion-bold pt-3">
+            @if (session('locale') == 'es')
+                <a href="{{ asset('pdfs/Catálogo_Rewear_ESP_2021.pdf') }}" download="Catálogo_Rewear_ESP_2021.pdf" style="color: #000; text-decoration: none;">{{ __('Descargar PDF') }}</a>
+            @else
+                <a href="{{ asset('pdfs/Catálogo_Rewear_ENG_2021.pdf') }}" download="Catálogo_Rewear_ENG_2021.pdf" style="color: #000; text-decoration: none;">{{ __('Descargar PDF') }}</a>
+            @endif
+        </li>
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col">
@@ -162,7 +167,7 @@
                     {{-- <a href="" style="color: #000; text-decoration: none;"> {{ __('Tabla de medidas') }}</a> --}}
                     @if (session('locale') == 'es')
                         <a style="color: #000; text-decoration: none;" data-toggle="modal" data-target="#exampleModal">
-                           {{ __('Tabla de medidas') }}
+                            {{ __('Tabla de medidas') }}
                         </a>
 
                         <!-- Modal -->
@@ -189,7 +194,7 @@
                         </div>
                     @else
                         <a style="color: #000; text-decoration: none;" data-toggle="modal" data-target="#exampleModal">
-                           {{ __('Tabla de medidas') }}
+                            {{ __('Tabla de medidas') }}
                         </a>
 
                         <!-- Modal -->
