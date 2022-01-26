@@ -75,11 +75,11 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <button wire:click="filter" class="btn btn-secondary btn-sm">
+                                <button wire:click="filter" class="btn btn-secondary">
                                     Filtrar
                                 </button>
-                                <button wire:click="filterClean" class="btn btn-danger btn-sm mt-2">
-                                    Eliminar filtros
+                                <button wire:click="filterClean" class="btn btn-outline-danger btn-sm mt-2">
+                                    Limpiar
                                 </button>
                             </div>
                         </div>
@@ -240,11 +240,11 @@
                             </div>
                             <div class="filtro">
                                 <!--Filtro-->
-                                <button wire:click="filter" class="btn btn-secondary">
+                                <button wire:click="filter" class="btn btn-se">
                                     Filtrar
                                 </button>
-                                <button wire:click="filterClean" class="btn btn-danger btn-sm mt-2">
-                                    Eliminar filtros
+                                <button wire:click="filterClean" class="btn btn-outline-danger btn-sm mt-2">
+                                    Limpiar
                                 </button>
                             </div>
                         </div>
