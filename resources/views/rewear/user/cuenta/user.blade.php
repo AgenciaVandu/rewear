@@ -116,7 +116,7 @@
                         <div class="mt-3">
                             <form method="POST" action="{{ route('logout') }}" class="text-center">
                                 @csrf
-                                <a class="gelion-bold user-font btn-block" href="{{ route('logout') }}"
+                                <a class="gelion-bold user-font btn-block" style="text-decoration: none" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                                                                                                         this.closest('form').submit();">
                                     {{ __('Log Out') }}
