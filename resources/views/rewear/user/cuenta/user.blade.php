@@ -12,56 +12,77 @@
                     <div class="carousel">
                         <div class="carousel__contenedor">
                             <div class="carousel__lista6">
-                                <div class="carousel__elemento m-1">
-                                    <div class="card p-4">
-                                        <!--Contenido de ordenes movil-->
-                                        <div class="row">
-                                            <div class="col-lg-7 col-md-12 col-sm-12 m-auto pt-1">
-                                                <h5 class="gelion-bold size-4">
-                                                    ID de órden: <span class="gelion-regular size-5">545253887</span>
-                                                    <span class="date pl-3"> <br class="d-block d-sm-block">
-                                                        Fecha de orden: <span class="gelion-thin">16 de Diciembre del
-                                                            2021</span>
-                                                    </span>
+                                @forelse ($orders as $order)
+                                    <div class="carousel__elemento m-1">
+                                        <div class="card p-4">
+                                            <!--Contenido de ordenes movil-->
+                                            <div class="row">
+                                                <div class="col-lg-7 col-md-12 col-sm-12 m-auto pt-1">
+                                                    <h5 class="gelion-bold size-4">
+                                                        ID de órden: <span
+                                                            class="gelion-regular size-5">{{ $order->id }}</span>
+                                                        <span class="date pl-3"> <br class="d-block d-sm-block">
+                                                            Fecha de orden: <span
+                                                                class="gelion-thin">{{ $order->created_at }}</span>
+                                                        </span>
 
-                                                </h5>
-                                            </div>
-                                            <div class="col-lg-5 col-md-6 col-sm-12 control-but right-o right-r">
-                                                <button href="" class="print-a">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="15"
-                                                        class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                                        stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                                                    </svg> <span class="size-2">Print</span>
-                                                </button>
-                                            </div>
-                                            <table class="table table-borderless">
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">
-                                                            <h3 class="gelion-bold">
-                                                                Plan: <span>Start 72 piezas</span>
-                                                            </h3>
-                                                            <li class="gelion-thin">
-                                                                Teléfono: <span>+(52) 55 5284 0400</span>
-                                                            </li>
-                                                            <li class="gelion-thin">
-                                                                Dirección: <span>Bosques de Alisos 47A - Piso 4, Bosques de
-                                                                    las Lomas Ciudad de México</span>
-                                                            </li>
-                                                            <li class="gelion-thin">
-                                                                C.P. 05120
-                                                            </li>
-                                                        </th>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                    </h5>
+                                                </div>
+                                                <div class="col-lg-5 col-md-6 col-sm-12 control-but right-o right-r">
+                                                    <button href="" class="print-a">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="15"
+                                                            class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                                            stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                                                        </svg> <span class="size-2">Print</span>
+                                                    </button>
+                                                </div>
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <h3 class="gelion-bold">
+                                                                    Plan: Plan: <span>{{ $order->plan_name }}
+                                                                        @switch($order->plan_id)
+                                                                            @case(1)
+                                                                                1 caja de 72 camisetas
+                                                                            @break
+                                                                            @case(2)
+                                                                                2 cajas (144 camisetas)<br>o 3 cajas (216
+                                                                                camisetas).
+                                                                            @break
+                                                                            @case(3)
+                                                                                4 cajas (288 camisetas) <br>
+                                                                            @break
+                                                                        @endswitch
+                                                                    </span>
+                                                                </h3>
+                                                                @php
+                                                                    $envio = json_decode($order->envio);
+                                                                @endphp
+                                                                <li class="gelion-thin">
+                                                                    Dirección: <span>{{ $envio->address }} -
+                                                                        {{ $envio->city }}, {{ $envio->state }}</span>
+                                                                </li>
+                                                                <li class="gelion-thin">
+                                                                    C.P. {{ $envio->postal_code }}
+                                                                </li>
+                                                                <li class="gelion-thin">
+                                                                    Teléfono: <span>{{ $order->phone }}</span>
+                                                                </li>
+                                                            </th>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @empty
+                                    <p>No hay ordenes generadas</p>
+                                @endforelse
                                 <div class="carrusel__elemento m-1">
                                     <div class="card p-4">
                                         <!--Contenido de ordenes movil-->
@@ -126,8 +147,8 @@
                     <div class="col-lg-4 col-md-12 col-sm-12 user pt-2 right-o">
                         <!--Navegación-->
                         <!--<div class="text-center pb-2">
-                                                                                                                <h2 class="gelion-bold">Hola, <span>Luis</span>👋🏻</h2>
-                                                                                                            </div>-->
+                                                                                                                            <h2 class="gelion-bold">Hola, <span>Luis</span>👋🏻</h2>
+                                                                                                                        </div>-->
                         <div class="d-block d-sm-block d-md-block d-lg-block">
                             <div class="card p-4 text-center">
                                 <div class="d-none d-sm-none d-md-none d-lg-block">
@@ -147,7 +168,7 @@
                                 @csrf
                                 <a class="gelion-bold user-font btn-block" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                        this.closest('form').submit();">
+                                                                                                                                    this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </a>
                             </form>
