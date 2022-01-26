@@ -3,14 +3,14 @@
 #product {
     padding-top: 6em;
 }
-#cesta {
+/* #cesta {
     height: 81px;
     width: 72px;
-}
-#cesta img{
+} */
+/* #cesta img{
     height: 81px;
     width: 72px;
-}
+} */
 
 .fill-fit {
     object-fit: cover;
