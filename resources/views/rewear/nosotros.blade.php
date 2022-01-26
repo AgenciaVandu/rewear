@@ -209,7 +209,7 @@
                                     class="img-fluid">
                                 <h3 class="gelion-bold pt-3" style="color: #fff;">Nalleli Antonio <br>
                                     <span class="gelion-regular size-4">
-                                        {{ __('Vinculacion Empresarial') }}
+                                        {{ __('Vinculación Empresarial') }}
                                     </span>
                             </div>
                             <div class="col-6 pt-3">
@@ -229,7 +229,7 @@
                             </div>
                             <div class="col-6 pt-3">
                                 <img src="{{ asset('/img/nosotros/team/antonio.png') }}" alt="" class="img-fluid">
-                                <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramirez <br>
+                                <h3 class="gelion-bold pt-3" style="color: #fff;">Antonio Ramírez <br>
                                     <span class="gelion-regular size-4">
                                         {{ __('Marketing Digital') }}
                                     </span>
