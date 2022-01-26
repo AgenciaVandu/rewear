@@ -158,7 +158,7 @@
                                 <img src="{{ asset('/img/user/Reloj.svg') }}" width="50">
                             </div>
                             <div class="col-11 pl-5 m-auto">
-                                {{__('Lunes a viernes')}}
+                                {{__('Lunes a Viernes')}}
                             </div>
                         </div>
                     </li>
