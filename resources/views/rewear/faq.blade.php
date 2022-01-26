@@ -3,7 +3,7 @@
 <section id="faq">
     <div class="container">
         <h1 class="gelion-bold pb-4">
-            Preguntas frecuentes
+            {{__('Preguntas frecuentes')}}
         </h1>
         <div class="faq">
             <h2 class="gelion-bold">

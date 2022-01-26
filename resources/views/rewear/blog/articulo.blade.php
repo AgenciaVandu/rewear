@@ -41,7 +41,7 @@
                                             </h2>
                                             </a>
                                         </div>
-                                        <div class="col size-2">Por: <span><a href="" style="color: gray; text-decoration:none;">{{ $post->user->name }}</a></span>
+                                        <div class="col size-2">{{__('Por:')}} <span><a href="" style="color: gray; text-decoration:none;">{{ $post->user->name }}</a></span>
                                             <span class="pl-2">{{ Carbon\Carbon::parse($post->created_at)->toFormattedDateString() }}</span>
                                          </div>
                                     </div>
@@ -57,7 +57,7 @@
                                 @endif
                              </div>
                              <li class="gelion-bold pl-3"> <!--share-->
-                                Compartir:
+                                {{__('Compartir:')}}
                                 <div class="row pt-2">
                                     <div class="col-12">
                                         <a class="btn btn-outline-dark m-auto pr-4 pl-4">

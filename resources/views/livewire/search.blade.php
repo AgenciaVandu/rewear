@@ -22,7 +22,7 @@
                 @empty
                     <div class="flex">
                         <div class="ml-4 text-trueGray-700 ">
-                            <p class="text-md leading-5">No existen resultados para la busqueda : {{ $search }}
+                            <p class="text-md leading-5">{{__('No existen resultados para la busqueda :')}} {{ $search }}
                             </p>
                         </div>
                     </div>

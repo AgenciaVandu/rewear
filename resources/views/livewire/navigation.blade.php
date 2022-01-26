@@ -135,7 +135,7 @@
                 @endforeach
             </ul>
 
-            <p class="text-trueGray-500 px-5 my-2">USUARIOS</p>
+            <p class="text-trueGray-500 px-5 my-2">{{__('USUARIOS')}}</p>
             @livewire('cart-mobil')
             @auth
                 <a href="{{ route('profile.show') }}"
@@ -143,7 +143,7 @@
                     <span class="flex justify-center items-center w-9">
                         <i class="far fa-address-card"></i>
                     </span>
-                    Perfil
+                    {{__('Perfil')}}
                 </a>
 
                 <a href="" onclick="event.preventDefault();
@@ -152,7 +152,7 @@
                     <span class="flex justify-center items-center w-9">
                         <i class="fas fa-sign-out-alt"></i>
                     </span>
-                    Cerrar sesion
+                    {{__('Cerrar sesion')}}
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                     @csrf
@@ -163,14 +163,14 @@
                     <span class="flex justify-center items-center w-9">
                         <i class="fas fa-user-circle"></i>
                     </span>
-                    Iniciar sesion
+                    {{__('Iniciar sesion')}}
                 </a>
                 <a href="{{ route('register') }}"
                     class="py-2 px-4 text-sm flex items-center text-trueGray-500 hover:bg-trueGray-900 hover:text-white">
                     <span class="flex justify-center items-center w-9">
                         <i class="fas fa-fingerprint"></i>
                     </span>
-                    Registro
+                    {{__('Registro')}}
                 </a>
             @endauth
         </div>

@@ -14,8 +14,8 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="E-mail">
-                                    <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con
-                                        nadie.</small>
+                                    <small id="emailHelp" class="form-text text-muted">{{__('No compartiremos tu email con
+                                        nadie.')}}</small>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" id="exampleInputPassword1"
@@ -23,10 +23,10 @@
                                 </div>
                                 <div class="form-group form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Acepto los <a href=""
-                                            style="color: #000; text-decoration: none;">términos y condiciones</a></label>
+                                    <label class="form-check-label" for="exampleCheck1">{{__('Acepto los')}} <a href=""
+                                            style="color: #000; text-decoration: none;">{{__('términos y condiciones')}}</a></label>
                                 </div>
-                                <button type="submit" class="gelion-bold btn btn-primary btn-block">Iniciar Sesión</button>
+                                <button type="submit" class="gelion-bold btn btn-primary btn-block">{{__('Iniciar Sesión')}}</button>
                                 <button type="submit" class="gelion-bold btn btn-info btn-block">Iniciar Sesión</button>
                             </form>
                         </div>
@@ -45,7 +45,7 @@
         <div class="container espacio-login-foto">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <img src="{{ asset('/img/user/r-left.png') }}" alt="Modelos con playera ecológica" class="img-fluid">
+                    <img src="{{ asset('/img/user/r-left-1.png') }}" alt="Modelos con playera ecológica" class="img-fluid">
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <img src="{{ asset('/img/user/right.jpg') }}" alt="Modelos con playera ecológica"

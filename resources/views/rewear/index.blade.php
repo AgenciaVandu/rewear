@@ -69,7 +69,7 @@
                 <p class="gelion-light size">
                     {{ __('Cada color genera un impacto positivo con el medio ambiente ya que nuestro proceso ahorra miles de litros de agua y no utiliza tintes o químicos para teñir.') }}
                 </p>
-                <a href="{{ route('catalogue.index') }}" class="btn btn-secondary gelion-bold">CONOCE MÁS</a>
+                <a href="{{ route('about') }}" class="btn btn-secondary gelion-bold">{{ __('CONOCE MÁS') }}</a>
             </div>
             <div class="bg-3 mt-5 pt-5">
                 <!--bg-azul-->
@@ -386,12 +386,12 @@
                             <div role="tabList" class="carousel__indicadores"></div>
                         </div>
                     </div>
-                    <h4 class="gelion-bold text-center pt-5" style="color: #fff;">Suscríbete a nuestro newsletter</h4>
+                    <h4 class="gelion-bold text-center pt-5" style="color: #fff;">{{ __('Suscríbete a nuestro newsletter') }}</h4>
                     <div class="form-inline espacio-3">
                         <div class="form-group mr-lg-3 mb-2">
                             <input type="password" class="form-control" id="inputPassword2" placeholder="E-mail">
                         </div>
-                        <button type="submit" class="btn btn-light gelion-bold mb-2">ENVIAR</button>
+                        <button type="submit" class="btn btn-light gelion-bold mb-2">{{ __('ENVIAR') }}</button>
                     </div>
                 </div>
             </div>
@@ -465,8 +465,7 @@
                                                             </p>
                                                         @endif
                                                         <a href="{{ route('post.show', $post) }}"
-                                                            class="btn btn-secondary gelion-bold">Ver
-                                                            más</a>
+                                                            class="btn btn-secondary gelion-bold">{{ __('Ver más') }}</a>
                                                     </div>
                                                 </div>
                                             </div>

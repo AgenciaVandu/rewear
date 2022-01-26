@@ -241,10 +241,10 @@
                             <div class="filtro">
                                 <!--Filtro-->
                                 <button wire:click="filter" class="btn btn-se">
-                                    Filtrar
+                                    {{__('Filtrar')}}
                                 </button>
                                 <button wire:click="filterClean" class="btn btn-outline-danger btn-sm mt-2">
-                                    Limpiar
+                                    {{__('Limpiar')}}
                                 </button>
                             </div>
                         </div>
@@ -283,14 +283,14 @@
                                                 {!! $product->description_en !!}
                                             @endif --}}
                                         </li>
-                                        <li class="gelion-thin">Peso de tela:
+                                        <li class="gelion-thin">{{__('Peso de tela: ')}}
                                             @if (session('locale') == 'es')
                                                 <span>{{ $product->measure }}</span>
                                             @else
                                                 <span>{{ $product->measure_en }}</span>
                                             @endif
                                         </li>
-                                        <li class="gelion-thin">Fit: {{ $product->subcategory->name }}</li>
+                                        <li class="gelion-thin">{{__('Fit: ')}} {{ $product->subcategory->name }}</li>
                                         <div class="pt-3 d-flex">
                                             <div class="hoja">
                                                 <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">

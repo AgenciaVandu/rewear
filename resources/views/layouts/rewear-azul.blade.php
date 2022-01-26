@@ -2,6 +2,15 @@
 <html lang="es">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENPJRLEL52"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ENPJRLEL52');
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,32 +120,32 @@
                     <img src="{{ asset('/img/rewear-bco.svg') }}" alt="" width="200">
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
-                    <h4 class="gelion-bold" style="color: #fff;">Mapa del sitio</h4>
+                    <h4 class="gelion-bold" style="color: #fff;">{{__('Mapa del sitio')}}</h4>
                     <div class="row">
                         <div class="col-6">
                             <li>
-                                <a href="{{ route('home.index') }}" class="gelion-thin" style="color: #fff;">Inicio</a>
+                                <a href="{{ route('home.index') }}" class="gelion-thin" style="color: #fff;">{{__('Inicio')}}</a>
                             </li>
                             <li>
-                                <a href="{{ route('about') }}" class="gelion-thin" style="color: #fff;">Nosotros</a>
+                                <a href="{{ route('about') }}" class="gelion-thin" style="color: #fff;">{{__('Nosotros')}}</a>
                             </li>
                             <li>
-                                <a href="{{ route('catalogue.index') }}" class="gelion-thin" style="color: #fff;">Catálogo</a>
+                                <a href="{{ route('catalogue.index') }}" class="gelion-thin" style="color: #fff;">{{__('Catálogo')}}</a>
                             </li>
                             <li>
-                                <a href="{{ route('blog.index') }}" class="gelion-thin" style="color: #fff;">Blog</a>
+                                <a href="{{ route('blog.index') }}" class="gelion-thin" style="color: #fff;">{{__('Blog')}}</a>
                             </li>
                         </div>
                         <div class="col-6">
                             <li>
-                                <a href="{{ route('faq') }}" class="gelion-thin" style="color: #fff;">FAQ</a>
+                                <a href="{{ route('faq') }}" class="gelion-thin" style="color: #fff;">{{__('FAQ')}}</a>
                             </li>
                             <li>
-                                <a href="{{ route('contact') }}" class="gelion-thin" style="color: #fff;">Contacto</a>
+                                <a href="{{ route('contact') }}" class="gelion-thin" style="color: #fff;">{{__('Contacto')}}</a>
                             </li>
                         </div>
                     </div>
-                    <h4 class="gelion-bold pt-5" style="color: #fff;">Síguenos en redes sociales</h4>
+                    <h4 class="gelion-bold pt-5" style="color: #fff;">{{__('Síguenos en redes sociales')}}</h4>
                     <div class="row">
                         <div class="col-12">
                             <li>
@@ -162,7 +171,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
-                    <h4 class="gelion-bold" style="color: #fff;">Mapa del sitio</h4>
+                    <h4 class="gelion-bold" style="color: #fff;">{{__('Contáctanos')}}</h4>
                     <div class="row">
                         <div class="col-12">
                             <li>
@@ -171,7 +180,7 @@
                                         <img src="{{ asset('/img/index/ubi.svg') }}" width="20">
                                     </div>
                                     <div class="col-11 ">
-                                        <p class="gelion-thin m-auto" style="color: #fff;">Dirección: Umán, yucatán</p>
+                                        <p class="gelion-thin m-auto" style="color: #fff;">{{__('Dirección: Umán, yucatán')}}</p>
                                     </div>
                                 </div>
                             </li>
@@ -181,7 +190,7 @@
                                         <img src="{{ asset('/img/index/cel.svg') }}" width="20">
                                     </div>
                                     <div class="col-11 ">
-                                        <p class="gelion-thin m-auto" style="color: #fff;">Teléfono: (999) 324 7922</p>
+                                        <p class="gelion-thin m-auto" style="color: #fff;">{{ __('Teléfono: (999) 324 7922') }}</p>
                                     </div>
                                 </div>
                             </li>
@@ -191,7 +200,7 @@
                                         <img src="{{ asset('/img/index/cel.svg') }}" width="20">
                                     </div>
                                     <div class="col-11 ">
-                                        <p class="gelion-thin m-auto" style="color: #fff;">Email: contacto@myrewear.com
+                                        <p class="gelion-thin m-auto" style="color: #fff;">{{ __('Email: contacto@myrewear.com') }}
                                         </p>
                                     </div>
                                 </div>
@@ -204,10 +213,10 @@
         <hr style="border-color: #fff; opacity: 20%;">
         <div class="container">
             <div class="text-center pt-5 pb-4">
-                <a href="" class="gelion-bold" style="color: #fff; text-decoration: none;">Política de
-                    privacidad</a>
-                <p href="" class="gelion-bold" style="color: #fff; text-decoration: none;">Playeras ecológicas
-                    Rewear 2021 © todos los derechos reservados</p>
+                <a href="" class="gelion-bold" style="color: #fff; text-decoration: none;">
+                    {{ __('Política de privacidad') }}</a>
+                <p href="" class="gelion-bold" style="color: #fff; text-decoration: none;">{{ __('Playeras ecológicas
+                    Rewear 2022 © todos los derechos reservados') }}</p>
             </div>
         </div>
     </footer>
