@@ -489,7 +489,7 @@
                     <p class="gelion-light">
                         {{ __('Si perteneces a una asociación o grupo que apoya al medio ambiente, podemos apoyarte y generar acciones en conjunto.') }}
                     </p>
-                    <a href="{{ route('contact') }}" class="btn btn-secondary">Contáctanos</a>
+                    <a href="{{ route('contact') }}" class="btn btn-secondary">{{ __('Contáctanos') }}</a>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 m-auto right">
                     <video src="{{ asset('/img/index/video.mp4') }}" controls class="w-100"></video>

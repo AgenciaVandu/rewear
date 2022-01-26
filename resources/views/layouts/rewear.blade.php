@@ -138,28 +138,28 @@
                     <div class="row">
                         <div class="col-6">
                             <li>
-                                <a href="{{ route('home.index') }}" class="gelion-thin" style="color: #fff;">Inicio</a>
+                                <a href="{{ route('home.index') }}" class="gelion-thin" style="color: #fff;">{{ __('Inicio') }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('about') }}" class="gelion-thin" style="color: #fff;">Nosotros</a>
+                                <a href="{{ route('about') }}" class="gelion-thin" style="color: #fff;">{{ __('Nosotros') }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('catalogue.index') }}" class="gelion-thin" style="color: #fff;">Catálogo</a>
+                                <a href="{{ route('catalogue.index') }}" class="gelion-thin" style="color: #fff;">{{ __('Catálogo') }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('blog.index') }}" class="gelion-thin" style="color: #fff;">Blog</a>
+                                <a href="{{ route('blog.index') }}" class="gelion-thin" style="color: #fff;">{{ __('Blog') }}</a>
                             </li>
                         </div>
                         <div class="col-6">
                             <li>
-                                <a href="{{ route('faq') }}" class="gelion-thin" style="color: #fff;">FAQ</a>
+                                <a href="{{ route('faq') }}" class="gelion-thin" style="color: #fff;">{{ __('FAQ') }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('contact') }}" class="gelion-thin" style="color: #fff;">Contacto</a>
+                                <a href="{{ route('contact') }}" class="gelion-thin" style="color: #fff;">{{ __('Contacto') }}</a>
                             </li>
                         </div>
                     </div>
-                    <h4 class="gelion-bold pt-5" style="color: #fff;">Síguenos en redes sociales</h4>
+                    <h4 class="gelion-bold pt-5" style="color: #fff;">{{ __('Síguenos en redes sociales') }}</h4>
                     <div class="row">
                         <div class="col-12">
                             <li>

@@ -66,13 +66,12 @@
                             style="background-image: url(/img/user/login.jpg);">
                         </div>
                         <div class="col-lg-7 col-md-12 col-sm-12 inicio espacio-login ">
-                            <h4 class="gelion-bold">Iniciar sesión</h4>
+                            <h4 class="gelion-bold">{{ __('Iniciar sesión') }}</h4>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
                                     <input type="email" class="form-control" type="email" name="email" placeholder="E-mail">
-                                    <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con
-                                        nadie.</small>
+                                    <small id="emailHelp" class="form-text text-muted">{{ __('No compartiremos tu email con nadie.') }}</small>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" type="password" name="password" required
@@ -83,16 +82,16 @@
                                     <label class="form-check-label" for="exampleCheck1">{{ __('Recordarme') }}</label>
                                 </div>
                                 {{-- <button type="submit" class="gelion-bold btn btn-primary btn-block">Iniciar Sesión</button> --}}
-                                <button type="submit" class="gelion-bold btn btn-info btn-block">Iniciar Sesión</button>
+                                <button type="submit" class="gelion-bold btn btn-info btn-block">{{ __('Iniciar Sesión') }}</button>
                             </form>
                         </div>
 
                     </div>
                 </div>
                 <p class="gelion-thin text-center pt-3">
-                    ¿Eres nuevo en rewear? <br>
-                    <span class="gelion-bold"><a href="/user/register.html"
-                            style="color: #000; text-decoration: none;">Registrarme</a></span>
+                    {{ __('¿Eres nuevo en rewear?') }} <br>
+                    <span class="gelion-bold"><a href="{{ route('register') }}"
+                            style="color: #000; text-decoration: none;">{{ __('Registrarme') }}</a></span>
                 </p>
             </div>
         </div>

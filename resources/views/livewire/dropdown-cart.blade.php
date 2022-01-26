@@ -7,20 +7,24 @@
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                 <div class="gelion-bold pl-3 pt-2 text-left" style="color: #000">
-                    <small> Plan {{ $plan->name }} <span class="gelion-thin">| hasta @switch(session()->get('plan'))
+                    <small> {{ __($plan->name) }} <span class="gelion-thin">| {{ __('hasta') }} @switch(session()->get('plan'))
                                 @case(1)
-                                    72
+                                    72 {{ __('piezas') }}
                                 @break
                                 @case(2)
-                                144 ó 216
+                                    144 ó 216 {{ __('piezas') }}
                                 @break
                                 @case(3)
-                                288
+                                    288 {{ __('piezas') }}
                                 @break
                             @endswitch
-                            piezas
-                        </span> agregadas
-                        {{ Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() }}</small>
+                        </span>
+                        @if (session('locale') == 'es')
+                        {{ __('piezas agregadas') }} {{ Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() }}
+                        @else
+                        {{ Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() }} {{ __('piezas agregadas') }}
+                        @endif
+                    </small>
                 </div>
                 <li>
                     <div class="contenid-bag" style="height:350px;
@@ -41,11 +45,11 @@
                                                     href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
-                                                <small>Talla: {{ $item->options->size }} - Color:
-                                                    {{ $item->options->color }}</small>
+                                                <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
+                                                    {{ __($item->options->color) }}</small>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000">
-                                                {{ $item->qty }} piezas
+                                                {{ $item->qty }} {{ __('piezas') }}
                                             </span> <br>
 
                                         </div>
@@ -68,11 +72,11 @@
                                                     href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
-                                                <small>Talla: {{ $item->options->size }} - Color:
-                                                    {{ $item->options->color }}</small>
+                                                <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
+                                                    {{ __($item->options->color) }}</small>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000">
-                                                {{ $item->qty }} piezas
+                                                {{ $item->qty }} {{ __('piezas') }}
                                             </span> <br>
 
                                         </div>
@@ -93,11 +97,11 @@
                                                     href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
-                                                <small>Talla: {{ $item->options->size }} - Color:
-                                                    {{ $item->options->color }}</small>
+                                                <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
+                                                    {{ __($item->options->color) }}</small>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000">
-                                                {{ $item->qty }} piezas
+                                                {{ $item->qty }} {{ __('piezas') }}
                                             </span> <br>
 
                                         </div>
@@ -118,11 +122,11 @@
                                                     href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
-                                                <small>Talla: {{ $item->options->size }} - Color:
-                                                    {{ $item->options->color }}</small>
+                                                <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
+                                                    {{ __($item->options->color) }}</small>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000">
-                                                {{ $item->qty }} piezas
+                                                {{ $item->qty }} {{ __('piezas') }}
                                             </span> <br>
 
                                         </div>
@@ -145,11 +149,11 @@
                                                     href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
-                                                <small>Talla: {{ $item->options->size }} - Color:
-                                                    {{ $item->options->color }}</small>
+                                                <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
+                                                    {{ __($item->options->color) }}</small>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000">
-                                                {{ $item->qty }} piezas
+                                                {{ $item->qty }} {{ __('piezas') }}
                                             </span> <br>
 
                                         </div>
@@ -170,11 +174,11 @@
                                                     href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
-                                                <small>Talla: {{ $item->options->size }} - Color:
-                                                    {{ $item->options->color }}</small>
+                                                <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
+                                                    {{ __($item->options->color) }}</small>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000">
-                                                {{ $item->qty }} piezas
+                                                {{ $item->qty }} {{ __('piezas') }}
                                             </span> <br>
 
                                         </div>
@@ -195,11 +199,11 @@
                                                     href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
-                                                <small>Talla: {{ $item->options->size }} - Color:
-                                                    {{ $item->options->color }}</small>
+                                                <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
+                                                    {{ __($item->options->color) }}</small>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000">
-                                                {{ $item->qty }} piezas
+                                                {{ $item->qty }} {{ __('piezas') }}
                                             </span> <br>
 
                                         </div>
@@ -220,11 +224,11 @@
                                                     href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
-                                                <small>Talla: {{ $item->options->size }} - Color:
-                                                    {{ $item->options->color }}</small>
+                                                <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
+                                                    {{ __($item->options->color) }}</small>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000">
-                                                {{ $item->qty }} piezas
+                                                {{ $item->qty }} {{ __('piezas') }}
                                             </span> <br>
 
                                         </div>

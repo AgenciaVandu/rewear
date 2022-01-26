@@ -11,21 +11,21 @@
                                         <img src="{{ asset('/img/index/box.svg') }}" width="65" alt="">
                                     </div>
                                     <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
-                                        <li class="gelion-bold">Paquete {{ $plan->name }}
+                                        <li class="gelion-bold">{{ __($plan->name) }}
                                             @switch($plan->id)
                                                 @case(1)
-                                                    72 piezas
+                                                    72 {{ __('piezas') }}
                                                 @break
                                                 @case(2)
-                                                    144 ó 216 piezas (Caja opcional)
+                                                    144 ó 216 {{ __('piezas') }} (Caja opcional)
                                                 @break
                                                 @case(3)
-                                                    288 piezas
+                                                    288 {{ __('piezas') }}
                                                 @break
 
                                             @endswitch
                                         </li>
-                                        <li class="gelion-thin">Faltan @switch(session()->get('plan'))
+                                        <li class="gelion-thin">{{ __('Faltan') }} @switch(session()->get('plan'))
                                                 @case(1)
                                                     {{ 72 - Cart::instance('caja1')->count() }}
                                                 @break
@@ -35,273 +35,386 @@
                                                 @default
 
                                             @endswitch
-                                            piezas para completar
+                                            {{ __('piezas para completar') }}
                                         </li>
                                         <li></li>
                                     </div>
                                 </div>
                             </div>
                             <div class="col text-center">
-                                <li class="gelion-bold size-2">Paso 1 de 2</li>
-                                <li class="gelion-thin"><a href="/catalogo/cart-empty.html"
-                                        style="color: #000; text-decoration: none;">Vaciar cesta</a></li>
+                                <li class="gelion-bold size-2">{{ __('Paso 1 de 2') }}</li>
+                                <li class="gelion-thin"><a wire:click="empty"
+                                        style="color: #000; text-decoration: none; cursor: pointer;">{{ __('Vaciar cesta') }}</a>
+                                </li>
                             </div>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table mt-4 table-borderless">
-                            <thead>
-                                <tr class="text-center">
-                                    <th scope="col">Producto</th>
-                                    <th scope="col">Fit</th>
-                                    <th scope="col">Cantidad</th>
-                                    <th scope="col">Color</th>
-                                    <th scope="col">Talla</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @switch(session()->get('plan'))
-                                    @case(1)
-                                        @foreach (Cart::instance('caja1')->content() as $item)
-                                            <tr class="text-center">
-                                                <!--producto-->
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}" class="img-fluid">
-                                                        </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
-                                                            <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
-                                                                <span>
-                                                                    @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD }}
-                                                                            @break
-                                                                        @endswitch
+
+                    @if (Cart::instance('caja1')->count() || Cart::instance('caja2')->count() || Cart::instance('caja3')->count() || Cart::instance('caja4')->count())
+                        <div class="table-responsive">
+                            <table class="table mt-4 table-borderless">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">{{ __('Producto') }}</th>
+                                        <th scope="col">{{ __('Fit') }}</th>
+                                        <th scope="col">{{ __('Cantidad') }}</th>
+                                        <th scope="col">{{ __('Color') }}</th>
+                                        <th scope="col">{{ __('Talla') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @switch(session()->get('plan'))
+                                        @case(1)
+                                            @foreach (Cart::instance('caja1')->content() as $item)
+                                                <tr class="text-center">
+                                                    <!--producto-->
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                                <img src="{{ $item->options->image }}"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                                <p class="gelion-bold size-3 ml-3">
+                                                                    @if (session('locale') == 'es')
+                                                                        {{ $item->name }}
                                                                     @else
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN_L }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD_L }}
-                                                                            @break
-                                                                        @endswitch
+                                                                        {{ $item->name_en }}
                                                                     @endif
-                                                                    x pieza
-                                                                </span>
-                                                                <br>
-                                                                <span>
-                                                                    <a wire:click="delete('{{ $item->rowId }}')"
-                                                                        class="size-2 gelion-thin"
-                                                                        style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
-                                                                </span>
-                                                            </p>
+                                                                    <br>
+                                                                    <span>
+                                                                        @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @else
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN_L }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD_L }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @endif
+                                                                        {{ __('x pieza') }}
+                                                                    </span>
+                                                                    <br>
+                                                                    <span>
+                                                                        <a wire:click="delete('{{ $item->rowId }}')"
+                                                                            class="size-2 gelion-thin"
+                                                                            style="text-decoration: none; color: #000; cursor: pointer">{{ __('Eliminar') }}</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">
-                                                        {{ $item->model->subcategory->category->name }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        @livewire('update-cart-item', ['rowId' => $item->rowId],
-                                                        key($item->rowId))
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->color }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @break
-                                    @case(2)
-                                        <tr>
-                                            <td>
-                                                <div class="row">
-                                                    <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
-                                                        <li class="gelion-bold">Paquete {{ $plan->name }}
-                                                            Caja 1
-                                                        </li>
-                                                    </div>
-                                                    <span>
-                                                        <a class="size-2 gelion-thin"
-                                                            style="text-decoration: none; color: #000; cursor: pointer"
-                                                            wire:click="destroy(1)">Eliminar</a>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        @foreach (Cart::instance('caja1')->content() as $item)
-                                            <tr class="text-center">
-                                                <!--producto-->
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
-                                                        </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
-                                                            <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
-                                                                <span>
-                                                                    @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD }}
-                                                                            @break
-                                                                        @endswitch
-                                                                    @else
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN_L }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD_L }}
-                                                                            @break
-                                                                        @endswitch
-                                                                    @endif
-                                                                    x pieza
-                                                                </span>
-                                                                <br>
-                                                                <span>
-                                                                    <a wire:click="delete('{{ $item->rowId }}')"
-                                                                        class="size-2 gelion-thin"
-                                                                        style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">
-                                                        {{ $item->model->subcategory->category->name }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        @livewire('update-cart-item', ['rowId' => $item->rowId],
-                                                        key('update-cart-item'.$item->rowId))
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->color }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        @if (Cart::instance('caja2')->count())
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">
+                                                            {{ __($item->model->subcategory->category->name) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            @livewire('update-cart-item', ['rowId' => $item->rowId],
+                                                            key($item->rowId))
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ __($item->options->color) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @break
+                                        @case(2)
                                             <tr>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
                                                             <li class="gelion-bold">Paquete {{ $plan->name }}
-                                                                Caja 2
+                                                                Caja 1
                                                             </li>
                                                         </div>
                                                         <span>
                                                             <a class="size-2 gelion-thin"
                                                                 style="text-decoration: none; color: #000; cursor: pointer"
-                                                                wire:click="destroy(2)">Eliminar</a>
+                                                                wire:click="destroy(1)">{{ __('Eliminar') }}</a>
                                                         </span>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                </td>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
                                             </tr>
-                                        @endif
-                                        @foreach (Cart::instance('caja2')->content() as $item)
-                                            <tr class="text-center">
-                                                <!--producto-->
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
-                                                        </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
-                                                            <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
-                                                                <span>
-                                                                    @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD }}
-                                                                            @break
-                                                                        @endswitch
+                                            @foreach (Cart::instance('caja1')->content() as $item)
+                                                <tr class="text-center">
+                                                    <!--producto-->
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                                <img src="{{ $item->options->image }}"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                                <p class="gelion-bold size-3 ml-3">
+                                                                    @if (session('locale') == 'es')
+                                                                        {{ $item->name }}
                                                                     @else
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN_L }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD_L }}
-                                                                            @break
-                                                                        @endswitch
+                                                                        {{ $item->name_en }}
                                                                     @endif
-                                                                    x pieza
-                                                                </span>
-                                                                <br>
-                                                                <span>
-                                                                    <a wire:click="delete2('{{ $item->rowId }}')"
-                                                                        class="size-2 gelion-thin"
-                                                                        style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
-                                                                </span>
-                                                            </p>
+                                                                    <br>
+                                                                    <span>
+                                                                        @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @else
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN_L }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD_L }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @endif
+                                                                        {{ __('x pieza') }}
+                                                                    </span>
+                                                                    <br>
+                                                                    <span>
+                                                                        <a wire:click="delete('{{ $item->rowId }}')"
+                                                                            class="size-2 gelion-thin"
+                                                                            style="text-decoration: none; color: #000; cursor: pointer">{{ __('Eliminar') }}</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">
-                                                        {{ $item->model->subcategory->category->name }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        @livewire('update-cart-item2', ['rowId' => $item->rowId],
-                                                        key('update-cart-item2'.$item->rowId))
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->color }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        @if (Cart::instance('caja3')->count())
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">
+                                                            {{ __($item->model->subcategory->category->name) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            @livewire('update-cart-item', ['rowId' => $item->rowId],
+                                                            key('update-cart-item'.$item->rowId))
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ __($item->options->color) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            @if (Cart::instance('caja2')->count())
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
+                                                                <li class="gelion-bold">Paquete {{ $plan->name }}
+                                                                    Caja 2
+                                                                </li>
+                                                            </div>
+                                                            <span>
+                                                                <a class="size-2 gelion-thin"
+                                                                    style="text-decoration: none; color: #000; cursor: pointer"
+                                                                    wire:click="destroy(2)">{{ __('Eliminar') }}</a>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            @endif
+                                            @foreach (Cart::instance('caja2')->content() as $item)
+                                                <tr class="text-center">
+                                                    <!--producto-->
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                                <img src="{{ $item->options->image }}"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                                <p class="gelion-bold size-3 ml-3">
+                                                                    @if (session('locale') == 'es')
+                                                                        {{ $item->name }}
+                                                                    @else
+                                                                        {{ $item->name_en }}
+                                                                    @endif
+                                                                    <br>
+                                                                    <span>
+                                                                        @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @else
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN_L }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD_L }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @endif
+                                                                        {{ __('x pieza') }}
+                                                                    </span>
+                                                                    <br>
+                                                                    <span>
+                                                                        <a wire:click="delete2('{{ $item->rowId }}')"
+                                                                            class="size-2 gelion-thin"
+                                                                            style="text-decoration: none; color: #000; cursor: pointer">{{ __('Eliminar') }}</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">
+                                                            {{ __($item->model->subcategory->category->name) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            @livewire('update-cart-item2', ['rowId' => $item->rowId],
+                                                            key('update-cart-item2'.$item->rowId))
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ __($item->options->color) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            @if (Cart::instance('caja3')->count())
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
+                                                                <li class="gelion-bold">Paquete {{ $plan->name }}
+                                                                    Caja 3 (Opcional)
+                                                                </li>
+                                                            </div>
+                                                            <span>
+                                                                <a class="size-2 gelion-thin"
+                                                                    style="text-decoration: none; color: #000; cursor: pointer"
+                                                                    wire:click="destroy(3)">{{ __('Eliminar') }}</a>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            @endif
+                                            @foreach (Cart::instance('caja3')->content() as $item)
+                                                <tr class="text-center">
+                                                    <!--producto-->
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                                <img src="{{ $item->options->image }}"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                                <p class="gelion-bold size-3 ml-3">
+                                                                    @if (session('locale') == 'es')
+                                                                        {{ $item->name }}
+                                                                    @else
+                                                                        {{ $item->name_en }}
+                                                                    @endif
+                                                                    <br>
+                                                                    <span>
+                                                                        @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @else
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN_L }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD_L }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @endif
+                                                                        {{ __('x pieza') }}
+                                                                    </span>
+                                                                    <br>
+                                                                    <span>
+                                                                        <a wire:click="delete3('{{ $item->rowId }}')"
+                                                                            class="size-2 gelion-thin"
+                                                                            style="text-decoration: none; color: #000; cursor: pointer">{{ __('Eliminar') }}</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">
+                                                            {{ __($item->model->subcategory->category->name) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            @livewire('update-cart-item3', ['rowId' => $item->rowId],
+                                                            key('update-cart-item3'.$item->rowId))
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ __($item->options->color) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @break
+                                        @case(3)
                                             <tr>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
                                                             <li class="gelion-bold">Paquete {{ $plan->name }}
-                                                                Caja 3 (Opcional)
+                                                                Caja 1
                                                             </li>
                                                         </div>
                                                         <span>
                                                             <a class="size-2 gelion-thin"
                                                                 style="text-decoration: none; color: #000; cursor: pointer"
-                                                                wire:click="destroy(3)">Eliminar</a>
+                                                                wire:click="destroy(1)">{{ __('Eliminar') }}</a>
                                                         </span>
                                                     </div>
                                                 </td>
@@ -311,414 +424,363 @@
                                                 <td></td>
                                                 <td></td>
                                             </tr>
-                                        @endif
-                                        @foreach (Cart::instance('caja3')->content() as $item)
-                                            <tr class="text-center">
-                                                <!--producto-->
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
-                                                        </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
-                                                            <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
-                                                                <span>
-                                                                    @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD }}
-                                                                            @break
-                                                                        @endswitch
+                                            @foreach (Cart::instance('caja1')->content() as $item)
+                                                <tr class="text-center">
+                                                    <!--producto-->
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                                <img src="{{ $item->options->image }}"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                                <p class="gelion-bold size-3 ml-3">
+                                                                    @if (session('locale') == 'es')
+                                                                        {{ $item->name }}
                                                                     @else
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN_L }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD_L }}
-                                                                            @break
-                                                                        @endswitch
+                                                                        {{ $item->name_en }}
                                                                     @endif
-                                                                    x pieza
-                                                                </span>
-                                                                <br>
-                                                                <span>
-                                                                    <a wire:click="delete3('{{ $item->rowId }}')"
-                                                                        class="size-2 gelion-thin"
-                                                                        style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
-                                                                </span>
-                                                            </p>
+                                                                    <br>
+                                                                    <span>
+                                                                        @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @else
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN_L }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD_L }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @endif
+                                                                        {{ __('x pieza') }}
+                                                                    </span>
+                                                                    <br>
+                                                                    <span>
+                                                                        <a wire:click="delete('{{ $item->rowId }}')"
+                                                                            class="size-2 gelion-thin"
+                                                                            style="text-decoration: none; color: #000; cursor: pointer">{{ __('Eliminar') }}</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">
-                                                        {{ $item->model->subcategory->category->name }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        @livewire('update-cart-item3', ['rowId' => $item->rowId],
-                                                        key('update-cart-item3'.$item->rowId))
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->color }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @break
-                                    @case(3)
-                                        <tr>
-                                            <td>
-                                                <div class="row">
-                                                    <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
-                                                        <li class="gelion-bold">Paquete {{ $plan->name }}
-                                                            Caja 1
-                                                        </li>
-                                                    </div>
-                                                    <span>
-                                                        <a class="size-2 gelion-thin"
-                                                            style="text-decoration: none; color: #000; cursor: pointer"
-                                                            wire:click="destroy(1)">Eliminar</a>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        @foreach (Cart::instance('caja1')->content() as $item)
-                                            <tr class="text-center">
-                                                <!--producto-->
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">
+                                                            {{ __($item->model->subcategory->category->name) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            @livewire('update-cart-item', ['rowId' => $item->rowId],
+                                                            key('update-cart-item'.$item->rowId))
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ __($item->options->color) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            @if (Cart::instance('caja2')->count())
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
+                                                                <li class="gelion-bold">Paquete {{ $plan->name }}
+                                                                    Caja 2
+                                                                </li>
+                                                            </div>
+                                                            <span>
+                                                                <a class="size-1 gelion-thin"
+                                                                    style="text-decoration: none; color: #000; cursor: pointer"
+                                                                    wire:click="destroy(2)">{{ __('Eliminar') }}</a>
+                                                            </span>
                                                         </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
-                                                            <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
-                                                                <span>
-                                                                    @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD }}
-                                                                            @break
-                                                                        @endswitch
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            @endif
+                                            @foreach (Cart::instance('caja2')->content() as $item)
+                                                <tr class="text-center">
+                                                    <!--producto-->
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                                <img src="{{ $item->options->image }}"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                                <p class="gelion-bold size-3 ml-3">
+                                                                    @if (session('locale') == 'es')
+                                                                        {{ $item->name }}
                                                                     @else
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN_L }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD_L }}
-                                                                            @break
-                                                                        @endswitch
+                                                                        {{ $item->name_en }}
                                                                     @endif
-                                                                    x pieza
-                                                                </span>
-                                                                <br>
-                                                                <span>
-                                                                    <a wire:click="delete('{{ $item->rowId }}')"
-                                                                        class="size-2 gelion-thin"
-                                                                        style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
-                                                                </span>
-                                                            </p>
+                                                                    <br>
+                                                                    <span>
+                                                                        @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @else
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN_L }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD_L }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @endif
+                                                                        {{ __('x pieza') }}
+                                                                    </span>
+                                                                    <br>
+                                                                    <span>
+                                                                        <a wire:click="delete2('{{ $item->rowId }}')"
+                                                                            class="size-2 gelion-thin"
+                                                                            style="text-decoration: none; color: #000; cursor: pointer">{{ __('Eliminar') }}</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">
-                                                        {{ $item->model->subcategory->category->name }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        @livewire('update-cart-item', ['rowId' => $item->rowId],
-                                                        key('update-cart-item'.$item->rowId))
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->color }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        @if (Cart::instance('caja2')->count())
-                                            <tr>
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
-                                                            <li class="gelion-bold">Paquete {{ $plan->name }}
-                                                                Caja 2
-                                                            </li>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">
+                                                            {{ __($item->model->subcategory->category->name) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            @livewire('update-cart-item2', ['rowId' => $item->rowId],
+                                                            key('update-cart-item2'.$item->rowId))
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ __($item->options->color) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            @if (Cart::instance('caja3')->count())
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
+                                                                <li class="gelion-bold">Paquete {{ $plan->name }}
+                                                                    Caja 3
+                                                                </li>
+                                                            </div>
+                                                            <span>
+                                                                <a class="size-1 gelion-thin"
+                                                                    style="text-decoration: none; color: #000; cursor: pointer"
+                                                                    wire:click="destroy(3)">{{ __('Eliminar') }}</a>
+                                                            </span>
                                                         </div>
-                                                        <span>
-                                                            <a class="size-1 gelion-thin"
-                                                                style="text-decoration: none; color: #000; cursor: pointer"
-                                                                wire:click="destroy(2)">Eliminar</a>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        @endif
-                                        @foreach (Cart::instance('caja2')->content() as $item)
-                                            <tr class="text-center">
-                                                <!--producto-->
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
-                                                        </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
-                                                            <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
-                                                                <span>
-                                                                    @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD }}
-                                                                            @break
-                                                                        @endswitch
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            @endif
+                                            @foreach (Cart::instance('caja3')->content() as $item)
+                                                <tr class="text-center">
+                                                    <!--producto-->
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                                <img src="{{ $item->options->image }}"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                                <p class="gelion-bold size-3 ml-3">
+                                                                    @if (session('locale') == 'es')
+                                                                        {{ $item->name }}
                                                                     @else
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN_L }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD_L }}
-                                                                            @break
-                                                                        @endswitch
+                                                                        {{ $item->name_en }}
                                                                     @endif
-                                                                    x pieza
-                                                                </span>
-                                                                <br>
-                                                                <span>
-                                                                    <a wire:click="delete2('{{ $item->rowId }}')"
-                                                                        class="size-2 gelion-thin"
-                                                                        style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
-                                                                </span>
-                                                            </p>
+                                                                    <br>
+                                                                    <span>
+                                                                        @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @else
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN_L }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD_L }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @endif
+                                                                        {{ __('x pieza') }}
+                                                                    </span>
+                                                                    <br>
+                                                                    <span>
+                                                                        <a wire:click="delete3('{{ $item->rowId }}')"
+                                                                            class="size-2 gelion-thin"
+                                                                            style="text-decoration: none; color: #000; cursor: pointer">{{ __('Eliminar') }}</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">
-                                                        {{ $item->model->subcategory->category->name }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        @livewire('update-cart-item2', ['rowId' => $item->rowId],
-                                                        key('update-cart-item2'.$item->rowId))
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->color }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        @if (Cart::instance('caja3')->count())
-                                            <tr>
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
-                                                            <li class="gelion-bold">Paquete {{ $plan->name }}
-                                                                Caja 3
-                                                            </li>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">
+                                                            {{ __($item->model->subcategory->category->name) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            @livewire('update-cart-item3', ['rowId' => $item->rowId],
+                                                            key('update-cart-item3'.$item->rowId))
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ __($item->options->color) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            @if (Cart::instance('caja4')->count())
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
+                                                                <li class="gelion-bold">Paquete {{ $plan->name }}
+                                                                    Caja 4
+                                                                </li>
+                                                            </div>
+                                                            <span>
+                                                                <a class="size-1 gelion-thin"
+                                                                    style="text-decoration: none; color: #000; cursor: pointer"
+                                                                    wire:click="destroy(4)">{{ __('Eliminar') }}</a>
+                                                            </span>
                                                         </div>
-                                                        <span>
-                                                            <a class="size-1 gelion-thin"
-                                                                style="text-decoration: none; color: #000; cursor: pointer"
-                                                                wire:click="destroy(3)">Eliminar</a>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        @endif
-                                        @foreach (Cart::instance('caja3')->content() as $item)
-                                            <tr class="text-center">
-                                                <!--producto-->
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
-                                                        </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
-                                                            <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
-                                                                <span>
-                                                                    @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD }}
-                                                                            @break
-                                                                        @endswitch
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            @endif
+                                            @foreach (Cart::instance('caja4')->content() as $item)
+                                                <tr class="text-center">
+                                                    <!--producto-->
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                                <img src="{{ $item->options->image }}"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                                <p class="gelion-bold size-3 ml-3">
+                                                                    @if (session('locale') == 'es')
+                                                                        {{ $item->name }}
                                                                     @else
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN_L }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD_L }}
-                                                                            @break
-                                                                        @endswitch
+                                                                        {{ $item->name_en }}
                                                                     @endif
-                                                                    x pieza
-                                                                </span>
-                                                                <br>
-                                                                <span>
-                                                                    <a wire:click="delete3('{{ $item->rowId }}')"
-                                                                        class="size-2 gelion-thin"
-                                                                        style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
-                                                                </span>
-                                                            </p>
+                                                                    <br>
+                                                                    <span>
+                                                                        @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @else
+                                                                            @switch(session('divisa'))
+                                                                                @case('MXN')
+                                                                                    ${{ $plan->MXN_L }}
+                                                                                @break
+                                                                                @case('USD')
+                                                                                    ${{ $plan->USD_L }}
+                                                                                @break
+                                                                            @endswitch
+                                                                        @endif
+                                                                        {{ __('x pieza') }}
+                                                                    </span>
+                                                                    <br>
+                                                                    <span>
+                                                                        <a wire:click="delete4('{{ $item->rowId }}')"
+                                                                            class="size-2 gelion-thin"
+                                                                            style="text-decoration: none; color: #000; cursor: pointer">{{ __('Eliminar') }}</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">
-                                                        {{ $item->model->subcategory->category->name }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        @livewire('update-cart-item3', ['rowId' => $item->rowId],
-                                                        key('update-cart-item3'.$item->rowId))
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->color }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        @if (Cart::instance('caja4')->count())
-                                            <tr>
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
-                                                            <li class="gelion-bold">Paquete {{ $plan->name }}
-                                                                Caja 4
-                                                            </li>
-                                                        </div>
-                                                        <span>
-                                                            <a class="size-1 gelion-thin"
-                                                                style="text-decoration: none; color: #000; cursor: pointer"
-                                                                wire:click="destroy(4)">Eliminar</a>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        @endif
-                                        @foreach (Cart::instance('caja4')->content() as $item)
-                                            <tr class="text-center">
-                                                <!--producto-->
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
-                                                        </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
-                                                            <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
-                                                                <span>
-                                                                    @if ($item->options->manga == 'corta' || $item->options->manga == 'Corta')
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD }}
-                                                                            @break
-                                                                        @endswitch
-                                                                    @else
-                                                                        @switch(session('divisa'))
-                                                                            @case('MXN')
-                                                                                ${{ $plan->MXN_L }}
-                                                                            @break
-                                                                            @case('USD')
-                                                                                ${{ $plan->USD_L }}
-                                                                            @break
-                                                                        @endswitch
-                                                                    @endif
-                                                                    x pieza
-                                                                </span>
-                                                                <br>
-                                                                <span>
-                                                                    <a wire:click="delete4('{{ $item->rowId }}')"
-                                                                        class="size-2 gelion-thin"
-                                                                        style="text-decoration: none; color: #000; cursor: pointer">Eliminar</a>
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">
-                                                        {{ $item->model->subcategory->category->name }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        @livewire('update-cart-item4', ['rowId' => $item->rowId],
-                                                        key('update-cart-item4'.$item->rowId))
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->color }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @break
-                                @endswitch
-                            </tbody>
-                        </table>
-                    </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">
+                                                            {{ __($item->model->subcategory->category->name) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            @livewire('update-cart-item4', ['rowId' => $item->rowId],
+                                                            key('update-cart-item4'.$item->rowId))
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ __($item->options->color) }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="gelion-thin pt-3">{{ $item->options->size }}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @break
+                                    @endswitch
+                                </tbody>
+                            </table>
+                        </div>
+                    @else
+                        <div class="table-responsive">
+                            <div class="col-12" style="min-height: 14.6em;">
+                                <div class="inner text-center p-5">
+                                    <h4 class="gelion-bold">Aún no hay prendas en tu cesta</h4>
+                                    <a href="{{ route('catalogue.index') }}" class="btn btn-secondary">Seguir comprando</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 pt-2">
                 <div class="card p-4">
-                    <p class="gelion-bold">Total a pagar</p>
+                    <p class="gelion-bold">{{ __('Total a pagar') }}</p>
                     <div class="row">
                         <div class="col-6">
                             <p class="gelion-thin">
@@ -870,7 +932,7 @@
                         </div> --}}
                         <div class="col-6">
                             <p class="gelion-thin">
-                                Precio total
+                                {{ __('Precio total') }}
                             </p>
                         </div>
                         <div class="col-6 text-right">
@@ -883,31 +945,34 @@
                         @case(1)
                             @if (Cart::instance('caja1')->count() == 72)
                                 <div class="gelion-bold mt-2">
-                                    <a class="btn btn-secondary d-block" href="{{ route('checkout') }}">Comprar
-                                        ahora</a>
+                                    <a class="btn btn-secondary d-block"
+                                        href="{{ route('checkout') }}">{{ __('Comprar ahora') }}</a>
                                 </div>
                             @else
-                                <div class="btn btn-secondary gelion-bold mt-2 disabled">Comprar ahora</div>
+                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Comprar ahora') }}
+                                </div>
                             @endif
                         @break
                         @case(2)
                             @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 144 || Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 216)
                                 <div class="gelion-bold mt-2">
-                                    <a class="btn btn-secondary d-block" href="{{ route('checkout') }}">Comprar
-                                        ahora</a>
+                                    <a class="btn btn-secondary d-block"
+                                        href="{{ route('checkout') }}">{{ __('Comprar ahora') }}</a>
                                 </div>
                             @else
-                                <div class="btn btn-secondary gelion-bold mt-2 disabled">Comprar ahora</div>
+                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Comprar ahora') }}
+                                </div>
                             @endif
                         @break
                         @case(3)
                             @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() == 288)
                                 <div class="gelion-bold mt-2">
-                                    <a class="btn btn-secondary d-block" href="{{ route('checkout') }}">Comprar
-                                        ahora</a>
+                                    <a class="btn btn-secondary d-block"
+                                        href="{{ route('checkout') }}">{{ __('Comprar ahora') }}</a>
                                 </div>
                             @else
-                                <div class="btn btn-secondary gelion-bold mt-2 disabled">Comprar ahora</div>
+                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Comprar ahora') }}
+                                </div>
                             @endif
                         @break
                         @default
@@ -915,10 +980,11 @@
                     @endswitch
                     <div class="col-12 gelion-bold text-center pt-3" wire:ignore>
                         <p><button id="aumentar-planes" class="gelion-bold aumentar"
-                                style="color: #000; text-decoration: none;">Quiero aumentar mi plan</button> <br>
+                                style="color: #000; text-decoration: none;">{{ __('Quiero aumentar mi plan') }}</button>
+                            <br>
                         <div class="row" id="mostrar-planes">
                             <div class="col-12">
-                                <p class="gelion-bold text-center">Selecciona un plan</p>
+                                <p class="gelion-bold text-center">{{ 'Selecciona un plan' }}</p>
                             </div>
 
                             <div class="col">

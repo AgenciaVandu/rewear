@@ -71,7 +71,7 @@
                             style="background-image: url(/img/user/register.png);">
                         </div>
                         <div class="col-lg-7 col-md-12 col-sm-12 inicio espacio-login ">
-                            <h4 class="gelion-bold">Iniciar sesión</h4>
+                            <h4 class="gelion-bold">{{ __('Registrarme') }}</h4>
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-group">
@@ -91,24 +91,23 @@
                                 </div>
                                 <div class="form-group form-check">
                                     <input type="checkbox" class="form-check-input" name="terms" id="terms">
-                                    <label class="form-check-label" for="exampleCheck1">Acepto los <a href=""
-                                            style="color: #000; text-decoration: none;">términos y condiciones</a></label>
+                                    <label class="form-check-label" for="exampleCheck1">{{ __('Acepto los') }} <a href=""
+                                            style="color: #000; text-decoration: none;">{{ __('términos y condiciones') }}</a></label>
                                 </div>
-                                <button type="submit" class="gelion-bold btn btn-primary btn-block">Iniciar Sesión</button>
-                                <button type="submit" class="gelion-bold btn btn-info btn-block">Iniciar Sesión</button>
+                                <button type="submit" class="gelion-bold btn btn-primary btn-block">{{ __('Registrarme') }}</button>
+                                {{-- <button type="submit" class="gelion-bold btn btn-info btn-block">Iniciar Sesión</button> --}}
                             </form>
                         </div>
 
                     </div>
                 </div>
                 <p class="gelion-thin pt-3 text-center">
-                    Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web,
-                    gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra política de privacidad.
+                    {{ __('Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra política de privacidad.') }}
                 </p>
                 <p class="gelion-thin text-center">
-                    ¿Ya tienes una cuenta en rewear? <br>
+                    {{ __('¿Ya tienes una cuenta en rewear?') }} <br>
                     <span class="gelion-bold"><a href="/user/login.html"
-                            style="color: #000; text-decoration: none;">Iniciar sesión</a></span>
+                            style="color: #000; text-decoration: none;">{{ __('Iniciar sesión') }}</a></span>
                 </p>
             </div>
         </div>

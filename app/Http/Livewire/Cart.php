@@ -48,6 +48,14 @@ class Cart extends Component
         }
     }
 
+    public function empty(){
+        FacadesCart::instance('caja1')->destroy();
+        FacadesCart::instance('caja2')->destroy();
+        FacadesCart::instance('caja3')->destroy();
+        FacadesCart::instance('caja4')->destroy();
+    }
+
+
     public function render()
     {
         return view('livewire.cart');

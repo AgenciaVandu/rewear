@@ -15,7 +15,9 @@ class PageController extends Controller
 {
     public function index(){
         session(['divisa'=> 'MXN']);
-        session()->put('locale','es');
+        if (!session()->has('locale')) {
+            session()->put('locale','es');
+        }
         $colors = Color::all();
         $hombre = Category::where('name','LIKE','Hombre')->first();
         $mujer = Category::where('name','LIKE','Mujer')->first();

@@ -42,11 +42,8 @@
                                 </a>
                                 {{-- <li class="gelion-bold size-2">{!! $product->description !!}</li> --}}
                                 </li>
-                                <li class="gelion-thin">Peso de tela: <span>{{ $product->measure }}</span>
-                                </li>
-                                <li class="gelion-thin">Tipo de tejido: <span>Jersey</span>
-                                </li>
-                                <li class="gelion-thin">Regular fit</li>
+                                <li class="gelion-thin">{{ __('Medidas del modelo:') }} <span>{{ $product->measure }}</span></li>
+                                <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
                                 <div class="pt-3 d-flex">
                                     <div class="hoja">
                                         <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
@@ -76,10 +73,10 @@
                                 <a href="" style="color: #000; text-decoration: none;">
                                     <h5 class="gelion-bold pt-2 size-product-1">{{ $product->name }}</h5>
                                 </a>
-                                <li class="gelion-bold">{!! $product->description !!}</li>
+                                {{-- <li class="gelion-bold">{!! $product->description !!}</li> --}}
                                 </li>
-                                <li class="gelion-thin">Peso de tela: <span>{{ $product->measure }}</span>
-                                </li>
+                                <li class="gelion-thin">{{ __('Medidas del modelo:') }} <span>{{ $product->measure }}</span></li>
+                                <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
                                 <div class="pt-3 d-flex">
                                     <div class="hoja">
                                         <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
