@@ -14,7 +14,7 @@
                     @endforeach
                 </div>
                 <div class="col-lg-8 col-md-6 col-sm-12">
-                    @foreach ($product->images as $image)
+                    @foreach ($images as $image)
                         @if ($image->main != 'si')
                             <div class="principal" id="p{{ $loop->iteration }}">
                                 <img src="{{ Storage::url($image->url) }}" class="fill" alt="">
