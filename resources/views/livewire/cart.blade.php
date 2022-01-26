@@ -67,10 +67,10 @@
                                                 <!--producto-->
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-lg-4 col-md-3 col-sm-6" id="cesta">
-                                                            <img src="{{ $item->options->image }}" class="img-fluid">
+                                                        <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
+                                                            <img src="{{ $item->options->image }}" class="image-fluid">
                                                         </div>
-                                                        <div class="col-lg-8 col-md-9 col-sm-6 text-left m-auto pt-2">
+                                                        <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
                                                                 <span>
                                                                     <a wire:click="delete('{{ $item->rowId }}')"
@@ -132,7 +132,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
                                                             <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
+                                                                class="image-fluid">
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
@@ -197,7 +197,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
                                                             <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
+                                                                class="image-fluid">
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
@@ -262,7 +262,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
                                                             <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
+                                                                class="image-fluid">
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
@@ -327,7 +327,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
                                                             <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
+                                                                class="image-fluid">
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
@@ -392,7 +392,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
                                                             <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
+                                                                class="image-fluid">
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
@@ -457,7 +457,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
                                                             <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
+                                                                class="image-fluid">
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
@@ -522,7 +522,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-3 col-sm-6" id="cesta">
                                                             <img src="{{ $item->options->image }}"
-                                                                class="img-fluid">
+                                                                class="image-fluid">
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-6 text-left m-auto pt-2">
                                                             <p class="gelion-bold size-3 ml-3">{{ $item->name }} <br>
@@ -802,3 +802,5 @@
                         al tratamiento de datos personales, en todo momento podrá consultar su información,
                         rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá
                         llamar a los teléfonos (999) 999 9999 o contacto@myrewear.com</p>
+iv>
+</div>
