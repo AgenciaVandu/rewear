@@ -284,7 +284,7 @@
                                                                     <small>{{ __('Manga corta / Manga larga') }}</small>
                                                                 @endif <br>
                                                                 <span
-                                                                    class="gelion-thin size-1">{{ __('Por pieza. IVA incluído.') }}</span>
+                                                                    class="gelion-thin size-1">{{ __('Por pieza. IVA incluido.') }}</span>
                                                             </h3>
                                                             <h2 class="gelion-bold">{{ $plan->name }}</h2>
                                                             <p class="gelion-thin" style="text-align:justify;">
@@ -372,7 +372,7 @@
                                                             <div class="boton text-center mt-4">
                                                                 <a href="{{ route('plan', $plan) }}"
                                                                     class="btn btn-secondary gelion-bold btn-block pt-2 pb-2"
-                                                                    style="font-size: 1.3rem;">¡lo quiero!</a>
+                                                                    style="font-size: 1.3rem;">¡Lo quiero!</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -423,8 +423,8 @@
                                             {!! $post->extract_en !!}
                                         </p>
                                     @endif
-                                    <a href="{{ route('post.show', $post) }}" class="btn btn-secondary gelion-bold">Ver
-                                        más</a>
+                                    <a href="{{ route('post.show', $post) }}" class="btn btn-secondary gelion-bold">{{__('Ver
+                                        más')}}</a>
                                 </div>
                             </div>
                         @endforeach

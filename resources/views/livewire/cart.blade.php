@@ -1017,11 +1017,11 @@
                     </div>
                 </div>
                 <div class="col-12 gelion-bold pt-4">
-                    <p>Política de privacidad:</p>
-                    <p class="gelion-thin size-2 text-justify">Como parte de los mecanismos para manifestar negativa
+                    <p>{{__('Política de privacidad:')}}</p>
+                    <p class="gelion-thin size-2 text-justify">{{__('Como parte de los mecanismos para manifestar negativa
                         al tratamiento de datos personales, en todo momento podrá consultar su información,
                         rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá
-                        llamar a los teléfonos (999) 324 7922 o contacto@myrewear.com</p>
+                        llamar a los teléfonos (999) 324 7922 o contacto@myrewear.com')}}</p>
                 </div>
             </div>
         </div>
