@@ -95,20 +95,16 @@
             <div class="d-block d-sm-block d-md-block d-lg-block">
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12 user pt-2 right-o">
-                        <!--Navegación-->
-                        <!--<div class="text-center pb-2">
-                                                                                                                                <h2 class="gelion-bold">Hola, <span>Luis</span>👋🏻</h2>
-                                                                                                                            </div>-->
                         <div class="d-block d-sm-block d-md-block d-lg-block">
                             <div class="card p-4 text-center">
                                 <div class="d-none d-sm-none d-md-none d-lg-block">
                                     <div id="ordenes">
-                                        <button class="gelion-bold user-font btn-block">Mis órdenes</button>
+                                        <button class="gelion-bold user-font btn-block">{{ __('Mis órdenes') }}</button>
                                     </div>
                                 </div>
                                 <div class="d-block d-sm-block d-md-block d-lg-block">
                                     <div id="cuenta">
-                                        <button class="gelion-bold user-font btn-block">Mi cuenta</button>
+                                        <button class="gelion-bold user-font btn-block">{{ __('Mi cuenta') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -116,9 +112,9 @@
                         <div class="mt-3">
                             <form method="POST" action="{{ route('logout') }}" class="text-center">
                                 @csrf
-                                <a class="gelion-bold user-font btn-block" style="text-decoration: none" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                                                                                                        this.closest('form').submit();">
+                                <a class="gelion-bold user-font btn-block" style="text-decoration: none"
+                                    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </a>
                             </form>

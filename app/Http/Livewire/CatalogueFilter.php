@@ -60,7 +60,7 @@ class CatalogueFilter extends Component
     public function filterClean(){
         $this->products = Product::where('status',2)->get();
 
-        $this->reset(['color_id','size_id','subcategory_id']);
+        $this->reset(['color_id','size_id','subcategory_id','category_id']);
     }
 
     public function getSubcategories(){
