@@ -131,11 +131,7 @@
                                 <img src="{{ asset('/img/user/ubicacion.svg') }}" width="50">
                             </div>
                             <div class="col-11 pl-5 m-auto">
-                                @if (session('local') == 'es')
-                                    Dirección: Uman, Yucatán.
-                                @else
-                                    RD TEXTILES, LLC 3750 NW 28th ST Unit 414 Miami, FL. 33142
-                                @endif
+                                    {{ __('Dirección: Uman, Yucatán.') }}
                             </div>
                         </div>
                     </li>
