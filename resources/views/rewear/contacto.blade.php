@@ -131,7 +131,9 @@
                                 <img src="{{ asset('/img/user/ubicacion.svg') }}" width="50">
                             </div>
                             <div class="col-11 pl-5 m-auto">
-                                    {{ __('Dirección: Uman, Yucatán.') }}
+                                    {{ __('Dirección: C-18 No. 163 Carr: Umán - Uxmal. Umán, Yucatán
+                                    MX. C.P. 97390
+                                    ') }}
                             </div>
                         </div>
                     </li>
@@ -165,7 +167,8 @@
                                 <img src="{{ asset('/img/user/Reloj.svg') }}" width="50">
                             </div>
                             <div class="col-11 pl-5 m-auto">
-                                {{ __('Lunes a Viernes') }}
+                                {{ __('Lunes a Jueves: 8:00 am a 6:00 pm') }} <br>
+                                {{__('Viernes: 9:00 am a 5:00 pm ')}}
                             </div>
                         </div>
                     </li>

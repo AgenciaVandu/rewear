@@ -203,7 +203,8 @@
                                         <img src="{{ asset('/img/index/ubi.svg') }}" width="20">
                                     </div>
                                     <div class="col-11 ">
-                                        <p class="gelion-thin m-auto" style="color: #fff;">{{ __('Dirección: Umán, yucatán') }}</p>
+                                        <p class="gelion-thin m-auto" style="color: #fff;">{{ __('Dirección: C-18 No. 163 Carr: Umán - Uxmal. Umán, Yucatán
+                                            MX. C.P. 97390') }}</p>
                                     </div>
                                 </div>
                             </li>

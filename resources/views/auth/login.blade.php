@@ -63,7 +63,7 @@
                 <div class="card">
                     <div class="row">
                         <div class="col-lg-5 col-md-12 col-sm-12 bg-login"
-                            style="background-image: url(/img/user/login.jpg);">
+                            style="background-image: url(/img/login.jpg);">
                         </div>
                         <div class="col-lg-7 col-md-12 col-sm-12 inicio espacio-login ">
                             <h4 class="gelion-bold">{{ __('Iniciar sesión') }}</h4>
