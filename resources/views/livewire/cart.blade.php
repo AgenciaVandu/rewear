@@ -79,7 +79,7 @@
                                                                     @if (session('locale') == 'es')
                                                                         {{ $item->name }}
                                                                     @else
-                                                                        {{ $item->name_en }}
+                                                                        {{ $item->options->name_en }}
                                                                     @endif
                                                                     <br>
                                                                     <span>
@@ -168,7 +168,7 @@
                                                                     @if (session('locale') == 'es')
                                                                         {{ $item->name }}
                                                                     @else
-                                                                        {{ $item->name_en }}
+                                                                        {{ $item->options->name_en }}
                                                                     @endif
                                                                     <br>
                                                                     <span>
@@ -258,7 +258,7 @@
                                                                     @if (session('locale') == 'es')
                                                                         {{ $item->name }}
                                                                     @else
-                                                                        {{ $item->name_en }}
+                                                                        {{ $item->options->name_en }}
                                                                     @endif
                                                                     <br>
                                                                     <span>
@@ -348,7 +348,7 @@
                                                                     @if (session('locale') == 'es')
                                                                         {{ $item->name }}
                                                                     @else
-                                                                        {{ $item->name_en }}
+                                                                        {{ $item->options->name_en }}
                                                                     @endif
                                                                     <br>
                                                                     <span>
@@ -438,7 +438,7 @@
                                                                     @if (session('locale') == 'es')
                                                                         {{ $item->name }}
                                                                     @else
-                                                                        {{ $item->name_en }}
+                                                                        {{ $item->options->name_en }}
                                                                     @endif
                                                                     <br>
                                                                     <span>
@@ -528,7 +528,7 @@
                                                                     @if (session('locale') == 'es')
                                                                         {{ $item->name }}
                                                                     @else
-                                                                        {{ $item->name_en }}
+                                                                        {{ $item->options->name_en }}
                                                                     @endif
                                                                     <br>
                                                                     <span>
@@ -618,7 +618,7 @@
                                                                     @if (session('locale') == 'es')
                                                                         {{ $item->name }}
                                                                     @else
-                                                                        {{ $item->name_en }}
+                                                                        {{ $item->options->name_en }}
                                                                     @endif
                                                                     <br>
                                                                     <span>
@@ -708,7 +708,7 @@
                                                                     @if (session('locale') == 'es')
                                                                         {{ $item->name }}
                                                                     @else
-                                                                        {{ $item->name_en }}
+                                                                        {{ $item->options->name_en }}
                                                                     @endif
                                                                     <br>
                                                                     <span>
@@ -984,7 +984,7 @@
                             <br>
                         <div class="row" id="mostrar-planes">
                             <div class="col-12">
-                                <p class="gelion-bold text-center">{{ 'Selecciona un plan' }}</p>
+                                <p class="gelion-bold text-center">{{ __('Selecciona un plan') }}</p>
                             </div>
 
                             <div class="col">
@@ -1010,14 +1010,14 @@
                             </div>
                         </div>
                         <div class="col-12 mt-3">
-                            <button id="cancelar-aumento" class="btn btn-outline-dark btn-sm">Cancelar</button>
+                            <button id="cancelar-aumento" class="btn btn-outline-dark btn-sm">{{ __('Cancelar') }}</button>
                         </div>
-                        <span class="gelion-thin">Precio más costo de envío por cotizar</span>
+                        <span class="gelion-thin">{{ __('Precio más costo de envío por cotizar') }}</span>
                         </p>
                     </div>
                 </div>
                 <div class="col-12 gelion-bold pt-4">
-                    <p>{{__('Política de privacidad:')}}</p>
+                    <p>{{__('Política de privacidad')}}</p>
                     <p class="gelion-thin size-2 text-justify">{{__('Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 324 7922 o contacto@myrewear.com')}}</p>
                 </div>
             </div>

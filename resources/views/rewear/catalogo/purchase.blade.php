@@ -12,54 +12,54 @@
                             @csrf
                             <div class="form-row">
                                 <div class="col gelion-bold">
-                                    <label for="formGroupExampleInput">Nombres*</label>
+                                    <label for="formGroupExampleInput">{{ __('Nombres*') }}</label>
                                     <input type="text" class="form-control" name="name" id="name" required>
                                 </div>
                                 <div class="col gelion-bold">
-                                    <label for="formGroupExampleInput">Apellidos*</label>
+                                    <label for="formGroupExampleInput">{{ __('Apellidos*') }}</label>
                                     <input type="text" class="form-control" name="last_name" id="apellidos" required>
                                 </div>
                                 <div class="col gelion-bold">
-                                    <label for="phone">Phone:</label>
+                                    <label for="phone">{{ __('Teléfono:') }}</label>
                                     <input type="text" id="phone" class="form-control" name="phone" required>
                                 </div>
                             </div>
                             <div class="pt-3 gelion-bold" id="f-emprendedor">
                                 <!--Emprendedor-->
-                                <label for="formGroupExampleInput">Nombre de tu empresa (opcional)</label>
+                                <label for="formGroupExampleInput">{{ __('Nombre de tu empresa (opcional)') }}</label>
                                 <input type="text" class="form-control" name="bussiness">
                             </div>
                             <div class="form-group gelion-bold pt-3">
-                                <label for="inputAddress">Dirección</label>
+                                <label for="inputAddress">{{ __('Dirección:') }}</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="8mile"
                                     name="address" required>
                             </div>
                             <div class="form-group gelion-bold">
-                                <label for="inputCity">Ciudad</label>
+                                <label for="inputCity">{{ __('Ciudad') }}</label>
                                 <input type="text" class="form-control" id="inputCity" placeholder="México" name="city"
                                     required>
                             </div>
                             <div class="form-group gelion-bold">
-                                <label for="inputCity">Estado</label>
+                                <label for="inputCity">{{ __('Estado') }}</label>
                                 <input type="text" class="form-control" id="inputState" placeholder="México" name="state"
                                     required>
                             </div>
                             <div class="form-group gelion-bold">
-                                <label for="inputCity">Código postal</label>
+                                <label for="inputCity">{{ __('Código postal') }}</label>
                                 <input type="text" class="form-control" id="inputState" placeholder="México"
                                     name="postal_code" required>
                             </div>
                             <div class="mb-3 gelion-bold">
-                                <label for="validationTextarea">Mensaje</label>
-                                <textarea class="form-control" id="validationTextarea" placeholder="Déjanos tu mensaje"
+                                <label for="validationTextarea">{{ __('Mensaje') }}</label>
+                                <textarea class="form-control" id="validationTextarea" placeholder="{{ __('Déjanos tu mensaje') }}"
                                     name="message" required></textarea>
                             </div>
-                            <div type="submit" class="btn btn-primary gelion-bold mt-2">Regresar</div>
+                            <div type="submit" class="btn btn-primary gelion-bold mt-2">{{ __('Regresar') }}</div>
 
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 pt-2">
                         <div class="card p-4">
-                            <p class="gelion-bold">Total a pagar</p>
+                            <p class="gelion-bold">{{ __('Total a pagar') }}</p>
                             <div class="row">
                                 <div class="col-6">
                                     <p class="gelion-thin">
@@ -211,7 +211,7 @@
                                 </div> --}}
                                 <div class="col-6">
                                     <p class="gelion-thin">
-                                        Precio total
+                                        {{ __('Precio total') }}
                                     </p>
                                 </div>
                                 <div class="col-6 text-right">
@@ -224,31 +224,28 @@
                                 @case(1)
                                     @if (Cart::instance('caja1')->count() == 72)
                                         <div class="gelion-bold mt-2">
-                                            <button class="btn btn-secondary btn-block" type="submit">Comprar
-                                                ahora</button>
+                                            <button class="btn btn-secondary btn-block" type="submit">{{ __('Comprar ahora') }}</button>
                                         </div>
                                     @else
-                                        <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block">Comprar ahora</div>
+                                        <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block">{{ __('Comprar ahora') }}</div>
                                     @endif
                                 @break
                                 @case(2)
                                     @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 144 || Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 216)
                                         <div class="gelion-bold mt-2">
-                                            <button class="btn btn-secondary btn-block" type="submit">Comprar
-                                                ahora</button>
+                                            <button class="btn btn-secondary btn-block" type="submit">{{ __('Comprar ahora') }}</button>
                                         </div>
                                     @else
-                                        <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block">Comprar ahora</div>
+                                        <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block">{{ __('Comprar ahora') }}</div>
                                     @endif
                                 @break
                                 @case(3)
                                     @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() == 288)
                                         <div class="gelion-bold mt-2">
-                                            <button class="btn btn-secondary btn-block " type="submit">Comprar
-                                                ahora</button>
+                                            <button class="btn btn-secondary btn-block " type="submit">{{ __('Comprar ahora') }}</button>
                                         </div>
                                     @else
-                                        <div class="btn btn-secondary gelion-bold mt-2 block disabled btn-block">Comprar ahora</div>
+                                        <div class="btn btn-secondary gelion-bold mt-2 block disabled btn-block">{{ __('Comprar ahora') }}</div>
                                     @endif
                                 @break
                                 @default
@@ -280,11 +277,8 @@
                             </form>
                         </div>
                         <div class="col-12 gelion-bold pt-4">
-                            <p>Política de privacidad:</p>
-                            <p class="gelion-thin size-2 text-justify">Como parte de los mecanismos para manifestar negativa
-                                al tratamiento de datos personales, en todo momento podrá consultar su información,
-                                rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá
-                                llamar a los teléfonos (999) 999 9999 o contacto@myrewear.com</p>
+                            <p>{{ __('Política de privacidad') }}</p>
+                            <p class="gelion-thin size-2 text-justify">{{ __('Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 999 9999 o contacto@myrewear.com') }}</p>
                         </div>
                     </div>
                 </div>
@@ -293,7 +287,7 @@
     </section>
     <section id="cruzada" class="pt-5 pb-5">
         <div class="container cruzada">
-            <h5 class="gelion-bold text-center pt-3 pb-4">TAMBIÉN TE PODRÍA INTERESAR</h5>
+            <h5 class="gelion-bold text-center pt-3 pb-4">{{ __('TAMBIÉN TE PODRÍA INTERESAR') }}</h5>
             <div class="d-none d-sm-none d-md-none d-lg-block">
                 <div class="row">
                     @foreach ($products as $product)
@@ -304,22 +298,26 @@
                                         @if ($image->main == 'si')
                                             <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($image->url) }}"
-                                                    class="@if ($loop->iteration != 1) top @endif fill" alt="Productos del catálogo">
+                                                    class="@if ($loop->iteration != 1) top @endif fill"
+                                                    alt="Productos del catálogo">
                                             </a>
                                         @endif
                                     @endforeach
                                 </div>
                                 <a href="{{ route('catalogue.product', $product) }}"
                                     style="color: #000; text-decoration: none;">
-                                    <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
+                                    <h5 class="gelion-bold pt-2">
+                                        @if (session('locale') == 'es')
+                                            {{ $product->name }}
+                                            @else
+                                            {{ $product->name_en }}
+                                        @endif
+                                    </h5>
                                 </a>
-                                <li class="gelion-bold size-2">{!! $product->description !!}</li>
+                                {{-- <li class="gelion-bold size-2">{!! $product->description !!}</li> --}}
                                 </li>
-                                <li class="gelion-thin">Peso de tela: <span>{{ $product->measure }}</span>
-                                </li>
-                                <li class="gelion-thin">Tipo de tejido: <span>Jersey</span>
-                                </li>
-                                <li class="gelion-thin">Regular fit</li>
+                                <li class="gelion-thin">{{ __('Medidas del modelo:') }} <span>{{ $product->measure }}</span></li>
+                                <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
                                 <div class="pt-3 d-flex">
                                     <div class="hoja">
                                         <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
@@ -349,10 +347,10 @@
                                 <a href="" style="color: #000; text-decoration: none;">
                                     <h5 class="gelion-bold pt-2 size-product-1">{{ $product->name }}</h5>
                                 </a>
-                                <li class="gelion-bold">{!! $product->description !!}</li>
+                                {{-- <li class="gelion-bold">{!! $product->description !!}</li> --}}
                                 </li>
-                                <li class="gelion-thin">Peso de tela: <span>{{ $product->measure }}</span>
-                                </li>
+                                <li class="gelion-thin">{{ __('Medidas del modelo:') }} <span>{{ $product->measure }}</span></li>
+                                <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
                                 <div class="pt-3 d-flex">
                                     <div class="hoja">
                                         <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
@@ -375,8 +373,7 @@
                                             @foreach ($product->images as $image)
                                                 @if ($image->main == 'si')
                                                     <a href="{{ route('catalogue.product', $product) }}">
-                                                        <img src="{{ Storage::url($image->url) }}"
-                                                            class="img-fluid"
+                                                        <img src="{{ Storage::url($image->url) }}" class="img-fluid"
                                                             alt="Productos del catálogo">
                                                     </a>
                                                 @endif

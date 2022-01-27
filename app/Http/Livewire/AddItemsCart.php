@@ -50,6 +50,7 @@ class AddItemsCart extends Component
         $this->options['size_id'] = $size->id;
         $this->options['sku'] = $size->sku;
         $this->options['manga'] = $this->product->subcategory->name;
+        $this->options['name_en'] = $this->product->name_en;
 
 
         $color_limite=0;

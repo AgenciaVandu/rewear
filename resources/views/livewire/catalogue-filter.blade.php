@@ -76,10 +76,10 @@
                             <div class="filtro">
                                 <!--Filtro-->
                                 <button wire:click="filter" class="btn btn-secondary">
-                                    Filtrar
+                                    {{ __('Filtrar') }}
                                 </button>
                                 <button wire:click="filterClean" class="btn btn-outline-danger btn-sm mt-2">
-                                    Limpiar
+                                    {{ __('Limpiar') }}
                                 </button>
                             </div>
                         </div>

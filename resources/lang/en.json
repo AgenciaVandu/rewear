@@ -875,7 +875,7 @@
     "Comprar ahora": "Buy Now",
     "Quiero aumentar mi plan": "Increase my plan",
     "Total a pagar": "Order summary",
-    "Selecciona un plan": "Select a plan",
+    "Selecciona un plan": "Choose a plan",
     "Precio total": "Total",
     "Faltan": "Missing",
     "piezas para completar": "items to complete your plan",
@@ -925,5 +925,13 @@
     "C.P.":"CP",
     "Nombre:":"Name:",
     "Editar": "Edit",
-    "Contraseña:":"Password"
+    "Contraseña:":"Password",
+    "Filtrar":"Filter",
+    "Limpiar":"Clean filters",
+    "Cancelar":"Cancel",
+    "Precio más costo de envío por cotizar":"Shipping cost to quote",
+    "Estado":"State",
+    "Código postal":"Postal Code",
+    "Regresar":"Return"
+
 }
