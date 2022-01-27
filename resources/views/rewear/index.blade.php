@@ -1,4 +1,9 @@
 @extends('layouts.rewear')
+@if (session('locale') == 'es')
+    @section('title', 'Playeras ecológicas Rewear')
+@else
+    @section('title', 'Sustainable t-shirt Rewear')
+@endif
 @section('content')
     <header>
         <div class="contenido-boton">

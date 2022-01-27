@@ -121,7 +121,7 @@
                                                     {!! $product->description_en !!}
                                                 @endif --}}
                                             </li>
-                                            <li class="gelion-thin">Medidas del modelo:
+                                            <li class="gelion-thin">{{ __('Medidas del modelo:') }}
                                                 @if (session('locale') == 'es')
                                                     <span>{{ $product->measure }}</span>
                                                 @else

@@ -1,4 +1,9 @@
 @extends('layouts.rewear-azul')
+@if (session('locale') == 'es')
+    @section('title', 'Noticias - Rewear')
+@else
+    @section('title', 'News - Rewear')
+@endif
 @section('content')
     @push('css')
         <link rel="stylesheet" href="{{ asset('/css/blog.css') }}">
@@ -19,18 +24,21 @@
                                             <div class="row" style="color: gray;">
                                                 <div class="col-12">
                                                     <a href="" class="gelion-bold size-2"
-                                                        style="color: #000; text-decoration:none;">@if (session('locale') == 'es')
-                                                        {{ App\Models\PostCategory::find($post->post_category_id)->name }}
+                                                        style="color: #000; text-decoration:none;">
+                                                        @if (session('locale') == 'es')
+                                                            {{ App\Models\PostCategory::find($post->post_category_id)->name }}
                                                         @else
-                                                        {{ App\Models\PostCategory::find($post->post_category_id)->name_en }}
-                                                        @endif</a>
+                                                            {{ App\Models\PostCategory::find($post->post_category_id)->name_en }}
+                                                        @endif
+                                                    </a>
                                                 </div>
                                                 <div class="col-12">
                                                     <a href="" class="gelion-bold"
-                                                        style="color: #000; text-decoration:none;">@if (session('locale') == 'es')
-                                                        {{ $post->title }}
+                                                        style="color: #000; text-decoration:none;">
+                                                        @if (session('locale') == 'es')
+                                                            {{ $post->title }}
                                                         @else
-                                                        {{ $post->title_en }}
+                                                            {{ $post->title_en }}
                                                         @endif
                                                     </a>
                                                 </div>
@@ -45,9 +53,9 @@
                                             <p class="gelion-thin size-2"
                                                 style="color: #000; font-size: 0.9em; line-height: 1.2em;">
                                                 @if (session('locale') == 'es')
-                                                {!! $post->extract !!}
+                                                    {!! $post->extract !!}
                                                 @else
-                                                {!! $post->extract_en !!}
+                                                    {!! $post->extract_en !!}
                                                 @endif
                                             </p>
                                             <span>
@@ -79,12 +87,13 @@
                                         <div class="col-9 pl-5 m-auto">
                                             <h4 class="gelion-bold size-2">
                                                 @if (session('locale') == 'es')
-                                                {{ $post->title }}
+                                                    {{ $post->title }}
                                                 @else
-                                                {{ $post->title_en }}
-                                            @endif
-                                            <br>
-                                                <span class="gelion-thin" style="color: gray;">{{ Carbon\Carbon::parse($post->created_at)->toFormattedDateString() }}</span>
+                                                    {{ $post->title_en }}
+                                                @endif
+                                                <br>
+                                                <span class="gelion-thin"
+                                                    style="color: gray;">{{ Carbon\Carbon::parse($post->created_at)->toFormattedDateString() }}</span>
                                             </h4>
                                         </div>
                                     @endforeach
