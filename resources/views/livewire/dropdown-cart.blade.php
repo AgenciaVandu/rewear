@@ -7,7 +7,8 @@
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                 <div class="gelion-bold pl-3 pt-2 text-left" style="color: #000">
-                    <small> {{ __($plan->name) }} <span class="gelion-thin">| {{ __('hasta') }} @switch(session()->get('plan'))
+                    <small> {{ __($plan->name) }} <span class="gelion-thin">| {{ __('hasta') }}
+                            @switch(session()->get('plan'))
                                 @case(1)
                                     72 {{ __('piezas') }}
                                 @break
@@ -20,9 +21,11 @@
                             @endswitch
                         </span>
                         @if (session('locale') == 'es')
-                        {{ __('piezas agregadas') }} {{ Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() }}
+                            {{ __('piezas agregadas') }}
+                            {{ Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() }}
                         @else
-                        {{ Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() }} {{ __('piezas agregadas') }}
+                            {{ Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() }}
+                            {{ __('piezas agregadas') }}
                         @endif
                     </small>
                 </div>
@@ -41,8 +44,14 @@
                                         </div>
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
-                                                <a <a class="text-secondary"
-                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                <a class="text-secondary"
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $item->name }}
+                                                    @else
+                                                        {{ $item->options->name_en }}
+                                                    @endif
+                                                </a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
@@ -69,7 +78,13 @@
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
                                                 <a class="text-secondary"
-                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $item->name }}
+                                                    @else
+                                                        {{ $item->options->name_en }}
+                                                    @endif
+                                                </a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
@@ -94,7 +109,13 @@
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
                                                 <a class="text-secondary"
-                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $item->name }}
+                                                    @else
+                                                        {{ $item->options->name_en }}
+                                                    @endif
+                                                </a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
@@ -119,7 +140,13 @@
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
                                                 <a class="text-secondary"
-                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $item->name }}
+                                                    @else
+                                                        {{ $item->options->name_en }}
+                                                    @endif
+                                                </a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
@@ -146,7 +173,13 @@
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
                                                 <a class="text-secondary"
-                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $item->name }}
+                                                    @else
+                                                        {{ $item->options->name_en }}
+                                                    @endif
+                                                </a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
@@ -171,7 +204,13 @@
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
                                                 <a class="text-secondary"
-                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $item->name }}
+                                                    @else
+                                                        {{ $item->options->name_en }}
+                                                    @endif
+                                                </a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
@@ -196,7 +235,13 @@
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
                                                 <a class="text-secondary"
-                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $item->name }}
+                                                    @else
+                                                        {{ $item->options->name_en }}
+                                                    @endif
+                                                </a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
@@ -221,7 +266,13 @@
                                         <div class="col-9 m-auto text-left">
                                             <span class="titulo gelion-bold modelo" style="color: #000;">
                                                 <a class="text-secondary"
-                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">{{ $item->name }}</a>
+                                                    href="{{ route('catalogue.product', Str::slug($item->name)) }}">
+                                                    @if (session('locale') == 'es')
+                                                        {{ $item->name }}
+                                                    @else
+                                                        {{ $item->options->name_en }}
+                                                    @endif
+                                                </a>
                                             </span> <br>
                                             <span class="pieza gelion-thin size" style="color: #000;">
                                                 <small>{{ __('Talla:') }} {{ $item->options->size }} - Color:
@@ -266,7 +317,13 @@
                     <li class="flex p-3 border-b border-gray-200 mb-2">
                         <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}" alt="">
                         <article class="flex-1">
-                            <h1 class="font-bold">{{ $item->name }}</h1>
+                            <h1 class="font-bold">
+                                @if (session('locale') == 'es')
+                                {{ $item->name }}
+                                @else
+                                                    {{ $item->options->name_en }}
+                                @endif
+                            </h1>
                             <div class="flex">
                                 <p class="text-sm">Cant: {{ $item->qty }}</p>
                                 @isset($item->options['color'])
