@@ -932,6 +932,8 @@
     "Precio más costo de envío por cotizar":"Shipping cost to quote",
     "Estado":"State",
     "Código postal":"Postal Code",
-    "Regresar":"Return"
+    "Regresar":"Return",
+    "Corta":"Regular",
+    "Larga":"Long sleeve"
 
 }

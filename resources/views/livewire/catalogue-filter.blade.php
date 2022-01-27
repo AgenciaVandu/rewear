@@ -129,7 +129,7 @@
                                                 @endif
                                             </li>
                                             </li>
-                                            <li class="gelion-thin">Fit: {{ $product->subcategory->name }}</li>
+                                            <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
                                             <div class="pt-3 d-flex">
                                                 <div class="hoja">
                                                     <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
@@ -290,7 +290,7 @@
                                                 <span>{{ $product->measure_en }}</span>
                                             @endif
                                         </li>
-                                        <li class="gelion-thin">{{__('Fit: ')}} {{ $product->subcategory->name }}</li>
+                                        <li class="gelion-thin">{{__('Fit: ')}} {{ __($product->subcategory->name) }}</li>
                                         <div class="pt-3 d-flex">
                                             <div class="hoja">
                                                 <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
