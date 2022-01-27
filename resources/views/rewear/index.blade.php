@@ -24,15 +24,25 @@
                 </p>
                 <div class="row text-center">
                     <div class="col-lg-6 col-md-12 col-sm-12 contenido-imagen">
-                        <img src="{{ Storage::url($hombre->image) }}" class="img-fluid" alt="">
+                        @if (session('locale') == 'es')
+                            <img src="{{ Storage::url($hombre->image) }}" class="img-fluid" alt="">
+                        @else
+                            <img src="{{ Storage::url($hombre->image_en) }}" class="img-fluid" alt="">
+                        @endif
                         <div class="boton-i">
-                            <a href="{{ route('catalogue.index') }}" class="btn btn-primary gelion-bold">{{ __('ORDENAR AHORA') }}</a>
+                            <a href="{{ route('catalogue.index') }}"
+                                class="btn btn-primary gelion-bold">{{ __('ORDENAR AHORA') }}</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 contenido-imagen">
-                        <img src="{{ Storage::url($mujer->image) }}" class="img-fluid" alt="">
+                        @if (session('locale') == 'es')
+                            <img src="{{ Storage::url($mujer->image) }}" class="img-fluid" alt="">
+                        @else
+                            <img src="{{ Storage::url($mujer->image_en) }}" class="img-fluid" alt="">
+                        @endif
                         <div class="boton-i">
-                            <a href="{{ route('catalogue.index') }}" class="btn btn-primary gelion-bold">{{ __('ORDENAR AHORA') }}</a>
+                            <a href="{{ route('catalogue.index') }}"
+                                class="btn btn-primary gelion-bold">{{ __('ORDENAR AHORA') }}</a>
                         </div>
                     </div>
                 </div>
@@ -386,7 +396,8 @@
                             <div role="tabList" class="carousel__indicadores"></div>
                         </div>
                     </div>
-                    <h4 class="gelion-bold text-center pt-5" style="color: #fff;">{{ __('Suscríbete a nuestro newsletter') }}</h4>
+                    <h4 class="gelion-bold text-center pt-5" style="color: #fff;">
+                        {{ __('Suscríbete a nuestro newsletter') }}</h4>
                     <div class="form-inline espacio-3">
                         <div class="form-group mr-lg-3 mb-2">
                             <input type="password" class="form-control" id="inputPassword2" placeholder="E-mail">
@@ -423,8 +434,8 @@
                                             {!! $post->extract_en !!}
                                         </p>
                                     @endif
-                                    <a href="{{ route('post.show', $post) }}" class="btn btn-secondary gelion-bold">{{__('Ver
-                                        más')}}</a>
+                                    <a href="{{ route('post.show', $post) }}"
+                                        class="btn btn-secondary gelion-bold">{{ __('Ver más') }}</a>
                                 </div>
                             </div>
                         @endforeach

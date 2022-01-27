@@ -75,7 +75,7 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Nombre completo" name="name">
+                                    <input type="text" class="form-control" placeholder="{{ __('Nombre completo') }}" name="name">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control" id="exampleInputEmail1"
@@ -106,7 +106,7 @@
                 </p>
                 <p class="gelion-thin text-center">
                     {{ __('¿Ya tienes una cuenta en rewear?') }} <br>
-                    <span class="gelion-bold"><a href="/user/login.html"
+                    <span class="gelion-bold"><a href="{{ route('login') }}"
                             style="color: #000; text-decoration: none;">{{ __('Iniciar sesión') }}</a></span>
                 </p>
             </div>

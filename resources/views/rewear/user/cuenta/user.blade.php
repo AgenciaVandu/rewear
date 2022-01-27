@@ -132,10 +132,10 @@
                                         <div class="row">
                                             <div class="col-lg-7 col-md-6 col-sm-12 m-auto pt-1">
                                                 <h5 class="gelion-bold size-4">
-                                                    ID de órden: <span
+                                                    {{ __('ID de órden:') }} <span
                                                         class="gelion-regular size-5 pr-3">{{ $order->id }}</span>
                                                     <span class="date">
-                                                        Fecha de orden: <span
+                                                        {{ __('Fecha de orden:') }} <span
                                                             class="gelion-thin">{{ $order->created_at }}</span>
                                                     </span>
                                                 </h5>
@@ -172,17 +172,17 @@
                                                                 </span>
                                                             </h3>
                                                             <li class="gelion-thin">
-                                                                Teléfono: <span>{{ $order->phone }}</span>
+                                                                {{ __('Teléfono:') }} <span>{{ $order->phone }}</span>
                                                             </li>
                                                             @php
                                                                 $envio = json_decode($order->envio);
                                                             @endphp
                                                             <li class="gelion-thin">
-                                                                Dirección: <span>{{ $envio->address }} -
+                                                                {{ __('Dirección:') }} <span>{{ $envio->address }} -
                                                                     {{ $envio->city }}, {{ $envio->state }}</span>
                                                             </li>
                                                             <li class="gelion-thin">
-                                                                C.P. {{ $envio->postal_code }}
+                                                                {{ __('C.P.') }} {{ $envio->postal_code }}
                                                             </li>
                                                         </th>
                                                     </tr>
@@ -201,11 +201,11 @@
                                     <!--Info personal-->
                                     <div class="row control-but">
                                         <div class="col-lg-12 col-md-12 col-sm-12 text-right">
-                                            {{-- <button class="gelion-bold size-2">Editar</button> --}}
+                                            {{-- <button class="gelion-bold size-2">{{ __('Editar') }}</button> --}}
                                             <!-- Button trigger modal -->
                                             <button type="button" class="gelion-bold size-2" data-toggle="modal"
                                                 data-target="#infouserModal">
-                                                Editar
+                                                {{ __('Editar') }}
                                             </button>
 
                                             <!-- Modal -->
@@ -257,10 +257,10 @@
                                                 <tr>
                                                     <th scope="row">
                                                         <li class="gelion-thin">
-                                                            Nombre: <span>{{ auth()->user()->name }}</span>
+                                                            {{ __('Nombre:') }} <span>{{ auth()->user()->name }}</span>
                                                         </li>
                                                         <li class="gelion-thin">
-                                                            Teléfono: <span>{{ auth()->user()->phone }}</span>
+                                                            {{ __('Teléfono:') }} <span>{{ auth()->user()->phone }}</span>
                                                         </li>
                                                         {{-- <li class="gelion-thin">
                                                             Fecha de nacimiento: <span>17/08/90</span>
@@ -278,7 +278,7 @@
                                             <!-- Button trigger modal -->
                                             <button type="button" class="gelion-bold size-2" data-toggle="modal"
                                                 data-target="#password">
-                                                Editar
+                                                {{ __('Editar') }}
                                             </button>
                                             <!-- Modal -->
                                             <div class="modal fade" id="password" tabindex="-1"
@@ -328,7 +328,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 text-left">
-                                            <li class="gelion-thin">Contraseña: <span>****</span></li>
+                                            <li class="gelion-thin">{{ __('Contraseña:') }} <span>****</span></li>
                                         </div>
                                     </div>
                                 </div>
@@ -355,7 +355,7 @@
                                                                 <button type="button" class="gelion-bold"
                                                                     data-toggle="modal"
                                                                     data-target="#address{{ $address->id }}">
-                                                                    Editar
+                                                                    {{ __('Editar') }}
                                                                 </button>
                                                                 <!-- Modal -->
                                                                 <div class="modal fade"
@@ -367,7 +367,7 @@
                                                                             <div class="modal-header">
                                                                                 <h5 class="modal-title"
                                                                                     id="address{{ $address->id }}Label">
-                                                                                    Editar direccion {{ $address->id }}
+                                                                                    {{ __('Editar') }} direccion {{ $address->id }}
                                                                                 </h5>
                                                                                 <button type="button"
                                                                                     class="close"
@@ -469,7 +469,7 @@
                                                                     <button type="button" class="gelion-bold"
                                                                         data-toggle="modal"
                                                                         data-target="#address{{ $address->id }}">
-                                                                        Editar
+                                                                        {{ __('Editar') }}
                                                                     </button>
                                                                     <!-- Modal -->
                                                                     <div class="modal fade"
@@ -481,7 +481,7 @@
                                                                                 <div class="modal-header">
                                                                                     <h5 class="modal-title"
                                                                                         id="address{{ $address->id }}Label">
-                                                                                        Editar direccion
+                                                                                        {{ __('Editar') }} direccion
                                                                                         {{ $address->id }}
                                                                                     </h5>
                                                                                     <button type="button"

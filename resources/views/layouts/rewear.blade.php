@@ -239,8 +239,7 @@
             <div class="text-center pt-5 pb-4">
                 <a href="" class="gelion-bold" style="color: #fff; text-decoration: none;">
                     {{ __('Política de privacidad') }}</a>
-                <p href="" class="gelion-bold" style="color: #fff; text-decoration: none;">{{ __('Playeras ecológicas
-                    Rewear 2022 © todos los derechos reservados') }}</p>
+                <p href="" class="gelion-bold" style="color: #fff; text-decoration: none;">{{ __('Playeras ecológicas Rewear 2022 © todos los derechos reservados') }}</p>
             </div>
         </div>
     </footer>

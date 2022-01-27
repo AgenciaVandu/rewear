@@ -82,7 +82,7 @@
                                     <label class="form-check-label" for="exampleCheck1">{{ __('Recordarme') }}</label>
                                 </div>
                                 {{-- <button type="submit" class="gelion-bold btn btn-primary btn-block">Iniciar Sesión</button> --}}
-                                <button type="submit" class="gelion-bold btn btn-info btn-block">{{ __('Iniciar Sesión') }}</button>
+                                <button type="submit" class="gelion-bold btn btn-info btn-block">{{ __('Iniciar sesión') }}</button>
                             </form>
                         </div>
 

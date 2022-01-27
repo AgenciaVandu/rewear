@@ -51,7 +51,7 @@
                         </div>
                         <div class="col">
                             <img src="{{ asset('/img/nosotros/Rectangle 216.png') }}" class="img-fluid" alt="">
-                            <h3 class="gelion-bold line-h pt-3">{{ '4.2 Millones' }} <br>
+                            <h3 class="gelion-bold line-h pt-3">{{ __('4.2 Millones') }} <br>
                                 <span
                                     class="gelion-regular size-3">{{ __('de botellas de plástico PET reciclado') }}</span>
                             </h3>
@@ -114,7 +114,7 @@
                                             <div class="col">
                                                 <img src="{{ asset('/img/nosotros/Rectangle 216.png') }}"
                                                     class="img-fluid" alt="">
-                                                <h3 class="gelion-bold line-h pt-3">{{ '4.2 Millones' }} <br>
+                                                <h3 class="gelion-bold line-h pt-3">{{ __('4.2 Millones') }} <br>
                                                 </h3>
                                                 <p class="gelion-regular">
                                                     {{ __('de botellas de plástico PET reciclado') }}</p>

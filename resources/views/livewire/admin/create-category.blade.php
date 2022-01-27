@@ -27,6 +27,12 @@
                     id="{{ $rand }}" />
                 <x-jet-input-error for="createForm.image" />
             </div>
+            <div class="col-span-6 sm:col-span-4">
+                <x-jet-label value="Imagen ingles" />
+                <x-jet-input wire:model="createForm.image_en" type="file" accept="image/*" class="mt-1 w-full"
+                    id="{{ $rand }}" />
+                <x-jet-input-error for="createForm.image_en" />
+            </div>
         </x-slot>
 
         <x-slot name="actions">
@@ -60,7 +66,8 @@
                                     {!! $category->icon !!}
                                 </span>
                                 <span class="uppercase">
-                                    <a href="{{ route('admin.categories.show', $category) }}" class="hover:underline hover:text-blue-600">{{ $category->name }}</a>
+                                    <a href="{{ route('admin.categories.show', $category) }}"
+                                        class="hover:underline hover:text-blue-600">{{ $category->name }}</a>
                                 </span>
                             </td>
                             <td class="py-2">
@@ -82,13 +89,29 @@
         <x-slot name="title">Editar Categoria</x-slot>
         <x-slot name="content">
             <div class="space-y-3">
-                <div>
-                    @if ($editImage)
-                        <img src="{{ $editImage->temporaryUrl() }}" class="w-full h-64 object-cover object-center">
-                    @else
-                        <img src="{{ Storage::url($editForm['image']) }}"
-                            class="w-full h-64 object-cover object-center">
-                    @endif
+                <div class="flex mx-2">
+
+                    <div class="w-full">
+                        <p>Imagen español</p>
+                        @if ($editImage)
+                            <img src="{{ $editImage->temporaryUrl() }}"
+                                class="w-full h-64 object-cover object-center">
+                        @else
+                            <img src="{{ Storage::url($editForm['image']) }}"
+                                class="w-full h-64 object-cover object-center">
+                        @endif
+                    </div>
+
+                    <div class="w-full">
+                        <p>Imagen ingles</p>
+                        @if ($editImage2)
+                            <img src="{{ $editImage2->temporaryUrl() }}"
+                                class="w-full h-64 object-cover object-center">
+                        @else
+                            <img src="{{ Storage::url($editForm['image_en']) }}"
+                                class="w-full h-64 object-cover object-center">
+                        @endif
+                    </div>
                 </div>
                 <div>
                     <x-jet-label value="Nombre" />
@@ -107,6 +130,12 @@
                     <x-jet-input wire:model="editImage" type="file" accept="image/*" class="mt-1 w-full"
                         id="{{ $rand }}" />
                     <x-jet-input-error for="editImage" />
+                </div>
+                <div>
+                    <x-jet-label value="Imagen ingles" />
+                    <x-jet-input wire:model="editImage2" type="file" accept="image/*" class="mt-1 w-full"
+                        id="{{ $rand }}" />
+                    <x-jet-input-error for="editImage2" />
                 </div>
             </div>
         </x-slot>
