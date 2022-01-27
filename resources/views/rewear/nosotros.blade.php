@@ -1,4 +1,9 @@
 @extends('layouts.rewear-azul')
+@if (session('locale') == 'es')
+    @section('title', 'Playeras ecológicas Rewear - Nosotros')
+@else
+    @section('title', 'Sustainable t-shirt Rewear - About us')
+@endif
 @section('content')
     <header id="nosotros">
         <div class="bg-amarillo text-center pb-5">

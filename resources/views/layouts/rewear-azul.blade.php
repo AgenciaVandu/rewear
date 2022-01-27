@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rewear</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
@@ -160,16 +160,32 @@
                             <li>
                                 <div class="row pt-2">
                                     <div class="col-2 pt-2">
-                                        <a href="https://www.facebook.com/myrewear" target="_blank"
-                                            style="color: #fff;">
-                                            <i class="fab fa-facebook-square" style="color: #fff; font-size: 2em;"></i>
-                                        </a>
+                                        @if (session('locale') == 'es')
+                                            <a href="https://www.facebook.com/myrewear" target="_blank"
+                                                style="color: #fff;">
+                                                <i class="fab fa-facebook-square"
+                                                    style="color: #fff; font-size: 2em;"></i>
+                                            </a>
+                                        @else
+                                            <a href="https://www.facebook.com/myrewear" target="_blank"
+                                                style="color: #fff;">
+                                                <i class="fab fa-facebook-square"
+                                                    style="color: #fff; font-size: 2em;"></i>
+                                            </a>
+                                        @endif
                                     </div>
                                     <div class="col-2 pt-2">
-                                        <a href="https://www.instagram.com/myrewear.mx/" target="_blank"
-                                            style="color: #fff;">
-                                            <i class="fab fa-instagram" style="color: #fff; font-size: 2em;"></i>
-                                        </a>
+                                        @if (session('locale') == 'es')
+                                            <a href="https://www.instagram.com/myrewear.us/" target="_blank"
+                                                style="color: #fff;">
+                                                <i class="fab fa-instagram" style="color: #fff; font-size: 2em;"></i>
+                                            </a>
+                                        @else
+                                            <a href="https://www.instagram.com/myrewear.us/" target="_blank"
+                                                style="color: #fff;">
+                                                <i class="fab fa-instagram" style="color: #fff; font-size: 2em;"></i>
+                                            </a>
+                                        @endif
                                     </div>
                                     <div class="col-2 pt-2">
                                         <a href="https://www.linkedin.com/company/myrewear/" target="_blank"

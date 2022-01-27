@@ -31,7 +31,7 @@
                                             <label class="form-check-label">
                                                 <input class="form-check-input" type="radio" name="subcategories-1"
                                                     wire:model="subcategory_id" value="{{ $subcategory->id }}">
-                                                {{ $subcategory->name }}
+                                                {{ __($subcategory->name) }}
                                             </label>
                                         </div>
                                     </div>
@@ -121,7 +121,7 @@
                                                     {!! $product->description_en !!}
                                                 @endif --}}
                                             </li>
-                                            <li class="gelion-thin">Medidas del modelo:
+                                            <li class="gelion-thin">{{ __('Medidas del modelo:') }}
                                                 @if (session('locale') == 'es')
                                                     <span>{{ $product->measure }}</span>
                                                 @else
@@ -129,7 +129,7 @@
                                                 @endif
                                             </li>
                                             </li>
-                                            <li class="gelion-thin">Fit: {{ $product->subcategory->name }}</li>
+                                            <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
                                             <div class="pt-3 d-flex">
                                                 <div class="hoja">
                                                     <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
@@ -196,7 +196,7 @@
                                             <label class="form-check-label">
                                                 <input class="form-check-input" type="radio" name="subcategories"
                                                     wire:model="subcategory_id" value="{{ $subcategory->id }}">
-                                                {{ $subcategory->name }}
+                                                {{ __($subcategory->name) }}
                                             </label>
                                         </div>
                                     </div>
@@ -290,7 +290,7 @@
                                                 <span>{{ $product->measure_en }}</span>
                                             @endif
                                         </li>
-                                        <li class="gelion-thin">{{__('Fit: ')}} {{ $product->subcategory->name }}</li>
+                                        <li class="gelion-thin">{{__('Fit: ')}} {{ __($product->subcategory->name) }}</li>
                                         <div class="pt-3 d-flex">
                                             <div class="hoja">
                                                 <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">

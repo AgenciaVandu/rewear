@@ -1,4 +1,9 @@
 @extends('layouts.rewear-azul')
+@if (session('locale') == 'es')
+    @section('title', 'Contáctanos - Rewear')
+@else
+    @section('title', 'Contact us - Rewear')
+@endif
 @section('content')
     <section id="contact-page">
         <div class="container">
@@ -10,7 +15,7 @@
                     </iframe>
                 @else
                     <iframe width="600" height="499" id="gmap_canvas" src="https://maps.google.com/maps?q=3750%20NW%2028th%20Street%20Unit%2
-                    0414%20Miami%20FL%2033142&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
+                            0414%20Miami%20FL%2033142&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
                         marginheight="0" marginwidth="0"></iframe>
                 @endif
             </div>
@@ -126,11 +131,7 @@
                                 <img src="{{ asset('/img/user/ubicacion.svg') }}" width="50">
                             </div>
                             <div class="col-11 pl-5 m-auto">
-                                @if (session('local') == 'es')
-                                    Dirección: Uman, Yucatán.
-                                @else
-                                    RD TEXTILES, LLC 3750 NW 28th ST Unit 414 Miami, FL. 33142
-                                @endif
+                                    {{ __('Dirección: Uman, Yucatán.') }}
                             </div>
                         </div>
                     </li>

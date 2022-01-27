@@ -1,4 +1,9 @@
 @extends('layouts.rewear-azul')
+@if (session('locale') == 'es')
+    @section('title', 'Preguntas frecuentes - Rewear')
+@else
+    @section('title', 'Frequent questions - Rewear')
+@endif
 @section('content')
 <section id="faq">
     <div class="container">

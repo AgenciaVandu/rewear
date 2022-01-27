@@ -1,4 +1,9 @@
 @extends('layouts.rewear-azul')
+@if (session('locale') == 'es')
+    @section('title', 'Productos disponibles - Rewear')
+@else
+    @section('title', 'Products - Rewear')
+@endif
 @section('content')
     @push('css')
         <link rel="stylesheet" href="{{ asset('/css/products.css') }}">
