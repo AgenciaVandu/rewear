@@ -31,7 +31,7 @@
                                             <label class="form-check-label">
                                                 <input class="form-check-input" type="radio" name="subcategories-1"
                                                     wire:model="subcategory_id" value="{{ $subcategory->id }}">
-                                                {{ $subcategory->name }}
+                                                {{ __($subcategory->name) }}
                                             </label>
                                         </div>
                                     </div>
