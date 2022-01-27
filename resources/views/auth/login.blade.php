@@ -100,11 +100,11 @@
         <div class="container espacio-login-foto">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <img src="{{ asset('/img/user/r-left-1.png') }}" alt="Modelos con playera ecológica"
+                    <img src="{{ asset('/img/user/2701-LOG-IN-CALCE-1.jpg') }}" alt="Modelos con playera ecológica"
                         class="img-fluid">
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <img src="{{ asset('/img/user/right.jpg') }}" alt="Modelos con playera ecológica"
+                    <img src="{{ asset('/img/user/2701-LOG-IN-CALCE-2.jpg') }}" alt="Modelos con playera ecológica"
                         class="img-fluid">
                 </div>
             </div>
