@@ -90,7 +90,7 @@
                                     </span>
                                     <br>
                                     <span class="text-sm">
-                                        {{ $order->total }} USD
+                                        ${{ number_format($order->total,2) }} {{ $order->currency }}
                                     </span>
                                 </div>
 

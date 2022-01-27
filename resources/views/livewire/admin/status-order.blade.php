@@ -111,21 +111,22 @@
                     <th>SKU</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody>
                 @foreach ($order->boxes as $box)
                     @php
                         $products = json_decode($box->content);
                     @endphp
                     <tr>
-                        <td>
-                            <span class="ml-4 font-bold text-gray-700">Caja {{ $loop->iteration }}</span>
+                        <td class="pt-2 pb-1 my-4 border-2 bg-gray-900 text-gray-50">
+                            <div class="ml-4 font-bold text-xl">Caja {{ $loop->iteration }}</div>
                         </td>
                     </tr>
                     @foreach ($products as $product)
                         <tr class="text-center">
                             <td>
                                 <div class="flex">
-                                    <img src="{{ $product->options->image }}" alt="" class="h-15 w-20 object-cover mr-4">
+                                    <img src="{{ $product->options->image }}" alt=""
+                                        class="h-15 w-20 object-cover mr-4">
                                     <article>
                                         <h1 class="font-bold">{{ $product->name }}</h1>
                                         <div class="flex text-xs">
@@ -142,42 +143,25 @@
                                 </div>
                             </td>
                             <td>{{ $product->qty }}</td>
-                            <td>{{ $order->currency_value }}</td>
+                            @if ($product->options->manga == 'corta' || $product->options->manga == 'Corta')
+                                <td>${{ number_format($order->currency_value, 2) }} {{ $order->currency }}</td>
+                            @else
+                                <td>${{ number_format($order->currency_value_L, 2) }} {{ $order->currency }}</td>
+                            @endif
                             <td>{{ $product->options->sku }}</td>
                         </tr>
                     @endforeach
-
                 @endforeach
-                {{-- @foreach ($items as $product)
-                    <tr>
-                        <td>
-                            <div class="flex">
-                                <img src="{{ $product->options->image }}" alt="" class="h-15 w-20 object-cover mr-4">
-                                <article>
-                                    <h1 class="font-bold">{{ $product->name }}</h1>
-                                    <div class="flex text-xs">
-                                        @isset($product->options->color)
-                                            Color: {{ __($product->options->color) }}
-                                        @endisset
-
-                                        @isset($product->options->size)
-                                            Talla: {{ __($product->options->size) }}
-                                        @endisset
-                                    </div>
-                                </article>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            {{ $product->price }} USD
-                        </td>
-                        <td class="text-center">
-                            {{ $product->qty }}
-                        </td>
-                        <td class="text-center">
-                            {{ $product->price * $product->qty }}
-                        </td>
-                    </tr>
-                @endforeach --}}
+                <tr class="text-center">
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <span class="font-bold border-b-2 border-black">
+                            Total: ${{ number_format($order->total, 2) }} {{ $order->currency }}
+                        </span>
+                    </td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
