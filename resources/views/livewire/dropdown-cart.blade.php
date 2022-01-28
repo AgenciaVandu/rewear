@@ -39,7 +39,7 @@
                                         <div class="col-3">
                                             <div class="contenedor-bag">
                                                 <img src="{{ $item->options->image }}" class="fill" alt="">
-                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                                <button class="gelion-thin size-2 eliminar" type="button">{{ __('Eliminar') }}</button>
                                             </div>
                                         </div>
                                         <div class="col-9 m-auto text-left">
@@ -72,7 +72,7 @@
                                         <div class="col-3">
                                             <div class="contenedor-bag">
                                                 <img src="{{ $item->options->image }}" class="fill" alt="">
-                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                                <button class="gelion-thin size-2 eliminar" type="button">{{ __('Eliminar') }}</button>
                                             </div>
                                         </div>
                                         <div class="col-9 m-auto text-left">
@@ -103,7 +103,7 @@
                                         <div class="col-3">
                                             <div class="contenedor-bag">
                                                 <img src="{{ $item->options->image }}" class="fill" alt="">
-                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                                <button class="gelion-thin size-2 eliminar" type="button">{{ __('Eliminar') }}</button>
                                             </div>
                                         </div>
                                         <div class="col-9 m-auto text-left">
@@ -134,7 +134,7 @@
                                         <div class="col-3">
                                             <div class="contenedor-bag">
                                                 <img src="{{ $item->options->image }}" class="fill" alt="">
-                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                                <button class="gelion-thin size-2 eliminar" type="button">{{ __('Eliminar') }}</button>
                                             </div>
                                         </div>
                                         <div class="col-9 m-auto text-left">
@@ -167,7 +167,7 @@
                                         <div class="col-3">
                                             <div class="contenedor-bag">
                                                 <img src="{{ $item->options->image }}" class="fill" alt="">
-                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                                <button class="gelion-thin size-2 eliminar" type="button">{{ __('Eliminar') }}</button>
                                             </div>
                                         </div>
                                         <div class="col-9 m-auto text-left">
@@ -198,7 +198,7 @@
                                         <div class="col-3">
                                             <div class="contenedor-bag">
                                                 <img src="{{ $item->options->image }}" class="fill" alt="">
-                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                                <button class="gelion-thin size-2 eliminar" type="button">{{ __('Eliminar') }}</button>
                                             </div>
                                         </div>
                                         <div class="col-9 m-auto text-left">
@@ -229,7 +229,7 @@
                                         <div class="col-3">
                                             <div class="contenedor-bag">
                                                 <img src="{{ $item->options->image }}" class="fill" alt="">
-                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                                <button class="gelion-thin size-2 eliminar" type="button">{{ __('Eliminar') }}</button>
                                             </div>
                                         </div>
                                         <div class="col-9 m-auto text-left">
@@ -260,7 +260,7 @@
                                         <div class="col-3">
                                             <div class="contenedor-bag">
                                                 <img src="{{ $item->options->image }}" class="fill" alt="">
-                                                <button class="gelion-thin size-2 eliminar" type="button">Eliminar</button>
+                                                <button class="gelion-thin size-2 eliminar" type="button">{{ __('Eliminar') }}</button>
                                             </div>
                                         </div>
                                         <div class="col-9 m-auto text-left">

@@ -227,10 +227,10 @@
             {{ __('Compartir:') }}
             <div class="row pt-2">
                 <div class="col-12">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rewear.testvandu.com/catalogo-producto/{{ $product->slug }}" class="btn btn-outline-dark m-auto pr-4 pl-4">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rewear.testvandu.com/catalogo-producto/{{ $product->slug }}" target="_blank" class="btn btn-outline-dark m-auto pr-4 pl-4">
                         <i class="fab fa-facebook-f pb-1 pr-2"></i>Facebook
                     </a>
-                    <a href="https://api.whatsapp.com/send?text={{ $product->name }}%C2%A0https%3A//rewear.testvandu.com/catalogo-producto/{{ $product->slug }}" class="btn btn-outline-dark m-auto pr-4 pl-4">
+                    <a href="https://api.whatsapp.com/send?text={{ $product->name }}%C2%A0https%3A//rewear.testvandu.com/catalogo-producto/{{ $product->slug }}" target="_blank" class="btn btn-outline-dark m-auto pr-4 pl-4">
                         <i class="fab fa-whatsapp pb-1 pr-2"></i>Whatsapp
                     </a>
                 </div>
