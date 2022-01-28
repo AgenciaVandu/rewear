@@ -19,17 +19,23 @@
                                         @if ($image->main == 'si')
                                             <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($image->url) }}"
-                                                    class="@if ($loop->iteration != 1) top @endif fill"
-                                                    alt="Productos del catálogo">
+                                                    class="@if ($loop->iteration != 1) top @endif fill" alt="Productos del catálogo">
                                             </a>
                                         @endif
                                     @endforeach
                                 </div>
                                 <a href="{{ route('catalogue.product', $product) }}"
                                     style="color: #000; text-decoration: none;">
-                                    <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
+                                    <h5 class="gelion-bold pt-2">
+                                        @if (session('locale') == 'es')
+                                            {{ $product->name }}
+                                        @else
+                                            {{ $product->name_en }}
+                                        @endif
+                                    </h5>
                                 </a>
-                                <li class="gelion-thin">{{ __('Medidas del modelo:') }}: <span>{{ $product->measure }}</span></li>
+                                <li class="gelion-thin">{{ __('Medidas del modelo:') }}:
+                                    <span>{{ $product->measure }}</span></li>
                                 <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
                                 <div class="pt-3 d-flex">
                                     <div class="hoja">
@@ -57,10 +63,17 @@
                                         @endif
                                     @endforeach
                                 </div>
-                                <a href="" style="color: #000; text-decoration: none;">
-                                    <h5 class="gelion-bold pt-2 size-product-1">{{ $product->name }}</h5>
+                                <a href="{{ route('catalogue.product', $product) }}" style="color: #000; text-decoration: none;">
+                                    <h5 class="gelion-bold pt-2 size-product-1">
+                                        @if (session('locale') == 'es')
+                                            {{ $product->name }}
+                                        @else
+                                            {{ $product->name_en }}
+                                        @endif
+                                    </h5>
                                 </a>
-                                <li class="gelion-thin">{{ __('Medidas del modelo:') }}: <span>{{ $product->measure }}</span></li>
+                                <li class="gelion-thin">{{ __('Medidas del modelo:') }}:
+                                    <span>{{ $product->measure }}</span></li>
                                 <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
                                 <div class="pt-3 d-flex">
                                     <div class="hoja">
@@ -84,18 +97,24 @@
                                             @foreach ($product->images as $image)
                                                 @if ($image->main == 'si')
                                                     <a href="{{ route('catalogue.product', $product) }}">
-                                                        <img src="{{ Storage::url($image->url) }}"
-                                                            class="img-fluid"
+                                                        <img src="{{ Storage::url($image->url) }}" class="img-fluid"
                                                             alt="Productos del catálogo">
                                                     </a>
                                                 @endif
                                             @endforeach
                                         </div>
-                                        <a href="" style="color: #000; text-decoration: none;">
-                                            <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
+                                        <a href="{{ route('catalogue.product', $product) }}"
+                                            style="color: #000; text-decoration: none;">
+                                            <h5 class="gelion-bold pt-2">
+                                                @if (session('locale') == 'es')
+                                                    {{ $product->name }}
+                                                @else
+                                                    {{ $product->name_en }}
+                                                @endif
+                                            </h5>
                                         </a>
-                                        {{--<li class="gelion-thin">{{ __('Medidas del modelo:') }}: <span>{{ $product->measure }}</span></li>
-                                        <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>--}}
+                                        {{-- <li class="gelion-thin">{{ __('Medidas del modelo:') }}: <span>{{ $product->measure }}</span></li>
+                                        <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li> --}}
                                         <div class="pt-3 d-flex">
                                             <div class="hoja">
                                                 <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
