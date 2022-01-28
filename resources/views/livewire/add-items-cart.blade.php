@@ -192,7 +192,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img src="{{ asset('tablas/tabla-esp.png') }}" class="w-100" alt="">
+                                        <img src="{{ asset('tablas/tabla-esp.jpg') }}" class="w-100" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -214,7 +214,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img src="{{ asset('tablas/table-eng.png') }}" class="w-100" alt="">
+                                        <img src="{{ asset('tablas/table-eng.jpg') }}" class="w-100" alt="">
                                     </div>
                                 </div>
                             </div>
