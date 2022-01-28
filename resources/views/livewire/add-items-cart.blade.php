@@ -175,50 +175,56 @@
                 </div>
                 <div class="col gelion-bold m-auto">
                     {{-- <a href="" style="color: #000; text-decoration: none;"> {{ __('Tabla de medidas') }}</a> --}}
-                    @if (session('locale') == 'es')
-                        <a style="color: #000; text-decoration: none;" data-toggle="modal" data-target="#exampleModal">
-                            {{ __('Tabla de medidas') }}
-                        </a>
+                    @if ($product->subcategory->name == 'Corta' || $product->subcategory->name == 'corta')
+                        @if (session('locale') == 'es')
+                            <a style="color: #000; text-decoration: none;" data-toggle="modal"
+                                data-target="#exampleModal">
+                                {{ __('Tabla de medidas') }}
+                            </a>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <img src="{{ asset('tablas/tabla-esp.jpg') }}" class="w-100" alt="">
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ asset('tablas/tabla-esp.jpg') }}" class="w-100"
+                                                alt="">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @else
-                        <a style="color: #000; text-decoration: none;" data-toggle="modal" data-target="#exampleModal">
-                            {{ __('Tabla de medidas') }}
-                        </a>
+                        @else
+                            <a style="color: #000; text-decoration: none;" data-toggle="modal"
+                                data-target="#exampleModal">
+                                {{ __('Tabla de medidas') }}
+                            </a>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <img src="{{ asset('tablas/table-eng.jpg') }}" class="w-100" alt="">
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ asset('tablas/table-eng.jpg') }}" class="w-100"
+                                                alt="">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endif
                 </div>
             </div>
