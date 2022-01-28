@@ -331,7 +331,7 @@
                         <div class="row mb-2">
                             @foreach ($products as $product)
                                 <div class="col-6">
-                                    <div class="card espacio-card">
+                                    <div class="card espacio-card mb-3">
                                         <div class="contenedor-2">
                                             @foreach ($product->images as $image)
                                                 @if ($image->main == 'si')

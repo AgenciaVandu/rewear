@@ -108,7 +108,7 @@
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-6">
-                                <div class="card espacio-card">
+                                <div class="card espacio-card mb-3">
                                     <div class="contenedor-2">
                                         @foreach ($product->images as $image)
                                             @if ($image->main == 'si')
@@ -128,7 +128,11 @@
                                             @endif
                                         </h5>
                                     </a>
-                                    <li class="gelion-thin size-product">{!! $product->description !!}</li>
+                                    <li class="gelion-thin size-product">
+                                        {{--
+                                            {!! $product->description !!}
+                                        --}}
+                                    </li>
                                     <div class="pt-3 d-flex">
                                         <div class="hoja">
                                             <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">

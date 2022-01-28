@@ -46,7 +46,7 @@
                 <div class="row">
                     @foreach ($products as $product)
                         <div class="col-md-6">
-                            <div class="card espacio-card">
+                            <div class="card espacio-card mb-2">
                                 <div class="contenedor-4">
                                     @foreach ($product->images as $image)
                                         @if ($image->main == 'si')
@@ -79,7 +79,7 @@
                         <div class="row">
                             @foreach ($products as $product)
                                 <div class="col-6">
-                                    <div class="card espacio-card">
+                                    <div class="card espacio-card mb-3">
                                         <div class="contenedor-2">
                                             @foreach ($product->images as $image)
                                                 @if ($image->main == 'si')
@@ -94,8 +94,8 @@
                                         <a href="" style="color: #000; text-decoration: none;">
                                             <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
                                         </a>
-                                        <li class="gelion-thin">{{ __('Medidas del modelo:') }}: <span>{{ $product->measure }}</span></li>
-                                        <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>
+                                        {{--<li class="gelion-thin">{{ __('Medidas del modelo:') }}: <span>{{ $product->measure }}</span></li>
+                                        <li class="gelion-thin">Fit: {{ __($product->subcategory->name) }}</li>--}}
                                         <div class="pt-3 d-flex">
                                             <div class="hoja">
                                                 <img src="{{ asset('/img/catalogo/rewear.svg') }}" alt="">
