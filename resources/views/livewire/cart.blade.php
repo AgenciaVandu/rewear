@@ -770,8 +770,8 @@
                         <div class="table-responsive">
                             <div class="col-12" style="min-height: 14.6em;">
                                 <div class="inner text-center p-5">
-                                    <h4 class="gelion-bold">Aún no hay prendas en tu cesta</h4>
-                                    <a href="{{ route('catalogue.index') }}" class="btn btn-secondary">Seguir comprando</a>
+                                    <h4 class="gelion-bold">{{ __('Aún no hay prendas en tu cesta') }}</h4>
+                                    <a href="{{ route('catalogue.index') }}" class="btn btn-secondary">{{ __('Seguir comprando') }}</a>
                                 </div>
                             </div>
                         </div>
