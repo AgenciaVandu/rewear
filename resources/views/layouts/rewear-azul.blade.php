@@ -111,6 +111,11 @@
                     </li>
                 </ul>
             </div>
+            <div class="d-block d-sm-block d-md-block d-lg-none">
+                <div class="bag">
+                    @livewire('dropdown-cart')
+                </div>
+            </div>
         </div>
     </nav>
     @yield('content')
