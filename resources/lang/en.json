@@ -935,7 +935,7 @@
     "Regresar":"Return",
     "Corta":"Regular",
     "Larga":"Long sleeve",
-    "Horario Laboral":"Horario Laboral",
-    "Lunes a Jueves: 8:00 am a 6:00 pm":"Mon - Thu: 8:00 am to 6:00 pm",
-    "Viernes: 9:00 am a 5:00 pm":"Fri: 9:00 am to 5:00 pm"
+    "Horario Laboral":"Working days:",
+    "Lunes a Jueves: 8:00 am a 6:00 pm":"Mon - Fri",
+    "Viernes: 9:00 am a 5:00 pm":""
 }

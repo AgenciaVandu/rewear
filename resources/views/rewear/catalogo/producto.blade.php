@@ -1,9 +1,9 @@
 @extends('layouts.rewear-azul')
 @section('content')
     @if (session('locale') == 'es')
-        @section('title', $product->name.'  - Rewear')
+        @section('title', $product->name . ' - Rewear')
     @else
-    @section('title', $product->name_en.'  - Rewear')
+    @section('title', $product->name_en . ' - Rewear')
 @endif
 @push('css')
     <link rel="stylesheet" href="{{ asset('/css/products.css') }}">
@@ -77,7 +77,13 @@
                                 @endforeach
                             </div>
                             <a href="" style="color: #000; text-decoration: none;">
-                                <h5 class="gelion-bold pt-2 size-product-1">{{ $product->name }}</h5>
+                                <h5 class="gelion-bold pt-2 size-product-1">
+                                    @if (session('locale') == 'es')
+                                        {{ $product->name }}
+                                    @else
+                                        {{ $product->name_en }}
+                                    @endif
+                                </h5>
                             </a>
                             {{-- <li class="gelion-bold">{!! $product->description !!}</li> --}}
                             </li>
@@ -114,7 +120,13 @@
                                         @endforeach
                                     </div>
                                     <a href="" style="color: #000; text-decoration: none;">
-                                        <h5 class="gelion-bold pt-2">{{ $product->name }}</h5>
+                                        <h5 class="gelion-bold pt-2">
+                                            @if (session('locale') == 'es')
+                                                {{ $product->name }}
+                                            @else
+                                                {{ $product->name_en }}
+                                            @endif
+                                        </h5>
                                     </a>
                                     <li class="gelion-thin size-product">{!! $product->description !!}</li>
                                     <div class="pt-3 d-flex">
