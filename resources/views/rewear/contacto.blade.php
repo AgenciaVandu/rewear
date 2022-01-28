@@ -168,7 +168,7 @@
                             </div>
                             <div class="col-11 pl-5 m-auto">
                                 {{ __('Lunes a Jueves: 8:00 am a 6:00 pm') }} <br>
-                                {{__('Viernes: 9:00 am a 5:00 pm ')}}
+                                {{__('Viernes: 9:00 am a 5:00 pm')}}
                             </div>
                         </div>
                     </li>
