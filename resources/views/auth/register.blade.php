@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="form-group form-check">
                                     <input type="checkbox" class="form-check-input" name="terms" id="terms">
-                                    <label class="form-check-label" for="exampleCheck1">{{ __('Acepto los') }} <a href=""
+                                    <label class="form-check-label" for="exampleCheck1">{{ __('Acepto los') }} <a href="{{ asset('pdfs/terminos y condiciones-1.pdf') }}" download
                                             style="color: #000; text-decoration: none;">{{ __('términos y condiciones') }}</a></label>
                                 </div>
                                 <button type="submit" class="gelion-bold btn btn-primary btn-block">{{ __('Registrarme') }}</button>

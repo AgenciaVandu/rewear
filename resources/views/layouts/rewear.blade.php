@@ -238,7 +238,7 @@
         <hr style="border-color: #fff; opacity: 20%;">
         <div class="container">
             <div class="text-center pt-5 pb-4">
-                <a href="" class="gelion-bold" style="color: #fff; text-decoration: none;">
+                <a href="{{ asset('pdfs/Aviso de Privacidad Integral REWEAR-1.pdf') }}" download target="_blank" class="gelion-bold" style="color: #fff; text-decoration: none;">
                     {{ __('Política de privacidad') }}</a>
                 <p href="" class="gelion-bold" style="color: #fff; text-decoration: none;">{{ __('Playeras ecológicas Rewear 2022 © todos los derechos reservados') }}</p>
             </div>
