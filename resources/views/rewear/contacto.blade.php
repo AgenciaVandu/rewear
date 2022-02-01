@@ -131,9 +131,7 @@
                                 <img src="{{ asset('/img/user/ubicacion.svg') }}" width="50">
                             </div>
                             <div class="col-11 pl-5 m-auto">
-                                    {{ __('Dirección: C-18 No. 163 Carr: Umán - Uxmal. Umán, Yucatán
-                                    MX. C.P. 97390
-                                    ') }}
+                                    {{ __('Dirección: C-18 No. 163 Carr: Umán - Uxmal. Umán, Yucatán MX. C.P. 97390') }}
                             </div>
                         </div>
                     </li>
