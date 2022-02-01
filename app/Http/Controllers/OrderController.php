@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
-use PDF;
+use \PDF;
 
 class OrderController extends Controller
 {
