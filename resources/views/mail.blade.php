@@ -31,7 +31,7 @@
                 <th>
                     <h3 style="color:green; text-align: right; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size:2em;">
                         SOLICITUD DE COMPRA
-                    </h3> 
+                    </h3>
                 </th>
             </tr>
         </thead>
@@ -59,7 +59,7 @@
             </tr>
         </thead>
     </table>
-    
+
     {{-- <div style="text-align: left; padding-top:2em; padding-bottom: .5em;">
         <img src="{{ asset('img/rewear-azul.svg') }}" alt="">
     </div> --}}
@@ -110,14 +110,13 @@
                                             @isset($product->options->color)
                                                 Color: {{ __($product->options->color) }}
                                             @endisset
-    
+
                                             @isset($product->options->size)
                                                 Talla: {{ __($product->options->size) }}
                                             @endisset
                                             <br>
                                         </small>
                                     </p>
-                                    
                                 </article>
                             </div>
                         </td>

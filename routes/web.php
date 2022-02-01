@@ -72,7 +72,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('orders/{order}/pay', [OrderController::class, 'pay'])->name('orders.pay');
 });
 
-Route::get('send-email', [TestController::class, 'sendMailWithPDF']);
+/* Route::get('send-email', [TestController::class, 'sendMailWithPDF']); */
 
 Route::post('webhooks', WebhooksController::class);
 
