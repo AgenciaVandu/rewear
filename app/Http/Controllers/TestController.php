@@ -17,7 +17,7 @@ class TestController extends Controller
     {
 
 
-        $order = Order::find(7);
+        $order = Order::find(3);
         $envio = json_decode($order->envio);
 
         $data["email"] = "test@gmail.com";
@@ -30,13 +30,13 @@ class TestController extends Controller
             $message->attachData($pdf->output(), "test.pdf");
         });
  */
-        Mail::send('emails.order-create', $data, function ($message) use ($data, $pdf,$order) {
+        /* Mail::send('emails.order-create', $data, function ($message) use ($data, $pdf,$order) {
             $message->to($data["email"], $data["email"])
                 ->subject($data["title"])
                 ->attachData($pdf->output(), "orden-".$order->id."-".$order->created_at.".pdf");
-        });
+        }); */
 
-        /* return $pdf->download('ejemplo.pdf'); */
-        return view('mail',compact('order','envio'));
+        return $pdf->download('ejemplo.pdf');
+        /* return view('mail',compact('order','envio')); */
     }
 }
