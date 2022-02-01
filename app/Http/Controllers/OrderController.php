@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
 use App\Models\Plan;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -213,7 +215,21 @@ class OrderController extends Controller
             ]);
             Cart::instance('caja4')->destroy();
         }
+
+        $envio = json_decode($order->envio);
+
+        $data["email"] = "test@gmail.com";
+        $data["title"] = "Nueva orden - ".$order->id;
+
+
+        $pdf = PDF::loadView('mail', compact('order','envio'));
+        Mail::send('emails.order-create', $data, function ($message) use ($data, $pdf,$order) {
+            $message->to($data["email"], $data["email"])
+                ->subject($data["title"])
+                ->attachData($pdf->output(), "orden-".$order->id."-".$order->created_at.".pdf");
+        });
         session()->forget('plan');
+
 
         return redirect()->route('profile.index');
     }

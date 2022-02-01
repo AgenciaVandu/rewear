@@ -33,40 +33,19 @@ use Illuminate\Support\Str;
 |
 */
 
-//Route::get('/', WelcomeController::class);
-//index
 Route::get('/', [PageController::class,'index'])->name('home.index');
-//nosotros
 Route::get('/nosotros', [PageController::class,'about'])->name('about');
 Route::get('/divisas/{divisa}',[PageController::class,'setDivisas'])->name('divisas');
-
 Route::get('/plan/{plan}', [PageController::class,'setPlan'])->name('plan');
 Route::middleware('auth')->get('/planes', [PlanController::class,'index'])->name('planes');
-//catalogo
 Route::get('/catalogo-rewear/{color?}', [CatalogueController::class,'index'])->name('catalogue.index');
-//detalle de producto
 Route::get('/catalogo-producto/{product}',[CatalogueController::class,'product'])->name('catalogue.product');
-//Carrito / cesta
 Route::get('/cesta',[CartController::class,'index'])->name('cart.index');
-
 Route::get('/comprar', [PageController::class,'checkout'])->name('checkout');
-//Preguntas frecuentes
 Route::get('/faq', [PageController::class,'faq'])->name('faq');
-//Página del blog
 Route::get('/blog-index', [BlogController::class,'index'])->name('blog.index');
-//pagina de articulo
 Route::get('/blog-articulo/{post}', [BlogController::class,'show'])->name('post.show');
-//pagina de contacto
 Route::get('/contacto', [PageController::class,'contact'])->name('contact');
-// COMIENZAN LAS VISTAS DE USUARIO
-//pagina de login
-/* Route::get('/login', function(){
-    return view('auth.login');
-}); */
-//pagina de registro
-/* Route::get('/register', function(){
-    return view('rewear.user.register');
-}); */
 //pagina de cuenta
 Route::middleware(['auth'])->get('/mi-perfil', [ClientController::class,'index'])->name('profile.index');
 Route::middleware(['auth'])->put('/mi-perfil/update', [ClientController::class,'updateInfo'])->name('profile.updateInfo');
@@ -93,7 +72,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('orders/{order}/pay', [OrderController::class, 'pay'])->name('orders.pay');
 });
 
-Route::get('send-email', [TestController::class, 'sendMailWithPDF']);
+/* Route::get('send-email', [TestController::class, 'sendMailWithPDF']); */
 
 Route::post('webhooks', WebhooksController::class);
 
@@ -147,18 +126,3 @@ Route::post('/reset-password', function (Request $request) {
                 ? redirect()->route('login')->with('status', __($status))
                 : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
-
-/* Route::get('prueba', function () {
-    $hora = now()->subMinute(10);
-    $orders = Order::where('status', 1)->whereTime('created_at', '<=', $hora)->get();
-    foreach ($orders as $order) {
-        $items = json_decode($order->content);
-
-        foreach ($items as $item) {
-            increase($item);
-        }
-        $order->status = 5;
-        $order->save();
-    }
-    return "se realizo con exito";
-}); */
