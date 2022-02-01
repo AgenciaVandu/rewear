@@ -5,23 +5,22 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LangController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\WebhooksController;
-use App\Http\Controllers\WelcomeController;
-use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
 use App\Http\Livewire\ShoppingCart;
-use App\Models\Order;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,12 +93,60 @@ Route::middleware(['auth'])->group(function () {
     Route::get('orders/{order}/pay', [OrderController::class, 'pay'])->name('orders.pay');
 });
 
+Route::get('send-email', [TestController::class, 'sendMailWithPDF']);
+
 Route::post('webhooks', WebhooksController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.request');
+
+
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    return $status === Password::RESET_LINK_SENT
+                ? back()->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+
+Route::get('/reset-password/{token}{email}', function (Request $request) {
+    return view('auth.reset-password', ['token' => $request->token,'email' => $request->email]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function ($user, $password) {
+            $user->forceFill([
+                'password' => Hash::make($password)
+            ])->setRememberToken(Str::random(60));
+
+            $user->save();
+
+            event(new PasswordReset($user));
+        }
+    );
+
+    return $status === Password::PASSWORD_RESET
+                ? redirect()->route('login')->with('status', __($status))
+                : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');
 
 /* Route::get('prueba', function () {
     $hora = now()->subMinute(10);
