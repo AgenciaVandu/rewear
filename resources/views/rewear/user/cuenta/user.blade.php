@@ -115,7 +115,7 @@
                                 <a class="gelion-bold user-font btn-block" style="text-decoration: none"
                                     href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Finalizar sesión') }}
                                 </a>
                             </form>
                         </div>
