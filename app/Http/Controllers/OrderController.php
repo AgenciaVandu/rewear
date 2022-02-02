@@ -218,7 +218,8 @@ class OrderController extends Controller
 
         $envio = json_decode($order->envio);
 
-        $data["email"] = "dev@agenciavandu.com";
+        /* $data["email"] = "dev@agenciavandu.com"; */
+        $data["email"] = "contacto@myrewear.com";
         $data["title"] = "Nueva orden - ".$order->id;
 
 

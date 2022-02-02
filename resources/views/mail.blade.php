@@ -46,14 +46,13 @@
                     </h3>
                 </th>
                 <th style="text-align: right;">
-                    <p style="padding: 0; font-family: Open Sans, Helvetica, Arial, sans-serif; font-weight:400;">
+                    <p style="padding: 0; font-family: Open Sans, Helvetica, Arial, sans-serif; font-weight:400;font-size: .9rem">
                         <span> {{ $order->contact }}<br>
                         <span> {{ $order->phone }}<br>
                         @if ($order->bussiness)
                          {{ $order->bussiness }}<br>
                         @endif
-                        {{ $envio->address }} {{ $envio->city }} - {{ $envio->state }}
-                        CP. {{ $envio->postal_code }}
+                        <small>{{ $envio->address }} <br> {{ $envio->city }} - {{ $envio->state }} CP. {{ $envio->postal_code }}</small>
                     </p>
                 </th>
             </tr>
