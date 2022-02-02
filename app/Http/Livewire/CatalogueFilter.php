@@ -65,7 +65,9 @@ class CatalogueFilter extends Component
 
     public function getSubcategories(){
         $this->subcategories = Subcategory::where('category_id',$this->category_id)->get();
-        $this->subcategory_id = $this->subcategories->first()->id;
+        if (!$this->subcategories) {
+            $this->subcategory_id = $this->subcategories->first()->id;
+        }
     }
 
     public function render()
