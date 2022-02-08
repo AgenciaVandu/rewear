@@ -36,7 +36,7 @@ class TestController extends Controller
                 ->attachData($pdf->output(), "orden-".$order->id."-".$order->created_at.".pdf");
         }); */
 
-        return $pdf->download('ejemplo.pdf');
-        /* return view('mail',compact('order','envio')); */
+        /* return $pdf->download('ejemplo.pdf'); */
+        return view('mail',compact('order','envio'));
     }
 }
