@@ -1012,7 +1012,7 @@
                         <div class="col-12 mt-3">
                             <button id="cancelar-aumento" class="btn btn-outline-dark btn-sm">{{ __('Cancelar') }}</button>
                         </div>
-                        <span class="gelion-thin">{{ __('Precio más costo de envío por cotizar') }}</span>
+                        {{-- <span class="gelion-thin">{{ __('Precio más costo de envío por cotizar') }}</span> --}}
                         </p>
                     </div>
                 </div>
