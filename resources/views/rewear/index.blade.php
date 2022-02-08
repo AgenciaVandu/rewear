@@ -180,7 +180,7 @@
                                                 <br>
                                                 <small>{{ __('Manga corta / Manga larga') }}</small>
                                             @endif <br>
-                                            <span class="gelion-thin size-1">{{ __('Por pieza. IVA incluído.') }}</span>
+                                            <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar') }}</small>
                                         </h3>
                                         <h2 class="gelion-bold">{{ $plan->name }}</h2>
                                         <p class="gelion-thin" style="text-align:justify;">
@@ -298,8 +298,7 @@
                                                                     <br>
                                                                     <small>{{ __('Manga corta / Manga larga') }}</small>
                                                                 @endif <br>
-                                                                <span
-                                                                    class="gelion-thin size-1">{{ __('Por pieza. IVA incluido.') }}</span>
+                                                                <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar') }}</small>
                                                             </h3>
                                                             <h2 class="gelion-bold">{{ $plan->name }}</h2>
                                                             <p class="gelion-thin" style="text-align:justify;">
