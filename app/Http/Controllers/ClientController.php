@@ -8,10 +8,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ClientController extends Controller
 {
-    public function index(){
+    public function index($create = null){
+        if ($create) {
+            if (session()->get('locale') == 'es') {
+                Alert::success('Orden generada', 'La orden se genero con éxito');
+            }else{
+                Alert::success('Generated order', 'The order was generated successfully');
+            }
+        }
         $orders = Order::where('user_id',auth()->user()->id)->latest('id')->paginate(2);
         $addresses = Address::where('user_id',auth()->user()->id)->get();
         return view('rewear.user.cuenta.user',compact('orders','addresses'));

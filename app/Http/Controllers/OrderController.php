@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 use \PDF;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class OrderController extends Controller
 {
@@ -231,8 +233,7 @@ class OrderController extends Controller
         });
         session()->forget('plan');
 
-
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index',true);
     }
 
 

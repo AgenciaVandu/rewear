@@ -8,15 +8,19 @@ use App\Models\Color;
 use App\Models\Plan;
 use App\Models\Post;
 use App\Models\Product;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
+
+
 
 class PageController extends Controller
 {
     public function index(){
-        session(['divisa'=> 'MXN']);
         if (!session()->has('locale')) {
-            session()->put('locale','es');
+            $locale = session()->put('locale','es');
+            if ($locale == 'es') {
+                session(['divisa'=> 'MXN']);
+            }else{
+                session(['divisa'=> 'USD']);
+            }
         }
         $colors = Color::all();
         $hombre = Category::where('name','LIKE','Hombre')->first();
@@ -59,7 +63,6 @@ class PageController extends Controller
 
     public function setDivisas($divisa){
         session(['divisa'=> $divisa]);
-
         return back();
     }
 

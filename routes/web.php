@@ -47,7 +47,7 @@ Route::get('/blog-index', [BlogController::class,'index'])->name('blog.index');
 Route::get('/blog-articulo/{post}', [BlogController::class,'show'])->name('post.show');
 Route::get('/contacto', [PageController::class,'contact'])->name('contact');
 //pagina de cuenta
-Route::middleware(['auth'])->get('/mi-perfil', [ClientController::class,'index'])->name('profile.index');
+Route::middleware(['auth'])->get('/mi-perfil/{create?}', [ClientController::class,'index'])->name('profile.index');
 Route::middleware(['auth'])->put('/mi-perfil/update', [ClientController::class,'updateInfo'])->name('profile.updateInfo');
 Route::middleware(['auth'])->post('/updatePassword', [ClientController::class, 'updatePassword'])->name('user.update.password');
 Route::middleware(['auth'])->post('/updateAddres/{address}', [ClientController::class, 'updateAddress'])->name('user.update.address');
@@ -55,6 +55,11 @@ Route::middleware(['auth'])->delete('/deleteAddres/{address}', [ClientController
 
 Route::get('locale/{locale}',function($locale){
     session()->put('locale',$locale);
+    if ($locale == 'es') {
+        session(['divisa'=> 'MXN']);
+    }else{
+        session(['divisa'=> 'USD']);
+    }
     return Redirect::back();
 })->name('set.lang');
 

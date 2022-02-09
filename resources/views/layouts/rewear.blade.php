@@ -154,6 +154,7 @@
         })
     </script>
     <script src="{{ asset('/js/carrusel.js') }}"></script>
+    @include('sweetalert::alert')
 </body>
 
 </html>

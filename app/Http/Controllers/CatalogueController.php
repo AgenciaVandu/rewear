@@ -6,6 +6,7 @@ use App\Models\Color;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+
 class CatalogueController extends Controller
 {
     public function index(Color $color = null){
