@@ -66,6 +66,11 @@
                         </div>
                         <div class="col-lg-7 col-md-12 col-sm-12 inicio espacio-login ">
                             <h4 class="gelion-bold">{{ __('Iniciar sesión') }}</h4>
+                            @if (session('status'))
+                                <div class="mb-4 font-medium text-sm text-green-600">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
@@ -85,9 +90,12 @@
                                 {{-- <button type="submit" class="gelion-bold btn btn-primary btn-block">Iniciar Sesión</button> --}}
                                 <button type="submit"
                                     class="gelion-bold btn btn-info btn-block">{{ __('Iniciar sesión') }}</button>
-                                <a class="underline text-sm" href="{{ route('password.request') }}" style="color: gray; text-decoration: none;">
-                                    {{ __('¿Olvidó su contraseña?') }}
-                                </a>
+                                <div class="text-center pt-3">
+                                    <a class="underline text-sm" href="{{ route('password.request') }}"
+                                        style="color: gray; text-decoration: none;">
+                                        {{ __('¿Olvidó su contraseña?') }}
+                                    </a>
+                                </div>
                             </form>
                         </div>
 

@@ -771,7 +771,8 @@
                             <div class="col-12" style="min-height: 14.6em;">
                                 <div class="inner text-center p-5">
                                     <h4 class="gelion-bold">{{ __('Aún no hay prendas en tu cesta') }}</h4>
-                                    <a href="{{ route('catalogue.index') }}" class="btn btn-secondary">{{ __('Seguir seleccionando') }}</a>
+                                    <a href="{{ route('catalogue.index') }}"
+                                        class="btn btn-secondary">{{ __('Seguir seleccionando') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -917,7 +918,7 @@
                                 }
                             @endphp
                             <p class="gelion-thin">
-                                ${{ number_format(Cart::instance('caja1')->subtotal() * $plan->$mon1 + Cart::instance('caja2')->subtotal() * $plan->$mon2 + Cart::instance('caja3')->subtotal() * $plan->$mon3 + Cart::instance('caja4')->subtotal() * $plan->$mon4, 2) }}
+                                ${{ number_format(Cart::instance('caja1')->subtotal() * $plan->$mon1 +Cart::instance('caja2')->subtotal() * $plan->$mon2 +Cart::instance('caja3')->subtotal() * $plan->$mon3 +Cart::instance('caja4')->subtotal() * $plan->$mon4,2) }}
                             </p>
                         </div>
                         {{-- <div class="col-6">
@@ -1010,20 +1011,36 @@
                             </div>
                         </div>
                         <div class="col-12 mt-3">
-                            <button id="cancelar-aumento" class="btn btn-outline-dark btn-sm">{{ __('Cancelar') }}</button>
+                            <button id="cancelar-aumento"
+                                class="btn btn-outline-dark btn-sm">{{ __('Cancelar') }}</button>
                         </div>
                         {{-- Estos son para MXN --}}
-                        <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
-                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
-                        {{-- Este es para USD --}}
-                        <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
-                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
+                        @if (session('divisa') == 'MXN')
+                            @if (session('locale') == 'es')
+                                <span
+                                    class="gelion-thin">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</span>
+                            @else
+                                <span
+                                    class="gelion-thin">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</span>
+                            @endif
+                        @else
+                            {{-- Este es para USD --}}
+                            @if (session('locale') == 'es')
+                                <span
+                                    class="gelion-thin">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</span>
+                            @else
+                                <span
+                                    class="gelion-thin">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</span>
+                            @endif
+                        @endif
                         </p>
                     </div>
                 </div>
                 <div class="col-12 gelion-bold pt-4">
-                    <p>{{__('Política de privacidad')}}</p>
-                    <p class="gelion-thin size-2 text-justify">{{__('Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 324 7922 o contacto@myrewear.com')}}</p>
+                    <p>{{ __('Política de privacidad') }}</p>
+                    <p class="gelion-thin size-2 text-justify">
+                        {{ __('Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 324 7922 o contacto@myrewear.com') }}
+                    </p>
                 </div>
             </div>
         </div>
