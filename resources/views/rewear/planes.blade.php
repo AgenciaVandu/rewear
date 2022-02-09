@@ -1,61 +1,5 @@
 @extends('layouts.rewear-azul')
 @section('content')
-    {{-- <header>
-        <div class="contenido-boton">
-            <video id="portada" src="{{ asset('img/portada.mp4') }}" muted no-controls loop class="w-100"></video>
-            <div class="boton-h">
-                <a href="{{ route('catalogue.index') }}" id="boton-h" class="btn btn-warning gelion-bold">Ver productos</a>
-            </div>
-        </div>
-    </header>
-    <section>
-        <div class="bg-1">
-            <div class="container text-center pt-4 espacio-1">
-                <h2 class="gelion-bold">Tenemos un compromiso con el planeta
-
-                </h2>
-                <p class="gelion-light size">Creamos las mejores prendas hechas de materiales 100% reciclados con hilo <br
-                        class="d-none d-sm-none d-md-none d-lg-block"> certificado por Global Recycled Standard.
-                </p>
-                <div class="row text-center">
-                    <div class="col-lg-6 col-md-12 col-sm-12 contenido-imagen">
-                        <img src="{{ Storage::url($hombre->image) }}" class="img-fluid" alt="">
-                        <div class="boton-i">
-                            <a href="" class="btn btn-primary gelion-bold">ORDENAR AHORA</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 contenido-imagen">
-                        <img src="{{ Storage::url($mujer->image) }}" class="img-fluid" alt="">
-                        <div class="boton-i">
-                            <a href="" class="btn btn-primary gelion-bold">ORDENAR AHORA</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <!--colores-->
-                    <div class="carousel">
-                        <div class="carousel__contenedor">
-                            <div class="carousel__lista4">
-                                @foreach ($colors as $color)
-                                    <div class="carousel__elemento m-1">
-                                        <a href="">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <img src="{{ Storage::url($color->image) }}" class="img-fluid"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div role="tabList" class="carousel__indicadores1"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
     <section id="planes">
         <div class="bg-2">
             <div class="bg-3 mt-5 pt-5">
@@ -80,7 +24,12 @@
                                                 <br>
                                                 <small>{{ __('Manga corta / Manga larga') }}</small>
                                             @endif <br>
-                                            <span class="gelion-thin size-1">{{ __('Por pieza. IVA incluído.') }}</span>
+                                            {{-- Estos son para MXN --}}
+                                            <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                            <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                            {{-- Este es para USD --}}
+                                            <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                            <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                                         </h3>
                                         <h2 class="gelion-bold">{{ $plan->name }}</h2>
                                         <p class="gelion-thin" style="text-align:justify;">
@@ -198,8 +147,12 @@
                                                                     <br>
                                                                     <small>{{ __('Manga corta / Manga larga') }}</small>
                                                                 @endif <br>
-                                                                <span
-                                                                    class="gelion-thin size-1">{{ __('Por pieza. IVA incluído.') }}</span>
+                                                                {{-- Estos son para MXN --}}
+                                                                <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                                                <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                                                {{-- Este es para USD --}}
+                                                                <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                                                <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                                                             </h3>
                                                             <h2 class="gelion-bold">{{ $plan->name }}</h2>
                                                             <p class="gelion-thin" style="text-align:justify;">

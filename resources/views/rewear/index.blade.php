@@ -298,7 +298,13 @@
                                                                     <br>
                                                                     <small>{{ __('Manga corta / Manga larga') }}</small>
                                                                 @endif <br>
-                                                                <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar') }}</small>
+                                                                {{-- Estos son para MXN --}}
+                                                                <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                                                <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                                                {{-- Este es para USD --}}
+                                                                <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                                                <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
+
                                                             </h3>
                                                             <h2 class="gelion-bold">{{ $plan->name }}</h2>
                                                             <p class="gelion-thin" style="text-align:justify;">

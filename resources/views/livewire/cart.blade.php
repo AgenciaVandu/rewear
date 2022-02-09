@@ -1012,7 +1012,12 @@
                         <div class="col-12 mt-3">
                             <button id="cancelar-aumento" class="btn btn-outline-dark btn-sm">{{ __('Cancelar') }}</button>
                         </div>
-                        <span class="gelion-thin text-left">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar. No incluye servicios adicionales.') }} </span>
+                        {{-- Estos son para MXN --}}
+                        <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                        {{-- Este es para USD --}}
+                        <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                         </p>
                     </div>
                 </div>

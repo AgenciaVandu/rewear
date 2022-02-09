@@ -62,27 +62,32 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card">
                     <div class="row">
-                        <div class="col-lg-5 col-md-12 col-sm-12 bg-login"
-                            style="background-image: url(/img/login.jpg);">
+                        <div class="col-lg-5 col-md-12 col-sm-12 bg-login" style="background-image: url(/img/login.jpg);">
                         </div>
                         <div class="col-lg-7 col-md-12 col-sm-12 inicio espacio-login ">
                             <h4 class="gelion-bold">{{ __('Iniciar sesión') }}</h4>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="email" class="form-control" type="email" name="email" placeholder="E-mail">
-                                    <small id="emailHelp" class="form-text text-muted">{{ __('No compartiremos tu email con nadie.') }}</small>
+                                    <input type="email" class="form-control" type="email" name="email"
+                                        placeholder="E-mail">
+                                    <small id="emailHelp"
+                                        class="form-text text-muted">{{ __('No compartiremos tu email con nadie.') }}</small>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" type="password" name="password" required
-                                    autocomplete="current-password">
+                                        autocomplete="current-password">
                                 </div>
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember" >
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
                                     <label class="form-check-label" for="exampleCheck1">{{ __('Recordarme') }}</label>
                                 </div>
                                 {{-- <button type="submit" class="gelion-bold btn btn-primary btn-block">Iniciar Sesión</button> --}}
-                                <button type="submit" class="gelion-bold btn btn-info btn-block">{{ __('Iniciar sesión') }}</button>
+                                <button type="submit"
+                                    class="gelion-bold btn btn-info btn-block">{{ __('Iniciar sesión') }}</button>
+                                <a class="underline text-sm" href="{{ route('password.request') }}" style="color: gray; text-decoration: none;">
+                                    {{ __('¿Olvidó su contraseña?') }}
+                                </a>
                             </form>
                         </div>
 

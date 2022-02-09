@@ -232,12 +232,22 @@
                                     @if (Cart::instance('caja1')->count() == 72)
                                         <div class="gelion-bold mt-2">
                                             <button class="btn btn-secondary btn-block mb-2" type="submit">{{ __('Enviar solicitud') }}</button>
-                                            <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                            {{-- Estos son para MXN --}}
+                                            <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                            <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                            {{-- Este es para USD --}}
+                                            <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                            <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                                             <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                         </div>
                                     @else
                                         <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block mb-2">{{ __('Enviar solicitud') }}</div>
-                                        <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                        {{-- Estos son para MXN --}}
+                                        <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                        {{-- Este es para USD --}}
+                                        <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                                         <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                     @endif
                                 @break
@@ -245,12 +255,22 @@
                                     @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 144 || Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 216)
                                         <div class="gelion-bold mt-2">
                                             <button class="btn btn-secondary btn-block mb-2" type="submit">{{ __('Enviar solicitud') }}</button>
-                                            <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                            {{-- Estos son para MXN --}}
+                                            <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                            <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                            {{-- Este es para USD --}}
+                                            <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                            <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                                             <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                         </div>
                                     @else
                                         <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block mb-2">{{ __('Enviar solicitud') }}</div>
-                                        <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                        {{-- Estos son para MXN --}}
+                                        <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                        {{-- Este es para USD --}}
+                                        <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                                         <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                     @endif
                                 @break
@@ -258,12 +278,22 @@
                                     @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() == 288)
                                         <div class="gelion-bold mt-2">
                                             <button class="btn btn-secondary btn-block  mb-2" type="submit">{{ __('Enviar solicitud') }}</button>
-                                            <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                            {{-- Estos son para MXN --}}
+                                            <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                            <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                            {{-- Este es para USD --}}
+                                            <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                            <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                                             <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                         </div>
                                     @else
                                         <div class="btn btn-secondary gelion-bold mt-2 block disabled btn-block mb-2">{{ __('Enviar solicitud') }}</div>
-                                        <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                        {{-- Estos son para MXN --}}
+                                        <small class="gelion-thin size-1s">{{ __('Por playera. Envíos nacionales, costo de envío por cotizar') }}</small>
+                                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Mexican shipping fees to be quoted. Aditional services not included.') }}</small>
+                                        {{-- Este es para USD --}}
+                                        <small class="gelion-thin size-1s">{{ __('Por playera, envíos fuera de México, ya incluyen costo de envío') }}</small>
+                                        <small class="gelion-thin size-1s">{{ __('Per t-shirt. Taxes and USA shipping fees included') }}</small>
                                         <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                     @endif
                                 @break
