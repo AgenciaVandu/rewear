@@ -26,7 +26,7 @@
                             </div>
                             <div class="pt-3 gelion-bold" id="f-emprendedor">
                                 <!--Emprendedor-->
-                                <label for="formGroupExampleInput">{{ __('Nombre de tu empresa (opcional)') }}</label>
+                                <label for="formGroupExampleInput">{{ __('Empresa (opcional)') }}</label>
                                 <input type="text" class="form-control" name="bussiness">
                             </div>
                             {{-- <div class="pt-3 gelion-bold">
@@ -61,16 +61,16 @@
                                 <textarea class="form-control" id="validationTextarea"
                                     placeholder="{{ __('Déjanos tu mensaje') }}" name="message" required></textarea>
                             </div>
-                            <div type="submit" class="btn btn-primary gelion-bold mt-2">{{ __('Regresar') }}</div>
+                            {{-- <div type="submit" class="btn btn-primary gelion-bold mt-2">{{ __('Regresar') }}</div> --}}
 
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 pt-2">
                         <div class="card p-4">
-                            <p class="gelion-bold">{{ __('Total a pagar') }}</p>
+                            <p class="gelion-bold">{{ __('Precio caja/s') }}</p>
                             <div class="row">
                                 <div class="col-6">
                                     <p class="gelion-thin">
-                                        Subtotal
+                                        Subtotal*
                                     </p>
                                 </div>
                                 <div class="col-6 text-right">
@@ -216,7 +216,7 @@
                                         ${{ number_format(Cart::instance('caja1')->tax(16) * $plan->$mon1 + Cart::instance('caja2')->tax(16) * $plan->$mon2 + Cart::instance('caja3')->tax(16) * $plan->$mon3 + Cart::instance('caja4')->tax(16) * $plan->$mon4, 2) }}
                                     </p>
                                 </div> --}}
-                                <div class="col-6">
+                                {{-- <div class="col-6">
                                     <p class="gelion-thin">
                                         {{ __('Precio total') }}
                                     </p>
@@ -225,40 +225,46 @@
                                     <p class="gelion-thin">
                                         ${{ number_format(Cart::instance('caja1')->total() * $plan->$mon1 +Cart::instance('caja2')->total() * $plan->$mon2 +Cart::instance('caja3')->total() * $plan->$mon3 +Cart::instance('caja4')->total() * $plan->$mon4,2) }}
                                     </p>
-                                </div>
+                                </div> --}}
                             </div>
                             @switch(session()->get('plan'))
                                 @case(1)
                                     @if (Cart::instance('caja1')->count() == 72)
                                         <div class="gelion-bold mt-2">
-                                            <button class="btn btn-secondary btn-block"
-                                                type="submit">{{ __('Comprar ahora') }}</button>
+                                            <button class="btn btn-secondary btn-block mb-2" type="submit">{{ __('Enviar solicitud') }}</button>
+                                            <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                            <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                         </div>
                                     @else
-                                        <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block">
-                                            {{ __('Comprar ahora') }}</div>
+                                        <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block mb-2">{{ __('Enviar solicitud') }}</div>
+                                        <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                     @endif
                                 @break
                                 @case(2)
                                     @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 144 || Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 216)
                                         <div class="gelion-bold mt-2">
-                                            <button class="btn btn-secondary btn-block"
-                                                type="submit">{{ __('Comprar ahora') }}</button>
+                                            <button class="btn btn-secondary btn-block mb-2" type="submit">{{ __('Enviar solicitud') }}</button>
+                                            <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                            <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                         </div>
                                     @else
-                                        <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block">
-                                            {{ __('Comprar ahora') }}</div>
+                                        <div class="btn btn-secondary gelion-bold mt-2 disabled btn-block mb-2">{{ __('Enviar solicitud') }}</div>
+                                        <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                     @endif
                                 @break
                                 @case(3)
                                     @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() == 288)
                                         <div class="gelion-bold mt-2">
-                                            <button class="btn btn-secondary btn-block "
-                                                type="submit">{{ __('Comprar ahora') }}</button>
+                                            <button class="btn btn-secondary btn-block  mb-2" type="submit">{{ __('Enviar solicitud') }}</button>
+                                            <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                            <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                         </div>
                                     @else
-                                        <div class="btn btn-secondary gelion-bold mt-2 block disabled btn-block">
-                                            {{ __('Comprar ahora') }}</div>
+                                        <div class="btn btn-secondary gelion-bold mt-2 block disabled btn-block mb-2">{{ __('Enviar solicitud') }}</div>
+                                        <span class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar.') }}</span>
+                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                     @endif
                                 @break
                                 @default
@@ -291,9 +297,7 @@
                         </div>
                         <div class="col-12 gelion-bold pt-4">
                             <p>{{ __('Política de privacidad') }}</p>
-                            <p class="gelion-thin size-2 text-justify">
-                                {{ __('Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 324 7922 o contacto@myrewear.com') }}
-                            </p>
+                            <p class="gelion-thin size-2 text-justify">{{__('Como parte de los mecanismos para manifestar negativa al tratamiento de datos personales, en todo momento podrá consultar su información, rectificarla u oponerte al tratamiento de tus datos personales, por lo que para ello podrá llamar a los teléfonos (999) 324 7922 o contacto@myrewear.com')}}</p>
                         </div>
                     </div>
                 </div>

@@ -771,7 +771,7 @@
                             <div class="col-12" style="min-height: 14.6em;">
                                 <div class="inner text-center p-5">
                                     <h4 class="gelion-bold">{{ __('Aún no hay prendas en tu cesta') }}</h4>
-                                    <a href="{{ route('catalogue.index') }}" class="btn btn-secondary">{{ __('Seguir comprando') }}</a>
+                                    <a href="{{ route('catalogue.index') }}" class="btn btn-secondary">{{ __('Seguir seleccionando') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -780,11 +780,11 @@
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 pt-2">
                 <div class="card p-4">
-                    <p class="gelion-bold">{{ __('Total a pagar') }}</p>
+                    <p class="gelion-bold">{{ __('Precio caja/s') }}</p>
                     <div class="row">
                         <div class="col-6">
                             <p class="gelion-thin">
-                                Subtotal
+                                Subtotal*
                             </p>
                         </div>
                         <div class="col-6 text-right">
@@ -930,7 +930,7 @@
                                 ${{ number_format(Cart::instance('caja1')->tax(16) * $plan->$mon1 + Cart::instance('caja2')->tax(16) * $plan->$mon2 + Cart::instance('caja3')->tax(16) * $plan->$mon3 + Cart::instance('caja4')->tax(16) * $plan->$mon4, 2) }}
                             </p>
                         </div> --}}
-                        <div class="col-6">
+                        {{-- <div class="col-6">
                             <p class="gelion-thin">
                                 {{ __('Precio total') }}
                             </p>
@@ -939,17 +939,17 @@
                             <p class="gelion-thin">
                                 ${{ number_format(Cart::instance('caja1')->total() * $plan->$mon1 + Cart::instance('caja2')->total() * $plan->$mon2 + Cart::instance('caja3')->total() * $plan->$mon3 + Cart::instance('caja4')->total() * $plan->$mon4, 2) }}
                             </p>
-                        </div>
+                        </div> --}}
                     </div>
                     @switch(session()->get('plan'))
                         @case(1)
                             @if (Cart::instance('caja1')->count() == 72)
                                 <div class="gelion-bold mt-2">
                                     <a class="btn btn-secondary d-block"
-                                        href="{{ route('checkout') }}">{{ __('Comprar ahora') }}</a>
+                                        href="{{ route('checkout') }}">{{ __('Enviar solicitud') }}</a>
                                 </div>
                             @else
-                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Comprar ahora') }}
+                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Enviar solicitud') }}
                                 </div>
                             @endif
                         @break
@@ -957,10 +957,10 @@
                             @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 144 || Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 216)
                                 <div class="gelion-bold mt-2">
                                     <a class="btn btn-secondary d-block"
-                                        href="{{ route('checkout') }}">{{ __('Comprar ahora') }}</a>
+                                        href="{{ route('checkout') }}">{{ __('Enviar solicitud') }}</a>
                                 </div>
                             @else
-                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Comprar ahora') }}
+                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Enviar solicitud') }}
                                 </div>
                             @endif
                         @break
@@ -968,10 +968,10 @@
                             @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() == 288)
                                 <div class="gelion-bold mt-2">
                                     <a class="btn btn-secondary d-block"
-                                        href="{{ route('checkout') }}">{{ __('Comprar ahora') }}</a>
+                                        href="{{ route('checkout') }}">{{ __('Enviar solicitud') }}</a>
                                 </div>
                             @else
-                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Comprar ahora') }}
+                                <div class="btn btn-secondary gelion-bold mt-2 disabled">{{ __('Enviar solicitud') }}
                                 </div>
                             @endif
                         @break
@@ -1012,7 +1012,7 @@
                         <div class="col-12 mt-3">
                             <button id="cancelar-aumento" class="btn btn-outline-dark btn-sm">{{ __('Cancelar') }}</button>
                         </div>
-                        {{-- <span class="gelion-thin">{{ __('Precio más costo de envío por cotizar') }}</span> --}}
+                        <span class="gelion-thin text-left">{{ __('Envíos fuera de México, ya incluyen costo de envío / Envíos nacionales, costo de envío por cotizar. No incluye servicios adicionales.') }} </span>
                         </p>
                     </div>
                 </div>

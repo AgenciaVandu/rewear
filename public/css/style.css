@@ -264,6 +264,10 @@ span.navbar-toggler-icon {
 .size-1{
     font-size: 0.5em;
 }
+.size-1s {
+    font-size: 0.4em;
+    line-height: 0px;
+}
 .espacio {
     padding: 0.8rem;
 }
