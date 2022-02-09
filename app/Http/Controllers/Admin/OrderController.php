@@ -14,7 +14,7 @@ class OrderController extends Controller
         if (request('status')) {
             $orders->where('status', request('status'));
         }
-        $orders = $orders->get();
+        $orders = $orders->latest()->get();
         $pendiente = Order::where('status', 1)->count();
         $recibido = Order::where('status', 2)->count();
         $enviado = Order::where('status', 3)->count();

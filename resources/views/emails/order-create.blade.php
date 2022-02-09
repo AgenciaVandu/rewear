@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>Nueva orden recibida</h1>
-    <p>Has rescibido una nueva orden desde el portal myrewear.com</p>
+    <p>Has recibido una nueva orden desde el portal myrewear.com</p>
 </body>
 </html>
