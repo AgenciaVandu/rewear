@@ -64,6 +64,7 @@ class PostController extends Controller
             'extract_en' => $request->extract_en,
             'body_en' => $request->body_en,
             'post_category_id' => $request->category_id,
+            'user_id' => auth()->user()->id,
         ]);
         if ($request->file('file')) {
             $url = Storage::put('posts', $request->file('file'));
