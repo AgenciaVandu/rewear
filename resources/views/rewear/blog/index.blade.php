@@ -71,11 +71,11 @@
                     <div class="col-lg-3 col-md-12 col-sm-12">
                         <!--Sidebar-->
                         <div class="control-box pl-3 pr-3 pt-2 sidebar">
-                            <div class="filtro">
+                            {{-- <div class="filtro">
                                 <div class="form-outline form-block">
                                     <input type="search" placeholder="Buscar" class="search">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="control-box pl-3 mt-3 sidebar mb-2">
                             <a href="" style="color: #000; text-decoration: none;">
