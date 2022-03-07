@@ -80,6 +80,12 @@
                                         $mon2 = 'MXN';
                                         $mon3 = 'MXN';
                                         $mon4 = 'MXN';
+                                        $mon5 = 'MXN';
+                                        $mon6 = 'MXN';
+                                        $mon7 = 'MXN';
+                                        $mon8 = 'MXN';
+                                        $mon9 = 'MXN';
+                                        $mon10 = 'MXN';
 
                                         if (Cart::instance('caja1')->count()) {
                                             foreach (Cart::instance('caja1')->content() as $item) {
@@ -201,9 +207,189 @@
                                                 }
                                             }
                                         }
+                                        if (Cart::instance('caja5')->count()) {
+                                            foreach (Cart::instance('caja5')->content() as $item) {
+                                                $manga5 = $item->model->subcategory->name;
+                                            }
+                                            if ($manga5 == 'Corta' || $manga5 == 'corta') {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon5 = 'MXN';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon5 = 'USD';
+                                                        break;
+                                                    case '':
+                                                        $mon5 = 'MXN';
+                                                        break;
+                                                }
+                                            } else {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon5 = 'MXN_L';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon5 = 'USD_L';
+                                                        break;
+                                                    case '':
+                                                        $mon5 = 'MXN_L';
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                        if (Cart::instance('caja6')->count()) {
+                                            foreach (Cart::instance('caja6')->content() as $item) {
+                                                $manga6 = $item->model->subcategory->name;
+                                            }
+                                            if ($manga6 == 'Corta' || $manga6 == 'corta') {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon6 = 'MXN';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon6 = 'USD';
+                                                        break;
+                                                    case '':
+                                                        $mon6 = 'MXN';
+                                                        break;
+                                                }
+                                            } else {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon6 = 'MXN_L';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon6 = 'USD_L';
+                                                        break;
+                                                    case '':
+                                                        $mon6 = 'MXN_L';
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                        if (Cart::instance('caja7')->count()) {
+                                            foreach (Cart::instance('caja7')->content() as $item) {
+                                                $manga7 = $item->model->subcategory->name;
+                                            }
+                                            if ($manga7 == 'Corta' || $manga7 == 'corta') {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon7 = 'MXN';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon7 = 'USD';
+                                                        break;
+                                                    case '':
+                                                        $mon7 = 'MXN';
+                                                        break;
+                                                }
+                                            } else {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon7 = 'MXN_L';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon7 = 'USD_L';
+                                                        break;
+                                                    case '':
+                                                        $mon7 = 'MXN_L';
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                        if (Cart::instance('caja8')->count()) {
+                                            foreach (Cart::instance('caja8')->content() as $item) {
+                                                $manga8 = $item->model->subcategory->name;
+                                            }
+                                            if ($manga8 == 'Corta' || $manga8 == 'corta') {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon8 = 'MXN';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon8 = 'USD';
+                                                        break;
+                                                    case '':
+                                                        $mon8 = 'MXN';
+                                                        break;
+                                                }
+                                            } else {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon8 = 'MXN_L';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon8 = 'USD_L';
+                                                        break;
+                                                    case '':
+                                                        $mon8 = 'MXN_L';
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                        if (Cart::instance('caja9')->count()) {
+                                            foreach (Cart::instance('caja9')->content() as $item) {
+                                                $manga9 = $item->model->subcategory->name;
+                                            }
+                                            if ($manga9 == 'Corta' || $manga9 == 'corta') {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon9 = 'MXN';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon9 = 'USD';
+                                                        break;
+                                                    case '':
+                                                        $mon9 = 'MXN';
+                                                        break;
+                                                }
+                                            } else {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon9 = 'MXN_L';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon9 = 'USD_L';
+                                                        break;
+                                                    case '':
+                                                        $mon9 = 'MXN_L';
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                        if (Cart::instance('caja10')->count()) {
+                                            foreach (Cart::instance('caja10')->content() as $item) {
+                                                $manga10 = $item->model->subcategory->name;
+                                            }
+                                            if ($manga10 == 'Corta' || $manga10 == 'corta') {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon10 = 'MXN';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon10 = 'USD';
+                                                        break;
+                                                    case '':
+                                                        $mon10 = 'MXN';
+                                                        break;
+                                                }
+                                            } else {
+                                                switch (session()->get('divisa')) {
+                                                    case 'MXN':
+                                                        $mon10 = 'MXN_L';
+                                                        break;
+                                                    case 'USD':
+                                                        $mon10 = 'USD_L';
+                                                        break;
+                                                    case '':
+                                                        $mon10 = 'MXN_L';
+                                                        break;
+                                                }
+                                            }
+                                        }
                                     @endphp
                                     <p class="gelion-thin">
-                                        ${{ number_format(Cart::instance('caja1')->subtotal() * $plan->$mon1 +Cart::instance('caja2')->subtotal() * $plan->$mon2 +Cart::instance('caja3')->subtotal() * $plan->$mon3 +Cart::instance('caja4')->subtotal() * $plan->$mon4,2) }}
+                                        ${{ number_format(Cart::instance('caja1')->subtotal() * $plan->$mon1 +Cart::instance('caja2')->subtotal() * $plan->$mon2 +Cart::instance('caja3')->subtotal() * $plan->$mon3 +Cart::instance('caja5')->subtotal() * $plan->$mon5 +Cart::instance('caja6')->subtotal() * $plan->$mon6 +Cart::instance('caja7')->subtotal() * $plan->$mon7 +Cart::instance('caja8')->subtotal() * $plan->$mon8 +Cart::instance('caja9')->subtotal() * $plan->$mon9 +Cart::instance('caja10')->subtotal() * $plan->$mon10,2) }}
                                     </p>
                                 </div>
                                 {{-- <div class="col-6">
@@ -239,22 +425,26 @@
                                                 @if (session('locale') == 'es')
                                                     <span
                                                         class="gelion-thin">{{ __('Envíos nacionales, costo de envío por cotizar') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @else
                                                     <span
                                                         class="gelion-thin">{{ __('Mexican shipping fees to be quoted. Aditional services not included.') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @endif
                                             @else
                                                 {{-- Este es para USD --}}
                                                 @if (session('locale') == 'es')
                                                     <span
                                                         class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @else
                                                     <span
                                                         class="gelion-thin">{{ __('Taxes and USA shipping fees included') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @endif
                                             @endif
 
@@ -283,6 +473,7 @@
                                         @endif
                                     @endif
                                 @break
+
                                 @case(2)
                                     @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 144 || Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() == 216)
                                         <div class="gelion-bold mt-2">
@@ -293,22 +484,26 @@
                                                 @if (session('locale') == 'es')
                                                     <span
                                                         class="gelion-thin">{{ __('Envíos nacionales, costo de envío por cotizar') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @else
                                                     <span
                                                         class="gelion-thin">{{ __('Mexican shipping fees to be quoted. Aditional services not included.') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @endif
                                             @else
                                                 {{-- Este es para USD --}}
                                                 @if (session('locale') == 'es')
                                                     <span
                                                         class="gelion-thin">{{ __('Envíos fuera de México, ya incluyen costo de envío') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @else
                                                     <span
                                                         class="gelion-thin">{{ __('Taxes and USA shipping fees included') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @endif
                                             @endif
                                         </div>
@@ -336,8 +531,9 @@
                                         @endif
                                     @endif
                                 @break
+
                                 @case(3)
-                                    @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() == 288)
+                                    @if (Cart::instance('caja1')->count() + Cart::instance('caja2')->count() + Cart::instance('caja3')->count() + Cart::instance('caja4')->count() >= 288)
                                         <div class="gelion-bold mt-2">
                                             <button class="btn btn-secondary btn-block  mb-2"
                                                 type="submit">{{ __('Enviar solicitud') }}</button>
@@ -346,11 +542,13 @@
                                                 @if (session('locale') == 'es')
                                                     <span
                                                         class="gelion-thin">{{ __('Envíos nacionales, costo de envío por cotizar') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @else
                                                     <span
                                                         class="gelion-thin">{{ __('Mexican shipping fees to be quoted. Aditional services not included.') }}</span>
-                                                        <span class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
+                                                    <span
+                                                        class="gelion-thin">{{ __('No incluye servicios adicionales.') }}</span>
                                                 @endif
                                             @else
                                                 {{-- Este es para USD --}}
@@ -388,8 +586,8 @@
                                         @endif
                                     @endif
                                 @break
-                                @default
 
+                                @default
                             @endswitch
                             {{-- <div class="col-12 gelion-bold text-center pt-3">
                                 <p><button id="aumentar-planes" class="gelion-bold aumentar"
@@ -440,7 +638,8 @@
                                         @if ($image->main == 'si')
                                             <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($image->url) }}"
-                                                    class="@if ($loop->iteration != 1) top @endif fill" alt="Productos del catálogo">
+                                                    class="@if ($loop->iteration != 1) top @endif fill"
+                                                    alt="Productos del catálogo">
                                             </a>
                                         @endif
                                     @endforeach
@@ -482,7 +681,8 @@
                                         @if ($image->main == 'si')
                                             <a href="{{ route('catalogue.product', $product) }}">
                                                 <img src="{{ Storage::url($image->url) }}"
-                                                    class="@if ($loop->iteration != 1) top @endif fill" alt="Productos del catálogo">
+                                                    class="@if ($loop->iteration != 1) top @endif fill"
+                                                    alt="Productos del catálogo">
                                             </a>
                                         @endif
                                     @endforeach
@@ -518,8 +718,8 @@
                                             @foreach ($product->images as $image)
                                                 @if ($image->main == 'si')
                                                     <a href="{{ route('catalogue.product', $product) }}">
-                                                        <img src="{{ Storage::url($image->url) }}" class="img-fluid"
-                                                            alt="Productos del catálogo">
+                                                        <img src="{{ Storage::url($image->url) }}"
+                                                            class="img-fluid" alt="Productos del catálogo">
                                                     </a>
                                                 @endif
                                             @endforeach

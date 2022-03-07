@@ -26,6 +26,30 @@ class DropdownCart extends Component
         Cart::instance('caja4')->remove($rowId);
     }
 
+    public function delete5($rowId){
+        Cart::instance('caja5')->remove($rowId);
+    }
+
+    public function delete6($rowId){
+        Cart::instance('caja6')->remove($rowId);
+    }
+
+    public function delete7($rowId){
+        Cart::instance('caja7')->remove($rowId);
+    }
+
+    public function delete8($rowId){
+        Cart::instance('caja8')->remove($rowId);
+    }
+
+    public function delete9($rowId){
+        Cart::instance('caja9')->remove($rowId);
+    }
+
+    public function delete10($rowId){
+        Cart::instance('caja10')->remove($rowId);
+    }
+
     public function render()
     {
         $plan = Plan::find(session()->get('plan'));
