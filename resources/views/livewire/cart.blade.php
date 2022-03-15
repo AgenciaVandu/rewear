@@ -770,7 +770,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-10 col-md-11 col-sm-12 m-auto ">
                                                                 <li class="gelion-bold">Paquete {{ $plan->name }}
-                                                                    Caja 6
+                                                                    Caja 5
                                                                 </li>
                                                             </div>
                                                             <span>
