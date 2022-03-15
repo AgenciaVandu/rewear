@@ -843,7 +843,7 @@
                                                     <td>
                                                         <p>
                                                             @livewire('update-cart-item5', ['rowId' => $item->rowId],
-                                                            key('update-cart-item4'.$item->rowId))
+                                                            key('update-cart-item5'.$item->rowId))
                                                         </p>
                                                     </td>
                                                     <td>
@@ -932,7 +932,7 @@
                                                     </td>
                                                     <td>
                                                         <p>
-                                                            @livewire('update-cart-item4', ['rowId' => $item->rowId],
+                                                            @livewire('update-cart-item6', ['rowId' => $item->rowId],
                                                             key('update-cart-item6'.$item->rowId))
                                                         </p>
                                                     </td>
@@ -1023,7 +1023,7 @@
                                                     <td>
                                                         <p>
                                                             @livewire('update-cart-item7', ['rowId' => $item->rowId],
-                                                            key('update-cart-item4'.$item->rowId))
+                                                            key('update-cart-item7'.$item->rowId))
                                                         </p>
                                                     </td>
                                                     <td>
@@ -1113,7 +1113,7 @@
                                                     <td>
                                                         <p>
                                                             @livewire('update-cart-item8', ['rowId' => $item->rowId],
-                                                            key('update-cart-item4'.$item->rowId))
+                                                            key('update-cart-item8'.$item->rowId))
                                                         </p>
                                                     </td>
                                                     <td>
@@ -1203,7 +1203,7 @@
                                                     <td>
                                                         <p>
                                                             @livewire('update-cart-item9', ['rowId' => $item->rowId],
-                                                            key('update-cart-item4'.$item->rowId))
+                                                            key('update-cart-item9'.$item->rowId))
                                                         </p>
                                                     </td>
                                                     <td>
@@ -1293,7 +1293,7 @@
                                                     <td>
                                                         <p>
                                                             @livewire('update-cart-item10', ['rowId' => $item->rowId],
-                                                            key('update-cart-item4'.$item->rowId))
+                                                            key('update-cart-item10'.$item->rowId))
                                                         </p>
                                                     </td>
                                                     <td>

@@ -23,8 +23,8 @@ class AddItemsCart extends Component
         $this->color_id = $product->colors->first()->pivot->id;
         /* Cart::instance('caja1')->destroy();
         Cart::instance('caja2')->destroy();
-        Cart::instance('caja3')->destroy();
-        Cart::instance('caja4')->destroy(); */
+        Cart::instance('caja3')->destroy(); */
+        Cart::instance('caja6')->destroy();
     }
 
     public function increment(){
