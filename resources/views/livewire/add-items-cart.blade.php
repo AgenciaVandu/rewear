@@ -4,7 +4,6 @@
             <div class="row boton-producto" wire:ignore>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     @foreach ($images as $image)
-
                         @if ($image->main != 'si')
                             <div class="lateral @if ($loop->iteration != 1) btn-pad @endif">
                                 <button type="button" id="i-{{ $loop->iteration }}">
@@ -154,6 +153,98 @@
                         <input id="mas" type="button" value="+" wire:click="increment">
                     </div>
                 </div>
+                <div class="col">
+
+                    @switch(session()->get('caja'))
+                        @case(1)
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja1')->count() - $qty }} prendas para completar tu
+                                    caja.</small>
+                            </div>
+                        @break
+
+                        @case(2)
+                            @if (session()->get('plan') == 3)
+                                <div class="alert alert-warning">
+                                    <small>Faltan {{ 72 - Cart::instance('caja2')->count() - $qty }} prendas para completar
+                                        tu
+                                        caja.</small>
+                                </div>
+                            @else
+                                <div class="alert alert-success">
+                                    <small>Caja completas, puedes expandir tu plan <strong><a
+                                                href="/planes">Aqui</a></strong></small>
+                                </div>
+                            @endif
+                        @break
+
+                        @case(3)
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja3')->count() - $qty }} prendas para completar tu
+                                    caja.</small>
+                            </div>
+                        @break
+
+                        @case(4)
+                            @if (session()->get('plan') == 3)
+                                <div class="alert alert-warning">
+                                    <small>Faltan {{ 72 - Cart::instance('caja4')->count() - $qty }} prendas para completar
+                                        tu
+                                        caja.</small>
+                                </div>
+                            @else
+                                <div class="alert alert-success">
+                                    <small>Cajas completas, puedes expandir tu plan <strong><a
+                                                href="/planes">Aqui</a></strong></small>
+                                </div>
+                            @endif
+                        @break
+
+                        @case(5)
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja5')->count() - $qty }} prendas para completar tu
+                                    caja.</small>
+                            </div>
+                        @break
+
+                        @case(6)
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja6')->count() - $qty }} prendas para completar tu
+                                    caja.</small>
+                            </div>
+                        @break
+
+                        @case(7)
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja7')->count() - $qty }} prendas para completar tu
+                                    caja.</small>
+                            </div>
+                        @break
+
+                        @case(8)
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja8')->count() - $qty }} prendas para completar tu
+                                    caja.</small>
+                            </div>
+                        @break
+
+                        @case(9)
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja9')->count() - $qty }} prendas para completar tu
+                                    caja.</small>
+                            </div>
+                        @break
+
+                        @case(10)
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja10')->count() - $qty }} prendas para completar tu
+                                    caja.</small>
+                            </div>
+                        @break
+
+                        @default
+                    @endswitch
+                </div>
             </div>
             <small class="gelion-regular">{{ __('* Se agregarán en múltipos de 6') }}</small>
         </li>
@@ -169,7 +260,8 @@
         <li class="gelion-bold pt-3">
             <div class="row">
                 <div class="col">
-                    <button wire:click="addItems" class="btn btn-secondary" @if (!($color_id && $size_id)) disabled @endif>
+                    <button wire:click="addItems" class="btn btn-secondary"
+                        @if (!($color_id && $size_id)) disabled @endif>
                         {{ __('Agregar prenda') }}
                     </button>
                 </div>
