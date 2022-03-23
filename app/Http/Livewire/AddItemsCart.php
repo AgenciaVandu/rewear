@@ -23,13 +23,70 @@ class AddItemsCart extends Component
         $this->color_id = $product->colors->first()->pivot->id;
         /* Cart::instance('caja1')->destroy();
         Cart::instance('caja2')->destroy();
-        Cart::instance('caja3')->destroy(); */
-        /* Cart::instance('caja6')->destroy(); */
+        Cart::instance('caja3')->destroy();
+        Cart::instance('caja6')->destroy();
+        session()->forget('caja');
+        session()->forget('plan'); */
     }
 
     public function increment(){
-        if ($this->qty < 72) {
-            $this->qty = $this->qty + 6;
+        switch (session()->get('caja')) {
+            case '1':
+                if ($this->qty+Cart::instance('caja1')->count() < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+            break;
+            case '2':
+                if ($this->qty+Cart::instance('caja2')->count() < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+            break;
+            case '3':
+                if ($this->qty+Cart::instance('caja3')->count() < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+            break;
+            case '4':
+                if ($this->qty+Cart::instance('caja4')->count() < 72) {
+                    $this->qty = $this->qty+ 6;
+                }
+            break;
+            case '5':
+                if ($this->qty+Cart::instance('caja5')->count() < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+            break;
+            case '6':
+                if ($this->qty+Cart::instance('caja6')->count() < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+            break;
+            case '7':
+                if ($this->qty+Cart::instance('caja7')->count() < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+            break;
+            case '8':
+                if ($this->qty+Cart::instance('caja8')->count() < 72) {
+                    $this->qty = $this->qty+ 6;
+                }
+            break;
+            case '9':
+                if ($this->qty+Cart::instance('caja9')->count() < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+            break;
+            case '10':
+                if ($this->qty+Cart::instance('caja10')->count() < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+            break;
+
+            default:
+                if ($this->qty < 72) {
+                    $this->qty = $this->qty + 6;
+                }
+                break;
         }
     }
 
@@ -103,6 +160,11 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja1')->count()==72) {
+                            session(['caja'=> 2]);
+                        }else{
+                            session(['caja'=> 1]);
+                        }
                     }else{
                         if ($color_limite >= 2) {
                             if (Cart::instance('caja1')->count() == 72) {
@@ -189,6 +251,11 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja1')->count()==72) {
+                            session(['caja'=> 2]);
+                        }else{
+                            session(['caja'=> 1]);
+                        }
                     }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() >= 72 && $color_limite2 < 4 && $color_limite < 4 && $manga_limit2 == 0){
                         Cart::instance('caja2')->add([
                             'id' => $this->product->id,
@@ -198,6 +265,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja2')->count()==72) {
+                            session(['caja'=> 3]);
+                        }
                         }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count() >= 144 && $color_limite3 < 4 && $color_limite2 < 4 && $color_limite < 4 && $manga_limit3 == 0){
                         Cart::instance('caja3')->add([
                             'id' => $this->product->id,
@@ -207,6 +277,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja3')->count()==72) {
+                            session(['caja'=> 4]);
+                        }
                     }else{
 
                         if ($manga_limit != 0 || $manga_limit2 != 0 || $manga_limit3 != 0) {
@@ -299,6 +372,11 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja1')->count()==72) {
+                            session(['caja'=> 2]);
+                        }else{
+                            session(['caja'=> 1]);
+                        }
                     }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+$this->qty <= 144 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count() >= 72 && $manga_limit2 == 0){
                         Cart::instance('caja2')->add([
                             'id' => $this->product->id,
@@ -308,6 +386,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja2')->count()==72) {
+                            session(['caja'=> 3]);
+                        }
                     }else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+$this->qty <= 216 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count() >= 144 && $manga_limit3 == 0){
                         Cart::instance('caja3')->add([
                             'id' => $this->product->id,
@@ -317,6 +398,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja3')->count()==72) {
+                            session(['caja'=> 4]);
+                        }
                     }
                     else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+$this->qty <= 288 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count() >= 216 && $manga_limit4 == 0){
                         Cart::instance('caja4')->add([
@@ -327,6 +411,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja4')->count()==72) {
+                            session(['caja'=> 5]);
+                        }
                     }
                     else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+$this->qty <= 360 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count() >= 288 && $manga_limit5 == 0){
                         Cart::instance('caja5')->add([
@@ -337,6 +424,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja5')->count()==72) {
+                            session(['caja'=> 6]);
+                        }
                     }
                     else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+$this->qty <= 432 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count() >= 360 && $manga_limit6 == 0){
                         Cart::instance('caja6')->add([
@@ -347,6 +437,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja6')->count()==72) {
+                            session(['caja'=> 7]);
+                        }
                     }
                     else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+Cart::instance('caja7')->count()+$this->qty <= 504 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+Cart::instance('caja7')->count() >= 432 && $manga_limit7 == 0){
                         Cart::instance('caja7')->add([
@@ -357,6 +450,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja7')->count()==72) {
+                            session(['caja'=> 8]);
+                        }
                     }
                     else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+Cart::instance('caja7')->count()+Cart::instance('caja8')->count()+$this->qty <= 576 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+Cart::instance('caja7')->count()+Cart::instance('caja8')->count() >= 504 && $manga_limit8 == 0){
                         Cart::instance('caja8')->add([
@@ -367,6 +463,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja8')->count()==72) {
+                            session(['caja'=> 9]);
+                        }
                     }
                     else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+Cart::instance('caja7')->count()+Cart::instance('caja8')->count()+Cart::instance('caja9')->count()+$this->qty <= 648 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+Cart::instance('caja7')->count()+Cart::instance('caja8')->count()+Cart::instance('caja9')->count() >= 504 && $manga_limit9 == 0){
                         Cart::instance('caja9')->add([
@@ -377,6 +476,9 @@ class AddItemsCart extends Component
                             'weight' => 550,
                             'options' => $this->options
                         ])->associate('App\Models\Product');
+                        if (Cart::instance('caja9')->count()==72) {
+                            session(['caja'=> 10]);
+                        }
                     }
                     else if (Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+Cart::instance('caja7')->count()+Cart::instance('caja8')->count()+Cart::instance('caja9')->count()+Cart::instance('caja10')->count()+$this->qty <= 720 && Cart::instance('caja1')->count()+Cart::instance('caja2')->count()+Cart::instance('caja3')->count()+Cart::instance('caja4')->count()+Cart::instance('caja5')->count()+Cart::instance('caja6')->count()+Cart::instance('caja7')->count()+Cart::instance('caja8')->count()+Cart::instance('caja9')->count()+Cart::instance('caja10')->count() >= 648 && $manga_limit10 == 0){
                         Cart::instance('caja10')->add([
