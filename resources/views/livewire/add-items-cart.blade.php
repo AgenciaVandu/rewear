@@ -164,7 +164,7 @@
                         @break
 
                         @case(2)
-                            @if (session()->get('plan') == 3)
+                            @if (session()->get('plan') == 2)
                                 <div class="alert alert-warning">
                                     <small>Faltan {{ 72 - Cart::instance('caja2')->count() }} prendas para completar
                                         tu
