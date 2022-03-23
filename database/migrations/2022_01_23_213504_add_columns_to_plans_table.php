@@ -14,8 +14,8 @@ class AddColumnsToPlansTable extends Migration
     public function up()
     {
         Schema::table('plans', function (Blueprint $table) {
-            $table->float('MXN_L')->after('MXN');
-            $table->float('USD_L')->after('USD');
+            $table->float('MXN_L')->nullable()->after('MXN');
+            $table->float('USD_L')->nullable()->after('USD');
         });
     }
 
