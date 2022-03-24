@@ -152,13 +152,15 @@
                         <input id="cantidad" type="text" name="amount" disabled value="{{ $qty }}">
                         <input id="mas" type="button" value="+" wire:click="increment">
                     </div>
+                    <small class="gelion-regular">{{ __('* Se agregarán en múltipos de 6') }}</small>
                 </div>
-                <div class="col">
+                
+                <div class="col-12 mt-3">
 
                     @switch(session()->get('caja'))
                         @case(1)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja1')->count() }} prendas para completar tu
+                                <small>Faltan {{ 72 - Cart::instance('caja1')->count() }} prendas para completar tu primera
                                     caja.</small>
                             </div>
                         @break
@@ -168,7 +170,7 @@
                                 <div class="alert alert-warning">
                                     <small>Faltan {{ 72 - Cart::instance('caja2')->count() }} prendas para completar
                                         tu
-                                        caja.</small>
+                                        caja número 2.</small>
                                 </div>
                             @else
                                 <div class="alert alert-success">
@@ -181,7 +183,7 @@
                         @case(3)
                             <div class="alert alert-warning">
                                 <small>Faltan {{ 72 - Cart::instance('caja3')->count() }} prendas para completar tu
-                                    caja.</small>
+                                    caja número 3.</small>
                             </div>
                         @break
 
@@ -190,7 +192,7 @@
                                 <div class="alert alert-warning">
                                     <small>Faltan {{ 72 - Cart::instance('caja4')->count() }} prendas para completar
                                         tu
-                                        caja.</small>
+                                        caja número 4.</small>
                                 </div>
                             @else
                                 <div class="alert alert-success">
@@ -202,43 +204,43 @@
 
                         @case(5)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja5')->count() }} prendas para completar tu
-                                    caja.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja5')->count() }} prendas para completar tu 
+                                    caja número 5.</small>
                             </div>
                         @break
 
                         @case(6)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja6')->count() }} prendas para completar tu
-                                    caja.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja6')->count() }} prendas para completar tu  
+                                    caja número 6.</small>
                             </div>
                         @break
 
                         @case(7)
                             <div class="alert alert-warning">
                                 <small>Faltan {{ 72 - Cart::instance('caja7')->count() }} prendas para completar tu
-                                    caja.</small>
+                                    caja número 7.</small>
                             </div>
                         @break
 
                         @case(8)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja8')->count() }} prendas para completar tu
-                                    caja.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja8')->count() }} prendas para completar tu 
+                                    caja número 8.</small>
                             </div>
                         @break
 
                         @case(9)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja9')->count() }} prendas para completar tu
-                                    caja.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja9')->count() }} prendas para completar tu 
+                                    caja número 9.</small>
                             </div>
                         @break
 
                         @case(10)
                             <div class="alert alert-warning">
                                 <small>Faltan {{ 72 - Cart::instance('caja10')->count() }} prendas para completar tu
-                                    caja.</small>
+                                    caja número 10.</small>
                             </div>
                         @break
 
@@ -246,9 +248,8 @@
                     @endswitch
                 </div>
             </div>
-            <small class="gelion-regular">{{ __('* Se agregarán en múltipos de 6') }}</small>
         </li>
-        <li class="gelion-bold pt-3">
+        <li class="gelion-bold">
             @if (session('locale') == 'es')
                 <a href="{{ asset('pdfs/Catálogo_Rewear_ESP_2021.pdf') }}" download="Catálogo_Rewear_ESP_2021.pdf"
                     style="color: #000; text-decoration: none;">{{ __('Descargar PDF') }}</a>

@@ -122,7 +122,7 @@
                     <h2 class="gelion-bold">
                         {{ __('¿Eres una asociación o quieres ser distribuidor?') }}
                     </h2>
-                    <p class="gelion-thin">
+                     <p class="gelion-thin">
                         {{ __('Si distribuyes camisetas al mayoreo, tenemos una propuesta especial para ti. Con Rewear, ofrece a tus clientes una alternativa sustentable que genere mayor valor agregado a sus productos. ¡Únete al movimiento de cero desperdicios y fomenta que más marcas cuiden el ambiente!') }}
                     </p>
                     <li>
