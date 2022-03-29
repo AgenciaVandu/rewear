@@ -154,17 +154,19 @@
                     </div>
                     <small class="gelion-regular">{{ __('* Se agregarán en múltipos de 6') }}</small>
                 </div>
-                
+
                 <div class="col-12 mt-3">
 
                     @switch(session()->get('caja'))
                         @case(1)
-                            <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja1')->count() }} prendas para completar tu primera
-                                    caja.</small>
-                            </div>
+                            @if (session()->get('plan') == 1)
+                                <div class="alert alert-warning">
+                                    <small>Faltan {{ 72 - Cart::instance('caja1')->count() }} prendas para completar tu
+                                        primera
+                                        caja.</small>
+                                </div>
+                            @endif
                         @break
-
                         @case(2)
                             @if (session()->get('plan') == 2)
                                 <div class="alert alert-warning">
@@ -204,14 +206,14 @@
 
                         @case(5)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja5')->count() }} prendas para completar tu 
+                                <small>Faltan {{ 72 - Cart::instance('caja5')->count() }} prendas para completar tu
                                     caja número 5.</small>
                             </div>
                         @break
 
                         @case(6)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja6')->count() }} prendas para completar tu  
+                                <small>Faltan {{ 72 - Cart::instance('caja6')->count() }} prendas para completar tu
                                     caja número 6.</small>
                             </div>
                         @break
@@ -225,14 +227,14 @@
 
                         @case(8)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja8')->count() }} prendas para completar tu 
+                                <small>Faltan {{ 72 - Cart::instance('caja8')->count() }} prendas para completar tu
                                     caja número 8.</small>
                             </div>
                         @break
 
                         @case(9)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja9')->count() }} prendas para completar tu 
+                                <small>Faltan {{ 72 - Cart::instance('caja9')->count() }} prendas para completar tu
                                     caja número 9.</small>
                             </div>
                         @break
