@@ -159,16 +159,14 @@
 
                     @switch(session()->get('caja'))
                         @case(1)
-                            @if (session()->get('plan') == 1)
-                                <div class="alert alert-warning">
-                                    <small>Faltan {{ 72 - Cart::instance('caja1')->count() }} prendas para completar tu
-                                        primera
-                                        caja.</small>
-                                </div>
-                            @endif
+                            <div class="alert alert-warning">
+                                <small>Faltan {{ 72 - Cart::instance('caja1')->count() }} prendas para completar tu primera
+                                    caja.</small>
+                            </div>
                         @break
+
                         @case(2)
-                            @if (session()->get('plan') == 2)
+                            @if (session()->get('plan') == 2 || session()->get('plan') == 3)
                                 <div class="alert alert-warning">
                                     <small>Faltan {{ 72 - Cart::instance('caja2')->count() }} prendas para completar
                                         tu
