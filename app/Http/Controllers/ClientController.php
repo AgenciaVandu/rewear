@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
+use \PDF;
 
 
 class ClientController extends Controller
@@ -64,5 +65,18 @@ class ClientController extends Controller
     public function deleteAddress(Address $address){
         $address->delete();
         return back();
+    }
+
+
+    public function printOrder(Order $order){
+        $envio = json_decode($order->envio);
+
+        /* $data["email"] = "dev@agenciavandu.com"; */
+        $data["email"] = "contacto@myrewear.com";
+        $data["title"] = "Nueva orden - ".$order->id;
+
+
+        $pdf = PDF::loadView('mail', compact('order','envio'));
+        return $pdf->download('Order-'.$order->id.'.pdf');
     }
 }
