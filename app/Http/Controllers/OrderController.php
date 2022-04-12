@@ -486,4 +486,5 @@ class OrderController extends Controller
 
         return redirect()->route('orders.show', $order);
     }
+    
 }

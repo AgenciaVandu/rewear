@@ -56,11 +56,11 @@
                                 <input type="text" class="form-control" id="inputState" placeholder="México"
                                     name="postal_code" required>
                             </div>
-                            <div class="mb-3 gelion-bold">
+                            {{-- <div class="mb-3 gelion-bold">
                                 <label for="validationTextarea">{{ __('Mensaje') }}</label>
                                 <textarea class="form-control" id="validationTextarea"
                                     placeholder="{{ __('Déjanos tu mensaje') }}" name="message" required></textarea>
-                            </div>
+                            </div> --}}
                             {{-- <div type="submit" class="btn btn-primary gelion-bold mt-2">{{ __('Regresar') }}</div> --}}
 
                     </div>
