@@ -77,6 +77,7 @@ class ClientController extends Controller
 
 
         $pdf = PDF::loadView('mail', compact('order','envio'));
-        return $pdf->download('Order-'.$order->id.'.pdf');
+        /* return $pdf->download('Order-'.$order->id.'.pdf'); */
+        return view('mail',compact('order','envio'));
     }
 }
