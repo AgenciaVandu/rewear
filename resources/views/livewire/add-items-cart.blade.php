@@ -160,17 +160,16 @@
                     @switch(session()->get('caja'))
                         @case(1)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja1')->count() }} prendas para completar tu primera
-                                    caja.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja1')->count() }} {{ __('prendas para completar tu primera
+                                    caja.') }}</small>
                             </div>
                         @break
 
                         @case(2)
                             @if (session()->get('plan') == 2)
                                 <div class="alert alert-warning">
-                                    <small>Faltan {{ 72 - Cart::instance('caja2')->count() }} prendas para completar
-                                        tu
-                                        caja número 2.</small>
+                                    <small>Faltan {{ 72 - Cart::instance('caja2')->count() }} {{ __('prendas para completar tu
+                                        caja número 2.') }}</small>
                                 </div>
                             @else
                                 <div class="alert alert-success">
@@ -182,17 +181,16 @@
 
                         @case(3)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja3')->count() }} prendas para completar tu
-                                    caja número 3.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja3')->count() }} {{ __('prendas para completar tu
+                                    caja número 3.') }}</small>
                             </div>
                         @break
 
                         @case(4)
                             @if (session()->get('plan') == 3)
                                 <div class="alert alert-warning">
-                                    <small>Faltan {{ 72 - Cart::instance('caja4')->count() }} prendas para completar
-                                        tu
-                                        caja número 4.</small>
+                                    <small>Faltan {{ 72 - Cart::instance('caja4')->count() }} {{ __('prendas para completar tu
+                                        caja número 4.') }}</small>
                                 </div>
                             @else
                                 <div class="alert alert-success">
@@ -204,43 +202,43 @@
 
                         @case(5)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja5')->count() }} prendas para completar tu 
-                                    caja número 5.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja5')->count() }} {{ __('prendas para completar tu
+                                    caja número 5.') }}</small>
                             </div>
                         @break
 
                         @case(6)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja6')->count() }} prendas para completar tu  
-                                    caja número 6.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja6')->count() }}{{ __('prendas para completar tu
+                                    caja número 6.') }}</small>
                             </div>
                         @break
 
                         @case(7)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja7')->count() }} prendas para completar tu
-                                    caja número 7.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja7')->count() }} {{ __('prendas para completar tu
+                                    caja número 7.') }}</small>
                             </div>
                         @break
 
                         @case(8)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja8')->count() }} prendas para completar tu 
-                                    caja número 8.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja8')->count() }} {{ __('prendas para completar tu
+                                    caja número 8.') }}</small>
                             </div>
                         @break
 
                         @case(9)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja9')->count() }} prendas para completar tu 
-                                    caja número 9.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja9')->count() }} {{ __('prendas para completar tu
+                                    caja número 9.') }}</small>
                             </div>
                         @break
 
                         @case(10)
                             <div class="alert alert-warning">
-                                <small>Faltan {{ 72 - Cart::instance('caja10')->count() }} prendas para completar tu
-                                    caja número 10.</small>
+                                <small>Faltan {{ 72 - Cart::instance('caja10')->count() }} {{ __('prendas para completar tu
+                                    caja número 10.') }}</small>
                             </div>
                         @break
 
